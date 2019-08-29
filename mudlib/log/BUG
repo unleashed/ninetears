@@ -1,0 +1,136 @@
+/d/gremios/rooms/khurgars/guildroom
+Fri Jan 31 04:35:17 2003 jade
+falta un cartel con los comandos para alistarse y demas...
+
+/d/gremios/rooms/khurgars/guildroom
+Fri Jan 31 04:42:58 2003 testjad
+n ova el comando 'coste'
+
+/d/keroon/gruta/gruta_109
+Fri Jan 31 23:26:01 2003 mazian
+roon de la zona Grutas de Telgar. con salidas Parece haber cuatro salidas: noreste, este, sudeste y sudoeste.no funciona la salida sudoeste
+
+/room/sala_portales
+Fri Jan 31 23:30:09 2003 mazian
+la opcion de ciudad en la zona de keroon no funciona tampoco
+
+/d/faeleen/rooms/ormerod/pastos/oeste/pasto_ormerod_30
+Fri Jan 31 23:39:32 2003 gloin
+holas, parece ser, k cuando dal algo a alguien, el k lo recibe no obtiene el mensaje de k xxxx te da (lo k sea)
+
+/d/faeleen/rooms/ormerod/pastos/oeste/pasto_ormerod_30
+Fri Jan 31 23:39:41 2003 mazian
+no aparece el te sigue cuando alguien te va siguiendo
+
+/d/faeleen/rooms/ormerod/pueblo/granja_d
+Fri Jan 31 23:43:12 2003 mazian
+Bloupt estan aqui.si pero no se k alias tiene pq no se le puede mirar con ese nombre
+
+/d/faeleen/rooms/rongrond/pueblo/tienda_rongrond
+Fri Jan 31 23:46:34 2003 mazian
+en tienda de rongrond no hay npc pa poder comprar lo k vendan :)
+
+/d/gremios/rooms/khurgars/newbie
+Fri Jan 31 23:56:55 2003 gloin
+no se si se podra sacar cosas del baul, pero esta claro k yo no puedo depositar, aus
+
+/d/keroon/keroon/jardines_reales/keroon_186
+Sat Feb  1 20:33:26 2003 mazian
+en esta room no va el norte
+
+/d/keroon/keroon/jardines_reales/keroon_225
+Sat Feb  1 20:33:40 2003 mazian
+en esta room no va el este
+
+/d/keroon/keroon/jardines_reales/keroon_268
+Sat Feb  1 20:33:54 2003 mazian
+en esta room no va el sur
+
+/d/keroon/keroon/jardines_reales/keroon_262
+Sat Feb  1 20:34:48 2003 mazian
+en esta room no va el sureste
+
+/d/keroon/keroon/forjas/keroon_403
+Sat Feb  1 20:39:46 2003 mazian
+en esta roon no va la salida puertas
+
+/d/keroon/keroon/keroon_pobre/keroon_44
+Sat Feb  1 20:45:38 2003 mazian
+en esta room no va el dentro
+
+/d/keroon/keroon/keroon_pobre/keroon_46
+Sat Feb  1 20:45:47 2003 mazian
+en esta room no va el dentro
+
+/d/keroon/keroon/keroon_pobre/keroon_48
+Sat Feb  1 20:45:55 2003 mazian
+en esta room no va el dentro
+
+/room/raceroom
+Sat Feb  1 21:07:57 2003 valar
+No encuentro el fichero de bug
+
+/d/keroon/keroon/keroon_pobre/keroon_335
+Sun Feb  2 13:52:24 2003 mazian
+en la room no va la direccion escaleras
+
+/d/keroon/keroon/keroon_pobre/keroon_76
+Sun Feb  2 13:55:16 2003 mazian
+no va la direccion capilla
+
+/d/keroon/keroon/keroon_pobre/keroon_43
+Sun Feb  2 13:57:42 2003 mazian
+el color de room, miralo
+
+/d/keroon/keroon/jardines_reales/keroon_268
+Sun Feb  2 14:34:56 2003 mazian
+no va el sur
+
+/d/keroon/keroon/jardines_reales/keroon_225
+Sun Feb  2 14:35:07 2003 mazian
+no va el este
+
+/d/keroon/keroon/jardines_reales/keroon_186
+Sun Feb  2 14:35:18 2003 mazian
+no va el norte
+
+/d/keroon/keroon/jardines_reales/keroon_180
+Sun Feb  2 14:35:37 2003 mazian
+no va el noreste
+
+/d/keroon/cementerio/cemen_125
+Mon Feb  3 20:41:10 2003 khardan
+los guardias espectrales del cementerio no mueren no ni de coña
+
+/d/keroon/camino/cami_76
+Mon Feb 10 01:52:41 2003 mazian
+poner bien los alias del ekipo k en muchos no funciona, por ejemplo anillo de rubi,anillo de mithril, navaja de siete muelles, pantalones de cuero, seguro k hay mas xD
+
+/d/keroon/camino/cami_76
+Mon Feb 10 01:54:17 2003 mazian
+aps tb la capa de zorro y el punyo de hierro
+
+/room/plaza/banco_discordia
+Wed Feb 12 18:11:10 2003 zardhor
+El Banco no va bien -> ingresar monedas 21 platino, 4 oro, 1 plata y 2 cobre depositado que da un total de 2 oro, 1 plat
+
+/room/plaza/banco_discordia
+Wed Feb 12 18:11:53 2003 zardhor
+Lo del Banco resumiendo ingrese 21 platinos y me dice ke tengo 2 oros
+
+/d/keroon/gruta/gruta_37
+Thu Feb 13 12:14:27 2003 vilat
+Banco arreglao
+
+/d/keroon/gruta/gruta_4
+Thu Feb 13 12:26:27 2003 vilat
+Los guardias espectrales ya se mueren pero no se ekipan bien
+
+/d/keroon/gruta/gruta_4
+Thu Feb 13 12:31:07 2003 vilat
+Muchos alias petan !!!
+
+/room/plaza/taberna_turin
+Sat Feb 15 14:25:14 2003 mazian
+vamos a ver pq la comida te sube los puntos de energia en vez de los de vida??
+

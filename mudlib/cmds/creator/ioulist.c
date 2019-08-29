@@ -2,13 +2,13 @@
 #include <cmd.h>
 inherit CMD_BASE;
 
-setup()
+void setup()
 {
     position = 1;
 }
 
 
-static int cmd(mixed name, object me) {
+int cmd(mixed name, object me) {
 // Quick hack of a frooble for auto_load IOUs...
 // Radix May 1, 1996
    int i;

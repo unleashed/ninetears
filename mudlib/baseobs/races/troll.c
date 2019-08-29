@@ -1,7 +1,7 @@
 inherit "/std/races/standard";
 #include "light_defs.inc"
 #define HANDLER "/obj/handlers/weather"
-#define STONE "/std/spells/cleric/stoned"
+#define STONE "/d/gremios/hechizos/cleric/stoned"
 // Swims... like a rock.
 int query_swim_stamina(object player) { return player->query_con(); }
 

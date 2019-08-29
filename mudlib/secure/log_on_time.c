@@ -13,7 +13,7 @@ int log_on_time(string name)
    seteuid("Root");
    if(!"/secure/login"->test_user(name))
    {
-      write("No such person exists on FR Mud.\n");
+      write("Nadie con ese nombre existe en este mud.\n");
          return 0;
    }
    restore_object("/players/"+name[0..0]+"/"+name, 1);

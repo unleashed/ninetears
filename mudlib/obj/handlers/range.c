@@ -29,12 +29,7 @@ object *living_in_range(object me, int r)
 
 int check_in_range(object me, object him, int valid_range)
 {
-    int* his;
-    int* mine;
-    int dx, dy, dz, dtotal;
-
-    if ( !me || !him )
-	return 0;
+    if ( !me || !him )	return 0;
 
     return ( calc_distance(me,him) <= valid_range );
 }
@@ -86,12 +81,12 @@ int check_line_of_sight(object me, object him, int max_dist)
 	{
 	    if ( delta[1] > 0 )
 	    {
-		the_dir = "northeast";
+		the_dir = "noreste";
 		dist = delta[0];
 	    }
 	    else
 	    {
-		the_dir = "northwest";
+		the_dir = "noroeste";
 		dist = delta[0];
 	    }
 	}
@@ -99,12 +94,12 @@ int check_line_of_sight(object me, object him, int max_dist)
 	{
 	    if ( delta[1] > 0 )
 	    {
-		the_dir = "southeast";
+		the_dir = "sudeste";
 		dist = delta[0];
 	    }
 	    else
 	    {
-		the_dir = "southwest";
+		the_dir = "sudoeste";
 		dist = delta[1];
 	    }
 	}   /* else */
@@ -118,22 +113,22 @@ int check_line_of_sight(object me, object him, int max_dist)
 	 * and get the absolute distance.
 	 * And yes, these if's are supposed to do assignments.
 	 */
-	the_dir = "none";
+	the_dir = "ninguna";
 	if ( delta[0] > 0 && dist = delta[0] )
-	    the_dir = "north";
+	    the_dir = "norte";
 	else if ( delta[0] < 0 && dist = -delta[0] )
-	    the_dir = "south";
+	    the_dir = "sur";
 	else if ( delta[1] > 0 && dist = delta[1] )
-	    the_dir = "east";
+	    the_dir = "este";
 	else if ( delta[1] < 0 && dist = - delta[1] )
-	    the_dir = "west";
+	    the_dir = "oeste";
 	else if ( delta[2] > 0 && dist = delta[2] )
-	    the_dir = "up";
+	    the_dir = "arriba";
 	else if ( delta[2] < 0 && dist = -delta[2] )
-	    the_dir = "down";
+	    the_dir = "abajo";
     }  /* else  (from the big if) */
 
-    if ( the_dir == "none" || dist > max_dist )
+    if ( the_dir == "ninguna" || dist > max_dist )
 	return 0;
 
 
@@ -160,7 +155,7 @@ int check_line_of_sight(object me, object him, int max_dist)
 
 int* calc_deltas(object me, object him)
 {
-    int *his, *mine, dx, dy, dz, dtotal;
+    int *his, *mine, dx, dy, dz;
 
     mine = environment(me)->query_co_ord();
     his = environment(him)->query_co_ord();
@@ -182,7 +177,7 @@ int* calc_deltas(object me, object him)
 
 int* calc_directional_deltas(object me, object him)
 {
-    int *his, *mine, dx, dy, dz, dtotal;
+    int *his, *mine, dx, dy, dz;
 
     mine = environment(me)->query_co_ord();
     his = environment(him)->query_co_ord();
@@ -252,12 +247,12 @@ mixed get_direction_delta(object me, object him)
 	{
 	    if ( delta[1] > 0 )
 	    {
-		the_dir = "northeast";
+		the_dir = "noreste";
 		dist = delta[0];
 	    }
 	    else
 	    {
-		the_dir = "northwest";
+		the_dir = "noroeste";
 		dist = delta[0];
 	    }
 	}
@@ -265,35 +260,35 @@ mixed get_direction_delta(object me, object him)
 	{
 	    if ( delta[1] > 0 )
 	    {
-		the_dir = "southeast";
+		the_dir = "sudeste";
 		dist = delta[0];
 	    }
 	    else
 	    {
-		the_dir = "southwest";
+		the_dir = "sudoeste";
 		dist = delta[1];
 	    }
 	}  
     }  
     else
     {
-	the_dir = "none";
+	the_dir = "ninguna";
 	if ( delta[0] > 0 && dist = delta[0] )
-	    the_dir = "north";
+	    the_dir = "norte";
 	else if ( delta[0] < 0 && dist = -delta[0] )
-	    the_dir = "south";
+	    the_dir = "sur";
 	else if ( delta[1] > 0 && dist = delta[1] )
-	    the_dir = "east";
+	    the_dir = "este";
 	else if ( delta[1] < 0 && dist = - delta[1] )
-	    the_dir = "west";
+	    the_dir = "oeste";
 	else if ( delta[2] > 0 && dist = delta[2] )
-	    the_dir = "up";
+	    the_dir = "arriba";
 	else if ( delta[2] < 0 && dist = -delta[2] )
-	    the_dir = "down";
+	    the_dir = "abajo";
     }  
 
-    if ( the_dir == "none" )
-	return ({ "none", 0 });
+    if ( the_dir == "ninguna" )
+	return ({ "ninguna", 0 });
 
 
     next_room = environment(me);

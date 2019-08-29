@@ -30,10 +30,10 @@
 inherit "/std/room";
  
   /* global variables */
-static string save_file;      /* path name of save file */
-static string log_file;       /* path name of transactions log */
+nosave string save_file;      /* path name of save file */
+nosave string log_file;       /* path name of transactions log */
 string *treasurers;    /* names of players with treasury access */
-static string *admins;        /* admins of the guild/group */
+nosave string *admins;        /* admins of the guild/group */
 int coppers;                 /* total amount of coppers in treasury */
  
   /* function declarations */
@@ -60,8 +60,8 @@ void create()
   load_it();
 }
 // This is pissing me off - Radix
-int clean_up(int i) { return; }
-int clean_up_room(int i) { return; }
+int clean_up(int i) { return 0; }
+int clean_up_room(int i) { return 0; }
  
 void init()
 {
@@ -75,7 +75,7 @@ void init()
   add_action("do_appoint","appoint");
 }
  
-set_admins(string *names) { admins = names; }
+void set_admins(string *names) { admins = names; }
  
 //Anirudh
 int query_treasury() { return 1; }
@@ -224,7 +224,6 @@ int do_appoint(string name) {
  
 int do_treasurer(string name) {
   int i, n;
-  string tpname = this_player()->query_name();
  
    /*  removed cause Rathburn didn't like it - Radix
   if (!query_admin(tpname) || !query_treasurer(tpname)){
@@ -241,7 +240,8 @@ int do_treasurer(string name) {
 }
  
 int do_transactions(string str) {
-  string tpname = this_player()->query_name();
+  string tpname;
+  tpname  = this_player()->query_name();
   if (!query_admin(tpname) || !query_treasurer(tpname)){
     notify_fail("Only treasurers and administrators can view the lists.\n");
     return 0;

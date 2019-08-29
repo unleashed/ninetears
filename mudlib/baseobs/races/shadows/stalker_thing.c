@@ -23,9 +23,9 @@ void init()
 }
 int sneak(string str)
 {
-   return "/std/commands/sneak"->sneak(str,TP);
+   return "/d/gremios/comandos/sneak"->sneak(str,TP);
 }
 int hide(string str)
 {
-    return "/std/commands/omiq_hide"->hide_in_shadows(str,TP);
+    return "/d/gremios/comandos/omiq_hide"->hide_in_shadows(str,TP);
 }

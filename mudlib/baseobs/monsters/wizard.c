@@ -14,10 +14,10 @@ void setup() {
       set_al(-100+random(201));
     //set_class("wizard");
       set_random_stats(6, 18);
-      set_level(i);
+      set_level(i+5);
       set_wimpy(0);
       // ob->add_attack("spell", 0, 80, i*10, 30, 0, "magic");
-      set_max_hp(7+i*6);
+      set_max_hp(7+i*10);
       new("/baseobs/armours/cloak")->move(this_object());
       set_long("He looks like a Magician at least. Who else would wear "
          "such a long cloak and have a long white beard ?\n");
@@ -39,7 +39,8 @@ void setup() {
                "Oh, don't worry, it's probably just for casting some spell.",
                1, ":misses you with a spell, destroying a tree instead."
           }));
-      add_triggered_action("bing2", "event_death", this_object(), "death");
+	set_kill_xp(1000000);
+//      add_triggered_action("bing2", "event_death", this_object(), "death");
       this_object()->init_equip();
 
 } /* setup() */

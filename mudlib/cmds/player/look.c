@@ -15,7 +15,7 @@ void setup()
 
 string query_usage()
 {
-   return "look [at] [<object>]";
+   return "mirar [a] [<objeto>]";
 }
 
 string query_short_help()
@@ -24,37 +24,36 @@ string query_short_help()
       "place where you are.";
 }
 
-static int cmd (string arg, object me)
+int cmd (string arg, object me)
 {
    object here, *ob;
-   int i, dark;
+   int i, dark, he_visto_algo=0;
    string ret;
 
    here = environment(me);
 
    if (!here)
    {
-      notify_fail("You are in limbo... sorry you can't look at "+
-         "anything.\n");
+      notify_fail("Estas en el limbo... intentas mirar a algo "+
+         "pero te resulta imposible.\n");
       return 0;
    }
    if(me->query_property("BLIND"))
    {
-      notify_fail("You are blind, you cannot see anything!\n");
+      notify_fail("Estas ciego, no puedes ver nada!\n");
       return 0;
    }
 
    dark = me->check_dark((int)here->query_light());
    if (!arg || !stringp(arg) || arg == "")
    {
-      if (me->query_creator())
-         write(file_name(here)+"\n");
+      if (me->query_creator()) write(file_name(here)+"%^RESET%^\n");
       write(here->long(0, dark));
       me->adjust_time_left(-LOOK_TIME);
       return 1; /* blame evan */
    }
 
-   sscanf(arg, "at %s", arg);
+   sscanf(arg, "a %s", arg);
 
    ob = find_match (arg, ({ me, here }) );
    ret = "";
@@ -65,20 +64,27 @@ static int cmd (string arg, object me)
       {
          for (i=0;i<sizeof(ob);i++)
          {
+            if (ob[i]->query_hidden() && ob[i] != me)
+            	continue;
+            he_visto_algo++;
             ret += ob[i]->long(arg, dark);
             me->adjust_time_left(EXAMINE_ITEM_TIME);
          }
       }
       else
       {
+      	if (!ob->query_hidden() && (object) ob != me) {
+      	 he_visto_algo++;
          ret += ob->long(arg, dark);
          me->adjust_time_left(EXAMINE_ITEM_TIME);
+	}
       }
-      me->more_string(ret, "Look");
+      if (he_visto_algo) {
+      me->more_string(ret, "Mirar");
       return 1;
+      } // asko de hack :P
    }
 
-   notify_fail("You do not think that the "+arg+" is here.\n");
+   notify_fail("Hmm, no crees que "+arg+" este aqui.\n");
    return 0;
 }
-

@@ -4,39 +4,50 @@
 #include <network.h>
 int social_points, max_social_points;
 int guild_flag;
-static string my_file_name;
-string *languages,
-cur_lang;
+nosave string my_file_name;
+string *languages,cur_lang;
 
 string drunk_speech(string str);
 
 void communicate_commands() {
-    add_action("do_say","sa*y");
-    add_action("do_say","'*");
+    add_action("do_say","decir");
+    add_action("do_say","say");
+    add_action("do_say","'",10);
     add_action("do_loud_say", "lsay");
-    add_action("do_loud_say","\"*");
-    add_action("do_tell","t*ell");
-    add_action("do_whisper", "whi*sper");
-    add_action("set_language", "sp*eak");
-    add_action("do_emote",":*");
-    add_action("do_emote","em*ote");
+    add_action("do_loud_say","\"",10);
+    add_action("do_tell","tell");
+    add_action("do_tell","t");
+    add_action("do_tell","decir a");
+    add_action("do_whisper", "whisper");
+    add_action("do_whisper", "susurrar");
+    add_action("set_language", "speak");
+    add_action("set_language", "hablar");
+    add_action("set_language", "speak");
+    add_action("do_emote",":",10);
+    add_action("do_emote","emote");
 // Removed by Radix - Jan 1996
 //  add_action("do_channels", "000");
-    add_action("do_channels", "eme*rgency");
+    add_action("do_channels", "emergencia");
     add_action("do_channels", "guild");
+    add_action("do_channels", "gremio");
 //Added by Quark, May 96.
     add_action("do_channels", "group");
+    add_action("do_channels", "clan");
     add_action("do_channels", "race");
- 
+    add_action("do_channels", "raza");
+    add_action("do_channels", "chat");
+    add_action("do_channels", "ciudad");
+
 /* Testing something, baldrick, may '96
  * and it works.. next dimension, here we come.
  */
 
 #ifndef STRICT_MUD
-      add_action("do_echo","ec*ho");
+      add_action("do_echo","echo");
       add_action("do_emote_all", "emoteall");
       add_action("do_echo_to", "echoto");
-      add_action("do_shout", "sh*out");
+      add_action("do_shout", "shout");
+      add_action("do_shout", "gritar");
 #endif
 
    // Who did this?  goobers!
@@ -66,7 +77,7 @@ int query_social_points() {
     return social_points;
 } /* query_social_points() */
 
-int adjust_social_points(int num) 
+int adjust_social_points(int num)
 {
     int temp;
 
@@ -84,29 +95,29 @@ int hard_adjust_social_points(int num) {
     social_points += num;
 } /* hard_adjust_social_points() */
 
-varargs string query_word_type(string str, string def) 
+varargs string query_word_type(string str, string def)
 {
     int i;
 
     for (i=strlen(str)-1;str[i] == ' ';i--);
     switch (str[i]) {
-    case '!' : return "exclaim";
-    case '?' : return "ask";
+    case '!' : return "exclama";
+    case '?' : return "pregunta";
     default:   if (def)
 	    return def;
 	else
-	    return "say";
+	    return "dice";
     }
 } /* query_word_type() */
 
-string query_shout_word_type(string str) 
+string query_shout_word_type(string str)
 {
     int i;
 
     for (i=strlen(str)-1;str[i] == ' ';i--);
     switch (str[i]) {
-    case '!' : return "yell";
-    case '?' : return " asking";
+    case '!' : return "berrea";
+    case '?' : return " preguntando";
     default:   return "";
     }
 } /* query_shout_word_type() */
@@ -129,75 +140,77 @@ void my_mess(string fish, string erk)
     efun::tell_object(this_object(), this_object()->fix_string(fish + erk,strlen(fish))+"\n");
 } /* my_mess() */
 
-int do_loud_say(string arg) 
+int do_loud_say(string arg)
 {
-    string word, s1, s2;
-    object g;
+    string word;
 
-    if (!arg) 
+    if (!arg)
 	arg = "";
     if (arg == "" || arg == " ") {
-	notify_fail("Syntax: lsay <something>\n");
+	notify_fail("Syntax: lsay <algo>\n");
 	return 0;
     }
     if (!LANGUAGE_HAND->query_language_spoken(cur_lang)) {
-	notify_fail(capitalize(cur_lang)+" is not a spoken language.\n");
-	return 0;
-    }
-    word = query_word_type(arg); 
-    if (this_object()->query_volume(D_ALCOHOL))
-	arg = drunk_speech(arg);
-    event(environment(), "person_say", this_object()->query_cap_name()+
-      " " + word + "s loudly: ", 
-      arg, cur_lang);
-    if (cur_lang != "common") word += " in "+cur_lang;
-    my_mess("You " + word + " loudly: ", arg);
-    this_player()->adjust_time_left(-5);
-    return 1;
-} /* do_loud_say() */
-
-int do_say(string arg, int no_echo) 
-{
-    string word, s1, s2;
-    object g;
-
-// Taniwha, sanity/ no debug errors
-   if(!environment(this_object()))
-   {
-      tell_object(this_object(),"In Limbo, noone can hear say anything.\n");
-      return 0;
-   }
-    if (!arg) 
-	arg = "";
-    if (arg == "" || arg == " ") {
-	notify_fail("Syntax: say <something>\n");
-	return 0;
-    }
-    if (!LANGUAGE_HAND->query_language_spoken(cur_lang)) {
-	notify_fail(capitalize(cur_lang)+" is not a spoken language.\n");
+	notify_fail(capitalize(cur_lang)+" no es un lenguaje hablado.\n");
 	return 0;
     }
     word = query_word_type(arg);
     if (this_object()->query_volume(D_ALCOHOL))
 	arg = drunk_speech(arg);
-    event(environment(this_object()), "person_say", this_object()->query_cap_name()+
-      " " + word +"s: ", arg, cur_lang, this_object()->query_int());
+    environment()->event_person_say(TO, this_object()->query_cap_name()+" " + word + " fuertemente: ",arg, cur_lang);
+    if (cur_lang != "common" && cur_lang != "comun") {
+    	//word += " en "+cur_lang;
+    	my_mess(CAP(word)+"s fuertemente en "+cur_lang+": ", arg);
+    }
+    else
+    	my_mess(capitalize(word) + "s fuertemente: ", arg);
+    this_player()->adjust_time_left(-5);
+    return 1;
+} /* do_loud_say() */
+
+int do_say(string arg, int no_echo)
+{
+    string word;
+
+// Taniwha, sanity/ no debug errors
+   if(!environment(this_object()))
+   {
+      tell_object(this_object(),"En el Limbo, nadie puede oirte decir nada.\n");
+      return 0;
+   }
+    if (!arg)
+	arg = "";
+    if (arg == "" || arg == " ") {
+	notify_fail("Syntax: decir <algo>\n");
+	return 0;
+    }
+    if (!LANGUAGE_HAND->query_language_spoken(cur_lang)) {
+	notify_fail(capitalize(cur_lang)+" no es un lenguaje hablado.\n");
+	return 0;
+    }
+    word = query_word_type(arg);
+    if (this_object()->query_volume(D_ALCOHOL))
+	arg = drunk_speech(arg);
+    environment()->event_person_say(TO, this_object()->query_cap_name()+" " + word +": ", arg, cur_lang, this_object()->query_int());
     if (!no_echo) {
-	if (cur_lang != "common")
-	    word += " in "+cur_lang;
-	my_mess("You " + word + ": ", arg);
+	if (cur_lang != "common" && cur_lang != "comun") {
+	    my_mess(CAP(word)+"s en "+cur_lang+": ", arg);
+	    //word += " en "+cur_lang;
+	}
+	else
+	  my_mess(capitalize(word) + "s: ", arg);
     }
     this_player()->adjust_time_left(-5);
     return 1;
 } /* do_say() */
 
-int do_tell(string arg, object ob, int silent) 
+int do_tell(string arg, object ob, int silent)
 {
     string str, rest, word;
     string person, mud;
 
     if ((!arg || arg == "") && !ob) {
-	notify_fail("Syntax: tell person <message>\n");
+	notify_fail("Sintaxis: tell persona <mensaje>\n");
 	return 0;
     }
     if (!ob) {
@@ -209,12 +222,12 @@ int do_tell(string arg, object ob, int silent)
 	rest = arg;
 
     if (!LANGUAGE_HAND->query_language_spoken(cur_lang)) {
-	notify_fail(capitalize(cur_lang)+" is not a spoken language.\n");
+	notify_fail(capitalize(cur_lang)+" no es un lenguaje hablado.\n");
 	return 0;
     }
     if (!LANGUAGE_HAND->query_language_distance(cur_lang)) {
-	notify_fail(capitalize(cur_lang)+" is not able to spoken at a "+
-	  "distance.\n");
+	notify_fail("El "+ cur_lang +" no se puede hablar a "+
+	  "distancia.\n");
 	return 0;
     }
     if (!ob) {
@@ -229,16 +242,16 @@ int do_tell(string arg, object ob, int silent)
                 SERVICES_D->eventSendTell(person, mud, rest);
 		return 1;
 	    }
-	    notify_fail(capitalize(str) + " is not logged in.\n");
+	    notify_fail(capitalize(str) + " no esta conectado.\n");
 	    return 0;
 	}
     }
     if (ob == this_player()) {
-	notify_fail("Talking to yourself again.  I don't know.\n");
+	notify_fail("Hablando contigo mismo otra vez? No se, no se...\n");
 	return 0;
     }
     if (ob->query_property("player") && !interactive(ob)) {
-	notify_fail(ob->query_cap_name()+" is net dead.\n");
+	notify_fail(ob->query_cap_name()+" esta en forma de estatua lageada.\n");
 	return 0;
     }
     if(adjust_social_points(-TELL_COST) < 0) {
@@ -246,22 +259,26 @@ int do_tell(string arg, object ob, int silent)
 	return 0;
     }
     word = query_word_type(rest, "");
-    if (word != "")
-	word = " " + word + "ing";
+    if (word != "") {
+	word = " " + word + "ndo";
+	if (word == "dice") // te dice diciendo? :)
+		word = " diciendo";
+	}
     if (this_object()->query_volume(D_ALCOHOL))
 	arg = drunk_speech(arg);
-    if (word != " asking") {
+    if (word != " preguntando") {
 	ob->event_person_tell(this_object(), this_object()->query_cap_name()+
-	  " tells you" + word + ": ", rest, cur_lang);
-	if (cur_lang != "common") word += " in "+cur_lang;
+	  " te dice" + word + ": ", rest, cur_lang);
+	if (cur_lang != "common" && cur_lang != "comun")
+		word += " en "+cur_lang;
 	if (!silent)
-	    my_mess("You tell " +  ob->query_cap_name() + word + ": ", rest );
+	    my_mess("Dices a " + ob->query_cap_name() + word + ": ", rest);
     } else {
 	ob->event_person_tell(this_object(), this_object()->query_cap_name()+
-	  " asks you: ", rest, cur_lang);
-	if (cur_lang != "common") word += " in "+cur_lang;
+	  " te pregunta: ", rest, cur_lang);
+	if (cur_lang != "common" && cur_lang != "comun") word += " en "+cur_lang;
 	if (!silent)
-	    my_mess("You ask " + ob->query_cap_name()+": ", rest);
+	    my_mess("Preguntas a " + ob->query_cap_name()+": ", rest);
     }
     this_player()->adjust_time_left(-5);
     return 1;
@@ -281,7 +298,7 @@ int do_emote(string arg)
     str = query_verb();
 
     if (arg == "" || arg == " ") {
-	notify_fail("Syntax: emote <womble>\n");
+	notify_fail("Sintaxis: emote <accion>\n");
 	return 0;
     }
 
@@ -302,84 +319,74 @@ int do_emote(string arg)
  * point... where as a shout of lots a letters will cost lots
  */
 // Flode added 2-round lockout  -  211197
-int do_shout(string str) 
+int do_shout(string str)
 {
-    string tmp, s1, s2, s;
-    object g;
-
-
-    /* to be removed.
-     * Baldrick.
-    notify_fail("Not right now, the immorts needs peace.\n");
-    return 0;
-     */
-
-
+    string s1, s;
 
     if(!str || str == "") {
-	notify_fail("Syntax : shout <text>\n");
+	notify_fail("Sintaxis: gritar <algo>\n");
 	return 0;
     }
     if (this_object()->query_property("noshout_lock")) {
-        notify_fail("You better clear your throat before you attempt to "
-                    "shout again.\n");
+        notify_fail("Aun estas intentando coger aire para poder volver "
+                    "a gritar.\n");
         return 0;
     }
     if (this_object()->query_earmuffs()) {
-	notify_fail("Why shout when you can't hear people shout back?\n");
+	notify_fail("Para que gritar si no puedes oir las repuestas?\n");
 	return 0;
     }
     if (!LANGUAGE_HAND->query_language_spoken(cur_lang)) {
-	notify_fail(capitalize(cur_lang)+" is not a spoken language.\n");
+	notify_fail(capitalize(cur_lang)+" no es un lenguaje hablado.\n");
 	return 0;
     }
     if (!LANGUAGE_HAND->query_language_distance(cur_lang)) {
-	notify_fail(capitalize(cur_lang)+" is not able to spoken at a "+
-	  "distance.\n");
+	notify_fail("El "+ cur_lang +" no se puede hablar a "+
+	  "distancia.\n");
 	return 0;
     }
-    if(adjust_social_points(-SHOUT_COST*((strlen(str)/10)+1)) < 0) {    
+    if(adjust_social_points(-SHOUT_COST*((strlen(str)/10)+1)) < 0) {
 	notify_fail(NO_POWER);
 	return 0;
     }
     s1 = query_shout_word_type(str);
-    if (s1 != "yell")
-	s = "shouts"+s1;
+    if (s1!="berrea")
+	s = "grita"+s1;
     else
-	s = s1+"s";
+	s = s1;
 
       str = "/obj/handlers/profanity"->clean_language(str);
 
     if (this_object()->query_volume(D_ALCOHOL))
 	str = drunk_speech(str);
-    event(users(), "person_shout", this_object()->query_cap_name()+
-      " "+s+": ", str, cur_lang);
-    if (s1 != "yell") {
-	if (cur_lang != "common") s1 += " in "+cur_lang;
-	my_mess("You shout" + s1 + ": ", str);
+    event(users(), "person_shout", this_object()->query_cap_name()+" "+s+": ", str, cur_lang);
+    if (s1 != "berrea") {
+	if (cur_lang != "common" && cur_lang != "comun") s1 += " en "+cur_lang;
+	my_mess("Gritas" + s1 + ": ", str);
     } else {
-	if (cur_lang != "common") s1 += " in "+cur_lang;
-	my_mess("You " + s1 + ": ", str);
+	if (cur_lang != "common" && cur_lang != "comun") s1 += "s en "+cur_lang;
+	else s1=s1+"s";
+	my_mess(CAP(s1) + ": ", str);
     }
     str = " "+lower_case(str);
     this_object()->add_timed_property("noshout_lock", 1, 2);
     return 1;
 } /* do_shout() */
 
-int do_whisper(string str) 
+int do_whisper(string str)
 {
     object *obs;
-    string s, s2, *bits, peeps;
+    string s, s2, *bits;
     int i;
 
-    notify_fail("Syntax: whisper [to] <person> <string>\n");
+    notify_fail("Sintaxis: susurrar [a] <persona> <algo>\n");
     if (!str)
 	return 0;
     if (!LANGUAGE_HAND->query_language_spoken(cur_lang)) {
-	notify_fail(capitalize(cur_lang)+" is not a spoken language.\n");
+	notify_fail(capitalize(cur_lang)+" no es un lenguaje hablado.\n");
 	return 0;
     }
-    sscanf(str, "to %s", str);
+    sscanf(str, "a %s", str);
     bits = explode(str, " ");
     obs = ({ });
     for (i=0;i<sizeof(bits);i++)
@@ -387,27 +394,26 @@ int do_whisper(string str)
 	    break;
     s2 = implode(bits[i+1..100], " ");
     if (sizeof(obs) == 1 && obs[0] == this_player()) {
-	say(this_player()->query_cap_name()+" whispers to "+
-	  this_player()->query_objective()+"self.\n");
-	write("Whispering to your self!?\n");
+	say(this_player()->query_cap_name()+" se susurra algo a "+
+	  this_player()->query_objective()+" mismo.\n");
+	write("Susurrandote cosas a ti mismo!? Hmm, se te va la olla.\n");
 	return 1;
     }
     obs = obs - ({ this_player() });
     for (i=0;i<sizeof(obs);i++)
-	if (!living(obs[i]))
+	if (!living(obs[i]) || obs[i]->query_hidden())
 	    obs = delete(obs, i--, 1);
     if (!sizeof(obs)) {
-	notify_fail("Could not find anyone to whisper to.\n");
+	notify_fail("No has podido encontrar a quien susurrar.\n");
 	return 0;
     }
     if (this_object()->query_volume(D_ALCOHOL))
 	s2 = drunk_speech(s2);
     s2 += "%^RESET%^";
     s = query_whisper_word_type(s2);
-    event(environment(), "whisper", this_object()->query_cap_name() +
-      " whispers to " +s,s2,obs,cur_lang);
-    /*  " whispers " + s, s2, obs, cur_lang); */ 
-    my_mess("You whisper " + s + "to " + query_multiple_short(obs) + ": ", s2);
+    event(environment(), "whisper", this_object()->query_cap_name() +" susurra a " +s,s2,obs,cur_lang);
+    /*  " whispers " + s, s2, obs, cur_lang); */
+    my_mess("Susurras " + s + "a " + query_multiple_short(obs) + ": ", s2);
     this_player()->adjust_time_left(-5);
     return 1;
 } /* do_whisper() */
@@ -421,7 +427,8 @@ int do_channels( string str )
 string drunk_speech(string str) 
 {
     return replace(str, ({ "s", "sh", "r", "rr", "ing", "in'", "x", "xsh",
-      "S", "SH", "R", "RR" }));
+      "S", "SH", "R", "RR", "ci", "chi", "ce", "che", "za", "cha", "ze",
+"che", "zi", "chi", "zo", "cho", "zu", "chu" }));
 } /* drunk_speech() */
 
 // Flode, 080997. Hopefully my fix will make sure that people won't learn
@@ -454,24 +461,24 @@ void remove_language(string lang)
 	    cur_lang = "grunt";
 	else
 	    cur_lang = languages[0];
-	tell_object(this_object(), "You just forgot the language you were "+
-	  "speaking.  You are now speaking "+cur_lang+".\n");
+	tell_object(this_object(), "Acabas de olvidar el lenguaje "+
+	  "que hablabas.  Ahora hablas "+cur_lang+".\n");
     }
 } /* remove_language() */
 
 int set_language(string str) 
 {
     if (!str) {
-	notify_fail("You are now speaking "+cur_lang+" and can speak any of "+
+	notify_fail("Ahora estas hablando "+cur_lang+" y puedes hablar "+
 	  query_multiple_short(languages+({ "grunt" }))+".\n");
 	return 0;
     }
     if (member_array(str, languages+({ "grunt" })) == -1) {
-	notify_fail("You do not know "+str+".\n");
+	notify_fail("No sabes hablar "+str+".\n");
 	return 0;
     }
     cur_lang = str;
-    tell_object(this_object(),"Now using "+str+" for speaking and writing.\n");
+    tell_object(this_object(),"Ahora usas "+str+" para hablar y escribir.\n");
     return 1;
 } /* set_language() */
 

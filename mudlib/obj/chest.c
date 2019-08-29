@@ -1,6 +1,7 @@
 /*
  *  Basic Chest with open and close for Valder@FR
  *   -- Wahooka@Eden, FR, et al; Dec '97
+ *       Traducido por Gareth 21.01.03
  */
  
 inherit "/std/container";
@@ -17,47 +18,46 @@ void create() {
 
 void init() {
   ::init();
-  add_action("openclose","open");
-  add_action("openclose","close");
+  add_action("openclose","abrir");
+  add_action("openclose","cerrar");
 }
 
 int openclose(string str) {
-  string s1, s2;
   if(!strlen(str)) {
-    notify_fail(capitalize(query_verb())+" what?\n");
+    notify_fail(capitalize(query_verb())+" que?\n");
     return 0;
   }
   if(!this_object()->id(lower_case(str))) {
-    notify_fail("You cannot "+query_verb()+" any "+str+".\n");
+    notify_fail("No puedes "+query_verb()+" ningun "+str+".\n");
     return 0;
   }
   switch(query_verb()) {
-    case "open":
+    case "abrir":
       if(open) {
-        notify_fail(query_short()+" is already open!\n");
+        notify_fail(query_short()+" ya esta abierto!\n");
         return 0;
       }
       open = 1;
-      write("You open "+query_short()+".\n");
+      write("Abres "+query_short()+".\n");
       tell_room(environment(this_player()),this_player()->query_cap_name()+
-       " opens "+query_short()+".\n", this_player());
+       " abre "+query_short()+".\n", this_player());
       return 1;
     case "close":
       if(!open) {
-        notify_fail(query_short()+" is already closed!\n");
+        notify_fail(query_short()+" ya esta cerrado!\n");
         return 0;
       }
       open = 0;
-      write("You close "+query_short()+".\n");
+      write("Cierras "+query_short()+".\n");
       tell_room(environment(this_player()),this_player()->query_cap_name()+
-       " closes "+query_short()+".\n", this_player());
+       " cierra "+query_short()+".\n", this_player());
       return 1;
   }
 }
    
 int test_add(object ob, int flag) {
   if(!open) {
-    notify_fail("The "+query_short()+" isn't open!\n");
+    notify_fail(query_short()+" no esta abierto!\n");
     return 0;
   }
   return ::test_add(ob, flag);
@@ -65,7 +65,7 @@ int test_add(object ob, int flag) {
 
 int test_remove(object ob, int flag) {
   if(!open) {
-    notify_fail("The "+query_short()+" isn't open!\n");
+    notify_fail(query_short()+" no esta abierto!\n");
     return 0;
   }
   return ::test_remove(ob, flag);

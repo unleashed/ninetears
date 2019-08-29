@@ -20,6 +20,8 @@ varargs mixed creator_file(string file, int author) {
    case "items":
    case "room" :
    case "cmds" :
+   case "rol"  :
+   case "comandos" :
      return get_bb_uid();
    case "net" :
      return "Network stuff";
@@ -30,6 +32,8 @@ varargs mixed creator_file(string file, int author) {
    case "failsafe" :
      return "failsafe";
    case "d" :
+	if (str[1] && str[1]=="gremios")
+		return get_bb_uid();
      if (sizeof(str) < 3)
        return 0;
      if (!author)

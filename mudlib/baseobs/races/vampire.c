@@ -77,13 +77,13 @@ void race_heartbeat(object player)
     player->adjust_hp(-1,player);
     if(player->query_hp() < 5)
     {
-	wraith = clone_object("/std/spells/wizard/waithform_sh.c");
+	wraith = clone_object("/d/gremios/hechizos/wizard/waithform_sh.c");
 	wraith->setup_shadow(player);
 	player->remove_static_property("noregen");
     }
    if(!player->query_hide_shadow())
    {
-   wraith = clone_object("/std/commands/shadows/hide");
+   wraith = clone_object("/d/gremios/comandos/shadows/hide");
    wraith->setup_shadow(player);
    }
   ::race_heartbeat(player);

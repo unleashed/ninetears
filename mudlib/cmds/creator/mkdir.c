@@ -9,7 +9,7 @@ position = 1;
 
 
 
-static int cmd(string str, object me) {
+int cmd(string str, object me) {
 
    if (!str || str == "") {
       notify_fail("Make what directory?\n");
@@ -31,4 +31,3 @@ static int cmd(string str, object me) {
    write("Ok.\n");
    return 1;
 } /* makedir() */
- 

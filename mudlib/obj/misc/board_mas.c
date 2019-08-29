@@ -269,7 +269,7 @@ int do_archive(string name) {
   return (int)BOARD_HAND->set_archive(board_name);
 } /* do_archive() */
 
-move(object dest, string s1, string s2) {
+int move(object dest, string s1, string s2) {
   int ret;
 
   if (!objectp(dest))

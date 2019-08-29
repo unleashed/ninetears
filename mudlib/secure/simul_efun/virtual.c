@@ -1,7 +1,6 @@
 #include "/include/virtual.h"
 
 object virtual_find_object(string name) {
-  object ob;
   return find_object(name);
 } /* find_object() */
 

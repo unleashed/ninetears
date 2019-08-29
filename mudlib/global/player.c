@@ -8,11 +8,12 @@
 #include "tune.h"
 #include "login_handler.h"
 #include "drinks.h"
-#include "weather.h"
 #include "log.h"
 #include "cmd.h"
 #include "commands.h"
 #include "timestuff.h" // Anirudh
+#include "level_track.h"
+#include <memoria.h> // Vilat 18.09.2002
 
 inherit "/global/line_ed";
 inherit "/global/auto_load";
@@ -28,8 +29,6 @@ inherit "/std/living/handle";
 inherit "/global/psoul";
 inherit "/global/guild-race";
 inherit "/global/drunk";
-// Externalized - Radix
-//inherit "/global/last";
 inherit "/global/more_file";
 inherit "/global/path";
 inherit "/global/consent";   // Added by Wonderflug, august 95.
@@ -41,7 +40,7 @@ inherit "/global/henchmen";  // Raskolnikov (for Radix) Oct 96
 #include "player.h"
 
 // Taniwha 14/09/1995 how long shall we disable guild commands and spells after login
-#define LOGINLOCK 20
+#define LOGINLOCK 10
 #define START_POS "/d/ss/daggerford/ladyluck"
 #define STD_RACE "/std/races/human"
 // OMIQ handler added by Timion to prevent Con Loss and Immort login.
@@ -49,22 +48,12 @@ inherit "/global/henchmen";  // Raskolnikov (for Radix) Oct 96
 #define FLAG_GAME "/d/omiq/flag/master_control"
 #define IDENTD "/net/identd"
 
-static int last_command, net_dead;
-static int save_counter, hp_counter, combat_counter;
-static int hidden;
-int hb_counter;
-string *auto_load, last_on_from, last_pos;
+nosave int last_command, no_heal,ontime,hp_counter,combat_counter;
+nosave object snoopee;
+nosave string *attackers,*attacked;
+int hb_counter, time_on, monitor,invis, start_time,creator, app_creator, last_log_on;
+string ident,*henchmen_load,*auto_load, last_on_from, last_pos, apellido="",title;
 mixed *money_array;
-string title, extra_title;
-int headache, max_headache, time_on, monitor;
-int invis, *saved_co_ords, ed_setup, start_time;
-int creator, app_creator, last_log_on;
-static object snoopee;
-int registrated;
-static int no_heal;  /* Hamlet */
-string ident;  /* Hamlet */
-static int ontime; /* Hamlet */
-string *henchmen_load; //Raskolnikov
 
 void set_creator(int i);
 void start_player();
@@ -76,13 +65,14 @@ int save();
 void set_desc(string str);
 string query_title();
 int query_creator();
-static void set_name(string str);
+nomask void set_name(string str);
 int check_dark(int light);
 int adjust_level(int i);
+int ajustar_xp_necesaria(float xp,int lvl);
 int query_level();
 int really_quit();
+int autoequip(string str);
 int set_invis(int i);
-static string *attackers,*attacked;
 // Taniwha 1997 userp() *spits*
 int query_player() { return 1;}
 
@@ -94,7 +84,7 @@ int test_add(object ob,int flag)
     // Please forgive this next one....
     if( explode(file_name(ob),"/")[1] == "grimbrand") return 1;
     if( explode(file_name(ob),"/")[0] == "w") return 0;
-    if(ob->query_spell()) return 1; // so spell effect items will still work. 
+    if(ob->query_spell()) return 1; // so spell effect items will still work.
     if(sizeof(deep_inventory(TO)) + sizeof(deep_inventory(ob)) > 50)
     {
 	tell_object(this_object(),"You are carrying too much and overbalance.\n");
@@ -169,16 +159,12 @@ void attack_by(object ob)
 
 string * query_player_attackers() { return attackers; }
 string * query_players_attacked() { return attacked; }
-void create() 
+void create()
 {
-    int *i,j,k;
-
-    if (name)
-    {
-	event (children("/global/lord"), "inform", this_player()->query_name()+
-	  " called create() on "+name, "person_cheat");
+    if (name) {
+	event (children("/global/lord"), "inform", this_player()->query_name()+" called create() on "+name, "person_cheat");
 	return ;
-    }
+        }
     level = 0;
     living::create();
     events::create();
@@ -193,7 +179,6 @@ void create()
     time_on = time();
     start_time = time();
     seteuid("PLAYER");
-    registrated = 0;
     attackers = ({ });
     attacked = ({ });
 
@@ -202,7 +187,7 @@ void create()
     Int = 11;
     Con = 11;
     Wis = 10;
-    Cha = 10; 
+    Cha = 10;
 
     set_thac0(200);
     max_social_points = 10;
@@ -213,12 +198,10 @@ void create()
     verbose = 1;
     last_log_on = time();
     ontime = time();
-    save_counter = 0;
     hp_counter = 0;
     race_ob = RACE_STD;
     sscanf(file_name(this_object()), "%s#", my_file_name);
-    if(OMIQ_HAND->flag_in_progress())
-	call_out("give_me_armband",5);
+    if(OMIQ_HAND->flag_in_progress()) call_out("give_me_armband",5);
 } /* create() */
 
 int query_x_time_on() { return time_on; }
@@ -228,10 +211,8 @@ void set_x_time_on(int i) { time_on = i; }
 
 /* 3rd arg isn't actually used here.  only in creator.c */
 void move_player_to_start(string bong, int newp, int going_invis) {
-    int tmp;
     object money;
     mapping mail_stat;
-    string s;
     if (file_name(previous_object())[0..13] != "/secure/login#") {
 	notify_fail("You dont have the security clearance to do that.\n");
 	return ;
@@ -241,17 +222,32 @@ void move_player_to_start(string bong, int newp, int going_invis) {
     set_name(bong);
     //  if (query_property("guest"))
 
+	if (LOGIN_HANDLER->query_rebooting()) {
+	log_file("ENTER_SOSPECHOSO", sprintf("Enter : %15-s %s (clonando?)[%d] [%s]\n",
+	name, ctime(time()), time(),
+	(query_ip_name()?query_ip_name():query_ip_number())));
+	}
+
     log_file("ENTER", sprintf("Enter : %15-s %s (guest)[%d] [%s]\n",
 	name, ctime(time()), time(),
 	(query_ip_name()?query_ip_name():query_ip_number())));
-    /*
+
+
+
+	// Vilat 18.09.2002
+
+	MEMORIAH->add_ip(query_ip_number(),capitalize(name),0);
+
+
+
+	/*
       else
 	log_file("ENTER", sprintf("Enter : %15-s %s[%d]\n",
 		   name, ctime(time()), time()));
     */
-    if(OMIQ_HAND->flag_in_progress() && 
+    if(OMIQ_HAND->flag_in_progress() &&
        (file_size("/save/playertmp/"+name+".o") > 0)) {
-      tell_object(this_object(), "Restoring your flag game temporary" 
+      tell_object(this_object(), "Restoring your flag game temporary"
                                  "character...\n");
       restore_object("/save/playertmp/"+name,1);
     }
@@ -264,14 +260,15 @@ void move_player_to_start(string bong, int newp, int going_invis) {
 
     // Aragorn fix
     colour_map = 0;
-    set_short(capitalize(name));
+    //if (!query_creator()) {
+    // Colores segun bando/nivel
+    if (level < 16) set_short("%^BOLD%^GREEN%^"+CAP(name)+"%^RESET%^");
+    else set_short(capitalize(name));
     if (!cols) cols = 79;
     add_property("determinate", "");
-    if (this_player()->query_creator())
-	seteuid(name);
-    else
-	seteuid("PLAYER");
-    write("You last logged in from "+last_on_from+".\n");
+    if (this_player()->query_creator()) seteuid(name);
+    else seteuid("PLAYER");
+    write("Te conectaste por ultima vez desde "+last_on_from+".\n");
     last_on_from = query_ip_name(this_object())+" ("+
     query_ip_number(this_object())+")";
     // Taniwha 1996, unused
@@ -282,19 +279,21 @@ void move_player_to_start(string bong, int newp, int going_invis) {
     if (time_on > 0)
 	time_on = 0;
     time_on += time();
-    guild_joined += time();
     start_player();
     if(!msgin || msgin[0] != '@')
 	msgin = msgout = mmsgin = mmsgout = 0;
     if(!msgin)
-	msgin = "@$N arrives from $F.";
+msgin = "%^BOLD%^YELLOW%^@$N %^RESET%^llega de $F.";
     if(!msgout)
-	msgout = "@$N leaves $T.";
+        if(this_object()->query_creator())
+msgin="%^BOLD%^YELLOW%^@$N %^RESET%^se va hacia $F.";
     if(!mmsgin)
-	mmsgin = "@$N appears out of the ground.";
+        if(this_object()->query_creator())
+msgin="%^BOLD%^YELLOW%^@$N aparece de la nada%^RESET%^.";
     if(!mmsgout)
-	mmsgout = "@$N vanishes in a puff of smoke.";
-    cat("doc/NEWS"); 
+	if(this_object()->query_creator())
+msgin="%^BOLD%^YELLOW%^@$N %^RESET%^desaparece misteriosamente.";
+    cat("doc/NEWS");
     if(file_size("/doc/NEWS.OMIQ") > 0)
 	cat("/doc/NEWS.OMIQ");
 
@@ -313,18 +312,22 @@ void move_player_to_start(string bong, int newp, int going_invis) {
 	 * Set the old co ord if one does not already exist.  Otherwise don't
 	 * destroy the already existing nameing scheme.
 	 */
-	if (!last_pos->query_co_ord() && saved_co_ords)
-	    last_pos->set_co_ord(saved_co_ords);
     }
+// ALGUNOS? TODOS? xD PJS APARECEN NA MAS ENTRAR COMO NUEVOS CON 0 Pvs!
+	if (newp) {
+		set_hp(1);
+		set_gp(1);
+		set_social_points(10);
+	}
     event(users(), "inform", query_cap_name() +
-     " enters " + (query_property("guest")?"as a guest of ":"") + mud_name() +
-         (newp ? " (%^BLUE%^BOLD%^New player%^RESET%^)":""),
+     " entra " + (query_property("guest")?"como invitado en ":"en ") + mud_name() +
+         (newp ? " (%^BLUE%^BOLD%^Nuevo jugador%^RESET%^)":""),
       "logon");
 
-    if(this_object()->query_creator())    
+    if(this_object()->query_creator())
 	event(users(), "inform", query_cap_name() +
-	  " enters " + (query_property("guest")?"as a guest of ":"") + mud_name()+
-	  (newp ? " (%^BLUE%^BOLD%^New player%^RESET%^)":""),
+	  " entra " + (query_property("guest")?"como invitado en ":"en ") + mud_name()+
+	  (newp ? " (%^BLUE%^BOLD%^Nuevo jugador%^RESET%^)":""),
 	  "immort_logon");
 
     if(this_object()->query_invis() < 2)
@@ -332,12 +335,10 @@ void move_player_to_start(string bong, int newp, int going_invis) {
 // Unless you pass WHO logged on, this is useless
 	event(environment(this_object()),"login",this_object());
 	//event(environment(this_object()),"login");
-	say(query_cap_name()+" enters the game.\n", 0);
+	say(query_cap_name()+" entra en el juego.\n", 0);
     }
-    if (verbose)
-	command("look");
-    else
-	command("glance");
+    if (verbose) TO->process_input("look");
+    else TO->process_input("glance");
     last_pos->enter(this_object());
     if (query_property(PASSED_OUT_PROP))
 	call_out("remove_property", 10+random(30), PASSED_OUT_PROP);
@@ -345,9 +346,9 @@ void move_player_to_start(string bong, int newp, int going_invis) {
     mail_stat = (mapping)POSTAL_D->mail_status(query_name());
     if(mail_stat["unread"]) {
 	if(mail_stat["total"] == 1)
-	    write("\n        >>> Your only mail is unread! <<<\n");
-	else write("\n        >>> "+mail_stat["unread"]+" of your "+
-	      mail_stat["total"]+" letters are unread. <<<\n");
+	    write("\n        >>> Tu unica carta esta sin leer! <<<\n");
+	else write("\n        >>> "+mail_stat["unread"]+" de tus "+
+	      mail_stat["total"]+" cartas estan sin leer. <<<\n");
     }
     if (query_dead()) {
 	money = clone_object(DEATH_SHADOW);
@@ -358,6 +359,7 @@ void move_player_to_start(string bong, int newp, int going_invis) {
     exec_alias("login","");
     last_log_on = time();
     ontime = time();
+
     //online_time_exceeded();  /* This just resets stuff here */
     LOGIN_HANDLER->player_logon(bong);
     if (my_file_name != "/global/player")
@@ -372,7 +374,6 @@ void move_player_to_start(string bong, int newp, int going_invis) {
 void setup_money();
 
 void start_player() {
-    object money;
     int lockout;
     if (app_creator && my_file_name != "/global/player") {
 	this_player()->all_commands();
@@ -395,8 +396,8 @@ void start_player() {
     living_commands();
     spell_commands();
     logging_commands();
-    weather_commands();
     editor_commands();
+    arrancar_habilidades();
     set_living_name(name);
     set_no_check(1);
     set_con(Con);
@@ -419,7 +420,6 @@ void start_player() {
     else lockout = LOGINLOCK;
     add_timed_property("noguild",1,lockout);
     add_timed_property("nocast",1,lockout);
-    birthday_gifts(); /* check if birthday today and give gifts */
     set_heart_beat(1);
     if (wimpy > 100)
 	wimpy = 25;
@@ -440,16 +440,10 @@ void setup_money()
  * it does, but not in lord.c and those..
  */
 
-void reset()
-{
-    if(save_counter > 0)
-    {
+void reset() {
 	update_tmps();
 	save();
-    }
-    else
-	++save_counter;
-} 
+	}
 
 
 // Aragorn testing
@@ -463,6 +457,7 @@ int do_load_auto() {
     load_auto_load(auto_load, this_object());
     set_henchmen(load_auto_load(henchmen_load,environment(this_object())));
     remove_timed_property("loading");
+    if (TO->query_property("autoequip")) call_out("autoequip",0);
     call_out("do_auto_equip",3);
 } /* do_load_auto() */
 
@@ -472,41 +467,39 @@ int is_player() {
 }
 
 void public_commands() {
-    add_action("do_clear_screen","clear");
-    add_action("help_func","help");
-    add_action("restart_heart_beat", "restart");
-    // Externalized - Radix
-    add_action("stop","stop");
-    add_action("invent","inventory");
-    add_action("invent","i");
-    add_action("brief_verbose","brief");
-    add_action("brief_verbose", "verbose");
-    add_action("save","save");
-    add_action("quit","quit");
-    add_action("review", "review");
-    add_action("examine","ex*amine");
-    add_action("monitor", "mon*itor");
-    add_action("do_refresh", "refresh");
-    add_action("do_retire", "retire");
-    /* Adding RD & Chrisy's command handler. Baldrick oct '95 */
-    add_action("do_cmd", "*", A_P_CMD);
-} /* public_commands() */
+    	add_action("do_clear_screen","clear");
+    	add_action("help_func","help");
+    	add_action("help_func","ayuda");
+    	add_action("restart_heart_beat", "restart");
+    	add_action("stop","stop");
+    	add_action("stop","parar");
+    	add_action("invent","inventario");
+	add_action("invent","i");
+    	add_action("brief_verbose","brief");
+    	add_action("brief_verbose", "verbose");
+    	add_action("save","save");
+    	add_action("save","grabar");
+    	add_action("quit","quit");
+    	add_action("quit","salir");
+    	add_action("do_advance_level","avanzar");
+    	add_action("review", "review");
+    	add_action("examine","examinar");
+    	add_action("monitor", "monitor");
+    	add_action("do_refresh", "refresh");
+    	add_action("do_retire", "retire");
+    	add_action("do_retire", "retirar");
+    	add_action("autoequip","autoequip");
+	add_action("do_equip","equip");
+	} /* public_commands() */
 
-/* The do_cmd is a part of the external command handling system.
- * Made by Chrisy and gotten from RD. oct '95.
- */   
-int do_cmd(string tail)
-{
-    string verb, t;
+int do_cmd(string tail) {
+    	string verb, t;
+    	sscanf(tail, "%s %s", verb, t);
+    	if(!verb) verb = tail;
+    	return (int)CMD_HANDLER->cmd(verb, t, this_object());
+	}
 
-    sscanf(tail, "%s %s", verb, t);
-    if(!verb)
-	verb = tail;
-
-    return (int)CMD_HANDLER->cmd(verb, t, this_object());
-}/* do_cmd() */
-
-int invent() 
+int invent()
 {
     write(query_living_contents(1));
     return 1;
@@ -526,7 +519,7 @@ int look_me(string arg)
     return do_cmd("look " +arg);
 }
 
-int setmin(string str) 
+int setmin(string str)
 {
     msgin = str;
     return 1;
@@ -560,7 +553,7 @@ int review() {
 }
 
 int examine(string arg) {
-    return look_me("at "+arg);
+    return look_me(arg);
 }
 
 string short(int dark) {
@@ -568,7 +561,7 @@ string short(int dark) {
 
     if (!interactive(this_object()))
     {
-	str = "The net dead statue of ";
+	str = "La estatua lagueada de ";
 	// Added by Radix .. they still have to go thru really_quit()
 	call_out("quit",0);
     }
@@ -577,32 +570,20 @@ string short(int dark) {
     return str+::short(dark);
 }
 
+string combat_short(int dark) {
+	return short(dark);
+}
+
 /* This is my way to get rid of the stupid set_level thingie.. 
  * Baldrick. */
-int adjust_level(int i)
-{
-    /* Added so that no players can go over a certain level without being
-     * registrated. Baldrick may '95
-     */
-    if (level>=9 && !registrated)
-	return 0;
-    /* Those over lvl 100 is either immortals or cheat.. 
-     * Noone needa it anyway.
-     * Baldrick.
-     */
-    if ((level + i) > 100) {
-	notify_fail("Forget it.\n");
-	return 0;
-    }
+int adjust_level(int i) {
+    if ((level + i) > 100) return notify_fail("Olvidalo.\n");
 
-    if (guild_ob)
-	guild_ob->new_levels(i, this_object());
-    // Not sure if I need to call anything at all in the race object..
-    //race_ob->new_levels;
-    // This calls a recalc function in stats.c 
+    if (guild_ob) guild_ob->new_levels(i, this_object());
+
     level += i;
     this_object()->recalc_stats(i);
-}
+    }
 
 
 int brief_verbose(string str) {
@@ -611,15 +592,15 @@ int brief_verbose(string str) {
     else if (str == "off")
 	verbose = (query_verb() == "brief");
     else if (str) {
-	notify_fail("Usage: "+query_verb()+" <on/off>\n");
+	notify_fail("Uso: "+query_verb()+" <on/off>\n");
 	return 0;
     } else
 	verbose = !verbose;
 
     if (verbose)
-	write ("You are in verbose mode.\n");
+	write ("Estas en modo detallado (verbose).\n");
     else
-	write("You are in brief mode.\n");
+	write("Estas en modo breve (brief).\n");
     return 1;
 }
 
@@ -631,9 +612,10 @@ int query_verbose()
 nomask int save() 
 {
     if (my_file_name == "/global/player" || query_verb() == "save")
-	tell_object(this_object(), "Saving...\n");
-    save_me();
-    return 1; 
+	tell_object(this_object(), "Grabando...\n");
+	if (!LOGIN_HANDLER->query_rebooting())
+    		save_me();
+    return 1;
 }
 
 /** Henchmen stuff, Raskolnikov for Radix **/
@@ -670,17 +652,17 @@ int save_me()
 
     if (query_loading() || query_property("loading"))
     {
-	return;
+	return 0;
     }
 
     if (query_property("guest")) {
-	write("But not saving for guests... sorry.\n");
-	return ;
+	write("Los invitados no pueden salvar...\n");
+	return 0;
     }
 
     // Fix by Wonderflug.  Saving object is a bad idea.
     if ( name == "object" )
-	return ;
+	return 0;
     if ((ob = present("Some Money For Me", this_object())))
 	money_array = (mixed *)ob->query_money_array();
     else
@@ -697,9 +679,7 @@ int save_me()
 	last_pos = "/room/raceroom";
     auto_load = create_auto_load(all_inventory());
     henchmen_save();
-    saved_co_ords = (int *)last_pos->query_co_ord();
     time_on -= time();
-    guild_joined -= time();
     // ntime_last_saved -= time();
     seteuid("Root");
     if(OMIQ_HAND->flag_in_progress() &&
@@ -713,7 +693,6 @@ int save_me()
       catch(save_object("/players/"+name[0..0]+"/"+name,1));
     seteuid(old);
     time_on += time();
-    guild_joined += time();
     // ntime_last_saved += time();
     /* Time-limit check.  Hamlet */
     /*
@@ -731,28 +710,75 @@ int quit()
     int foo;
     if (query_loading() || query_property("loading"))
     {
-	notify_fail("Still loading equipment, wait until it's finished.\n");
+	notify_fail("Todavia se esta cargando el equipo, espera a que termine.\n");
 	return 0;
     } 
-    tell_object(this_object(),"Quitting.\n");
+    tell_object(this_object(),"Saliendo.\n");
     if (foo = this_object()->query_fighting())
     {
-	tell_object(this_object(),"You are in a fight, this will take "
-	  "some time.\n");
+	tell_object(this_object(),"Estas en peleas, tardara un poco.\n");
 	save();
 	call_out("really_quit", query_level()*foo);
     }
     else
-	this_object()->really_quit();
+    {
+	// Modificado por leviathan para que las salidas de juego no sean instant
+	//this_object()->really_quit();
+        tell_object(this_object(),"Un rayo divino impacta sobre ti y tu esencia empieza a separarse lentamente de la forma fisica que la sostiene...\n");
+        tell_room(environment(this_object()), "El alma de "+query_short()+" empieza a separarse lentamente del cuerpo que la alberga...\n", ({this_object()}));
+	call_out("salida_pausada",query_level()/10);
+    }
     return 1;
 } /* quit */
 
+int salida_pausada()
+{
+	this_object()->really_quit();
+	return 1;
+}
+
+
+
 int really_quit()
 {
-    object *ob, money;
+    object *ob, money,*armas, *armaduras;
+    string *armaequipo, *armaduraequipo;
     object frog, frog2;
-    int i;
+    int i,a;
 
+    // Vilat 31.08.2002
+    // Inicializar los arrays para poder anyadir luego elementos
+    	armaequipo=({ });
+    	armaduraequipo=({ });
+    // Esto almacena lo que se lleva sujeto y lo que se lleva puesto
+    	armas=TO->query_held_ob();
+    	armaduras=TO->query_worn_ob();
+    // Esto otro sirve para guardar los nombres de las armas
+	for (a=0;a<sizeof(armas);a++) {
+		if (!objectp(armas[a])) continue;
+		if (sizeof(armas[a]->query_alias())>=1) armaequipo+=({armas[a]->query_alias()[0]});
+		else armaequipo+=({armas[a]->query_name()});
+		}
+    	
+    // Y esto los nombres de las armaduras
+    	for (a=0;a<sizeof(armaduras);a++) {
+		if (!objectp(armaduras[a])) continue;
+		if (sizeof(armaduras[a]->query_alias())>=1) armaduraequipo+=({armaduras[a]->query_alias()[0]});
+		else armaduraequipo+=({armaduras[a]->query_name()});
+		}
+
+    // Se guarda un indice que indica el numero de armas y armaduras que llevaba
+	TO->add_property("armasautoequip",sizeof(armaequipo));
+	TO->add_property("armadurasautoequip",sizeof(armaduraequipo));
+	
+    // Aqui a ver si funciona, vale para guardar los nombres de las armas y armaduras que llevaba
+    // Increible, ha funcionado a la primera o_O
+	for (a=0;a<sizeof(armaequipo);a++) TO->add_property("armaautoequip"+(string)a,armaequipo[a]);
+	for (a=0;a<sizeof(armaduraequipo);a++) TO->add_property("armaduraautoequip"+(string)a,armaduraequipo[a]);
+	
+    // Pos esta parte ya esta (increible) ahora pasamos al equipar al iniciar - Vilat 31.08.2002
+
+    
     // Taniwha 30-01-96 see if Flugs fix works
     traverse_timed_properties();
     last_log_on = time();
@@ -769,15 +795,15 @@ int really_quit()
 	ctime(time())+ (query_property("guest")?"(guest)":""), time()));
     catch(editor_check_do_quit());
     //write("Thanks for playing see you next time.\n");
-    tell_object(this_object(),"Thanks for playing, see you next time.\n");
+    tell_object(this_object(),"Gracias por jugar, hasta la proxima.\n");
     if(this_object()->query_invis() < 2)
-	say(query_cap_name()+" left the game.\n");
+	say(query_cap_name()+" ha salido del juego.\n");
     if(query_name() != "object")
     {
-	event(users(), "inform", query_cap_name() + " left the MUD", "logon");
+	event(users(), "inform", query_cap_name() + " sale del MUD", "logon");
 	if ( this_object()->query_creator() )
 	    event(users(), "inform", query_cap_name() + 
-	      " left the MUD", "immort_logon");
+	      " sale del MUD", "immort_logon");
     }
 
     LOGIN_HANDLER->player_logout(query_name());
@@ -803,7 +829,15 @@ int really_quit()
 	    frog->dest_me();
 	frog = frog2;
     }
-    transfer_all_to(environment());
+
+	
+
+	// Vilat 18.09.2002
+
+	MEMORIAH->remove_ip(query_ip_number(),capitalize(name),0);
+    
+
+	transfer_all_to(environment());
     ob = all_inventory(this_object());
     for (i=0;i<sizeof(ob);i++)
 	ob[i]->dest_me();
@@ -821,32 +855,7 @@ int query_drunk()
 string query_title() { return title; }
 void set_title(string str) { title = str; }
 
-string query_extitle() { return extra_title; }
-void set_extitle(string str) { extra_title = str; }
-
-/* Add by Baldrick.
- * May '95
- */
-int query_registrated() {return registrated;}
-
-void set_registrated(int i)
-{
-    /*
-      if (previous_object()->query_high_programmer())
-	{
-	registrated = i;
-	}
-       else
-	{
-	notify_fail("You'r not allowed.\n");
-	return 0;
-	}
-    */
-    registrated = i;
-    return;
-}
-
-static void set_name(string str) {
+nomask void set_name(string str) {
     if (name && name != "object")
 	return ;
     name = str;
@@ -858,43 +867,60 @@ static void set_name(string str) {
 // this used to all be in long(), moved here by Radix, MArch 1996
 string query_description()
 {
-    string s = "You see "+this_object()->query_cap_name();
+    string s = "Ves a "+this_object()->query_cap_name();
     if (this_object()->query_female())
-	s += " the female ";
+	s += " la mujer ";
     else 
-	s += " the male ";
-    s += this_object()->query_race_name();
+	s += " el varon ";
+    s += this_object()->query_race_name()+",\n";
 
-    if (extra_title)
-	s += " ("+extra_title+"), \n";
-    else
-	s += ",\n";
     if((race_ob) && (!desc))
 	s += (string)race_ob->query_desc(this_object());
+
     if (desc && desc != "")
-	s += query_cap_name() + " " + desc+"\n";
+	s += "\t"+desc+"\n";
+
+	if (TO->query_group_name() != "Sin clan.") s += "Pertenece al Clan " + TO->query_group_name() +".\n";
+	if (TO->query_race_group_name() != "Sin grupo racial.") {
+		object r_g_ob = TO->query_race_group_ob();
+		string title = TO->query_race_group_title();
+
+		if (r_g_ob && r_g_ob->query_drow_house()) {
+			s += "Es ";
+			switch (title) {
+				case "matrona":
+					s += "la matrona ";
+					break;
+				case "maestro de armas":
+					s += "el maestro de armas ";
+					break;
+				case "lord":
+					s += "lord ";
+				default:
+					s += "miembro ";
+			}
+			s += "de la "+TO->query_race_group_name()+ ".\n";
+		}
+		else {
+			s += "Es " + ((title) ? title : "miembro") + " de " +
+			TO->query_race_group_name();
+		}
+	}
     return s;
 }
 
 string long(string str, int dark) {
     string s;
 
-    if (str == "soul") {
-	return (string)"/obj/handlers/soul"->query_long();
-    }
-    if (str == "sun" || str == "moon" || str == "weather") {
-	return weather_long(str);
-    }
+    if (str == "soul") return (string)"/obj/handlers/soul"->query_long();
+    if (str == "sol" || str == "luna" || str == "tiempo") return weather_long(str);
     if (this_player() != this_object())
 	if(!this_player()->query_hidden())
-	    tell_object(this_object(), this_player()->query_cap_name()+" looks at you.\n");
+	    tell_object(this_object(), this_player()->query_cap_name()+" te mira.\n");
 
-	//   if(this_object()->query_hidden()) 
-	//       return("You do not think that the "+str+" is here.\n");
     if (this_object()->query_dead())
     {
-	s = "You see a shadow of " + this_object()->query_cap_name() +
-	"'s former self.\n";
+	s = "Ves una sombra con la forma de " + this_object()->query_cap_name() + ".\n";
 	return s;
     }
 
@@ -902,67 +928,59 @@ string long(string str, int dark) {
 
     s = (string)this_object()->query_description();
     s += capitalize(query_pronoun())+" "+health_string()+".\n";
-    s += calc_extra_look();
+    s += calc_extra_look(this_object());
     s += weather_extra_look();
     s += query_living_contents(0);
     return s;
 } /* long() */
 /* second life routine... handles the player dieing. */
 
-int second_life() 
-{
-    string str;
-    int i, no_dec;
-    object tmp;
+int second_life() {
+    	string str;
+    	int i, no_dec;
+    	object tmp;
 
-    //make_corpse()->move(environment());
-    str = query_cap_name() + " killed by ";
-    if (!sizeof(attacker_list))
-	str += this_player()->query_cap_name()+" (with a call)";
-    else
-	for (i=0;i<sizeof(attacker_list);i++)
-	    if (attacker_list[i]) 
-	    {
-		str += attacker_list[i]->query_name()+"<"
-		+geteuid(attacker_list[i])+">";
+    	str = query_cap_name() + " matado por ";
+    	if (!sizeof(attacker_list)) str += this_player()->query_cap_name()+" (with a call)";
+    	else for (i=0;i<sizeof(attacker_list);i++) if (attacker_list[i]) {
+		str += attacker_list[i]->query_name()+"<"+geteuid(attacker_list[i])+">";
 		attacker_list[i]->stop_fight(this_object());
 		no_dec += interactive(attacker_list[i]);
-	    }
-    secure_log_file("DEATH", ctime(time())+": "+str + "\n");
-    // log_file("DEATH2",str+" : "+sprintf("%O\n",previous_object(-1)));
-    event(users(), "inform", str, "death");
-    attacker_list = ({ });
-    for (i=0;i<sizeof(call_outed);i++)
-	call_outed[i]->stop_fight(this_object());
-    call_outed = ({ });
+	    	}
+    	secure_log_file("DEATH", ctime(time())+": "+str + "\n");
 
-    say(query_cap_name()+" dies(sigh).\n");
-    save_me();
-    DEATH_CHAR->person_died(query_name());
-    hp = 0;
-    gp = 0;
-    total_xp -= xp;
-    xp = 0;
-    if (!no_dec) 
-    {
-	contmp = -2;
-	strtmp = -2;
-	dextmp  = -2;
-	inttmp = -2;
-	wistmp = -2;
-    }
-    tmp = clone_object(DEATH_SHADOW);
-    tmp->setup_shadow(this_object());
-    return 1;
-} 
+    	event(users(), "inform", str, "death");
+    	attacker_list = ({ });
+    	for (i=0;i<sizeof(call_outed);i++) call_outed[i]->stop_fight(this_object());
+    	call_outed = ({ });
 
-void remove_ghost() 
+    	say(query_cap_name()+" lamentablemente ha muerto.\n");
+    	save_me();
+    	DEATH_CHAR->person_died(query_name());
+    	hp = 0;
+    	gp = 0;
+	ep = 0;
+    	total_xp -= xp;
+    	xp = 0;
+    	if (!no_dec) {
+		contmp = -2;
+		strtmp = -2;
+		dextmp = -2;
+		inttmp = -2;
+		wistmp = -2;
+    		}
+    	tmp = clone_object(DEATH_SHADOW);
+    	tmp->setup_shadow(this_object());
+    	return 1;
+	}
+
+void remove_ghost()
 {
     // Neg. con isn't doing anything, maybe this will work- Radix
-    if(this_object()->query_real_con() < 1) 
+    if(this_object()->query_real_con() < 1)
     {
-	tell_object(this_object(),"Something is wrong... your "
-	  "constitution is too low.\n");
+	tell_object(this_object(),"Algo falla... Tu "
+	  "constitucion es demasiado baja para poder revivir.\n");
 	return;
     }
     this_object()->set_dead(0);
@@ -971,15 +989,18 @@ void remove_ghost()
     if(this_player() && this_player()->query_creator()) {
 	log_file("RESURRECT",ctime(time())+": "+this_player()->query_cap_name()+
 	  " resurrected "+this_object()->query_cap_name()+".\n");
-    }
+    }/*
     else {
 	if(!OMIQ_HAND->omiq_in_progress())
 	    if(this_object()->query_level() > 9) this_object()->adjust_con(-1);
-    }
-    tell_object(this_object(), "You reappear in a more solid form.\n");
-    say(query_cap_name() + " appears in more solid form.\n");
+    }*/
+    tell_object(this_object(), "Reapareces en una forma mas solida.\n");
+    say(query_cap_name() + " aparece en una forma mas solida.\n");
     this_object()->dest_death_shadow();
-    if( hp <= 0) hp = 3;
+    if( hp <= 0) 
+	hp = this_player()->query_max_hp(); /* lo cojonudo es q a veces es 2, a veces 1, a
+veces 3... no rula :/ */
+//hp = this_object()->query_max_hp();
 
     if(OMIQ_HAND->flag_in_progress())
 	call_out("give_me_armband",2);
@@ -1003,219 +1024,193 @@ int query_hb_diff(int oldc)
 }
 
 
-static int hb_num;
+
 
 /*
  * the heart beat. bounce what does this do? we arent going to tell you
  */
 
-void heal_hp(int i)
-{
-    if(i && query_hp() < query_max_hp() && query_hp() >= 0 && !no_heal)
-	hp++;
-    return;
-}
-void heal_gp(int i, int intox)
-{
-    if(i && intox < 200 && query_gp() < query_max_gp() && !no_heal)
-	gp++;
-    return;
-}
-void heart_beat() 
-{
-    int i, intox;
-
-    flush_queue();
-    intox = query_volume(D_ALCOHOL);
-    hb_counter++;
-    // Taniwha 1997, racial effects
-    if(race_ob && !(hb_counter & 31) ) race_ob->race_heartbeat(TO);
-// Quark, adding heart beat to curses.
-    if(!(hb_counter & 31)) TO->curses_heart_beat();
-
-    /* Added a combat_counter, so the combat aren't that quick. */
-    if (drunk_heart_beat(intox) && time_left > 0 && combat_counter >= 2) 
-    {
-	attack();
-	do_spell_effects(attackee);
-	if (sizeof(attacker_list)) 
-	    time_left -= (int)environment()->attack_speed();
-	combat_counter = 0;
-    } /* If drunk_heart... */
-    combat_counter++;
-
-    if (!interactive(this_object()) ) 
-    {
-	if (name == "guest" || name == "root") 
-	{
-	    say(query_cap_name()+" just vanished in a puff of logic.\n");
-	    quit();
-	} 
-	else 
-	if (!net_dead) 
-	{
-	    say(query_cap_name()+" goes white, looks very chalky and turns into a "+
-	      "statue.\n");
-	    event(users(), "inform", query_cap_name() + " has lost " +
-	      query_possessive() + " link", "link-death");
-	    save_me();
-	    this_object()->quit();
-	    /* 
-	    for (i=0;i<sizeof(attacker_list);i++)
-	      attacker_list[i]->stop_fight(this_object());
-	    */
-	    net_dead = 1;
+void heal_hp(int i) {
+    	if(i && query_hp() < query_max_hp() && query_hp() >= 0 && !no_heal) hp++;
+    	return;
 	}
-     /*  Idling out annoys me.  Removing it.   Benedick -- Feb. 4, 1998
-    } else {
-	net_dead = 0;
-	if (query_idle(this_object()) > MAX_IDLE)
-	    if(my_file_name != "/global/god" && my_file_name != "/global/demi" &&
-	      my_file_name != "/global/lord" )
-	    {
-		say(query_cap_name()+" has been idle for too long, "+query_pronoun()+
-		  " vanishes in a puff of boredom.\n");
-		write("You idled out sorry.\n");
-		quit();
-		return ;
-	    }
-	    else
-	    {
-		if(this_object()->query_invis() < 2)
-		    tell_object(this_object(),"You've idled too long, setting you"
-		      " to invis 2.\n");
-		this_object()->set_invis(2);
 
-	    }
-        End of Idle Code, I hope.  */
-	last_command = time() - query_idle(this_object());
-    }
-
-
-if(hp_counter >= 4 && "/global/omiq.c"->omiq_in_progress())
-{
-	heal_hp(1);
-	heal_gp(1, intox);
-}
-    /* I've made this to hopefully be easier to add to later 
-       - Radix : Dec 29, 1996
-       Drow and duergar on surface heal 1/2 as fast if light < 20 
-       no heal if light > 20
-	- Timion : November 08, 1997
-	All players heal faster during Capture the Flag.
-    */
-    if(hp_counter >= 15)
-    {
-	if("/global/omiq.c"->flag_in_progress())
-	{
-	  heal_hp(5);
-	  heal_gp(5, intox);
-	  hp_counter = -15;
+void heal_gp(int i, int intox) {
+    	if(i && intox < 200 && query_gp() < query_max_gp() && !no_heal) gp++;
+    	return;
 	}
-	else
-	if(query_race() != "drow" && query_race() != "duergar")
-	{
-	    heal_hp(1);
-	    heal_gp(1, intox);
-	    hp_counter = 0;
+
+void heal_ep(int i, int intox) {
+    	if(i && intox < 200 && query_ep() < query_max_ep() && !no_heal) ep++;
+    	return;
 	}
-	else
-	{
-	    if(!environment()->query_underground())
-		//       if(member_array(domain_origin(ENV(TO)), ({"bf","newbie"})) <0)
-	    {
-		if(environment()->query_light() < 20)
-		{   
-		    heal_hp(1);
-		    heal_gp(1, intox);
-		    hp_counter = -15;
-		}
-		else 
-		{
-		    heal_hp(0);
-		    heal_gp(0, intox);
-		    hp_counter = -15;
-		}
-	    }
-	    else
-	    {
+
+void heart_beat() {
+    	int intox;
+    	int hb_num,headache;
+
+    	flush_queue();
+    	intox = query_volume(D_ALCOHOL);
+    	hb_counter++;
+    	if(race_ob && !(hb_counter & 31) ) race_ob->race_heartbeat(TO);
+    	if(!(hb_counter & 31)) TO->curses_heart_beat();
+
+    	if (drunk_heart_beat(intox) && time_left > 0 && combat_counter >= 2) {
+		attack();
+		do_spell_effects(attackee);
+		if (sizeof(attacker_list)) time_left -= (int)environment()->attack_speed();
+		combat_counter = 0;
+    		}
+    	combat_counter++;
+
+    	if (!interactive(this_object()) ) {
+		if (name == "guest" || name == "root") {
+	    		say(query_cap_name()+" se desvanece incomprensiblemente.\n");
+	    		quit();
+			}
+		else {
+	    		say(query_cap_name()+" se desvanece mientras su alma abandona Driade.\n");
+	    		event(users(), "inform", query_cap_name() + " ha perdido su conexion", "link-death");
+	    		save_me();
+	    		this_object()->quit();
+	    		}
+    		}
+	else {
+		if (query_idle(this_object()) > MAX_IDLE*60)
+			if(my_file_name != "/global/god" && my_file_name != "/global/demi" && my_file_name != "/global/lord" && my_file_name != "/global/creator") {
+				say(query_cap_name()+" ha estado inactivo demasiado tiempo, "+query_pronoun()+" se desvanece en una nube de aburrimiento.\n");
+				write("Has estado inactivo demasiado tiempo. Adios!\n");
+				quit();
+				return ;
+	    			}
+	    		else if (my_file_name == "/global/creator") {
+				if (query_idle(TO) > MAX_IDLE * 120) {
+					tell_object(TO, "Has estado inactivo a sako, aus!\n");
+					quit();
+					return;
+					}
+				else if(!TO->query_invis()) {
+	    				tell_object(TO, "Has estado inactivo demasiado tiempo, poniendote en invis.\n");
+	    				TO->set_invis(1);
+	    				}
+	    			}
+	    		else {
+	    			if (query_idle(TO) > MAX_IDLE * 180) {
+	    				tell_object(TO, "Has estado inactivo a sako, aus!\n");
+	    				quit();
+	    				return;
+	    				}
+	    			else if(query_idle(TO) > MAX_IDLE*120) {
+	    				if(TO->query_invis() < 2) {
+	    					tell_object(TO, "Has estado inactivo demasiado tiempo, poniendote en invis 2.\n");
+	    					TO->set_invis(2);
+	    					}
+	    				}
+				else if(this_object()->query_invis() < 1) {
+		    			tell_object(this_object(),"Has estado inactivo demasiado tiempo, poniendote en invis 1.\n");
+		    			this_object()->set_invis(1);
+					}
+	    			}
+    			}
+	last_command = time() - query_idle(TO);
+
+	if(hp_counter >= 4 && "/global/omiq.c"->omiq_in_progress()) {
 		heal_hp(1);
 		heal_gp(1, intox);
-		hp_counter = 0;
-	    }
-	}
-    }
-    hp_counter++;
+		heal_ep(1, intox);
+		}
+    	if(hp_counter >= 15) {
+		if("/global/omiq.c"->flag_in_progress()) {
+	  		heal_hp(5);
+	  		heal_gp(5, intox);
+			heal_ep(5, intox);
+	  		hp_counter = -15;
+			}
+		else switch(query_race()) {
+			default:
+	  		heal_hp(1);
+	    		heal_gp(1, intox);
+			heal_ep(1, intox);
+	    		hp_counter = 0;
+			break;
+			case "orco":
+			heal_hp(2);
+			heal_gp(2, intox);
+			heal_ep(2, intox);
+			hp_counter = 5;
+			break;
+			case "duergar":
+			case "drow":
+	    		if(!environment()->query_suboscuridad()) {
+				if(environment()->query_light() < 25) {
+		    			heal_hp(1);
+		    			heal_gp(1, intox);
+					heal_ep(1, intox);
+		    			hp_counter = -15;
+					}
+				else {
+		    			hp_counter = -15;
+					}
+	    			}
+	    		else {
+				heal_hp(1);
+				heal_gp(1, intox);
+				heal_ep(1, intox);
+				hp_counter = 5;
+	    			}
+			break;
+			}
+    		}
+    	hp_counter++;
 
-    /* handle intoxication dispersion by our selves...
-     * they just handle hp recival and sp recival...
-     */
-    if(headache)
-	if (!--headache)
-	{
-	    tell_object(this_object(), "Your headache disapears.\n");
-	    headache = 0;
-	}
+    	if(headache=query_property("headache")) {
+		if (!--headache) {
+	    		tell_object(this_object(), "Tu dolor de cabeza desaparece.\n");
+	    		remove_property("headache");
+			}
+		else add_property("headache",headache);
+		}
 
-    if (intox) 
-    {
-	if (!(intox-1)) 
-	{
-	    headache = 15;
-	    tell_object(this_object(),"You get a splitting headache, be happy.\n");
-	    hp -= 2;
-	    if (hp<1)
-		hp = 1;
-	}
-    }
-    if (++hb_num%8)  // How about half as fast?
-    {
-	social_points++;
-	if(social_points > max_social_points)
-	    social_points = max_social_points;
+    	if (intox) if (!(intox-1)) {
+	    	add_property("headache",15);
+	    	tell_object(this_object(),"Te empieza a doler la cabeza.\n");
+	    	hp -= 2;
+	    	if (hp<1) hp = 1;
+		}
 
-	if (hb_num > 500)
-	{
-	    if(max_social_points < 1000)
-		max_social_points++;
-	    hb_num = 0;
+    	if (++hb_num%8)  {
+		social_points++;
+		if(social_points > max_social_points) social_points = max_social_points;
+
+		if (hb_num > 500) {
+	    		if(max_social_points < 1000) max_social_points++;
+	    		hb_num = 0;
+			}
+    		}
+    	if (sizeof(attacker_list) && wimpy && hp < max_hp*wimpy/100) run_away();
+    	update_volumes();
 	}
-    }
-    if (sizeof(attacker_list) && wimpy && hp < max_hp*wimpy/100)
-	run_away();
-    update_volumes();
-}  /* Void heart_beat */
 
 int query_monitor() { return monitor; }
 
-void display_monitor(int i)
-{
-    string COLOR = "%^RED%^";
-    if(!monitor) return;
-    if(i) COLOR = "%^GREEN%^";
-    tell_object(this_object(),COLOR+sprintf("HP: %d GP: %d\n",hp,gp)+
-      "%^RESET%^\n");
-    return;
-}
+void display_monitor(int i) {
+    	string COLOR = "%^RED%^";
+    	if(!monitor) return;
+    	if(i) COLOR = "%^GREEN%^";
+    	tell_object(this_object(),COLOR+sprintf("Pv: %d/%d Pm: %d/%d Pe: %d/%d\n",hp,max_hp,gp,max_gp,ep,max_ep)+"%^RESET%^\n");
+    	return;
+	}
 
-int monitor(string str) 
-{
-    if (!str)
-	monitor = !monitor;
-    else if (str == "on")
-	monitor = 1;
-    else if (str == "off")
-	monitor = 0;
-    else {
-	notify_fail("Syntax: monitor <on/off>\n");
-	return 0;
-    }
-    if (monitor)
-	write("Your hit point monitor is on.\n");
-    else
-	write("Your hit point monitor is off.\n");
-    return 1;
-}
+int monitor(string str) {
+    	if (!str) monitor = !monitor;
+    	else if (str == "on") monitor = 1;
+    	else if (str == "off") monitor = 0;
+    	else return notify_fail("Sintaxis: monitor <on/off>\n");
+
+    	if (monitor) write("Tu monitor de vida esta activo.\n");
+    	else write("Tu monitor de vida esta inactivo.\n");
+    	return 1;
+	}
 
 void run_away() 
 {
@@ -1224,7 +1219,7 @@ void run_away()
 
     if ( this_object()->query_property(PASSED_OUT_PROP) )
     {
-	tell_object(this_object(),"You're in no condition to run away, alas.\n");
+	tell_object(this_object(),"Hmm, no estas en condiciones de huir.\n");
 	return ;
     }
     direcs = (mixed *)environment()->query_dest_dir();
@@ -1244,18 +1239,13 @@ void run_away()
 
 /* why have invis here ? have to find out  that Baldrick. */
 
-int set_invis(int i) 
-{
-    if(!previous_object()->query_lord())
-    {
-	if(i)
-	    invis = 1;
-	else 
-	    invis = 0;
-    }
-    else
-	invis = i;
-}
+int set_invis(int i) {
+    	if(!previous_object()->query_lord()) {
+		if(i) invis = 1;
+		else invis = 0;
+    		}
+    	else invis = i;
+	}
 
 nomask int query_invis() { return invis; }
 
@@ -1304,8 +1294,18 @@ int query_app_creator() { return app_creator; }
 
 int stop(string str)
 {
-    write("Stopping fights, takes some time.\n");
-    call_out("really_stop", 50, str);
+	if (!query_fighting()) {
+		notify_fail("Antes de parar peleas debes empezarlas.\n");
+		return 0;
+	}
+	if (capitalize(TP->query_guild_name()) == "Asesino") {
+		write("Parando peleas rapidamente.\n");
+	    	call_out("really_stop", 14, str);
+	}
+	else {
+		    write("Parando peleas, tardara un poco.\n");
+		call_out("really_stop", 50, str);
+	}
 } /* stop */
 
 int really_stop(string str) 
@@ -1313,17 +1313,26 @@ int really_stop(string str)
     int i;
     object *obs;
 
-    if (!str) 
+    if (!str)
     {
 	obs = attacker_list + call_outed;
-	if (!sizeof(obs)) 
+	if (!sizeof(obs))
 	{
-	    notify_fail("Not fighting anyone.\n");
+	    notify_fail("No estas luchando con nadie.\n");
 	    return 0;
 	}
-	for (i=0;i<sizeof(obs);i++)
+	for (i=0;i<sizeof(obs);i++) {
+		if (capitalize(TP->query_guild_name()) == "Asesino")
+			if (interactive(obs[i]))
+				obs[i]->stop_fight(TP);
+		if (member_array(obs[i], query_attacker_list()) != -1) {
+			obs -= ({obs[i--]});
+			continue;
+		}
 	    stop_fight(obs[i]);
-	write("Stopped fighting "+query_multiple_short(obs)+".\n");
+	}
+	//if (sizeof(obs))
+	//write("Has parado de luchar con "+CAP(query_multiple_short(obs))+".\n");
 	return 1;
     }
 
@@ -1333,23 +1342,19 @@ int really_stop(string str)
 
     if (!sizeof(obs)) 
     {
-	notify_fail("Cannot find "+str+"\n");
+	notify_fail("No se ha podido encontrar a "+str+"\n");
 	return 0;
     }
     for (i=0;i<sizeof(obs);i++)
 	stop_fight(obs[i]);
-    write("Ok, stopped hunting "+str+"\n");
+    write("Ok, has parado de perseguir a "+CAP(str)+".\n");
     return 1;
 }
 
 int query_time_on() { return time_on - time(); }
-/* why have a guild joined time ? Baldrick */
-int query_last_joined_guild() { return guild_joined - time(); }
 
 int check_dark(int light) 
 {
-    int i;
-
     if(this_object()->query_dead())
 	return 0;
     if (race_ob)
@@ -1359,7 +1364,7 @@ int check_dark(int light)
 
 int query_level() { return level; }
 
-int restart_heart_beat() 
+int restart_heart_beat()
 {
     if (query_heart_beat(this_object()))
     {
@@ -1367,21 +1372,22 @@ int restart_heart_beat()
 	 * The gp thingie that is. 
 	 * Baldrick, march '96.
 	 */
-	write("Naah, you don't need it.\n");
+	write("Naah, no lo necesitas.\n");
 	adjust_gp(-(level / 2));
 	return 1;
     }
 // Taniwha, avoids the lockup case. HB restarts, buggy spell/command kills it again
    catch(this_object()->flush_spell_effects());
     set_heart_beat(1);
-    write("Ok, heart_beat restarted.\n");
+    write("Ok, heart_beat restaurado.\n");
     return 1;
 }
 
 void set_snoopee(object ob) { snoopee = ob; }
 object query_snoopee() { return snoopee; }
 
-void set_creator(int i) 
+// Mmmmmmm
+void set_creator(int i)
 {
     /* who the hell is putting coment on this ???
        Next time I'll dest the sucker for good when I find out.. 
@@ -1394,7 +1400,7 @@ void set_creator(int i)
 	  file_name(previous_object())+"\n");
 	return 0;
     }
-    write("You are now a creator.\n");
+    write("Ahora eres un Creador.\n");
     creator = i;
     app_creator = i;
     home_dir = "/w/"+name;
@@ -1414,21 +1420,17 @@ int query_prevent_shadow(object ob) {
 }
 
 /* Including new hack for parse_command ;) */
-move(object dest, string msgin, string msgout) {
+varargs int move(object dest, string msgin, string msgout) {
     int i;
-    object env;
+    object env=environment();
 
-    if ((env = environment()))
-	WEATHER->unnotify_me(environment());
     i = ::move(dest, msgin, msgout);
-    if (environment())
-	WEATHER->notify_me(environment());
     if (!i)
 	me_moveing(env);
     return i;
 }
 
-static int do_refresh(string str) 
+nomask int do_refresh(string str)
 {
     if(!this_object()->query_creator())
     {
@@ -1447,7 +1449,7 @@ static int do_refresh(string str)
     return 1;
 }
 
-static int refresh2(string str) {
+private nomask int refresh2(string str) {
     str = lower_case(str);
     if (str[0] != 'n' && str[0] != 'y') {
 	write("Pardon?  I do not understand.  Do you want to refresh yourself? ");
@@ -1488,9 +1490,9 @@ static int refresh2(string str) {
     //skills = ({ });
     spells = ([ ]);
     /* No skills in this version..
-    known_commands = ({sklls", "consider", "bury", }); 
+    known_commands = ({sklls", "consider", "bury", });
     */
-    known_commands = ({ "consider", "bury", "rearrange"}); 
+    known_commands = ({ "considerar", "enterrar", "ajustar"});
     languages = ({ "common", this_object()->query_race() });
     minor_spheres = ({ });
     major_spheres = ({ });
@@ -1502,12 +1504,12 @@ static int refresh2(string str) {
     gr_commands = ([ ]);
     race_guild_commands();
     this_object()->add_known_command("rearrange");
-    // Hmmm, maybe not use a catch.. 
+    // Hmmm, maybe not use a catch..
     //"/obj/handlers/bank_handler"->refresh_account(this_object()->query_name());
     "/obj/handlers/god_handler"->remove_sacrifices(this_object());
     this_object()->clear_deity();
     set_thac0(200);
-    move("/room/raceroom");
+    move(load_object("/room/raceroom"));
     command("look");
     set_extreme_str(0); // Taniwha, this slipped though, Nov 1995
     write("Done.\n");
@@ -1542,13 +1544,13 @@ int teach_language(object *obs, string str)
 	    continue;
 	if(member_array(str, (string *)obs[i]->query_languages()) != -1)
 	{
-	    write(obs[i]->query_cap_name()+" knows "+str+" already.\n");
+	    write(obs[i]->query_cap_name()+" ya sabe hablar "+str+".\n");
 	    continue;
 	}
 	if(obs[i]->query_max_languages()<=
 	  sizeof((string *)obs[i]->query_languages()))
 	{
-	    write(obs[i]->query_cap_name()+" can't learn more languages.\n");
+	    write(obs[i]->query_cap_name()+" no puede aprender mas lenguajes.\n");
 	    tell_object(obs[i], query_short()+" tries to teach you '"+str+"', "+
 	      "but you aren't intelligent enough to learn another language.\n");
 	    continue;
@@ -1561,7 +1563,7 @@ int teach_language(object *obs, string str)
     for(i=0;i<nb;i++) 
     { 
 	taught[i]->add_language(str);
-	write("You teach "+taught[i]->query_short()+" '"+str+"'.\n");
+	write("Ensenyas a "+taught[i]->query_short()+" a hablar '"+str+"'.\n");
     }
     return 1;
 } /* teach_language */
@@ -1569,11 +1571,11 @@ int teach_language(object *obs, string str)
 string query_object_type()
 {
     if (creator)
-	return "A"; 
+	return "A";
     return " ";
 } /* query_object_type() */
 
-static int do_clear_screen() {
+nomask int do_clear_screen() {
     if( this_player(1) != this_player() )  return 0;
     tell_object(this_object(),sprintf("%c[H%c[2J",27,27));
     return 1;
@@ -1581,6 +1583,61 @@ static int do_clear_screen() {
 
 int query_statue() { return !interactive(this_object()); }
 
+// Vilat 31.08.2002 - Autoequip
+
+int autoequip(string str) {
+	int numeroarmas,numeroarmaduras,a;
+	object *armas,*armaduras;
+	// Si se pasa sin argumentos, equipa con la configuracion guardada
+	if (!str) {
+		// Vamos a quitar lo que lleve puesto, si es que lleva algo
+    		armas=TO->query_held_ob();
+    		armaduras=TO->query_worn_ob();
+    		for (a=0;a<sizeof(armas);a++) {
+			if (!objectp(armas[a])) continue;
+			command("unhold "+armas[a]->query_name());
+			}
+		for (a=0;a<sizeof(armaduras);a++) {
+			if (!objectp(armaduras[a])) continue;
+			command("quitarse "+armaduras[a]->query_name());
+			}
+		// Recuperamos el numero objetos que llevaba puestos o empunyados al salir
+    		numeroarmas=TO->query_property("armasautoequip");
+    		numeroarmaduras=TO->query_property("armadurasautoequip");
+    		// Para las armas las vamos empunyando una a una
+    		for (a=0;a<numeroarmas;a++) command("hold "+TO->query_property("armaautoequip"+(string)a));
+    		// Pa las armaduras lo mismo
+    		for (a=0;a<numeroarmaduras;a++) {
+    			command("ponerse "+TO->query_property("armaduraautoequip"+(string)a));
+			// Esto es para si hay varias armaduras que no te deje stun
+    			TO->remove_timed_property("passed out");
+			}
+    		return 1;
+    		} 
+    	// Si se pasa argumento, switch
+    	switch (str) {
+    		case "on":
+		if (!TO->query_property("autoequip")) {
+			TO->add_property("autoequip",1);
+			tell_object(TO,"Ok. Equipamiento automatico activado.\n");
+			}
+		else tell_object(TO,"El equipamiento automatico ya estaba activado.\n");
+		return 1;
+		
+		case "off":
+		if (TO->query_property("autoequip")) {
+			TO->remove_property("autoequip");
+			tell_object(TO,"Ok. Equipamiento automatico desactivado.\n");
+			}
+		else tell_object(TO,"El equipamiento automatico ya estaba desactivado.\n");
+		return 1;
+		
+		default:
+		tell_object(TO,"Usa autoequip del siguiente modo:\n\t\"autoequip on\" para activar el equipamiento automatico al entrar.\n\t\"autoequip off\" para desactivar el equipamiento automatico al entrar.\n\t\"autoequip\" para volver a equiparte lo que llevabas cuando saliste del juego por ultima vez.\n");
+		return 1;
+		}
+	return 1; 
+	}
 
 /* Add of Retire.
  * Baldrick, march '94
@@ -1614,9 +1671,9 @@ void receive_message( string str, string mclass)
 
 void set_short(string moo)
 {
-    if (living(previous_object()))
+    if (living(previous_object()) && !previous_object()->query_god())
     {
-	tell_object(previous_object(), "Boo! Not legal anymore.\n");
+	tell_object(previous_object(), "Boo! Preguntale a un dios.\n");
 	return;
     }
     ::set_short(moo);
@@ -1626,21 +1683,11 @@ void set_short(string moo)
  * has been until now.
  * Baldrick, aug '95
  */
-void set_hidden(int i)
-{
-    hidden = i;
+int query_hidden() {
+    return (TO->query_invis()||TO->query_hide_shadow());
 }
 
-int query_hidden()
-{
-    // return hidden;
-    // until the above works...
-    if(this_object()->query_invis()||this_object()->query_hide_shadow())
-	return 1;
-    return 0;
-}
-
-/* void idle_out. Used by /obj/handlers/timed. 
+/* void idle_out. Used by /obj/handlers/timed.
  * instead of idleroutines in heart_beat.
  * Gotten from RD.
  * Not too sure it's better... but we'll try it.
@@ -1656,8 +1703,8 @@ void idle_out()
 	return ;
     }
     tell_room(environment(this_object()), capitalize(name) +
-      " has been idle for too long, " + this_object()->query_pronoun()+
-      " vanishes in a puff of boredom.\n", ({this_object()}));
+      " ha estado inactivo demasiado tiempo, " + this_object()->query_pronoun()+
+      " se desvanece en una nube de aburrimiento.\n", ({this_object()}));
     tell_object(this_object(),"You idled out sorry.  Come back again!\n");
     /* chaned from really_quit() to quit() to see if the players will be able to
      * bomb out goine net dead.. 
@@ -1693,3 +1740,69 @@ string query_ident() {
 nomask void set_ontime(int i)  {  ontime = i;  }
 nomask int query_ontime() {  return ontime;  }
 int query_prevent_reload_object() { return 1; }
+
+int do_advance_level() {
+  	int lvl,total_xp,max_lvl;
+  	float xp;
+  	string guild,my_race,my_race_ob,clase;
+
+	my_race_ob=TO->query_race_ob();
+	my_race=(string)my_race_ob->query_name();
+	clase=TO->query_clase_ob();
+
+  	lvl = (int)TO->query_level();
+  	guild=TO->query_guild_ob();
+
+  	if (!guild) return notify_fail("Debes alistarte en un gremio para poder avanzar.\n");
+
+
+  	xp = (int)guild->query_xp_cost();
+
+	total_xp =  ajustar_xp_necesaria(xp,lvl);
+  	if(((int)TO->query_xp()) < (total_xp+1)) return notify_fail("Tu experiencia es insuficiente para avanzar.\n");
+
+	++lvl;
+  	max_lvl = guild->query_max_level(my_race);
+  	if (lvl >= max_lvl) return notify_fail("No puedes avanzar por encima del nivel "+lvl+" porque eres "+capitalize(my_race)+".\n");
+
+  	TO->adjust_level(1);
+  	TO->adjust_xp(-total_xp);
+
+	TO->set_thac0( 200 - (TO->query_level() * (int)clase->query_thac0_step()) );
+	TO->set_ac(clase->query_ac(TO->query_level()));
+	TO->adjust_disp_sp(TO->query_sp());
+
+	write("Avanzas a nivel "+lvl+" y obtienes "+(string)TO->query_sp()+" puntos de Skill, que podras gastar en tu gremio.\n");
+  	say(TO->query_cap_name()+" avanza de nivel.\n");
+	TO->set_sp(0);
+  	TO->save();
+  	return 1;
+	}
+
+int ajustar_xp_necesaria(float xp,int lvl) {
+  	for (int i=2;i<=lvl;i++) {
+    		if (i <= 5) xp *= 1.9;
+     		else if (i <= 10) xp *= 1.5;
+       		else xp *= 1.1;
+      		}
+	return (int)xp;
+	}
+
+void set_apellido(string str) { apellido=str; }
+string query_apellido() { return apellido; }
+
+string procesar_salidas(string str) {
+    mapping ss=(["n":"norte","ne":"noreste","e":"este","se":"sudeste","s":"sur","so":"sudoeste","o":"oeste","no":"noroeste","ar":"arriba","ab":"abajo","de":"dentro","fu":"fuera"]);
+    if(ss[str]) return ss[str];
+    else return str;
+    }
+
+mixed process_input(string str) {
+	if(!TO->action_check(str)) return 1;
+	if(TO->soul_com(str)) return 1;
+	if(do_cmd(str)) return 1;
+	str=procesar_salidas(str);
+	if(TO->lower_check(str)) command(str);
+	else return str;
+	return 1;
+	}

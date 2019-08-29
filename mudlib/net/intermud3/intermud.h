@@ -6,13 +6,13 @@ class list {
     mapping List;
 }
 
-static void create();
-static void Setup();
-static void eventRead(mixed *packet);
-static void eventRequestMudList();
-static void eventRequestChannelList();
-static void eventSocketClose();
-static void eventConnectionFailure();
+void create();
+void Setup();
+void eventRead(mixed *packet);
+void eventRequestMudList();
+void eventRequestChannelList();
+void eventSocketClose();
+void eventConnectionFailure();
 int SetDestructOnClose(int x);
 int SetSocketType(int x);
 string GetMudName(string mud);

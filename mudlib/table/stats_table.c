@@ -97,6 +97,19 @@ int calc_damage_bonus(int e)
     case 26 .. 27:
       damage_bonus = 4;
       break;
+/* ERM... TIKITIKITIIII!!! xD Tabla original (que aun esta):
+		str		extr		res		bonus
+		18		0		18		2
+		18		1-7		19-25		3
+		18		8-9		26-27		4
+		18		10-..		28-..		5
+		19-25		0		19-25		3
+		26-27		0		26-27		4
+		28-..		0		28-..		5
+
+	... Buahahahahahaha!
+*/
+
     case 28 .. 100:
       damage_bonus = 5;
       break;

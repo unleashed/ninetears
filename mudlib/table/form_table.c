@@ -140,5 +140,5 @@ void list_valid_forms(object player) {
     output = implode(valid_forms, "\n");
     printf("%-#*s", player->query_cols(), output+"\n");
     write("\n");
-    return 1;
+    return ;
 }

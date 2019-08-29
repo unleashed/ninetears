@@ -10,7 +10,7 @@ void create() {
 void set_my_ob(object ob) { my_ob = ob; }
 object query_my_ob() { return my_ob; }
 
-move(dest, str, str1) {
+varargs int move(mixed dest, string str, string str1) {
   if (!dest->query_property("watertight")) {
     write("The liquid drips all over the floor and disappears.\n");
     say(this_player()->short()+" trys to put some liquid into "+dest->short()+

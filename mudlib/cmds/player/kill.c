@@ -22,14 +22,14 @@ string query_short_help()
         return "Starts attacking the specified targets.";
 }
 
-static int cmd (string str, object me)
+int cmd (string str, object me)
 {
   int i;
   object *obs;
 
   if (!str || str == "")
     {
-    notify_fail("Usage: kill <object>\n");
+    notify_fail("Uso: matar <persona>\n");
     return 0;
     }
 
@@ -37,22 +37,22 @@ static int cmd (string str, object me)
 
   if (str=="all" || str[0..0] == "0")
     {
-    notify_fail("Sorry, not allowed.\n");
+    notify_fail("No esta permitido.\n");
     return 0;
     }
 
   // Fix by Wonderflug.  Ghosts shouldn't attack :)
   if ( me->query_dead() )
   {
-    notify_fail("Alas, your etherealness has little effect on "
-      "the material world.\n");
+    notify_fail("Tu estado etereo tiene poco efecto sobre "
+      "el mundo material.\n");
     return 0;
   }
 obs = find_match(str, environment(me));
  //obs = find_living(str, environment());
   if (!sizeof(obs) || obs[0]->query_hidden() == 1)
     {
-    notify_fail("Cannot find "+str+"\n");
+    notify_fail("No encuentras a "+CAP(str)+".\n");
     return 0;
     }
 
@@ -62,13 +62,13 @@ obs = find_match(str, environment(me));
 
   if (obs[0]==me)
     {
-    notify_fail("Why commit suicide?\n");
+    notify_fail("Quieres suicidarte?\n");
     return 0;
     }
   if(!obs[0]->query_alive())
   {
-    notify_fail("You begin to hack away at "+str+", but "+str+" doesn't "
-		"seem to notice.\n");
+    notify_fail("Comienzas a atacar a "+str+", pero "+str+" parece "
+		"no notarlo.\n");
     return 0;
   }
   for (i=0;i<sizeof(obs);i++)
@@ -83,6 +83,6 @@ obs = find_match(str, environment(me));
       log_attack(me->query_name(), me->query_level(), obs[i]->query_name(),
                obs[i]->query_level());
   }
-  write("Ok.  Fight with "+str+" starts.\n");
+  write("Ok. La lucha con "+str+" comienza.\n");
   return 1;
 }

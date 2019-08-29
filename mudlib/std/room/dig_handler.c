@@ -55,12 +55,12 @@ int query_wielded_pick()
             tool = olist[i];
             return(1);
          }
-         if((string)olist[i]->query_name() == "mining pick")
+         if((string)olist[i]->query_name() == "pico de minero")
          {
             tool = olist[i];
             return(1);
          }
-         if((string)olist[i]->query_name() == "pick")
+         if((string)olist[i]->query_name() == "pico")
          {
             tool = olist[i];
             return(1);
@@ -74,7 +74,7 @@ void do_dig(mixed *dig_exit, mixed *dig_where,
               object room_ob, string direc)
 {
    mixed path = file_name(room_ob);
-   string adirec = "hole";
+   string adirec = "hueco";
 
    int i,j;
    mixed *dlist,*dwhere;
@@ -90,15 +90,15 @@ void do_dig(mixed *dig_exit, mixed *dig_where,
          {
             if(query_wielded_pick())
             {
-            write("\n   Why would you dig somewhere that a way"+
-                  " of passage already exists.  Try digging else"+
-                  "where.\n\n");
-               say("\n   "+TPN+" prepares to dig"+
-                  ", takes a step forward then stops, slaps "+TPP+
-                  " forehead and looks digruntled.\n\n");
+            write("\nPor que ibas a cavar en un sitio donde ya "+
+                  "existe una via de paso? Intentalo en otro "+
+                  "lugar.\n\n");
+               say("\n"+TPN+" se prepara para cavar, da un paso "+
+                  "adelante y se para, se frota la barbilla "
+                  "y pone mala cara.\n\n");
              return(1);
             }
-         write("\n   Dig with what?\n\n");
+         write("\nCavar con que?\n\n");
           return(1);
          }
       }
@@ -107,57 +107,57 @@ void do_dig(mixed *dig_exit, mixed *dig_where,
          string where = dwhere[i];
          if(query_wielded_pick())
          {
-            write("\n   You begin to dig slowly into the earth, but"+
-                  " meet difficulty immediately.  The rock and dirt"+
-                  " here has been settled for so long, it seems that"+
-                  " it will be immpossible to make any progress.  With"+
-                  " determination and a little time however, you are"+
-                  " finally able to dig a hole.\n\n");
+            write("\nComienzas a cavar lentamente en el suelo, pero "+
+                  "encuentras dificultades. La roca y los estratos "+
+                  "han permanecido durante tanto tiempo que parece "+
+                  "imposible progresar. Pese a ello, con determinacion "+
+                  "y esfuerzo terminas por abrir un hoyo.\n\n");
              tell_room(environment(this_player()),"\n   "+
-                  this_player()->query_cap_name()+" begins to dig"+
-                  " into the earth with fierce determination"+
-                  ".  After a considerable amount of digging a"+
-                  " nice size hole develops.\n\n",({this_player()}));
-            room_ob->add_exit(direc,where,"hole");
+                  this_player()->query_cap_name()+" empieza a cavar "+
+                  "en el suelo con feroz determinacion"+
+                  ". Tras cavar durante un buen rato se abre un "+
+                  "hermoso hoyo.\n\n",({this_player()}));
+            room_ob->add_exit(direc,where,"standard");
             room_ob->init();
             room_ob->renew_exits();
-               if(direc == "east")
-                 adirec = "west";
-               if(direc == "west")
-                 adirec = "east";
-               if(direc == "north")
-                 adirec = "south";
-               if(direc == "south")
-                 adirec = "north";
-               if(direc == "up")
-                 adirec = "down";
-               if(direc == "down")
-                 adirec = "up";
-               if(direc == "northeast")
-                 adirec = "southwest";
-               if(direc == "southeast")
-                 adirec = "northwest";
-               if(direc == "northwest")
-                 adirec = "southeast";
-               if(direc == "southwest")
-                  adirec = "northeast";
-            where->add_exit(adirec,path,"hole");
+               if(direc == "este")
+                 adirec = "oeste";
+               if(direc == "oeste")
+                 adirec = "este";
+               if(direc == "norte")
+                 adirec = "sur";
+               if(direc == "sur")
+                 adirec = "norte";
+               if(direc == "arriba")
+                 adirec = "abajo";
+               if(direc == "abajo")
+                 adirec = "arriba";
+               if(direc == "noreste")
+                 adirec = "sudoeste";
+               if(direc == "sudeste")
+                 adirec = "noroeste";
+               if(direc == "noroeste")
+                 adirec = "sudeste";
+               if(direc == "sudoeste")
+                  adirec = "noreste";
+               if(direc == "dentro")
+                  adirec = "fuera";
+               if(direc == "fuera")
+                  adirec = "dentro";
+            where->add_exit(adirec,path,"standard");
          return(1);
          }
-      write("\n   Dig with what?\n\n");
+      write("\nCavar con que?\n\n");
       return(1);
       }
    }
-   write("\n   You start to dig into the earth with such vigor that"+
-         " the air is growing dusty and thick with dirt.  It is only"+
-         " after you take a rest that you realize that the hole is"+
-         " growing very slowly...  Looks like your gonna be digging for a"+
-         " while.\n\n");
+   write("\nComienzas a cavar en el suelo con tal vigor que el aire "+
+         "se llena de polvo rapidamente. Tan solo despues de tomar "+
+         "un descanso te das cuenta que el hoyo apenas crece... "+
+         "Parece como si tuvieras que cavar toda una eternidad.\n\n");
      say("\n   "+
-         this_player()->query_cap_name()+" starts to dig with a"+
-         " determination that you can only admire."+
-         "\n\n"+
-         " ");
+         this_player()->query_cap_name()+" comienza a cavar con tal "+
+         "furia y determinacion que tan solo puedes admirar su inutil "+
+         "esfuerzo.\n\n");
    return(1);
 }
-

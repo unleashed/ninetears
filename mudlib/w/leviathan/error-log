@@ -1,0 +1,658 @@
+w/leviathan/log.c line 29: String too long
+w/leviathan/log.c line 29: parse error
+w/leviathan/log.c line 53: String too long
+w/leviathan/log.c line 53: parse error
+w/leviathan/log.c line 76: String too long
+w/leviathan/log.c line 76: parse error
+w/leviathan/log.c line 86: parse error
+w/leviathan/log.c line 106: String too long
+w/leviathan/log.c line 86: parse error
+w/leviathan/log.c line 120: String too long
+w/leviathan/log.c line 86: parse error
+w/leviathan/log.c line 150: String too long
+w/leviathan/log.c line 86: parse error
+w/leviathan/log.c line 187: String too long
+w/leviathan/log.c line 86: parse error
+w/leviathan/log.c line 208: String too long
+w/leviathan/log.c line 86: parse error
+w/leviathan/log.c line 221: String too long
+w/leviathan/log.c line 86: parse error
+w/leviathan/log.c line 236: String too long
+w/leviathan/log.c line 86: parse error
+w/leviathan/log.c line 256: String too long
+w/leviathan/log.c line 86: parse error
+w/leviathan/log.c line 274: String too long
+w/leviathan/log.c line 86: parse error
+w/leviathan/log.c line 294: String too long
+w/leviathan/log.c line 86: parse error
+w/leviathan/log.c line 313: String too long
+w/leviathan/log.c line 86: parse error
+w/leviathan/log.c line 332: String too long
+w/leviathan/log.c line 86: parse error
+w/leviathan/log.c line 352: String too long
+w/leviathan/log.c line 86: parse error
+w/leviathan/log.c line 370: String too long
+w/leviathan/log.c line 86: parse error
+w/leviathan/log.c line 386: String too long
+w/leviathan/log.c line 86: parse error
+w/leviathan/log.c line 402: String too long
+w/leviathan/log.c line 86: parse error
+w/leviathan/log.c line 419: String too long
+w/leviathan/log.c line 86: parse error
+w/leviathan/log.c line 428: String too long
+w/leviathan/log.c line 86: parse error
+w/leviathan/log.c line 86: parse error
+w/leviathan/pensar.c line 16: parse error
+w/leviathan/pensar.c line 16: parse error
+w/leviathan/pensar.c line 16: parse error
+w/leviathan/pensar.c line 16: parse error
+w/leviathan/pensar.c line 16: parse error
+w/leviathan/pensar.c line 16: parse error
+w/leviathan/workroom.c line 70: Illegal lvalue
+w/leviathan/uviu/obj/espada_hielo.c line 4: Warning: redefinition of #define QCN
+
+w/leviathan/desplazadordealmas.c line 25: parse error
+w/leviathan/desplazadordealmas.c line 26: parse error
+w/leviathan/desplazadordealmas.c line 25: parse error
+w/leviathan/workroom.c line 1: parse error
+w/leviathan/workroom.c line 1: parse error
+w/leviathan/workroom.c line 1: parse error
+w/leviathan/workroom.c line 1: parse error
+w/leviathan/workroom.c line 1: parse error
+w/leviathan/workroom.c line 1: parse error
+w/leviathan/workroom.c line 1: parse error
+w/leviathan/workroom.c line 1: parse error
+w/leviathan/workroom.c line 1: parse error
+w/leviathan/workroom.c line 1: parse error
+w/leviathan/workroom.c line 1: parse error
+w/leviathan/workroom.c line 1: parse error
+w/leviathan/workroom.c line 1: parse error
+w/leviathan/workroom.c line 4: parse error
+w/leviathan/uviu/obj/espada_hielo.c line 4: Warning: redefinition of #define QCN
+
+w/leviathan/torre/torreprueba0000.c line 8: parse error
+w/leviathan/torre/torreprueba0000.c line 8: parse error
+w/leviathan/torre/torreprueba0000.c line 8: parse error
+w/leviathan/torre/torreprueba0000.c line 8: parse error
+w/leviathan/torre/torreprueba0000.c line 8: parse error
+w/leviathan/torre/torreprueba0000.c line 8: parse error
+w/leviathan/torre/torreprueba0000.c line 8: parse error
+w/leviathan/uviu/obj/espada_hielo.c line 4: Warning: redefinition of #define QCN
+
+w/leviathan/uviu/obj/criada.c line 4: Warning: redefinition of #define QCN
+
+w/leviathan/demonio.c line 119: Undefined variable 'RECOMPENSA_HANDLER'
+w/leviathan/demon.c line 119: Undefined variable 'RECOMPENSA_HANDLER'
+w/leviathan/demon.c line 119: Undefined variable 'RECOMPENSA_HANDLER'
+w/leviathan/demon.c line 27: Undefined variable 'quien'
+w/leviathan/demon.c line 33: Undefined variable 'i'
+w/leviathan/demon.c line 51: Reserved type name unexpected.
+w/leviathan/demon.c line 51: parse error
+w/leviathan/demon.c line 33: Undefined variable 'i'
+w/leviathan/demon.c line 51: Reserved type name unexpected.
+w/leviathan/demon.c line 51: parse error
+w/leviathan/demon.c line 50: Reserved type name unexpected.
+w/leviathan/demon.c line 50: parse error
+w/leviathan/demon.c line 50: Reserved type name unexpected.
+w/leviathan/demon.c line 50: parse error
+w/leviathan/demon.c line 70: Illegal LHS
+w/leviathan/desplazadordealmas.c line 2: parse error
+w/leviathan/desplazadordealmas.c line 2: parse error
+w/leviathan/keltia/rooms/muralla0001.c line 17: Undefined variable 'ANDUAR'
+w/leviathan/keltia/rooms/muralla0001.c line 17: parse error
+w/leviathan/guildtroll/barracks.c line 77: No such inherited function ::do_advance
+w/leviathan/guildtroll/barracks.c line 77: No such inherited function ::do_advance
+w/leviathan/anduar/obj/latigo.c line 1: parse error
+w/leviathan/anduar/obj/latigo.c line 1: parse error
+w/leviathan/anduar/npcs/capataz.c line 21: Undefined variable 'OBJ'
+w/leviathan/anduar/npcs/capataz.c line 21: parse error
+w/leviathan/guildtroll/barracks.c line 77: No such inherited function ::do_advance
+w/leviathan/guildtroll/barracks.c line 77: No such inherited function ::do_advance
+w/leviathan/anduar/npcs/guardia2.c line 26: Undefined variable 'OBJ'
+w/leviathan/anduar/npcs/guardia2.c line 26: parse error
+w/leviathan/anduar/npcs/guardia2.c line 30: parse error
+w/leviathan/anduar/npcs/guardia2.c line 40: End of file in string
+w/leviathan/anduar/npcs/guardia2.c line 30: parse error
+w/leviathan/anduar/npcs/guardia2.c line 40: End of file in string
+w/leviathan/guildtroll/barracks.c line 77: No such inherited function ::do_advance
+w/leviathan/guildtroll/barracks.c line 77: No such inherited function ::do_advance
+w/leviathan/guildtroll/barracks.c line 77: No such inherited function ::do_advance
+w/leviathan/guildtroll/barracks.c line 77: No such inherited function ::do_advance
+w/leviathan/anduar/rooms/imuralla.c line 117: Undefined variable 'NPCS'
+w/leviathan/anduar/rooms/muralla0001.c line 9: Undefined function des_larga
+w/leviathan/anduar/rooms/muralla0001.c line 9: Undefined function desc_larga
+w/leviathan/anduar/rooms/mercado1610.c line 9: Undefined function desc_larga
+w/leviathan/anduar/rooms/residencias1210.c line 9: Undefined function desc_larga
+w/leviathan/anduar/npcs/guardiapuerta.c line 73: Undefined variable 'TIEMPO'
+w/leviathan/anduar/rooms/puerta0314.c line 31: Undefined function do_command
+w/leviathan/anduar/rooms/puerta0314.c line 40: Undefined variable 'mensaje'
+w/leviathan/anduar/rooms/puerta0314.c line 40: Undefined variable 'donde'
+w/leviathan/anduar/rooms/puerta0314.c line 40: No such inherited function ::event_enter
+w/leviathan/anduar/rooms/puerta0314.c line 31: Undefined function do_command
+w/leviathan/anduar/rooms/puerta0314.c line 39: Undefined variable 'mensaje'
+w/leviathan/anduar/rooms/puerta0314.c line 39: Undefined variable 'donde'
+w/leviathan/anduar/rooms/puerta0314.c line 39: No such inherited function ::event_enter
+w/leviathan/anduar/rooms/puerta0314.c line 39: Undefined variable 'mensaje'
+w/leviathan/anduar/rooms/puerta0314.c line 39: Undefined variable 'donde'
+w/leviathan/anduar/rooms/puerta0314.c line 39: No such inherited function ::event_enter
+w/leviathan/anduar/rooms/puerta0314.c line 42: parse error
+w/leviathan/anduar/rooms/puerta0314.c line 27: Undefined variable 'tp'
+w/leviathan/anduar/rooms/puerta1425.c line 1: parse error
+w/leviathan/anduar/rooms/monumento1315.c line 9: Undefined function long_desc
+w/leviathan/anduar/rooms/monumento1315.c line 9: Undefined function crea_bichos
+w/leviathan/anduar/rooms/monumento1315.c line 9: Undefined function long_desc
+w/leviathan/anduar/rooms/monumento1315.c line 9: Undefined function crea_bichos
+w/leviathan/anduar/rooms/monumento1315.c line 9: Undefined function long_desc
+w/leviathan/anduar/rooms/monumento1315.c line 9: Undefined function crea_bichos
+w/leviathan/anduar/rooms/monumento1315.c line 9: Undefined function long_desc
+w/leviathan/anduar/rooms/monumento1315.c line 9: Undefined function crea_bichos
+w/leviathan/anduar/rooms/monumento1315.c line 9: Undefined function long_desc
+w/leviathan/anduar/rooms/monumento1315.c line 9: Undefined function crea_bichos
+w/leviathan/armaduradeluz.c line 2: parse error
+/w/leviathan/workroom.c line 42: Warning: Expression has no side effects, and the value is unused before );
+/w/leviathan/workroom.c line 42: Warning: Expression has no side effects, and the value is unused before );
+/w/leviathan/workroom.c line 42: Warning: Expression has no side effects, and the value is unused before );
+/w/leviathan/bar.c line 5: Cannot #include ../path.h before the end of line
+/w/leviathan/bar.c line 14: Undefined function add_menu_item before ;
+/w/leviathan/bar.c line 34: Undefined function add_menu_alias before ;
+/w/leviathan/bar.c line 60: Undefined variable 'ANDUAR' before );
+/w/leviathan/bar.c line 60: parse error before );
+/w/leviathan/bar.c line 84: Illegal LHS before the end of line
+/w/leviathan/workroom.c line 42: Warning: Expression has no side effects, and the value is unused before );
+/w/leviathan/npcs/servicio.c line 1: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/leviathan/npcs/servicio.c line 1: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/leviathan/npcs/servicio.c line 37: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 37: Warning: Function inherited from '/obj/monster.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/npcs/servicio.c line 44: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 48: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 48: Warning: Function inherited from '/std/living/combat.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/pensar.c line 16: Warning: Expression has no side effects, and the value is unused before );
+/w/leviathan/capilla.c line 22: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/capilla.c line 22: Warning: Function inherited from '/std/noncombat.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/workroom.c line 42: Warning: Expression has no side effects, and the value is unused before );
+/w/leviathan/npcs/servicio.c line 1: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/leviathan/npcs/servicio.c line 1: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/leviathan/npcs/servicio.c line 37: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 37: Warning: Function inherited from '/obj/monster.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/npcs/servicio.c line 44: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 48: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 48: Warning: Function inherited from '/std/living/combat.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/pensar.c line 16: Warning: Expression has no side effects, and the value is unused before );
+/w/leviathan/capilla.c line 22: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/capilla.c line 22: Warning: Function inherited from '/std/noncombat.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/mazab.c line 43: Warning: Number of arguments disagrees with previous definition. before 
+/w/leviathan/mazab.c line 55: Warning: Number of arguments disagrees with previous definition. before 
+/w/leviathan/mazab.c line 60: Undefined variable 'defensor' before query_align()<0 || a
+/w/leviathan/mazab.c line 60: Undefined variable 'atacante' before query_align()>0 )
+/w/leviathan/mazab.c line 43: Warning: Number of arguments disagrees with previous definition. before 
+/w/leviathan/mazab.c line 55: Warning: Number of arguments disagrees with previous definition. before 
+/w/leviathan/mazab.c line 60: Undefined variable 'defensor' before query_align()<0 || a
+/w/leviathan/mazab.c line 60: Undefined variable 'atacante' before query_align()>0 )
+/w/leviathan/mazab.c line 43: Warning: Number of arguments disagrees with previous definition. before 
+/w/leviathan/mazab.c line 55: Warning: Number of arguments disagrees with previous definition. before 
+/w/leviathan/mazab.c line 60: Undefined variable 'defensor' before query_align()<0 || a
+/w/leviathan/mazab.c line 60: Undefined variable 'atacante' before query_align()>0 )
+/w/leviathan/multi.c line 3: Warning: Redeclaration of global variable 'armour_ac'. before the end of line
+/w/leviathan/multi.c line 3: Warning: Redeclaration of global variable 'armour_type'. before the end of line
+/w/leviathan/multi.c line 6: parse error before  get_ipmsg(object);
+/w/leviathan/multi.c line 3: Warning: Redeclaration of global variable 'armour_ac'. before the end of line
+/w/leviathan/multi.c line 3: Warning: Redeclaration of global variable 'armour_type'. before the end of line
+/w/leviathan/multi.c line 6: parse error before  get_ipmsg(object);
+/w/leviathan/multi.c line 6: parse error before  string get_ipmsg(ob
+/w/leviathan/multi.c line 6: parse error before  get_ipmsg(object);
+/w/leviathan/multi.c line 5: parse error before  get_ipmsg(object);
+/w/leviathan/multi.c line 6: parse error before  get_file_name(objec
+/w/leviathan/multi.c line 6: parse error before  get_file_name(objec
+/w/leviathan/multi.c line 9: parse error before  setup()
+/w/leviathan/multi.c line 5: parse error before  get_ipmsg(object);
+/w/leviathan/multi.c line 3: parse error before  get_ipmsg(object);
+/w/leviathan/multi.c line 3: parse error before  get_ipmsg;
+/w/leviathan/multi.c line 3: parse error before  get_ipmsg;
+/w/leviathan/workroom.c line 42: Warning: Expression has no side effects, and the value is unused before );
+/w/leviathan/npcs/servicio.c line 1: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/leviathan/npcs/servicio.c line 1: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/leviathan/npcs/servicio.c line 37: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 37: Warning: Function inherited from '/obj/monster.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/npcs/servicio.c line 44: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 48: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 48: Warning: Function inherited from '/std/living/combat.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/pensar.c line 16: Warning: Expression has no side effects, and the value is unused before );
+/w/leviathan/capilla.c line 22: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/capilla.c line 22: Warning: Function inherited from '/std/noncombat.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/workroom.c line 42: Warning: Expression has no side effects, and the value is unused before );
+/w/leviathan/npcs/servicio.c line 1: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/leviathan/npcs/servicio.c line 1: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/leviathan/npcs/servicio.c line 37: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 37: Warning: Function inherited from '/obj/monster.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/npcs/servicio.c line 44: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 48: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 48: Warning: Function inherited from '/std/living/combat.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/workroom.c line 42: Warning: Expression has no side effects, and the value is unused before );
+/w/leviathan/npcs/servicio.c line 1: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/leviathan/npcs/servicio.c line 1: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/leviathan/npcs/servicio.c line 37: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 37: Warning: Function inherited from '/obj/monster.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/npcs/servicio.c line 44: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 48: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 48: Warning: Function inherited from '/std/living/combat.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/pensar.c line 16: Warning: Expression has no side effects, and the value is unused before );
+/w/leviathan/capilla.c line 22: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/capilla.c line 22: Warning: Function inherited from '/std/noncombat.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/workroom.c line 42: Warning: Expression has no side effects, and the value is unused before );
+/w/leviathan/npcs/servicio.c line 1: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/leviathan/npcs/servicio.c line 1: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/leviathan/npcs/servicio.c line 37: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 37: Warning: Function inherited from '/obj/monster.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/npcs/servicio.c line 44: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 48: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 48: Warning: Function inherited from '/std/living/combat.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/workroom.c line 42: Warning: Expression has no side effects, and the value is unused before );
+/w/leviathan/npcs/servicio.c line 1: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/leviathan/npcs/servicio.c line 1: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/leviathan/npcs/servicio.c line 37: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 37: Warning: Function inherited from '/obj/monster.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/npcs/servicio.c line 44: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 48: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 48: Warning: Function inherited from '/std/living/combat.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/pensar.c line 16: Warning: Expression has no side effects, and the value is unused before );
+/w/leviathan/capilla.c line 22: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/capilla.c line 22: Warning: Function inherited from '/std/noncombat.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/workroom.c line 42: Warning: Expression has no side effects, and the value is unused before );
+/w/leviathan/npcs/servicio.c line 1: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/leviathan/npcs/servicio.c line 1: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/leviathan/npcs/servicio.c line 37: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 37: Warning: Function inherited from '/obj/monster.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/npcs/servicio.c line 44: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 48: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 48: Warning: Function inherited from '/std/living/combat.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/pensar.c line 16: Warning: Expression has no side effects, and the value is unused before );
+/w/leviathan/capilla.c line 22: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/capilla.c line 22: Warning: Function inherited from '/std/noncombat.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/capilla.c line 22: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/capilla.c line 22: Warning: Function inherited from '/std/noncombat.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/workroom.c line 42: Warning: Expression has no side effects, and the value is unused before );
+/w/leviathan/npcs/servicio.c line 1: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/leviathan/npcs/servicio.c line 1: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/leviathan/npcs/servicio.c line 37: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 37: Warning: Function inherited from '/obj/monster.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/npcs/servicio.c line 44: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 48: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 48: Warning: Function inherited from '/std/living/combat.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/pensar.c line 16: Warning: Expression has no side effects, and the value is unused before );
+/w/leviathan/workroom.c line 42: Warning: Expression has no side effects, and the value is unused before );
+/w/leviathan/npcs/servicio.c line 1: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/leviathan/npcs/servicio.c line 1: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/leviathan/npcs/servicio.c line 37: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 37: Warning: Function inherited from '/obj/monster.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/npcs/servicio.c line 44: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 48: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 48: Warning: Function inherited from '/std/living/combat.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/pensar.c line 16: Warning: Expression has no side effects, and the value is unused before );
+/w/leviathan/capilla.c line 22: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/capilla.c line 22: Warning: Function inherited from '/std/noncombat.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/npcs/capataz.c line 2: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/leviathan/npcs/capataz.c line 2: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/leviathan/npcs/capataz.c line 21: Undefined variable 'OBJ' before ,1);
+/w/leviathan/npcs/capataz.c line 21: parse error before ,1);
+/w/leviathan/workroom.c line 42: Warning: Expression has no side effects, and the value is unused before );
+/w/leviathan/npcs/servicio.c line 1: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/leviathan/npcs/servicio.c line 37: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 37: Warning: Function inherited from '/obj/monster.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/npcs/servicio.c line 44: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 48: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 48: Warning: Function inherited from '/std/living/combat.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/pensar.c line 16: Warning: Expression has no side effects, and the value is unused before );
+/w/leviathan/capilla.c line 22: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/capilla.c line 22: Warning: Function inherited from '/std/noncombat.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/kattak/este01.c line 2: Illegal to inherit after defining global variables. before 
+/w/leviathan/kattak/main11.c line 2: Illegal to inherit after defining global variables. before 
+/w/leviathan/kattak/armory.c line 2: Illegal to inherit after defining global variables. before 
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'light'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'int_light'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'map_prop'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'timed_prop'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'static_map_prop'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'timeleft'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'labels'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'short_d'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'plural_d'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'long_d'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'smells'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'feels'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'tastes'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'sounds'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'room_create_time'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'room_init_time'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'room_stabilize'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'room_clones'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'items'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'exit_map'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'door_locks'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'door_map'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'door_control'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'exit_string'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'short_exit_string'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'room_zone'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'dark_mess'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'dig_where'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'dig_exit'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'dest_direc'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'aliases'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'dest_other'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'co_ord'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'destables'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'hidden_objects'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'exit_color'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'night_exit_color'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'loginroom'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable '_BT_'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'extra_looks'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'night_long'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'dark_long'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Illegal to redefine 'nomask' function "query_dest_dir" before the end of line
+/w/leviathan/kattak/norte01.c line 14: Undefined variable 'OUTDOOR' before ;
+/w/leviathan/kattak/norte01.c line 15: Undefined variable 'CITY' before ;
+/w/leviathan/kattak/norte01.c line 17: Undefined variable 'ROOM' before "norte02", "road"); 
+/w/leviathan/kattak/norte01.c line 21: Undefined variable 'NPC' before "soldier",2);    
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'light'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'int_light'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'map_prop'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'timed_prop'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'static_map_prop'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'timeleft'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'labels'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'short_d'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'plural_d'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'long_d'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'smells'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'feels'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'tastes'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'sounds'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'room_create_time'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'room_init_time'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'room_stabilize'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'room_clones'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'items'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'exit_map'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'door_locks'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'door_map'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'door_control'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'exit_string'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'short_exit_string'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'room_zone'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'dark_mess'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'dig_where'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'dig_exit'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'dest_direc'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'aliases'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'dest_other'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'co_ord'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'destables'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'hidden_objects'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'exit_color'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'night_exit_color'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'loginroom'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable '_BT_'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'extra_looks'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'night_long'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Warning: Redeclaration of global variable 'dark_long'. before the end of line
+/w/leviathan/kattak/norte01.c line 2: Illegal to redefine 'nomask' function "query_dest_dir" before the end of line
+/w/leviathan/kattak/norte01.c line 14: Undefined variable 'OUTDOOR' before ;
+/w/leviathan/kattak/norte01.c line 15: Undefined variable 'CITY' before ;
+/w/leviathan/kattak/norte01.c line 17: Undefined variable 'ROOM' before "norte02", "road"); 
+/w/leviathan/kattak/norte01.c line 21: Undefined variable 'NPC' before "soldier",2);    
+/w/leviathan/workroom.c line 42: Warning: Expression has no side effects, and the value is unused before );
+/w/leviathan/npcs/servicio.c line 1: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/leviathan/npcs/servicio.c line 37: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 37: Warning: Function inherited from '/obj/monster.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/npcs/servicio.c line 44: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 48: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 48: Warning: Function inherited from '/std/living/combat.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/pensar.c line 16: Warning: Expression has no side effects, and the value is unused before );
+/w/leviathan/capilla.c line 22: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/capilla.c line 22: Warning: Function inherited from '/std/noncombat.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/workroom.c line 42: Warning: Expression has no side effects, and the value is unused before );
+/w/leviathan/npcs/servicio.c line 1: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/leviathan/npcs/servicio.c line 37: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 37: Warning: Function inherited from '/obj/monster.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/npcs/servicio.c line 44: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 48: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 48: Warning: Function inherited from '/std/living/combat.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/pensar.c line 16: Warning: Expression has no side effects, and the value is unused before );
+/w/leviathan/capilla.c line 22: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/capilla.c line 22: Warning: Function inherited from '/std/noncombat.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/workroom.c line 42: Warning: Expression has no side effects, and the value is unused before );
+/w/leviathan/npcs/servicio.c line 1: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/leviathan/npcs/servicio.c line 37: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 37: Warning: Function inherited from '/obj/monster.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/npcs/servicio.c line 44: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 48: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 48: Warning: Function inherited from '/std/living/combat.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/pensar.c line 16: Warning: Expression has no side effects, and the value is unused before );
+/w/leviathan/capilla.c line 22: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/capilla.c line 22: Warning: Function inherited from '/std/noncombat.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/workroom.c line 42: Warning: Expression has no side effects, and the value is unused before );
+/w/leviathan/npcs/servicio.c line 1: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/leviathan/npcs/servicio.c line 37: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 37: Warning: Function inherited from '/obj/monster.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/npcs/servicio.c line 44: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 48: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 48: Warning: Function inherited from '/std/living/combat.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/pensar.c line 16: Warning: Expression has no side effects, and the value is unused before );
+/w/leviathan/capilla.c line 22: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/capilla.c line 22: Warning: Function inherited from '/std/noncombat.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/kit.c line 57: Reserved type name unexpected. before ()
+/w/leviathan/kit.c line 57: parse error before ()
+/w/leviathan/kit.c line 233: Warning: Unused local variable 'env' before the end of line
+/w/leviathan/kit.c line 556: Warning: Unused local variable 'rank' before the end of line
+/w/leviathan/kit.c line 556: Warning: Unused local variable 'dom' before the end of line
+/w/leviathan/kit.c line 58: parse error before the end of line
+/w/leviathan/kit.c line 233: Warning: Unused local variable 'env' before the end of line
+/w/leviathan/kit.c line 556: Warning: Unused local variable 'rank' before the end of line
+/w/leviathan/kit.c line 556: Warning: Unused local variable 'dom' before the end of line
+/w/leviathan/workroom.c line 42: Warning: Expression has no side effects, and the value is unused before );
+/w/leviathan/npcs/servicio.c line 1: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/leviathan/npcs/servicio.c line 37: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 37: Warning: Function inherited from '/obj/monster.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/npcs/servicio.c line 44: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 48: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 48: Warning: Function inherited from '/std/living/combat.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/pensar.c line 16: Warning: Expression has no side effects, and the value is unused before );
+/w/leviathan/capilla.c line 22: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/capilla.c line 22: Warning: Function inherited from '/std/noncombat.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/workroom.c line 42: Warning: Expression has no side effects, and the value is unused before );
+/w/leviathan/npcs/servicio.c line 1: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/leviathan/npcs/servicio.c line 37: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 37: Warning: Function inherited from '/obj/monster.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/npcs/servicio.c line 44: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 48: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 48: Warning: Function inherited from '/std/living/combat.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/pensar.c line 16: Warning: Expression has no side effects, and the value is unused before );
+/w/leviathan/capilla.c line 22: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/capilla.c line 22: Warning: Function inherited from '/std/noncombat.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/workroom.c line 42: Warning: Expression has no side effects, and the value is unused before );
+/w/leviathan/npcs/servicio.c line 1: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/leviathan/npcs/servicio.c line 37: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 37: Warning: Function inherited from '/obj/monster.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/npcs/servicio.c line 44: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 48: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 48: Warning: Function inherited from '/std/living/combat.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/pensar.c line 16: Warning: Expression has no side effects, and the value is unused before );
+/w/leviathan/capilla.c line 22: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/capilla.c line 22: Warning: Function inherited from '/std/noncombat.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/workroom.c line 42: Warning: Expression has no side effects, and the value is unused before );
+/w/leviathan/npcs/servicio.c line 1: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/leviathan/npcs/servicio.c line 37: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 37: Warning: Function inherited from '/obj/monster.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/npcs/servicio.c line 44: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 48: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 48: Warning: Function inherited from '/std/living/combat.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/pensar.c line 16: Warning: Expression has no side effects, and the value is unused before );
+/w/leviathan/capilla.c line 22: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/capilla.c line 22: Warning: Function inherited from '/std/noncombat.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/workroom.c line 42: Warning: Expression has no side effects, and the value is unused before );
+/w/leviathan/npcs/servicio.c line 1: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/leviathan/npcs/servicio.c line 37: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 37: Warning: Function inherited from '/obj/monster.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/npcs/servicio.c line 44: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 48: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 48: Warning: Function inherited from '/std/living/combat.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/pensar.c line 16: Warning: Expression has no side effects, and the value is unused before );
+/w/leviathan/capilla.c line 22: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/capilla.c line 22: Warning: Function inherited from '/std/noncombat.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/workroom.c line 42: Warning: Expression has no side effects, and the value is unused before );
+/w/leviathan/npcs/servicio.c line 1: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/leviathan/npcs/servicio.c line 37: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 37: Warning: Function inherited from '/obj/monster.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/npcs/servicio.c line 44: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 48: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 48: Warning: Function inherited from '/std/living/combat.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/pensar.c line 16: Warning: Expression has no side effects, and the value is unused before );
+/w/leviathan/capilla.c line 22: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/capilla.c line 22: Warning: Function inherited from '/std/noncombat.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/kit.c line 58: parse error before the end of line
+/w/leviathan/kit.c line 233: Warning: Unused local variable 'env' before the end of line
+/w/leviathan/kit.c line 556: Warning: Unused local variable 'rank' before the end of line
+/w/leviathan/kit.c line 556: Warning: Unused local variable 'dom' before the end of line
+/w/leviathan/workroom.c line 42: Warning: Expression has no side effects, and the value is unused before );
+/w/leviathan/npcs/servicio.c line 1: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/leviathan/npcs/servicio.c line 37: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 37: Warning: Function inherited from '/obj/monster.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/npcs/servicio.c line 44: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 48: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 48: Warning: Function inherited from '/std/living/combat.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/pensar.c line 16: Warning: Expression has no side effects, and the value is unused before );
+/w/leviathan/capilla.c line 22: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/capilla.c line 22: Warning: Function inherited from '/std/noncombat.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/exec_tmp.c line 2: "#pragma strict_types" requires type of function before ) { destruct(this_ob
+/w/leviathan/exec_tmp.c line 3: "#pragma strict_types" requires type of function before ) {
+/w/leviathan/comandos/desaparecer.c line 7: Cannot #include tweaks.h before the end of line
+/w/leviathan/comandos/desaparecer.c line 84: Warning: Unused local variable 'target' before the end of line
+/w/leviathan/comandos/desaparecer.c line 84: Warning: Unused local variable 'i' before the end of line
+/w/leviathan/comandos/hide.c line 23: "#pragma strict_types" requires type of function before object him)
+/w/leviathan/comandos/hide.c line 36: "#pragma strict_types" requires type of function before object him)
+/w/leviathan/comandos/hide_in_shad.c line 7: Cannot #include /std/commands/tweaks.h before #define EXTRA_BONUS 
+/w/leviathan/comandos/hide_in_shad.c line 19: Undefined variable 'HIDE_COST' before "\n"
+/w/leviathan/comandos/hide_in_shad.c line 40: Undefined variable 'HIDE_COST' before the end of line
+/w/leviathan/comandos/rastrear.c line 136: "#pragma strict_types" requires type of function before object me, object vi
+/w/leviathan/comandos/rastrear.c line 136: Warning: Previous function prototype does not match current function in return type ( void vs unknown ) before the end of line
+/w/leviathan/comandos/lanzar.c line 140: Undefined function find_one_match before ;
+/w/leviathan/comandos/lanzar.c line 214: Warning: Unused local variable 'xp' before the end of line
+/w/leviathan/comandos/lanzar.c line 214: Warning: Unused local variable 'danyo' before the end of line
+/w/leviathan/comandos/lanzar.c line 140: Undefined function find_one_match before ;
+/w/leviathan/comandos/lanzar.c line 214: Warning: Unused local variable 'xp' before the end of line
+/w/leviathan/comandos/lanzar.c line 214: Warning: Unused local variable 'danyo' before the end of line
+/w/leviathan/comandos/desaparecer.c line 7: Cannot #include tweaks.h before the end of line
+/w/leviathan/comandos/desaparecer.c line 84: Warning: Unused local variable 'target' before the end of line
+/w/leviathan/comandos/desaparecer.c line 84: Warning: Unused local variable 'i' before the end of line
+/w/leviathan/comandos/desaparecer.c line 7: Cannot #include tweaks.h before the end of line
+/w/leviathan/comandos/desaparecer.c line 84: Warning: Unused local variable 'target' before the end of line
+/w/leviathan/comandos/desaparecer.c line 84: Warning: Unused local variable 'i' before the end of line
+/w/leviathan/comandos/desaparecer.c line 84: Warning: Unused local variable 'target' before the end of line
+/w/leviathan/comandos/desaparecer.c line 84: Warning: Unused local variable 'i' before the end of line
+/w/leviathan/dummy.c line 3: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/leviathan/dummy.c line 20: Warning: Number of arguments disagrees with previous definition. before  
+/w/leviathan/dummy.c line 36: Undefined variable 'remover' before ;
+/w/leviathan/dummy.c line 39: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/dummy.c line 39: Warning: Function inherited from '/obj/monster.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/dummy.c line 43: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/dummy.c line 47: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/dummy.c line 47: Warning: Function inherited from '/std/living/combat.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/dummy.c line 3: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/leviathan/dummy.c line 20: Warning: Number of arguments disagrees with previous definition. before  
+/w/leviathan/dummy.c line 36: Undefined variable 'remover' before ;
+/w/leviathan/dummy.c line 39: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/dummy.c line 39: Warning: Function inherited from '/obj/monster.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/dummy.c line 43: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/dummy.c line 47: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/dummy.c line 47: Warning: Function inherited from '/std/living/combat.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/dummy.c line 3: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/leviathan/dummy.c line 20: Warning: Number of arguments disagrees with previous definition. before  
+/w/leviathan/dummy.c line 39: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/dummy.c line 39: Warning: Function inherited from '/obj/monster.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/dummy.c line 43: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/dummy.c line 47: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/dummy.c line 47: Warning: Function inherited from '/std/living/combat.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/dummy.c line 3: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/leviathan/dummy.c line 20: Warning: Number of arguments disagrees with previous definition. before  
+/w/leviathan/dummy.c line 39: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/dummy.c line 39: Warning: Function inherited from '/obj/monster.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/dummy.c line 43: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/dummy.c line 47: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/dummy.c line 47: Warning: Function inherited from '/std/living/combat.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/dummy.c line 3: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/leviathan/dummy.c line 20: Warning: Number of arguments disagrees with previous definition. before  
+/w/leviathan/dummy.c line 39: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/dummy.c line 39: Warning: Function inherited from '/obj/monster.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/dummy.c line 43: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/dummy.c line 47: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/dummy.c line 47: Warning: Function inherited from '/std/living/combat.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/workroom.c line 42: Warning: Expression has no side effects, and the value is unused before );
+/w/leviathan/npcs/servicio.c line 1: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/leviathan/npcs/servicio.c line 37: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 37: Warning: Function inherited from '/obj/monster.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/npcs/servicio.c line 44: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 48: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/servicio.c line 48: Warning: Function inherited from '/std/living/combat.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/pensar.c line 16: Warning: Expression has no side effects, and the value is unused before );
+/w/leviathan/capilla.c line 22: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/capilla.c line 22: Warning: Function inherited from '/std/noncombat.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/dummy.c line 3: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/leviathan/dummy.c line 20: Warning: Number of arguments disagrees with previous definition. before  
+/w/leviathan/dummy.c line 39: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/dummy.c line 39: Warning: Function inherited from '/obj/monster.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/dummy.c line 43: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/dummy.c line 47: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/dummy.c line 47: Warning: Function inherited from '/std/living/combat.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/dummy.c line 3: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/leviathan/dummy.c line 39: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/dummy.c line 39: Warning: Function inherited from '/obj/monster.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/dummy.c line 43: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/dummy.c line 47: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/dummy.c line 47: Warning: Function inherited from '/std/living/combat.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/dummy.c line 3: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/leviathan/dummy.c line 39: Warning: Function inherited from '/obj/monster.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/dummy.c line 43: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/dummy.c line 47: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/dummy.c line 47: Warning: Function inherited from '/std/living/combat.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/dummy.c line 3: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/leviathan/dummy.c line 43: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/dummy.c line 47: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/dummy.c line 47: Warning: Function inherited from '/std/living/combat.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/dummy.c line 3: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/leviathan/dummy.c line 43: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/dummy.c line 47: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/dummy.c line 47: Warning: Function inherited from '/std/living/combat.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/dummy.c line 3: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/leviathan/dummy.c line 43: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/dummy.c line 47: Warning: Function inherited from '/std/living/combat.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/dummy.c line 3: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/leviathan/dummy.c line 43: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/dummy.c line 3: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/leviathan/dummy.c line 3: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/leviathan/dummy.c line 3: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/leviathan/dummy.c line 3: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/leviathan/dummy.c line 3: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/leviathan/paladines/barracks.c line 42: Undefined function add_specialization before ;
+/w/leviathan/paladines/barracks.c line 55: Warning: Unused local variable 'i' before the end of line
+/w/leviathan/paladines/meeting.c line 17: "#pragma strict_types" requires type of function before arg)
+/w/leviathan/paladines/meeting.c line 17: Missing type for argument before )
+/w/leviathan/paladines/meeting.c line 23: Type of returned value doesn't match function return type ( int vs void ) before the end of line
+/w/leviathan/paladines/meeting.c line 28: Type of returned value doesn't match function return type ( int vs void ) before the end of line
+/w/leviathan/paladines/meeting.c line 37: Type of returned value doesn't match function return type ( int vs void ) before the end of line
+/w/leviathan/paladines/meeting.c line 40: "#pragma strict_types" requires type of function before arg)
+/w/leviathan/npcs/dummy.c line 1: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/leviathan/npcs/dummy.c line 39: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/dummy.c line 39: Warning: Function inherited from '/obj/monster.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/npcs/dummy.c line 43: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/dummy.c line 47: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/leviathan/npcs/dummy.c line 47: Warning: Function inherited from '/std/living/combat.c' does not match current function in return type ( void vs int ) before the end of line
+/w/leviathan/dummy.c line 3: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/leviathan/demon.c line 6: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/leviathan/kit.c line 58: parse error before the end of line
+/w/leviathan/kit.c line 233: Warning: Unused local variable 'env' before the end of line
+/w/leviathan/kit.c line 556: Warning: Unused local variable 'rank' before the end of line
+/w/leviathan/kit.c line 556: Warning: Unused local variable 'dom' before the end of line
+/w/leviathan/npcs/ghorothor.c line 2: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/leviathan/dummy.c line 3: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/leviathan/dummy.c line 3: Warning: Redeclaration of global variable 'spells'. before the end of line

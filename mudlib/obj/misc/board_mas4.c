@@ -105,7 +105,6 @@ void init() {
 }
 
 void string_more(string arg, string prompt) {
-  object obj;
 /* changed to our more_string
 
   if (!(obj = (object)MAIL_SERVER->mail_reader(this_player()))) {
@@ -170,8 +169,6 @@ int read(string str) {
 }
 
 int post(string str) {
-  string body;
-
   notify_fail("Syntax: post <subject>\n");
   if (!str)
     return 0;

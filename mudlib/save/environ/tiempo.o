@@ -1,0 +1,13 @@
+#/w/vilat/tiempo.c
+map_prop ([])
+timed_prop ([])
+extra_looks ({})
+create_me "Object"
+noche 1
+minuto 24
+hora 16
+dia 8
+mes 1
+anyo 144
+luna_jb 7
+estacion "Herm"

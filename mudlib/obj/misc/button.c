@@ -1,11 +1,11 @@
 inherit "std/object";
 
 void setup() {
-  add_adjective("red");
+  add_adjective("rojo");
   reset_drop();
   set_weight(10000000);
-  set_name("button");
-  set_short("red button");
+  set_name("boton");
+  set_short("boton rojo");
   set_long(
 "This is a red button that destructs all non-player objects in the room.  "+
 "USE WITH EXTREME CAUTION.\n");

@@ -8,7 +8,7 @@ void setup()
   position = 1;
 }
 
-static int cmd(string str, object me)
+int cmd(string str, object me)
   {
   string guild;
   object victim;
@@ -35,7 +35,12 @@ static int cmd(string str, object me)
   write ("To hit bonus: " + (string)victim->query_tohit_bonus() + "\n");
   write ("Guildname: " + (string)guild->query_name() + "\n");
   //write ("Extreme: " + (int)guild->query_extr_str() + "\n");
-  write ("Dice: " + (int)guild->query_dice() + "\n");
+	// query_dice() obsoleto
+  write ("Dice (OBSOLETO): " + (int)guild->query_dice() + "\n");
+  write ("Hp Dice: " + (int)guild->query_hp_dice(victim) + "\n");
+  write ("Min Hp: " + (int)guild->query_hp_min(victim) + "\n");
+  write ("Gp Dice: " + (int)guild->query_gp_dice(victim) + "\n");
+  write ("Min Gp: " + (int)guild->query_gp_min(victim) + "\n");
   write ("Thac0 step: " + (int)guild->query_thac0_step() + "\n");
   write ("Advance cost:" + (int)guild->query_advance_cost() + "\n");
   write ("XP base cost:" + (int)guild->query_xp_cost() + "\n");

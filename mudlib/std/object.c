@@ -27,7 +27,7 @@ void create() {
   this_object()->setup();
 }
 
-void set_name(string str) 
+void set_name(string str)
 {
   if (name && name != "object") return ;
   name = str;
@@ -37,9 +37,9 @@ void set_name(string str)
 }
 
 int query_enchant() { return 0; }
-status set_enchant(int i) { return 0; }
-status query_weapon() { return 0;}
-status query_armour() { return 0; }
+int set_enchant(int i) { return 0; }
+int query_weapon() { return 0;}
+int query_armour() { return 0; }
 
 mixed *stats() {
   return ::stats() + ({
@@ -65,14 +65,14 @@ mixed *query_init_data() {
  * This is here till I can delete it...  ie the new system is functioning.
  */
 mapping int_query_static_auto_load() {
-  return ([ "weight" : weight, "light" : light, "short" : short_d, 
-            "long" : long_d, "adjective" : adjectives, "alias" : alias, 
-            "plural" : plurals, "weight" : weight, "name" : name, 
+  return ([ "weight" : weight, "light" : light, "short" : short_d,
+            "long" : long_d, "adjective" : adjectives, "alias" : alias,
+            "plural" : plurals, "weight" : weight, "name" : name,
             "main plural" : plural_d, "value" : value ]);
 } /* query_static_auto_load() */
 
 mapping query_dynamic_auto_load() {
-  return ([ 
+  return ([
             /*"labels" : "/global/player"->create_auto_load(labels),*/
             "properties" : map_prop,
             "timed"     : freeze_timed_properties(timed_prop), /* Hamlet */
@@ -137,7 +137,7 @@ void init_arg(mixed *bing) {
   map_prop = bing[10];
   value = bing[12];
 } /* init_arg() */
- 
+
 int query_dead()
 {
  return 1;
@@ -167,4 +167,4 @@ dest_me();
         return 1; /* try again later... */
 }
 
-nomask query_create_me() { return create_me; }
+nomask string query_create_me() { return create_me; }

@@ -38,6 +38,8 @@ int enchant,value_adjustment;
 
 int ac, max_ac, min_ac;
 
+int min_level;
+
 /* this is the values from the weapon_table: */
 /* Look at /table/weapon_table for explanation. */
 
@@ -52,8 +54,9 @@ private int rolls,
             dice,
             roll_add;
 
+private int roll_add_backup;
 
-static object wielder; 
+nosave object wielder; 
 
 /* HACK !!! HAS TO BE FIXED ASAP"!!!!!! */
 /* Baldrick 9 apr '94 */
@@ -185,12 +188,6 @@ int query_enchant()
 void set_twohanded(int flag) { twohanded = flag; }
 int query_twohanded() { return twohanded; }
 
-int set_name(string str) 
-  {
-  ::set_name(str);
-  return 1;
-}
-
 /* I hope we don't ever use the following, but just in case: */
 void set_ac(int max1, int min1) 
   {
@@ -259,8 +256,8 @@ void create()
   cond = max_ac - min_ac; 
   max_cond = max_ac - min_ac; 
   weapon_logic::create();
-  add_alias("weapon"); 
-  add_plural("weapons"); 
+  //add_alias("arma"); 
+  //add_plural("armas"); 
   set_holdable(1);
 
   // Radix : Oct 1996
@@ -276,8 +273,10 @@ int query_hands_needed()
   return 1;
 } 
 int query_damage_roll()
-  {
-  return ( roll(rolls, dice) + roll_add );
+{ 
+  //Zonzamas '02 como el roll_add puede ser negativo el danyo minimo es 1
+  int damage = roll(rolls, dice) + roll_add;
+  return (damage<0?1:damage);
 }
 
 // Called by /obj/handlers/item_info.c - Radix
@@ -398,9 +397,7 @@ string enchant_string()
 
 mixed *weapon_stats() 
   {
-  int i;
   mixed *ret; 
-  string form;
   
   ret = ({ }); 
   // for (i=0;i<sizeof(attack_out);i+=7) 
@@ -479,3 +476,21 @@ mapping query_static_auto_load()
   return ([ ]);
 } /* query_static_auto_load() */
 
+
+//Zonzamas '02
+
+void set_min_level(int level){
+  min_level = level;
+}
+
+void hold(object owner){
+  roll_add_backup = roll_add;
+  if (owner->query_level()<min_level){    
+    tell_object(owner,"Te sientes algo incomodo usando "+(string)this_object()->short()+".\n");
+    roll_add = - (int)(1+((min_level-owner->query_level())/2));
+  }     
+}
+
+void unhold(){
+  roll_add = roll_add_backup;
+}

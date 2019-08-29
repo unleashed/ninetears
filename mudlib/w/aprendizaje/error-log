@@ -1,0 +1,3 @@
+/w/aprendizaje/picoleto.c line 3: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/aprendizaje/hunther2.c line 5: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/aprendizaje/hunther2.c line 62: Warning: Number of arguments disagrees with previous definition. before  {

@@ -14,7 +14,7 @@ void start_player(object player)
 {
     object ob;
     player->set_gender(1);
-    player->set_guild_ob("/std/guilds/warriors/paladin.c");
+    player->set_guild_ob("/d/gremios/guerreros/paladin.c");
     ob = clone_object("/std/races/items/varntxt.c");
     if(ob) ob->move(player);
     player->remove_language("common");

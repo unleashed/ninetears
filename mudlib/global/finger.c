@@ -1,12 +1,12 @@
 string password, email;
-static string tmp_password;
+nosave string tmp_password;
 string real_name, birth_day, desc, where;
+string titulo = "s";
 
 void finger_commands() {
   add_action("chfn", "chfn");
   add_action("set_email","email");
-  //add_action("finger","finger");
-  add_action("describe","describe");
+  add_action("describe","describir");
   add_action("change_password","password");
   add_action("change_password","passwd");
 } /* finger_commands() */
@@ -23,7 +23,7 @@ int finger(string str) {
     obs = users();
 
     write(sprintf("%-12.12s    %-20.20s %-20.20s %-20.20s\n",
-                  "Name", "Real name", "Where", "Birthday"));
+                  "Nombre", "Real name", "Domicilio", "Cumpleanyos"));
     for (i=0;i<sizeof(obs);i++)
     {
       string euid;
@@ -67,7 +67,7 @@ int finger(string str) {
     write("Intermud finger on its way.\n");
     return 1;
   } else {
-    notify_fail("Noone going by the name of " + str + " has ever visited " +
+    notify_fail("Nadie con el nombre " + str + " ha visitado " +
       mud_name() + ".\n");
     return 0;
   }
@@ -110,18 +110,18 @@ string query_desc() { return desc; }
 int describe(string arg) {
   if (!arg) {
     if(desc)
-      notify_fail("Usage: describe <string>\n"+
-                  "       describe clear\n"+
-                  "description reads : "+this_object()->query_cap_name()+" "+desc+"\n");
+      notify_fail("Uso: describir <texto>\n"+
+                  "     describir clear\n"+
+                  "Tu descripcion : "+this_object()->query_cap_name()+" "+desc+"\n");
     else
-      notify_fail("Usage: describe <string>\n"+
-                  "       describe clear\n"+
-                 "no description set.\n");
+      notify_fail("Uso: describir <texto>\n"+
+                  "     describir clear\n"+
+                 "No has puesto tu descripcion.\n");
     return 0;
   }
   if(arg == "clear") {
     desc = 0;
-    write("Description cleared.\n");
+    write("Descripcion borrada.\n");
     return 1;
   }
   set_desc(arg);
@@ -137,9 +137,9 @@ void set_password(string pass) {
 
 int change_password2(mixed pass);
 
-static int change_password() {
+protected int change_password() {
   if (password) {
-    write("Please enter your old password : ");
+    write("Pon tu password antiguo: ");
     input_to("change_password2",1);
     return 1;
   }
@@ -147,32 +147,32 @@ static int change_password() {
   return 1;
 } /* change_password() */
 
-static int change_password2(mixed pass) {
+protected int change_password2(mixed pass) {
   string str;
   if (password) {
     str = crypt(pass,password);
     if (str != password) {
-      write("\nIncorrect.\n");
+      write("\nIncorrecto.\n");
       return 1;
     }
   }
-  write("\nEnter new Password : ");
+  write("\nPon tu nuevo password : ");
   input_to("change_password3",1);
   return 1;
 } /* change_password2() */
 
-static string tmppassword;
+private string tmppassword;
 
-static int change_password3(string pass) {
+protected int change_password3(string pass) {
   tmppassword = pass;
-  write("\nPlease enter again : ");
+  write("\nOtra vez por favor : ");
   input_to("change_password4",1);
   return 1;
 } /* change_password3() */
 
-static int change_password4(string pass) {
+protected int change_password4(string pass) {
   if (tmppassword != pass) {
-    write("\nIncorrect.\n");
+    write("\nIncorrecto.\n");
     return 1;
   }
   password = crypt(pass,password);
@@ -182,51 +182,65 @@ static int change_password4(string pass) {
 string query_birthday();
 
 int chfn() {
-  write("Change finger information.\n");
-  write("Pressing return at the prompts will take the default.  The default "+
-        "is the option in []'s.\n");
+  write("Cambiar informacion personal.\n");
+  write("Si presionas enter en las preguntas se tomara la opcion por "+
+	"defecto. La opcion por defecto esta encerrada en []'s.\n");
   
   if(this_object()->query_registrated()) {
-    write("Enter your location (ie Hawaii, Tokyo, whatever) ["+where+"]\n"+
-          "(none for none) : ");
+    write("Domicilio (p.e. A Corunya, Valencia, ...) ["+where+"]\n"+
+          "(ninguno para ninguno) : ");
     input_to("get_where");
     return 1;
   }
 
-  write("What real name do you wish to use ["+real_name+"] ? ");
+  write("Introduce tu nombre real ["+real_name+"] ? ");
   input_to("real_name");
   return 1;
 } /* chfn() */
 
+void mostrar_titulo(string str) {
+  if(str == "n") {
+	titulo = "n";
+    write("Ocultando tu titulo.\n");
+  }
+  else if(str == "s") {
+	titulo = "s";
+    write("Mostrando tu titulo.\n");
+  }
+  else
+    write("Estado de tu titulo no modificado.\n");
+  return;
+}
+
 int real_name(string str) {
   if (str && str != "")
-    if (str == "none")
+    if (str == "none" || str == "ninguno")
       real_name = 0;
     else
       real_name = str;
   if (real_name && real_name != "")
-    write("Ok real name set to "+real_name+".\n");
+    write("Ok, tu nombre real es "+real_name+".\n");
   else
-    write("Real name cleared.\n");
+    write("Nombre real borrado.\n");
   write(
-"Enter your location (ie Hawaii, Tokyo, whatever) ["+where+"]\n"+
-"(none for none) : ");
+"Domicilio (p.e. A Corunya, Valencia, ...) ["+where+"]\n"+
+"(ninguno para ninguno) : ");
   input_to("get_where");
   return 1;
 } /* real_name() */
 
 int get_where(string str) {
   if (str && str != "")
-    if (str == "none")
+    if (str == "none" || str == "ninguno")
       where = 0;
     else
       where = str;
   if (where && where != "")
-    write("Ok location set to "+where+".\n");
+    write("Ok, tu domicilio es "+where+".\n");
   else
-    write("Location cleared.\n");
-  write("Enter your birthday (ddmm) ["+query_birthday()+
-        "] (none for none) : ");
+    write("Domicilio borrado.\n");
+  write("Cumpleanyos (ddmm) ["+query_birthday()+
+        "] (ninguno para ninguno) : ");
   input_to("birthday");
   return 1;
 } /* get_where() */
@@ -240,6 +254,7 @@ string convert_birthday(string str) {
   sscanf(str, "%d", tot);
   day = tot / 100;
   month = tot % 100;
+/*
   switch(day) {
     case 11:
       retval = "11th"; break;
@@ -258,33 +273,34 @@ string convert_birthday(string str) {
         default:
           retval = day+"th";
       }
-  }
-  retval += " of ";
+  }*/
+	retval = day + " de ";
+  //retval += " of ";
   switch(month) {
     case 1:
-      return retval + "January";
+      return retval + "Enero";
     case 2:
-      return retval + "February";
+      return retval + "Febrero";
     case 3:
-      return retval + "March";
+      return retval + "Marzo";
     case 4:
-      return retval + "April";
+      return retval + "Abril";
     case 5:
-      return retval + "May";
+      return retval + "Mayo";
     case 6:
-      return retval + "June";
+      return retval + "Junio";
     case 7:
-      return retval + "July";
+      return retval + "Julio";
     case 8:
-      return retval + "August";
+      return retval + "Agosto";
     case 9:
-      return retval + "September";
+      return retval + "Septiembre";
     case 10:
-      return retval + "October";
+      return retval + "Octubre";
     case 11:
-      return retval + "November";
+      return retval + "Noviembre";
     case 12:
-      return retval + "December";
+      return retval + "Diciembre";
   }
   return retval;
 } /* convert_birthday() */
@@ -315,7 +331,7 @@ string query_birthday() {
   if(birth_day) {
     return birth_day;
   }
-  return "Unknown";
+  return "Desconocido";
 } /* query_birthday() */
 
 int set_birthday(string str)
@@ -331,33 +347,34 @@ int set_birthday(string str)
 void birthday(string str) {
   if (str == "") {
     if (birth_day)
-      write("Birthday unchanged from "+query_birthday()+".\n");
+      write("Cumpleanyos no modificado: "+query_birthday()+".\n");
     else
-      write("Birthday left as blank.\n");
+      write("Cumpleanyos dejado en blanco.\n");
   } else {
     if(query_birthday() != "Unknown") {
-      write("You can't change when you were born! Please ask a " +
-        "God to change it if you made an error.\n");
+      write("No puedes cambiar donde naciste! Pregunta a un dios " +
+        "para cambiarlo si te equivocaste.\n");
     } else if(!valid_birthday(str)) {
-        write("Invalid Birthday.  Birthday cleared.\n");
+        write("Cumpleanyos invalido. Borrado.\n");
         birth_day = 0;
     } else {
       birth_day = convert_birthday(str);
-      write("Birthday set to " + query_birthday() + ".\n");
+      write("Cumpleanyos en " + query_birthday() + ".\n");
       this_object()->birthday_gifts();
     }
   }
   this_object()->save_me();
   if(!this_object()->query_registrated()) {
-    write("What email address do you wish to use.  Set to none to clear.\n");
-    write("Putting a : in front of it means that only the MUD Admins "+
-          "can read it.\n");
+    write("Introduce tu direccion de correo electronico. 'ninguna' para "+
+	"borrarla.\n");
+    write("Poniendo ':' delante solo la podran ver los inmortales"+
+          ".\n");
     write("["+email+"] : ");
     input_to("get_email");
   }
   else {
-    write("Do you want other players to see your email address? "
-          "(y or n) [y] : ");
+    write("Deseas que los demas jugadores vean tu direccion de email? "
+          "(s o n) [s] : ");
     input_to("mod_email");
   }
 } /* birthday() */
@@ -365,59 +382,73 @@ void birthday(string str) {
 void get_email(string str) {
   if (str == "")
     if (!email || email == "")
-      write("Email address left blank.\n");
+      write("Direccion email en blanco.\n");
     else
-      write("Email address left as "+email+".\n");
-  else if (str == "none") {
+      write("Direccion email dejada como "+email+".\n");
+  else if (str == "ninguno" || str == "none" || str == "ninguna") {
     email = 0;
-    write("Email address cleared.\n");
+    write("Direccion de correo electronico borrada.\n");
   } else {
     email = str;
-    write("Email address set to "+email+".\n");
+    write("Direccion email: "+email+".\n");
   }
+	// mostrar titulo y tal
+	write("Deseas mostrar tu titulo a los demas? (s o n)["+titulo+"] ");
+	input_to("mostrar_titulo");
+
   this_object()->save_me();
 } /* get_email() */
 
 void mod_email(string str) {
   if(str == "")
-    str = "y";
+    str = "s";
   if(str == "n") {
     if(email && (email[0..0] != ":"))
       email = ":" + email;
-    write("Only immortals will see your email address.\n");
+    write("Solo los inmortales podran ver tu email.\n");
   }
-  else if(str == "y") {
+  else if(str == "s") {
     if(email && (email[0..0] == ":"))
       email = email[1..sizeof(email)-1];
-    write("Players will see your email address.\n");
+    write("Los jugadores podran ver tu email.\n");
   }
   else
-    write("Email status unchanged.\n");
+    write("Estado de tu direccion email no modificado.\n");
   if(this_object()->query_registrated()) {
-        write("Do you want other players to see your real name? "
-          "(y or n) [y] : ");
+        write("Deseas que otros jugadores vean tu nombre real? "
+          "(s o n) [s] : ");
      input_to("mod_real_name");
   }
+	else {
+	// vaya paranoias
+	// mostrar titulo y tal
+	write("Deseas mostrar tu titulo a los demas? (s o n)["+titulo+"] ");
+	input_to("mostrar_titulo");
+	}
+
   return;
 }
 
 void mod_real_name(string str) {
   if(str == "")
-    str = "y";
+    str = "s";
   if(str == "n") {
     if(real_name && (real_name[0..0] != ":"))
       real_name = ":" + real_name;
-    write("Only immortals will see your real name.\n");
+    write("Solo los inmortales podran ver tu nombre real.\n");
     return;
   }
-  if(str == "y") {
+  if(str == "s") {
     if(real_name && (real_name[0..0] == ":"))
       real_name = real_name[1..sizeof(email)-1];
-    write("Players will see your real name.\n");
+    write("Los jugadores podran ver tu nombre real.\n");
     return;
   }
 
-  write("Real name status unchanged.\n");
+  write("Estado de tu nombre real no modificado.\n");
+	// mostrar titulo y tal
+	write("Deseas mostrar tu titulo a los demas? (s o n)["+titulo+"] ");
+	input_to("mostrar_titulo");
   return;
 }
 
@@ -427,7 +458,8 @@ int query_is_birthday_today() {
 
     if(sscanf(ctime(time()), "%s %s %d %s", dummy, cmonth, cdate, dummy)!=4)
         return 0; /* error in date */
-    if(sscanf(query_birthday(), "%d%s of %s", bdate, dummy, bmonth) !=3)
+    //if(sscanf(query_birthday(), "%d%s de %s", bdate, dummy, bmonth) !=3)
+    if(sscanf(query_birthday(), "%d de %s", bdate, bmonth) !=2)
         return 0; /* no bday set */
     if(cmonth == bmonth[0..2] && cdate == bdate)
         return 1;
@@ -435,3 +467,4 @@ int query_is_birthday_today() {
 
 string query_real_name() { return real_name; }
 string query_where() { return where; }
+int query_show_title() { return (titulo == "s") ? 1:0; }

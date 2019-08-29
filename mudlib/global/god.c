@@ -6,14 +6,9 @@ string query_gtitle()
 {
   string patronage;
   patronage = "/secure/gods"->query_boo(name);
-  /* I don't think it is a female Thane.. title..
-  if(query_female())
-    return "the Master of "+patronage;
-   return "the Dean of "+patronage;
-   */
-   return "the Dean";
-   
-}
+  if(query_female()) return "la Diosa de"+patronage;
+  return "el Dios de"+patronage;
+    }
 
 /* Maybe this shouldn't be here.. but I need it right now. Should make it
    unshadowable. Baldy.. */

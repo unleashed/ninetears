@@ -411,7 +411,6 @@ private int call_callback(int fd, int err) {
 #ifdef HISTORICAL_STATS
 private void store_stats(int fd, int err) {
   string caller;
-  int i;
 
   if(fd == 0)
     hist["GLOBALS:"][CREATED]++;  /* This is really ones NOT created */
@@ -432,7 +431,7 @@ private void store_stats(int fd, int err) {
       hist[caller][READTIME] += (time() - fds[fd][TIMESTATS][FIRSTREAD]);
       hist[caller][NUMPACKETS] += fds[fd][TIMESTATS][NUMPACKET];
 
-      hist["GLOBALS:"][BOUND] += (fds[fd][TIMESTATS][BOUND] - 
+      hist["GLOBALS:"][BOUND] += (fds[fd][TIMESTATS][BOUND] -
                                   fds[fd][TIMESTATS][CREATED]);
       hist["GLOBALS:"][CONNECTED] += (fds[fd][TIMESTATS][CONNECTED] -
                                       fds[fd][TIMESTATS][BOUND]);
@@ -440,7 +439,7 @@ private void store_stats(int fd, int err) {
                                       fds[fd][TIMESTATS][CONNECTED]);
     }
 #endif
-  } 
+  }
 }
 #endif
 

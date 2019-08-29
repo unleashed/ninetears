@@ -5,8 +5,8 @@
 mixed *values;
 
 void create() {
-  values = ({ "copper", 1, "silver", 10,
-              "electrum", 50, "gold", 100, "platinum", 500 });
+  values = ({ "cobre", 1, "plata", 10,
+              "estanyo", 50, "oro", 100, "platino", 500 });
 }
 
 void add_type(string type, int value) {
@@ -48,10 +48,10 @@ int query_total_value(mixed m_array) {
 
 string money_string(mixed m_array) {
   string retval;
-  int i, n;
+  int i;
 
   if (!sizeof(m_array))
-    return "0 copper coins";
+    return "0 monedas de cobre";
   retval = "";
   while (i<sizeof(m_array))
     if (!m_array[i+1])
@@ -61,14 +61,14 @@ string money_string(mixed m_array) {
   for (i=0;i<sizeof(m_array);i+=2) {
     retval += m_array[i+1]+" "+m_array[i];
     if (i == sizeof(m_array)-4)
-      retval += " and ";
+      retval += " y ";
     else if (i != sizeof(m_array)-2)
       retval += ", ";
   }
   if(sizeof(m_array)>2 || m_array[1]>1)
-    return retval+" coins";
+    return retval;
   else
-    return retval+" coin";
+    return retval;
 }
 
 /* given a value return a useful money array for it.

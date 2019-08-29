@@ -1,11 +1,17 @@
-INHERITANCE
+.DT
+inheritance
+FR-MUD's efun help
+inheritance
 
+Inheritance
+.SP 5 5
 An object can inherit all variables and functions from another object.
 This is done with the declaration 'inherit "file";'. This must come before
 any local variables or functions.
+.EP
 
-An example, defining a monster:
-
+Example
+.SI 5
 inherit "obj/monster";
 
 reset(arg) {
@@ -19,3 +25,4 @@ reset(arg) {
     set_long("It is a nasty troll that looks very aggressive.\n");
     set_aggressive(1);
 }
+.EI

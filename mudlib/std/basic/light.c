@@ -1,4 +1,4 @@
-static int light, int_light;
+nosave int light, int_light;
 
 int query_light() {
   return light + int_light;
@@ -30,7 +30,7 @@ int adjust_light(int i) {
   if (i) {
     if (environment() && !this_object()->query_property("opaque"))
       environment()->adjust_light(i);
-    event(this_object(), "light_change", i);
+//   event(this_object(), "light_change", i); // No se usa
   }
   return (int_light += i);
 }
@@ -39,7 +39,7 @@ int set_light(int i) {
   if (light - i) {
     if (environment())
       environment()->adjust_light(i-light);
-    event(this_object(), "light_change", i-light);
+//  event(this_object(), "light_change", i-light); // No se usa
   }
   return (light = i);
 }

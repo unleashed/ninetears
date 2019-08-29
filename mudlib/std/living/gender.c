@@ -14,9 +14,9 @@ int query_neuter() { return !gender; }
 string query_gender_string() {
   switch (gender) {
     case 0: return "asexual";
-    case 1: return "male";
-    case 2: return "female";
-    case 3: return "bisexual";
+    case 1: return "varon";
+    case 2: return "mujer";
+    case 3: return "hermafrodita";
   }
 }
 
@@ -24,42 +24,43 @@ string query_gender_title() {
   switch (gender) {
     case 1: return "Sir";
     case 2: return "Lady";
-    default: return "Creature";
+    default: return "Criatura";
   }
 }
  
 string query_objective() {
   switch (gender) {
-    case 1: return "him";
-    case 2: return "her";
-    default: return "it";
+    case 1: return "el";
+    case 2: return "ella";
+    default: return "ello";
   }
 }
  
 string query_possessive() {
-  switch (gender) {
-    case 1: return "his";
-    case 2: return "her";
-    default: return "its";
-  }
+  return "su";
+/*  switch (gender) {
+    case 1: return "su";
+    case 2: return "su";
+    default: return "su";
+  } */
 }
  
 string query_pronoun() {
   switch (gender) {
-    case 1: return "he";
-    case 2: return "she";
-    default: return "it";
+    case 1: return "el";
+    case 2: return "ella";
+    default: return "ello";
   }
 }
 
 // Bugfix by Aragorn 22/1/94
 void set_gender(mixed arg) {
   if (stringp(arg)) {
-    if (arg == "male" || arg == "1")
+    if (arg == "varon" || arg == "1")
       gender = 1;
-    else if (arg == "female" || arg == "2")
+    else if (arg == "mujer" || arg == "2")
       gender = 2;
-    else if (arg == "bisexual" || arg == "3")
+    else if (arg == "hermafrodita" || arg == "3")
       gender = 3;
     else
       gender = 0;
@@ -72,3 +73,5 @@ void set_gender(mixed arg) {
       gender = arg;
   }
 }
+
+string query_vocal() { return (gender==2?"a":"o"); }

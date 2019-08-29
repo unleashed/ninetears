@@ -1,0 +1,2 @@
+/w/lokpik/hunther2.c line 5: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/lokpik/hunther2.c line 61: Warning: Number of arguments disagrees with previous definition. before  {

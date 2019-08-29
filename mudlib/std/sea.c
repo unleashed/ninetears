@@ -28,7 +28,7 @@ void event_enter(object target, string MESG, object FROM)
    }
    if( interactive(target) && target->query_dead() )
    {
-      write("Since you are ghost you cannot swim.\n");
+      write("Tu alma no puede nadar.\n");
       target->move(death_room);
    }
     if(!target->query_property("free_action"))
@@ -42,8 +42,8 @@ void event_enter(object target, string MESG, object FROM)
 void destem(object target)
 {
     if(!target) return;
-    write("The " + target->query_short() + " dissapears into "
-      "the deep sea waters to be never seen again.\n");
+    write("El " + target->query_short() + " desaparece en las profundidades "
+      "para no ser visto jamas.\n");
     target->dest_me();
 }
 void init()
@@ -56,8 +56,8 @@ void init()
 }
 int no_can_do(string str)
 {
-    write("You cough as you swallow some water.\n");
-    say(TP->query_cap_name()+" swallows some water and coughs.\n",TP);
+    write("Toses al tragar algo de agua.\n");
+    say(TP->query_cap_name()+" traga un poco de agua y tose.\n",TP);
     return 1;
 }
 
@@ -70,10 +70,10 @@ int do_exit_command(string str, mixed verb, object ob, object foll)
 	verb = query_verb();
     if(ob->query_property("IS_SWIMMING"))
     {
-	notify_fail("You are already swimming to the "+verb+".\n");
+	notify_fail("Ya estas nadando hacia "+verb+".\n");
 	return 0;
     }
-    tell_object(ob,"You start swimming "+verb+".\n");
+    tell_object(ob,"Comienzas a nadar hacia "+verb+".\n");
     switch((ob->query_race_ob())->
       query_swim_stamina(ob))
     {
@@ -95,7 +95,7 @@ int do_exit_command(string str, mixed verb, object ob, object foll)
 int really_do_exit_command(string str, mixed verb, object ob, object foll)
 {
     if(!ob && this_player() ) ob = this_player();
-    if(!ob) return;
+    if(!ob) return 0;
     ob->remove_timed_property("IS_SWIMMING");
    ob->remove_timed_property("wolfbane"); // washes off dunnit
     ob->remove_static_property("nocast");
@@ -103,11 +103,11 @@ int really_do_exit_command(string str, mixed verb, object ob, object foll)
     ob->remove_static_property("seatmp");  
     if(!::do_exit_command(str, verb, ob, foll))
     {
-	notify_fail("You can't seem to get anywhere in "
-	  "that direction.\n");
+	notify_fail("Parece que no llegas a ningun sitio en "
+	  "esa direccion.\n");
 	return 0;
     }
-    tell_object(ob,"You swim "+verb+".\n");
+    tell_object(ob,"Nadas hacia "+verb+".\n");
     return 1;
 }
 
@@ -131,33 +131,32 @@ string query_death_location(string str)
 void create()
 {
     set_light(100);
-    set_long("Wet and watery, looks like you are all at sea.\n");
+    set_long("Humedo y acuoso, parece que estas en el mar.\n");
     ::create();
     add_property("location","sea_surface");
 }
 int set_uwater_location(string where)
 {
     drown_room = where;
-    add_exit("down",where,"hidden");
+    add_exit("abajo",where,"hidden");
 }
 
 void DO_SINK(object player,object from)
 {
    if(player->query_property("free_action"))
    {
-      tell_object(player, "%^CYAN%^Strange, you haven't the urge or need "+
-                  "to breathe.%^RESET%^\n");
+      tell_object(player, "%^CYAN%^Que raro, parece que no tienes la "+
+                  "necesidad de respirar.%^RESET%^\n");
       return;
    }
     if(drown_room && load_object(drown_room))
     {
-	tell_object(player,"Your strength fails you and you slip beneath the waves.\n");
-	really_do_exit_command(" ","down",player,0);
-	tell_room(from,player->query_cap_name()+" disappears below the waves.\n");
+	tell_object(player,"Tu fuerza falla y te hundes bajo las olas.\n");
+	really_do_exit_command(" ","abajo",player,0);
+	tell_room(from,player->query_cap_name()+" desaparece bajo las olas.\n");
     }
     else
     {
-	tell_object(player,"It seems your fears were unfounded, you sink a little and find yourself standing on the sea bed.\n");
+	tell_object(player,"Parece que tus temores no se hacen realidad, te hundes un poco y encuentras el suelo marino.\n");
     }
 }
-

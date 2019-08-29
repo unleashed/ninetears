@@ -20,32 +20,32 @@ int check_qsnoop(object ob) {
     return 0;
 } /* check_snoop() */
  
-static int cmd(string str, object me) {
+int cmd(string str, object me) {
   object *obs, *qobs;
   int i,j;
-      notify_fail("No one is being snooped by anyone.\n");
+      notify_fail("Nadie esta siendo snopeado por nadie.\n");
   qobs = filter_array(users(), "check_qsnoop", this_object());
   obs = filter_array(users(), "check_snoop", this_object());
   if (!"/secure/master"->high_programmer(geteuid(me)))
     if (!sizeof(obs)) {
-      notify_fail("No one is being snooped by anyone.\n");
+      notify_fail("Nadie esta siendo snoopeado por nadie.\n");
       return 0;
     } else {
       for (i=0;i<sizeof(obs);i++)
-        write(obs[i]->query_cap_name()+" is snooping "+
+        write(obs[i]->query_cap_name()+" esta snoopeando a "+
              obs[i]->query_snoopee()->query_cap_name()+".\n");
       return 1;
     }
   if (!sizeof(obs) && !sizeof(qobs)) {
-    notify_fail("No one is being snooped by anyone.\n");
+    notify_fail("Nadie esta siendo snoopeado por nadie.\n");
     return 0;
   } else {
     for (i=0;i<sizeof(obs);i++)
-      write(obs[i]->query_cap_name()+" is snooping "+
+      write(obs[i]->query_cap_name()+" esta snoopeando a "+
             obs[i]->query_snoopee()->query_cap_name()+".\n");
     for (i=0;i<sizeof(qobs);i++) {
       if (member_array(qobs[i],obs) == -1)
-        write(qobs[i]->query_cap_name()+" is qsnooping "+
+        write(qobs[i]->query_cap_name()+" esta qsnoopeando a "+
               query_snooping(qobs[i])->query_cap_name()+".\n");
     }
     return 1;

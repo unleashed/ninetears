@@ -8,8 +8,8 @@
 
 mapping *box_info;
 mapping my_groups;
-static mapping mud_groups;
-static string file;
+nosave mapping mud_groups;
+nosave string file;
 
 string *expand_list(string *who);
 string *expand_group(string grp);
@@ -25,30 +25,37 @@ void create() {
     box_info = ({});
     my_groups = ([]);
 
-    mud_groups = ([ 
-      "gods" : 
-      ({ "baldrick",
-         "benedick",
-         "asmodean"
+    mud_groups = ([
+      "dioses" :
+      ({ "barthleby",
+         "jade",
+         "tyrael",
+	 "vilat"
       }),
       "mudlib" :
-      ({ "baldrick",
-        "benedick",
-        "asmodean"
+      ({
+         "barthleby",
+         "jade",
+         "tyrael",
+	 "vilat"
       }),
-      "thanes" : 
+      "thanes" :
 	({
-         "baldrick",
-         "benedick",
-         "asmodean",
+         "barthleby",
+         "jade",
+         "tyrael",
+	 "vilat"
+         "thalos",
+         "flangerant",
+         "xerxes",
       }),
-      "bugs" : 
-      ({ "baldrick",
-	"benedick",
-       "asmodean",
+      "bugs" :
+      ({
+         "tyrael",
+	 "vilat"
       }),
    ]);
-    catch(mud_groups["patrons"] = "/d/aprior/master"->query_patrons());
+//    catch(mud_groups["patrons"] = "/d/aprior/master"->query_patrons());
 
 }
 
@@ -86,7 +93,7 @@ void retire_user(string who)
          ///return;
     update_post_box(who);
     if(find_player(who))
-	tell_object(find_player(who),"Removing your mail.\n");
+	tell_object(find_player(who),"Borrando tu correo.\n");
     foreach(m in box_info)
     remove_post(who, m["id"]);
     return;
@@ -153,8 +160,7 @@ string *expand_group(string grp) {
 }
 
 void add_post(string *local, mapping borg) {
-    string *tmp;
-    int i, max;
+    int i;
 
     if(!valid_access("add post")) return;
     if(!(i=sizeof(local))) return;
@@ -177,7 +183,7 @@ void remove_post(string who, string id) {
     box_info = exclude_array(box_info, x);
 }
 
-static int get_post_number(string id) {
+nomask int get_post_number(string id) {
     int i;
 
     i = sizeof(box_info);

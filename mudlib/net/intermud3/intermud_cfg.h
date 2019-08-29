@@ -4,7 +4,7 @@
 */
 
 /* Which mud is this for? */
-#define FR
+#define NINETEARS
 
 #define LOGFILE          "INTERMUD"
 #define SAVE_INTERMUD    "/net/intermud3/save/intermud"
@@ -38,7 +38,7 @@
 
 /* Can players receive intermud stuff?  Whether they can SEND has to
    be coded in the mudlib.  Channel logic doesn't matter.... the
-   mud's channel handler will cover that issue. 
+   mud's channel handler will cover that issue.
 */
 #define PLAYER_TELL
 #undef  PLAYER_EMOTETO

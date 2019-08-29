@@ -1,33 +1,24 @@
 inherit "/std/races/standard";
 #include "light_defs.inc"
 
-void setup() 
-{
-  set_long("A stout, dark complexioned, dwarf.\n");
-  set_name("duergar");
-  set_light_limits(LIGHT_DUERGAR_LOW, LIGHT_DUERGAR_HIGH);
-  set_race_size(3);
-  reset_get();
-}
+void setup() {
+  	set_long("Un robusto enano de complexion oscura.\n");
+  	set_name("duergar");
+  	set_light_limits(LIGHT_DUERGAR_LOW, LIGHT_DUERGAR_HIGH);
+  	set_race_size(3);
+	add_alineamiento(1,-1);
+	add_alineamiento(0,-1);
+	add_clase("Sacerdote");
+	add_clase("Guerrero");
+	}
 
-/* This is makeing a mess for me. */
-void set_racial_bonuses() 
-{
-  previous_object()->adjust_bonus_str(1);
-  previous_object()->adjust_bonus_con(1);
-  previous_object()->adjust_bonus_dex(-1);
-}
+int limitar_fue() { return 19; }
+int limitar_con() { return 19; }
+int limitar_des() { return 17; }
 
-int query_skill_bonus(int lvl, string skill) 
-{
-  return 0;
-}
+string query_desc(object ob) {
+ 	if((int)ob->query_gender() == 1) return "Un robusto enano de complexion oscura.\n";
+ 	return "Una robusta enana de complexion oscura.\n";
+	}
 
-/*
-string query_desc(object ob) 
-{
- if((int)ob->query_gender() == 1)
-  return "A stout, dark complexioned, dwarven male.\n";
- return "A black bearded dwarven female.\n";
-}
-*/
+int ajustar_reputacion() { return -2; }

@@ -4,16 +4,16 @@
 */
 
 /*
-   TODO:  
+   TODO:
    Cache the player objects, storing the gender, race, other
    numerous queries saving all those endless queries.
 */
 
-inherit "/std/object.c";
+inherit "/std/object";
 
 mapping who;
 
-create()
+void create()
 {
    object::create();
    who = ([ "creator" : ([ ]), "player" : ([ ]) ]);

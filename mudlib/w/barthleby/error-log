@@ -1,0 +1,56 @@
+/w/barthleby/noella/npcs/guardia_noella.c line 5: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/barthleby/noella/npcs/guardia_noella.c line 69: Warning: Unused local variable 'objeto' before /*setup*/
+/w/barthleby/noella/rooms_principales/pub.c line 10: parse error before  menu_items, menu_al
+/w/barthleby/workroom2.c line 31: Undefined variable 'NPC' before "guardia_gorband_P",
+/w/barthleby/workroom2.c line 11: Missing leading " or < in #include before the end of line
+/w/barthleby/workroom2.c line 31: Undefined variable 'NPC' before "crea_bichos", 6);
+/w/barthleby/workroom2.c line 11: Missing leading " or < in #include before the end of line
+/w/barthleby/noella/npcs/crea_bichos.c line 1: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/barthleby/sacroom.c line 152: parse error before  not_in_use(object o
+/w/barthleby/sacroom.c line 152: parse error before  not_in_use(object o
+/w/barthleby/noella/npcs/epos.c line 3: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/barthleby/noella/npcs/crea_bichos.c line 3: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/barthleby/noella/npcs/epos.c line 3: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/barthleby/noella/npcs/v_noella.c line 3: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/barthleby/noella/npcs/v_noella.c line 3: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/barthleby/noella/npcs/v_noella.c line 3: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/barthleby/noella/npcs/guardia_noella.c line 5: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/barthleby/noella/npcs/guardia_noella.c line 69: Warning: Unused local variable 'objeto' before /*setup*/
+/w/barthleby/noella/npcs/crea_bichos.c line 3: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/barthleby/noella/npcs/epos.c line 3: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/barthleby/noella/murallas_noella/std_muralla.c line 18: Undefined function set_dark_long before ;
+/w/barthleby/noella/npcs/crea_ciudadanos.c line 3: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/barthleby/noella/npcs/crea_bichos.c line 3: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/barthleby/noella/npcs/epos.c line 3: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/barthleby/noella/rooms_principales/pub.c line 10: parse error before  menu_items, menu_al
+/w/barthleby/path.h line 4: parse error before define ROOM NOELLA"r
+/w/barthleby/path.h line 4: parse error before define ROOM NOELLA"r
+/w/barthleby/path.h line 4: parse error before define ROOM NOELLA"r
+/w/barthleby/path.h line 4: parse error before define ROOM NOELLA+"
+/w/barthleby/path.h line 4: parse error before define ROOM NOELLA+"
+/w/barthleby/path.h line 4: parse error before define ROOM NOELLA+"
+/w/barthleby/path.h line 6: parse error before define PRINCIPALES R
+/w/barthleby/path.h line 6: parse error before define PRINCIPALES R
+/w/barthleby/path.h line 6: parse error before define PRINCIPALES R
+/w/barthleby/vestuario.c line 32: Undefined variable 'this_player' before query_cap_name()=="B
+/w/barthleby/vestuario.c line 43: == always false because of incompatible types ( int vs string ). before the end of line
+/w/barthleby/OSO.c line 7: Cannot #include /include/bebidas.h before #include "/include/t
+/w/barthleby/OSO.c line 10: parse error before  menu_items, menu_al
+/w/barthleby/OSO.c line 7: Cannot #include /include/bebidas.h before //#include "/include
+/w/barthleby/OSO.c line 10: parse error before  menu_items, menu_al
+/w/barthleby/OSO.c line 10: parse error before  menu_items, menu_al
+/w/barthleby/vestuario.c line 32: Undefined variable 'this_player' before query_cap_name()=="B
+/w/barthleby/vestuario.c line 43: == always false because of incompatible types ( int vs string ). before the end of line
+/w/barthleby/vestuario.c line 43: Undefined variable 'this_player' before query_cap_name()=="B
+/w/barthleby/vestuario.c line 43: == always false because of incompatible types ( int vs string ). before the end of line
+/w/barthleby/vestuario.c line 46: Undefined variable 'this_player' before query_cap_name()=="B
+/w/barthleby/vestuario.c line 46: == always false because of incompatible types ( int vs string ). before the end of line
+/w/barthleby/vestuario.c line 56: "#pragma strict_types" requires type of function before "No hay nada exceptu
+/w/barthleby/vestuario.c line 56: parse error before );
+/w/barthleby/vestuario.c line 33: == always false because of incompatible types ( int vs string ). before the end of line
+/w/barthleby/noella/items/esfera.c line 11: Undefined function set_max_weight before ;
+/w/barthleby/vestuario.c line 57: "#pragma strict_types" requires type of function before "No hay nada exceptu
+/w/barthleby/vestuario.c line 57: parse error before );
+/w/barthleby/noella/npcs/gargola.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/barthleby/noella/npcs/gargola.c line 16: Undefined function set_ethics before ;
+/w/barthleby/noella/npcs/gargola.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line

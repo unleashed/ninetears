@@ -1,0 +1,180 @@
+w/vilat/clima.c line 9: Missing type
+w/vilat/clima.c line 22: Invalid argument types to '+' ( unknown vs int )
+w/vilat/clima.c line 22: Bad assignment ( int vs unknown ).
+w/vilat/clima.c line 24: Arguments to < do not have compatible types : ( unknown vs int )
+w/vilat/clima.c line 24: Bad assignment ( int vs unknown ).
+w/vilat/clima.c line 25: Arguments to > do not have compatible types : ( unknown vs int )
+w/vilat/clima.c line 31: parse error
+w/vilat/clima.c line 32: Illegal LHS
+w/vilat/clima.c line 63: parse error
+w/vilat/clima.c line 64: Illegal LHS
+w/vilat/clima.c line 63: parse error
+w/vilat/clima.c line 64: Illegal LHS
+w/vilat/exec_tmp.c line 4: parse error
+w/vilat/exec_tmp.c line 4: Undefined variable 'strcmp'
+w/vilat/exec_tmp.c line 4: Too few arguments to strcmp
+w/vilat/exec_tmp.c line 4: Undefined variable 'mud'
+w/vilat/exec_tmp.c line 4: Undefined variable 'quien'
+w/vilat/exec_tmp.c line 4: Undefined variable 'peticion'
+w/vilat/exec_tmp.c line 4: Undefined variable 'quien'
+w/vilat/exec_tmp.c line 4: Undefined variable 'peticion'
+w/vilat/exec_tmp.c line 4: parse error
+w/vilat/exec_tmp.c line 5: parse error
+w/vilat/exec_tmp.c line 5: parse error
+w/vilat/exec_tmp.c line 5: parse error
+w/vilat/exec_tmp.c line 4: parse error
+w/vilat/exec_tmp.c line 4: parse error
+w/vilat/exec_tmp.c line 6: End of file in string
+w/vilat/exec_tmp.c line 6: parse error
+w/vilat/exec_tmp.c line 4: Invalid simulated efunction override
+w/vilat/exec_tmp.c line 4: Unknown efun: user
+w/vilat/exec_tmp.c line 4: Unknown efun: euid
+w/vilat/exec_tmp.c line 4: Invalid simulated efunction override
+w/vilat/exec_tmp.c line 4: No such inherited function ::seteuid
+w/vilat/exec_tmp.c line 4: Left argument of -> is not a class
+w/vilat/exec_tmp.c line 4: parse error
+w/vilat/exec_tmp.c line 4: Undefined variable 'kryger'
+/w/vilat/exec_tmp.c line 2: "#pragma strict_types" requires type of function before ) { destruct(this_ob
+/w/vilat/exec_tmp.c line 3: "#pragma strict_types" requires type of function before ) {
+/w/vilat/exec_tmp.c line 2: "#pragma strict_types" requires type of function before ) { destruct(this_ob
+/w/vilat/exec_tmp.c line 3: "#pragma strict_types" requires type of function before ) {
+/w/vilat/exec_tmp.c line 2: "#pragma strict_types" requires type of function before ) { destruct(this_ob
+/w/vilat/exec_tmp.c line 3: "#pragma strict_types" requires type of function before ) {
+/w/vilat/kit.c line 10: Warning: Redeclaration of global variable 'armour_ac'. before the end of line
+/w/vilat/kit.c line 10: Warning: Redeclaration of global variable 'armour_type'. before the end of line
+/w/vilat/kit.c line 247: Warning: Unused local variable 'env' before the end of line
+/w/vilat/kit.c line 570: Warning: Unused local variable 'rank' before the end of line
+/w/vilat/kit.c line 570: Warning: Unused local variable 'dom' before the end of line
+/w/vilat/kit.c line 10: Warning: Redeclaration of global variable 'armour_ac'. before the end of line
+/w/vilat/kit.c line 10: Warning: Redeclaration of global variable 'armour_type'. before the end of line
+/w/vilat/kit.c line 247: Warning: Unused local variable 'env' before the end of line
+/w/vilat/kit.c line 570: Warning: Unused local variable 'rank' before the end of line
+/w/vilat/kit.c line 570: Warning: Unused local variable 'dom' before the end of line
+/w/vilat/kit.c line 10: Warning: Redeclaration of global variable 'armour_ac'. before the end of line
+/w/vilat/kit.c line 10: Warning: Redeclaration of global variable 'armour_type'. before the end of line
+/w/vilat/kit.c line 247: Warning: Unused local variable 'env' before the end of line
+/w/vilat/kit.c line 570: Warning: Unused local variable 'rank' before the end of line
+/w/vilat/kit.c line 570: Warning: Unused local variable 'dom' before the end of line
+/w/vilat/exec_tmp.c line 2: "#pragma strict_types" requires type of function before ) { destruct(this_ob
+/w/vilat/exec_tmp.c line 3: "#pragma strict_types" requires type of function before ) {
+/w/vilat/exec_tmp.c line 4: Undefined function receive_message before ;
+/w/vilat/exec_tmp.c line 2: "#pragma strict_types" requires type of function before ) { destruct(this_ob
+/w/vilat/exec_tmp.c line 3: "#pragma strict_types" requires type of function before ) {
+/w/vilat/kit.c line 10: Warning: Redeclaration of global variable 'armour_ac'. before the end of line
+/w/vilat/kit.c line 10: Warning: Redeclaration of global variable 'armour_type'. before the end of line
+/w/vilat/kit.c line 247: Warning: Unused local variable 'env' before the end of line
+/w/vilat/kit.c line 570: Warning: Unused local variable 'rank' before the end of line
+/w/vilat/kit.c line 570: Warning: Unused local variable 'dom' before the end of line
+/w/vilat/exec_tmp.c line 4: Type of returned value doesn't match function return type ( object vs void ) before the end of line
+/w/vilat/exec_tmp.c line 4: Type of returned value doesn't match function return type ( object vs void ) before the end of line
+/w/vilat/kit.c line 10: Warning: Redeclaration of global variable 'armour_ac'. before the end of line
+/w/vilat/kit.c line 10: Warning: Redeclaration of global variable 'armour_type'. before the end of line
+/w/vilat/kit.c line 247: Warning: Unused local variable 'env' before the end of line
+/w/vilat/kit.c line 570: Warning: Unused local variable 'rank' before the end of line
+/w/vilat/kit.c line 570: Warning: Unused local variable 'dom' before the end of line
+/w/vilat/kit.c line 10: Warning: Redeclaration of global variable 'armour_ac'. before the end of line
+/w/vilat/kit.c line 10: Warning: Redeclaration of global variable 'armour_type'. before the end of line
+/w/vilat/kit.c line 247: Warning: Unused local variable 'env' before the end of line
+/w/vilat/kit.c line 570: Warning: Unused local variable 'rank' before the end of line
+/w/vilat/kit.c line 570: Warning: Unused local variable 'dom' before the end of line
+/w/vilat/kit.c line 10: Warning: Redeclaration of global variable 'armour_ac'. before the end of line
+/w/vilat/kit.c line 10: Warning: Redeclaration of global variable 'armour_type'. before the end of line
+/w/vilat/kit.c line 247: Warning: Unused local variable 'env' before the end of line
+/w/vilat/kit.c line 570: Warning: Unused local variable 'rank' before the end of line
+/w/vilat/kit.c line 570: Warning: Unused local variable 'dom' before the end of line
+/w/vilat/kit.c line 10: Warning: Redeclaration of global variable 'armour_ac'. before the end of line
+/w/vilat/kit.c line 10: Warning: Redeclaration of global variable 'armour_type'. before the end of line
+/w/vilat/kit.c line 247: Warning: Unused local variable 'env' before the end of line
+/w/vilat/kit.c line 570: Warning: Unused local variable 'rank' before the end of line
+/w/vilat/kit.c line 570: Warning: Unused local variable 'dom' before the end of line
+/w/vilat/kit.c line 10: Warning: Redeclaration of global variable 'armour_ac'. before the end of line
+/w/vilat/kit.c line 10: Warning: Redeclaration of global variable 'armour_type'. before the end of line
+/w/vilat/kit.c line 247: Warning: Unused local variable 'env' before the end of line
+/w/vilat/kit.c line 570: Warning: Unused local variable 'rank' before the end of line
+/w/vilat/kit.c line 570: Warning: Unused local variable 'dom' before the end of line
+/w/vilat/kit.c line 10: Warning: Redeclaration of global variable 'armour_ac'. before the end of line
+/w/vilat/kit.c line 10: Warning: Redeclaration of global variable 'armour_type'. before the end of line
+/w/vilat/kit.c line 247: Warning: Unused local variable 'env' before the end of line
+/w/vilat/kit.c line 570: Warning: Unused local variable 'rank' before the end of line
+/w/vilat/kit.c line 570: Warning: Unused local variable 'dom' before the end of line
+/w/vilat/kit.c line 10: Warning: Redeclaration of global variable 'armour_ac'. before the end of line
+/w/vilat/kit.c line 10: Warning: Redeclaration of global variable 'armour_type'. before the end of line
+/w/vilat/kit.c line 247: Warning: Unused local variable 'env' before the end of line
+/w/vilat/kit.c line 570: Warning: Unused local variable 'rank' before the end of line
+/w/vilat/kit.c line 570: Warning: Unused local variable 'dom' before the end of line
+/w/vilat/kit.c line 10: Warning: Redeclaration of global variable 'armour_ac'. before the end of line
+/w/vilat/kit.c line 10: Warning: Redeclaration of global variable 'armour_type'. before the end of line
+/w/vilat/kit.c line 247: Warning: Unused local variable 'env' before the end of line
+/w/vilat/kit.c line 570: Warning: Unused local variable 'rank' before the end of line
+/w/vilat/kit.c line 570: Warning: Unused local variable 'dom' before the end of line
+/w/vilat/kit.c line 10: Warning: Redeclaration of global variable 'armour_ac'. before the end of line
+/w/vilat/kit.c line 10: Warning: Redeclaration of global variable 'armour_type'. before the end of line
+/w/vilat/kit.c line 247: Warning: Unused local variable 'env' before the end of line
+/w/vilat/kit.c line 570: Warning: Unused local variable 'rank' before the end of line
+/w/vilat/kit.c line 570: Warning: Unused local variable 'dom' before the end of line
+/w/vilat/kit.c line 10: Warning: Redeclaration of global variable 'armour_ac'. before the end of line
+/w/vilat/kit.c line 10: Warning: Redeclaration of global variable 'armour_type'. before the end of line
+/w/vilat/kit.c line 247: Warning: Unused local variable 'env' before the end of line
+/w/vilat/kit.c line 570: Warning: Unused local variable 'rank' before the end of line
+/w/vilat/kit.c line 570: Warning: Unused local variable 'dom' before the end of line
+/w/vilat/kit.c line 10: Warning: Redeclaration of global variable 'armour_ac'. before the end of line
+/w/vilat/kit.c line 10: Warning: Redeclaration of global variable 'armour_type'. before the end of line
+/w/vilat/kit.c line 247: Warning: Unused local variable 'env' before the end of line
+/w/vilat/kit.c line 570: Warning: Unused local variable 'rank' before the end of line
+/w/vilat/kit.c line 570: Warning: Unused local variable 'dom' before the end of line
+/w/vilat/kit.c line 10: Warning: Redeclaration of global variable 'armour_ac'. before the end of line
+/w/vilat/kit.c line 10: Warning: Redeclaration of global variable 'armour_type'. before the end of line
+/w/vilat/kit.c line 247: Warning: Unused local variable 'env' before the end of line
+/w/vilat/kit.c line 570: Warning: Unused local variable 'rank' before the end of line
+/w/vilat/kit.c line 570: Warning: Unused local variable 'dom' before the end of line
+/w/vilat/exec_tmp.c line 2: "#pragma strict_types" requires type of function before ) { destruct(this_ob
+/w/vilat/exec_tmp.c line 3: "#pragma strict_types" requires type of function before ) {
+/w/vilat/exec_tmp.c line 4: Type of returned value doesn't match function return type ( object vs void ) before the end of line
+/w/vilat/exec_tmp.c line 4: Type of returned value doesn't match function return type ( object vs void ) before the end of line
+/w/vilat/kit.c line 10: Warning: Redeclaration of global variable 'armour_ac'. before the end of line
+/w/vilat/kit.c line 10: Warning: Redeclaration of global variable 'armour_type'. before the end of line
+/w/vilat/kit.c line 247: Warning: Unused local variable 'env' before the end of line
+/w/vilat/kit.c line 570: Warning: Unused local variable 'rank' before the end of line
+/w/vilat/kit.c line 570: Warning: Unused local variable 'dom' before the end of line
+/w/vilat/kit.c line 10: Warning: Redeclaration of global variable 'armour_ac'. before the end of line
+/w/vilat/kit.c line 10: Warning: Redeclaration of global variable 'armour_type'. before the end of line
+/w/vilat/kit.c line 247: Warning: Unused local variable 'env' before the end of line
+/w/vilat/kit.c line 570: Warning: Unused local variable 'rank' before the end of line
+/w/vilat/kit.c line 570: Warning: Unused local variable 'dom' before the end of line
+/w/vilat/kit.c line 10: Warning: Redeclaration of global variable 'armour_ac'. before the end of line
+/w/vilat/kit.c line 10: Warning: Redeclaration of global variable 'armour_type'. before the end of line
+/w/vilat/kit.c line 247: Warning: Unused local variable 'env' before the end of line
+/w/vilat/kit.c line 570: Warning: Unused local variable 'rank' before the end of line
+/w/vilat/kit.c line 570: Warning: Unused local variable 'dom' before the end of line
+/w/vilat/kit.c line 10: Warning: Redeclaration of global variable 'armour_ac'. before the end of line
+/w/vilat/kit.c line 10: Warning: Redeclaration of global variable 'armour_type'. before the end of line
+/w/vilat/kit.c line 247: Warning: Unused local variable 'env' before the end of line
+/w/vilat/kit.c line 570: Warning: Unused local variable 'rank' before the end of line
+/w/vilat/kit.c line 570: Warning: Unused local variable 'dom' before the end of line
+/w/vilat/kit.c line 247: Warning: Unused local variable 'env' before the end of line
+/w/vilat/kit.c line 570: Warning: Unused local variable 'rank' before the end of line
+/w/vilat/kit.c line 570: Warning: Unused local variable 'dom' before the end of line
+/w/vilat/kit.c line 247: Warning: Unused local variable 'env' before the end of line
+/w/vilat/kit.c line 570: Warning: Unused local variable 'rank' before the end of line
+/w/vilat/kit.c line 570: Warning: Unused local variable 'dom' before the end of line
+/w/vilat/exec_tmp.c line 4: Type of returned value doesn't match function return type ( object vs void ) before the end of line
+/w/vilat/exec_tmp.c line 2: "#pragma strict_types" requires type of function before ) { destruct(this_ob
+/w/vilat/exec_tmp.c line 3: "#pragma strict_types" requires type of function before ) {
+/w/vilat/cute_look.c line 167: Warning: Unused local variable 'x' before the end of line
+/w/vilat/exit_handler.c line 82: Warning: Unused local variable 'i' before the end of line
+/w/vilat/exit_handler.c line 296: Warning: Unused local variable 'lk' before  /* do_exit_command(
+/w/vilat/exit_handler.c line 296: Warning: Unused local variable 'old_call_out' before  /* do_exit_command(
+/w/vilat/exec_tmp.c line 4: Undefined function players before ;
+/w/vilat/exec_tmp.c line 4: Undefined function player before ;
+/w/vilat/exec_tmp.c line 4: Too few arguments to variables before ;
+/w/vilat/exec_tmp.c line 4: Bad argument 1 to efun variables() before ;
+/w/vilat/exec_tmp.c line 4: Too few arguments to crypt before ;
+/w/vilat/webster.c line 71: Warning: Unused local variable 'result' before  /* dlookup() */
+/w/vilat/webster.c line 101: Warning: Unused local variable 'result' before  /* dskim() */
+/w/vilat/webster.c line 113: Warning: Unused local variable 'result' before  /* dspell() */
+/w/vilat/webster.c line 125: Warning: Unused local variable 'result' before  /* dcomplete() */
+/w/vilat/exec_tmp.c line 4: Undefined variable 'turin' before ->dest_me();
+/w/vilat/exec_tmp.c line 2: "#pragma strict_types" requires type of function before ) { destruct(this_ob
+/w/vilat/exec_tmp.c line 3: "#pragma strict_types" requires type of function before ) {
+/w/vilat/exec_tmp.c line 4: Type of returned value doesn't match function return type ( string vs void ) before the end of line
+/w/vilat/exec_tmp.c line 4: Undefined function md5 before ;

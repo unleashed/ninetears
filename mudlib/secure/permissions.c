@@ -43,7 +43,9 @@ create() {
   load = LOAD_DEFAULT;
 }
 
-start_up(arg) {
+void dest_me();
+
+int start_up(string arg) {
   int i;
 
   i = file_size(arg+PERMISSIONS+".o");
@@ -64,23 +66,23 @@ restore_object(arg+PERMISSIONS,1);
   return 1;
 }
 
-save() {
+int save() {
 save_object(path+PERMISSIONS,1);
   return 1;
 }
 
-dest_me() {
+void dest_me() {
   destruct(this_object());
 }
 
-set_owner(arg) {
+mixed set_owner(string arg) {
   if ((file_name(previous_object()) != MASTER)
       && !MASTER->high_programmer(this_player()->query_name()))
     return "You don't have the security clearance.";
   owner = arg;
 }
 
-add_read(arg) {
+mixed add_read(string arg) {
   if ((file_name(previous_object()) != MASTER)
       && !MASTER->high_programmer(this_player()->query_name()))
     return "You don't have the security clearance.";
@@ -100,7 +102,7 @@ add_read(arg) {
   read += ({ arg });
 }
 
-rm_read(arg) {
+mixed rm_read(string arg) {
   int i;
 
   if ((file_name(previous_object()) != MASTER)
@@ -117,7 +119,7 @@ rm_read(arg) {
   read = delete(read, i);
 }
 
-add_write(arg) {
+mixed add_write(string arg) {
   if ((file_name(previous_object()) != MASTER)
       && !MASTER->high_programmer(this_player()->query_name()))
     return "You don't have the security clearance.";
@@ -137,7 +139,7 @@ add_write(arg) {
   write += ({ arg });
 }
 
-rm_write(arg) {
+mixed rm_write(string arg) {
   int i;
 
   if ((file_name(previous_object()) != MASTER)
@@ -154,7 +156,7 @@ rm_write(arg) {
   write = delete(write, i);
 }
 
-add_load(arg) {
+mixed add_load(string arg) {
   if ((file_name(previous_object()) != MASTER)
       && !MASTER->high_programmer(this_player()->query_name()))
     return "You don't have the security clearance.";
@@ -174,7 +176,7 @@ add_load(arg) {
   load += ({ arg });
 }
 
-rm_load(arg) {
+mixed rm_load(string arg) {
   int i;
 
   if ((file_name(previous_object()) != MASTER)

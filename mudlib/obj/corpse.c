@@ -24,7 +24,7 @@ int query_corpse() { return 1; }
 string query_owner() { return owner; }
 
 int prevent_insert() {
-    write("The corpse is too big.\n");
+    write("El cuerpo es demasiado grande.\n");
     return 1;
 }
 
@@ -32,7 +32,6 @@ int prevent_insert() {
    in the room
 */
 int undead_okay(object room) {
-    int i,maxi;
     int CORPSEFINE = 1;
 
     /* Next section excellent but considered unnecessary, Taniwha 1995 */
@@ -76,51 +75,57 @@ void raise_me(object ob)
 	cow=clone_object(PATH+"chars/lich.c");
 
     if(owner)
-	cow->set_short(cow->query_short()+" of "+owner);
+	cow->set_short(cow->query_short()+" de "+owner);
     stuff = all_inventory(ob);
     for(i=0;i<sizeof(stuff);i++)
 	if(stuff[i])
 	    stuff[i]->move(cow);
     cow->move(environment(ob));
-    tell_room(environment(ob),"You hear the howl of a tortured spirit.\n"+
-      "Suddenly, a "+
-      cow->query_name()+" stands where the corpse was.\n");
+    tell_room(environment(ob),"Escuchas el aullido de un espiritu torturado.\n"+
+      "De pronto, un "+
+      cow->query_name()+" aparece de las entranyas del cadaver, tragandoselo.\n");
     cow->init_equip();
     ob->dest_me();
+	/* cuando mueres dejas las armas en el suelo... taria bien pillarlas y ekipar XD
+	se pilla todas las weapons del suelo (incluso considerar cuales son mejores)
+	y ale, a ekipar xD y a ver si cambiamos lo de ekipar, ke somos zombies pero no
+	tontos, como cojones puede ponerse un cuero en lugar de una completa? xD */
     return;
 }
 
 string query_name() {
     if (!::query_name())
-	return "someone";
+	return "alguien";
     return ::query_name();
 }
 
 void setup() {
     bits_gone = ({ });
-    owner = "noone";
+    owner = "nadie";
     race_name = "womble";
     decay = 10;
-    add_plural("corpses");
-    add_alias("corpse");
-    set_short("corpse");
-    set_long("A corpse, it looks dead.\n");
+	set_main_plural("cuerpos");
+    add_plural("cuerpos");
+    add_alias("cuerpo");
+    set_short("cuerpo");
+    set_long("Un cuerpo, parece muerto.\n");
     set_weight(1300);
     set_race_ob("/std/races/unknown");
-    set_main_plural("corpses");
 }
 
 void set_owner(string n, object ob) {
     owner = n;
-    set_name("corpse");
+    set_name("cuerpo");
     add_alias("corpse of " + n);
-    set_short("corpse of " + capitalize(n));
+    add_alias("cuerpo de " + n);
+    set_short("cuerpo de " + capitalize(n));
     if ( ob && ob->query_main_plural() )
-	set_main_plural("corpses of "+ob->query_main_plural());
+	set_main_plural("cuerpos de "+capitalize(ob->query_main_plural()));
     else
-	set_main_plural("corpses of "+pluralize(n));
+	set_main_plural("cuerpos de "+capitalize(pluralize(n)));
+    add_plural("cuerpos");
     add_plural("corpses");
-    set_long("This is the dead body of "+capitalize(n)+".\n");
+    set_long("Esto es el cuerpo sin vida de "+capitalize(n)+".\n");
     if (ob && ob->query_weight()) set_weight(ob->query_weight());
     else set_weight(STD_CORPSE_WEIGHT);
     set_heart_beat(DECAY_TIME);
@@ -141,9 +146,8 @@ string query_race_name() { return race_name; }
 string query_race() { return race_name; }
 
 void decay() {
-    object ob,ob2;
-    object *obs;
     int i;
+    object *obs;
     decay -= 1;
     if(!race_name)
     {
@@ -152,13 +156,13 @@ void decay() {
 	else race_name = "unknown";
     }
     if (decay == 7) {
-	set_short("somewhat decayed remains of "+query_name());
-	set_main_plural("somewhat decayed remains of "+query_name());
+	set_short("restos ligeramente descompuestos de "+capitalize(owner));
+	set_main_plural("restos ligeramente descompuestos de "+capitalize(pluralize(owner)));
     }
     if (decay == 5) {
-	set_short("decayed remains of "+race_name);
-	set_main_plural("decayed remains of "+race_name);
-	set_long("This is the dead body of "+add_a(race_name)+".\n");
+	set_short("restos putrefactos de "+race_name);
+	set_main_plural("restos putrefactos de "+race_name);
+	set_long("Esto es el cuerpo sin vida de un "+race_name+".\n");
     }
     if (decay > 0)
 	return ;
@@ -182,34 +186,34 @@ void decay() {
     this_object()->dest_me();
 }
 
-set_race_ob(string s)
+void set_race_ob(string s)
 {
     race_ob = s;
 }
 
-query_race_ob()
+string query_race_ob()
 {
     return race_ob;
 }
-
-find_inv_match(s)
+/*
+mixed find_inv_match(string s)
 {
-    string bit;
+    string *bit;
     object bitobj, weap;
     int i,j;
 
     bit = race_ob->query_possible_bits(s);
     if (!bit || !sizeof(bit)) return all_inventory();
 
-    bit -= bits_gone;    /* take out of all possible bits the bits_gone */
+    bit -= bits_gone;
     if (!sizeof(bit)) return bit;
 
     weap = (object) this_player()->query_weapon();
     if(!weap) {
-	write("You can't cut bits from a corpse with your bare hands.\n");
+	write("No puedes cotar trozos de un cuerpo con tus manos desnudas.\n");
 	return ({ });
     } else if(!weap->id("dagger") && !weap->id("knife")) {
-	write("You can only cut things from a corpse with a knife or dagger.\n");
+	write("Solo puedes cortar cosas con un cuchillo o una daga.\n");
 	return ({ });
     }
     bit = race_ob->query_bit(bit[0]);
@@ -227,27 +231,28 @@ find_inv_match(s)
     }
     bits_gone += ({ bit[BIT_NAME] }) + bit[BIT_EXTRA][3..50];
     if (s == "head") {
-	set_long(query_long() + "It is decapitated.\n");
-	set_short("decapitated corpse of " + capitalize(owner));
+	set_long(query_long() + "Esta decapitado.\n");
+	set_short("cadaver decapitado de " + capitalize(owner));
     }
     if (environment())
 	bitobj->move(environment());
     return ({ bitobj });
 }
-
-query_bits_gone() { return bits_gone; }
+*/
 
 /* this for formatting of objects sake */
+/*
 object *query_armours() { return armours + ({ }); }
 void set_armours(object *arm) { armours = arm; }
 void remove_armour(object arm) { armours -= ({ arm }); }
 
+
 object query_weapon() { return weapon; }
 void set_weapon(object wpn) { weapon = wpn; }
 void unwield_weapon(object wpn) { if(weapon == wpn) weapon = 0; }
+*/
 
-
-string query_possessive() { return "its"; }
+string query_possessive() { return "su"; }
 
 /* Converted from call_outs to heartbeats by Baldrick. after a look at Aragorns
    code on RD sept '93 */

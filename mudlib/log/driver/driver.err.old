@@ -1,0 +1,90 @@
+using config file: /devel/mud/fficmud/mudos/bin/config.fficmud
+----------------------------------------------------------------------------
+Ninetears (MudOS v22.2b13) starting up on Linux - Tue Mar 18 05:14:09 2003
+
+
+Connected to address server on localhost port 6364
+
+Loading preloaded files ...
+Initializations complete.
+
+Accepting connections on port 4005.
+No error handler for error: *call_other() couldn't find object
+program: /global/guild-race.c, object: /global/god#3, file: /global/guild-race.c:17
+--- trace ---
+Object: /secure/login#2, Program: /secure/login.c
+   in begin2() at /secure/login.c:457
+arguments were (0)
+locals were: /secure/login#2
+Object: /global/god#3, Program: /global/lord.c
+   in move_player_to_start() at /global/lord.c:5
+arguments were ("barthleby",0,-1)
+Object: /global/god#3, Program: /global/thane.c
+   in move_player_to_start() at /global/thane.c:17
+arguments were ("barthleby",0,-1)
+Object: /global/god#3, Program: /global/creator.c
+   in move_player_to_start() at /global/creator.c:24
+arguments were ("barthleby",0,-1)
+locals were: "2"
+Object: /global/god#3, Program: /global/wiz_file_comm.c
+   in move_player_to_start() at /global/player.c:282
+arguments were ("barthleby",0,-1)
+locals were: 0,0
+Object: /global/god#3, Program: /global/wiz_file_comm.c
+   in start_player() at /global/player.c:390
+arguments were ()
+locals were: 0
+Object: /global/god#3, Program: /global/guild-race.c
+   in race_guild_commands() at /global/guild-race.c:17
+arguments were ()
+locals were: 0
+'          CATCH' in '/ global/guild-race.c' ('/        global/god#3') /global/guild-race.c:17
+--- end trace ---
+No error handler for error: *call_other() couldn't find object
+program: /std/living/stats.c, object: /global/god#3, file: /std/living/stats.c:676
+--- trace ---
+Object: /secure/login#2, Program: /secure/login.c
+   in begin2() at /secure/login.c:457
+arguments were (0)
+locals were: /secure/login#2
+Object: /global/god#3, Program: /global/lord.c
+   in move_player_to_start() at /global/lord.c:5
+arguments were ("barthleby",0,-1)
+Object: /global/god#3, Program: /global/thane.c
+   in move_player_to_start() at /global/thane.c:17
+arguments were ("barthleby",0,-1)
+Object: /global/god#3, Program: /global/creator.c
+   in move_player_to_start() at /global/creator.c:24
+arguments were ("barthleby",0,-1)
+locals were: "2"
+Object: /global/god#3, Program: /global/wiz_file_comm.c
+   in move_player_to_start() at /global/player.c:282
+arguments were ("barthleby",0,-1)
+locals were: 0,0
+Object: /global/god#3, Program: /global/wiz_file_comm.c
+   in start_player() at /global/player.c:403
+arguments were ()
+locals were: 0
+Object: /global/god#3, Program: /std/living/stats.c
+   in set_con() at /std/living/stats.c:191
+arguments were (50)
+'           calc' in '/  std/living/stats.c' ('/        global/god#3') /std/living/stats.c:676
+arguments were ()
+locals were: "/std/guilds/warriors/paladin"
+--- end trace ---
+No error handler for error: *call_other() couldn't find object
+program: /global/wiz_file_comm.c, object: /global/god#3, file: /global/player.c:813
+--- trace ---
+Object: /obj/shut, Program: /obj/shut.c
+   in force_quit() at /obj/shut.c:164
+arguments were (/global/god#3)
+Object: /global/god#3, Program: /global/wiz_file_comm.c
+   in really_quit() at /global/player.c:813
+arguments were ()
+locals were: 0,0,({ /* sizeof() == 2 */
+  0,
+  0
+}),({ }),({ }),({ }),0,0,0,0
+'          CATCH' in '/global/wiz_file_comm.c' ('/        global/god#3') /global/player.c:813
+--- end trace ---
+closed external ports

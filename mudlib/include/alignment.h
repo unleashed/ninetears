@@ -1,6 +1,5 @@
 #define NUM_SAVED 100
 #define AL_CHK_RATE 3600*12
-#define ALIGN_HAND "/obj/handlers/align_tracker"
 #define MAX_ALIGN_INT 1000000000
 #define TDIV 3600
 

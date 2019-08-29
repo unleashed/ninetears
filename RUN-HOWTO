@@ -1,0 +1,24 @@
+
+	- Como arrancar el mud
+
+Ve a /opt/mud/fficmud/mudos/bin y ejecuta con una cuenta de usuario
+sin privilegios (por ejemplo, "mud" para que pueda ser administrada
+por sus dioses, de forma que sirva para levantarlo a mano) lo siguiente:
+
+$ ./startmud fficmud &
+
+Con eso se crean tres procesos. Startmud es un script para que el
+mud se reinicie despues de cada shutdown (reboot). addr_server es
+un proceso necesario para que el mud funcione. Y driver es el propio
+mudos. En unos segundos podras conectar perfectamente al mud.
+
+	- Como reiniciar o cerrar el mud.
+
+Para reiniciar el mud basta el comando "shutdown n" donde n son los
+minutos para el shutdown. El mud se cerrara, pero el script lo volvera
+a levantar. Para que no se levante, hay que matar el proceso de
+startmud antes de que levante el mud. Para ello, hacer "ps axf" y mirar
+el numero del proceso, y continuar con un "kill -TERM n" donde n
+es el numero. Luego hay que matar a mano el addr_server de la misma
+forma. Si pese a todo existe un proceso del driver, matarlo de igual
+forma, pero creara un "core" en el directorio raiz de la mudlib.

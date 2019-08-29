@@ -23,28 +23,32 @@ string query_short_help()
       "See also:\n"
       "   qc, info, armours, weapons, containers, items\n\n";
 }
-static int cmd(string str, object ob)
+int cmd(string str, object ob)
 {
    object itm, *obs;
-   if(!ob) return;
+   if(!ob) 
+   {
+	   notify_fail("Sintaxis: comment <objecto> <comentario>\n");
+	   return 0;
+   }
    if(!OBTRACK->query_qc_perms(geteuid(ob))) 
    {
-      notify_fail("You do not have permission to QC items.\n");
+      notify_fail("No tienes permisos para usar QC.\n");
       return 0;
    }
    if(!str)
    {
-      notify_fail("Syntax: qc <object>\n");
+      notify_fail("Sintaxis: qc <objeto>\n");
       return 0;
    }
    obs = this_player()->wiz_present(str,this_player());
    if(!sizeof(obs))
    {
-       notify_fail("Could not find "+str+".\n");
+       notify_fail("No encuentro "+str+".\n");
        return 0;
    }
    if(sizeof(obs) > 1)
-      tell_object(ob,"Only doing the first object...\n");
+      tell_object(ob,"Usando solo el primer objeto...\n");
    itm = obs[0];
    if(itm->query_item_container())
    {

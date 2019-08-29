@@ -8,12 +8,12 @@ void setup(){
     position = 1;
 }
 
-static int cmd(string str, object me) {
+int cmd(string str, object me) {
     object ob;
     string *path, dest, err;
     object *dest2;
     string patron, thane, mudlibber, lord, god;
-    int loop, mov;
+    int loop,mov;
 
     patron = "/d/aprior/master"->query_patron(geteuid(me));
     thane = "/secure/thanes"->query_of(me->query_name());

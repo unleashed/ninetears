@@ -8,9 +8,9 @@ inherit "std/basic/cute_look";
 #define C_OPAQUE 1
 #define BASE_WEIGHT_REDUCTION 30
 
-static int weight_reduction;
-static int max_weight, loc_weight;
-static int prevent_insert;
+nosave int weight_reduction;
+nosave int max_weight, loc_weight;
+nosave int prevent_insert;
 
 void create() {
   weight_reduction = BASE_WEIGHT_REDUCTION;
@@ -63,12 +63,12 @@ void fix_my_loc_weight() {
     if(!add_weight(stuff[i]->query_weight())) {
 // Let's be nice to the player and TELL them when they drop something :)
 // Anirudh
-      tell_object(this_object(),"You can't hold on to everything "
-        "you are trying to carry, you drop "+stuff[i]->
-         query_name()+"\n");
+      tell_object(this_object(),"No puedes llevar todo "
+        "lo que intentas cargar, dejas "+stuff[i]->
+         query_name()+" en el suelo.\n");
       stuff[i]->move(environment(this_object()));
     }
-}  
+}
 
 void fix_my_loc_weight_later() {
   call_out("fix_my_loc_weight",2);
@@ -78,7 +78,7 @@ void fix_my_loc_weight_later() {
 int transfer_all_to(object dest) {
   object *ob;
   int i;
- 
+
   ob = all_inventory(this_object());
   ob -= ({ dest });
   for (i=0;i<sizeof(ob);i++)
@@ -92,11 +92,11 @@ string long(string str, int dark) {
   string ret;
 
   ret = ::long(str);
-  ret += calc_extra_look();
+  ret += calc_extra_look(this_object());
   if(this_object()->query_corpse())
     ret += (string)this_object()->query_living_contents(0);
   else
-    ret += query_contents(short(dark)+" contains:\n", all_inventory() - 
+    ret += query_contents(short(dark)+" contiene:\n", all_inventory() -
                           query_labels());
   return ret;
 } /* long() */
@@ -142,7 +142,7 @@ mapping int_query_static_auto_load() {
 
 mapping query_dynamic_auto_load() {
   return ([ "::" : ::query_dynamic_auto_load(),
-            "inv" : 
+            "inv" :
          "/global/player"->create_auto_load(all_inventory(this_object())-labels),
          ]);
 } /* query_dynamic_auto_load() */

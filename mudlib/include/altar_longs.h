@@ -70,4 +70,34 @@
 "that it does not move.  The stone of the altar is very hard.  You get "\
 "the impression that -nothing- could move it from this spot.\n"
 
-#define ALTAR_NONE "If you are seeing this, report it as a bug.\n"
+#define ALTAR_TYRAEL \
+"     La sensacion de odio invade la zona: una estrella dorada de cinco "\
+"puntas preside el Altar.  Mientras la observas, sus puntas parecen emanar "\
+"sangre. El material con que esta formado el Altar parece ser mithril, "\
+"sin embargo es demasiado oscuro. Esa oscuridad parece cubrirlo todo por un momento, y en "\
+"tu imaginacion puedes ver las sangrientas batallas que Tyrael libro "\
+"antes de alcanzar la inmortalidad, deslizando sin piedad su sable a la "\
+"velocidad del sonido sobre sus enemigos. Vuelves a ver el Altar. En "\
+"el aparece una inscripcion como surgida de la nada: 'Carpe Diem'.\n"
+
+#define ALTAR_BARTHLEBY \
+"     El Altar tiene forma hexagonal, con un gran candelabro de oro en "\
+"su centro. Con curiosidad intentas cogerlo, pero no puedes si quiera "\
+"moverlo. Un aura amarilla envuelve el contorno del mismo, haciendote "\
+"notar el poder divino. Un mantel blanco cubre el Altar, y en el techo "\
+"un gran escudo de plata refleja el blanco Altar. Dicen que es el Templanza, "\
+"el legendario escudo con el que Barthleby eliminaba los vestigios del "\
+"Mal sobre la faz de los Reinos.\n"
+
+
+#define ALTAR_LEVIATHAN \
+"     La sensacion de odio invade la zona: una estrella dorada de cinco "\
+"puntas preside el Altar.  Mientras la observas, sus puntas parecen emanar "\
+"sangre. El material con que esta formado el Altar parece ser mithril, "\
+"sin embargo es demasiado oscuro. Esa oscuridad parece cubrirlo todo por un momento, y en "\
+"tu imaginacion puedes ver las sangrientas batallas que Tyrael libro "\
+"antes de alcanzar la inmortalidad, deslizando sin piedad su sable a la "\
+"velocidad del sonido sobre sus enemigos. Vuelves a ver el Altar. En "\
+"el aparece una inscripcion como surgida de la nada: 'Carpe Diem'.\n"
+	
+#define ALTAR_NONE "Si ves esto, notificalo como un bug.\n"

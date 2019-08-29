@@ -4,7 +4,7 @@
 #include "move_failures.h"
 inherit "/std/container.c";
 
-create()
+void create()
 {
    container::create();
    set_prevent_insert();

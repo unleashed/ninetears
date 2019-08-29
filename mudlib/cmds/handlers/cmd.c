@@ -5,8 +5,8 @@
 #include <standard.h>
 #include <cmd.h>
 
-static int position = 0, dodest = 0, doclone = 0;
-static object command_giver;
+nosave int position = 0, dodest = 0, doclone = 0;
+nosave object command_giver;
 
 void create()
 {
@@ -27,7 +27,7 @@ void clean_up()
 
 void setup() { return; }
 
-static int cmd(string tail, object thisob, string verb) { return 0; }
+int cmd(string tail, object thisob) { return 0; }
 
 string query_usage() { return 0; }
 string query_short_help() { return 0; }
@@ -73,7 +73,7 @@ int _cmd(string tail, object thisob, string verb)
 			return 0;
 		break;
 	}
-	ret = cmd(tail, thisob, verb);
+	ret = cmd(tail, thisob);
 
 	seteuid(getuid());
 

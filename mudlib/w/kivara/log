@@ -1,0 +1,31 @@
+call do_command(aplastar)kivara
+sc
+com
+man add_comand
+man add_command
+f
+call set_guild(guerfaeleen)kivara
+tez vilat deja de espiarme _
+tel vilat %^BOLD%^%^RED%^|| %^WHITE%^deja de espiarme _ %^RED%^||
+tez vilat :P
+tel vilat %^BOLD%^%^RED%^|| %^WHITE%^:P %^RED%^||
+com
+save
+update me
+look
+tez vilat ezo ke es?
+tel vilat %^BOLD%^%^RED%^|| %^WHITE%^ezo ke es? %^RED%^||
+com
+goto vilat
+look
+codazo vilat
+home
+look
+peace
+invis
+goto vilat
+look
+peace
+leer 22
+tez vilat como kieras, pero vigila ke no xupe muxos recursos ni espacio HD xD
+tel vilat %^BOLD%^%^RED%^|| %^WHITE%^como kieras, pero vigila ke no xupe muxos recursos ni espacio HD xD %^RED%^||

@@ -1,10 +1,7 @@
-Usage : chfn
+************** CHFN *****************
+Uso : chfn
 
-Chfn is the command that lets you change the information that is printed when
-someone fingers you.  It prompts you for all the information.  None of it is
-compulsory, but the email address is desirable.  If you do not want anyone
-other than lords and gods being able to see your email address, just put a
-colon before the address, eg :fred@frog.frog.frog.edu
+Chfn es el comando para introducir o cambiar informacion en tu finger. Aunque no es necesario dar toda tu informacion , por ejemplo en el caso de el e-mail puedes optar ( como tambien ocurre en otros apartados )a dejar que los demas players lo vean , o no, o que solo lo puedan ver los inmortales. 
 
-See also :
+Ver tambien:
 finger, email

@@ -30,7 +30,7 @@ void setup()
 }
 void init()
 {
-   add_attack_spell(30,"stinking cloud",({ "/std/spells/wizard/scloud.c","cast_spell",1}));
-   add_attack_spell(50,"fumble",({ "/std/spells/wizard/fumble.c","cast_spell",1 }));
+   add_attack_spell(30,"stinking cloud",({ "/d/gremios/hechizos/wizard/scloud.c","cast_spell",1}));
+   add_attack_spell(50,"fumble",({ "/d/gremios/hechizos/wizard/fumble.c","cast_spell",1 }));
    ::init();
 }

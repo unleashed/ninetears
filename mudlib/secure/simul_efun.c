@@ -1,7 +1,7 @@
 #ifdef MUD_NAME
 string mud_name() { return capitalize(MUD_NAME); }
 #else
-string mud_name() { return "Fr"; }
+string mud_name() { return "Ninetears"; }
 #endif
 
 #ifdef VERSION
@@ -10,9 +10,10 @@ string version() { return VERSION; }
 #ifdef __VERSION__
 string version() { return __VERSION__; }
 #else
-string version() { return "Unknown"; }
+string version() { return "Desconocida"; }
 #endif
 #endif
+
 
 
 varargs string extract(string str, int i, int j);
@@ -21,7 +22,7 @@ mixed query_strange_inventory(mixed arr) {
   mixed inv;
   object ob;
   mixed desc;
-  int i,j, k;
+  int i,k;
 
   inv = ({ });
   for (k=0;k < sizeof(arr); k++) {
@@ -36,7 +37,8 @@ mixed query_strange_inventory(mixed arr) {
   return inv;
 }
 
-string add_a(string s) /* adds 'a' or 'an' on to the string as appropriate */
+
+string add_a(string s)
 {
    //int i, e;
    int i;
@@ -61,13 +63,11 @@ string add_a(string s) /* adds 'a' or 'an' on to the string as appropriate */
     case 'O':
     case 'U':
     case 'Y':
-   return "an "+(string)extract(s,i);
- //  return "an "+s[i..e];
     default:
-   return "a "+(string)extract(s,i);
+   return "un "+(string)extract(s,i);
 //   return "a "+s[i..e];
     }
-} /* add_a() */
+}
 
 mixed *delete(mixed *arr, int start, int len) {
   return arr[0..start-1]+arr[start+len..sizeof(arr)];
@@ -103,6 +103,13 @@ varargs mapping filter_mapping(mapping map, string func, mixed ob, mixed extra)
 
 #include "/secure/simul_efun/log_file.c"
 #include "/secure/simul_efun/secure_log_file.c"
+
+void event(mixed destino,string tipo,string mensaje,mixed avoid) {
+	int i;
+	log_file("EVENTOS-DEBUG",file_name(previous_object())+" provoco un evento de tipo: "+tipo+"\n");
+	if(!pointerp(destino)) destino=all_inventory(destino)+({destino});
+	for(i=0;i<sizeof(destino);i++) call_other(destino[i],"event_"+tipo,mensaje,avoid);
+	}
 
 #include "/secure/simul_efun/find_match.c"
 #include "/secure/simul_efun/m_delete.c"
@@ -166,3 +173,6 @@ varargs mapping filter_mapping(mapping map, string func, mixed ob, mixed extra)
 /* Wahooka's inane hacks NB: Magus == Wahooka  =)
  */
 #include "/secure/simul_efun/nice_list.c"
+
+// Vilat 31.10.2002 - Longitud de un string sin colores
+#include "/secure/simul_efun/longitud.c"

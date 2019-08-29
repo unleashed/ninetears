@@ -7,7 +7,7 @@ inherit "/std/room";
 mapping accounts;
 string save_file;
 int total_made;
-static int total_account;
+nosave int total_account;
 string owner;
 int collectbox;
 
@@ -53,7 +53,6 @@ void init() {
 int get_account() 
   {
   string name;
-  int val;
 
   if (!undefinedp(this_player()->query_property("bank "+save_file)))
     return (int)this_player()->query_property("bank "+save_file);
@@ -211,9 +210,7 @@ int withdraw(string str) {
  */
 int get_money(int offer)
   {
-  int total, amt, i;
-  mixed *values;
-  string bing;
+  int total, amt;
 
   total = get_account();
 

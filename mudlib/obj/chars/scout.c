@@ -59,7 +59,7 @@ void init(){
    add_attack_spell(50, "panic attack",
       ({ME,"panic_attack",0}));
    if(sneaky){
-      hide = clone_object("/std/commands/shadows/hide.c");
+      hide = clone_object("/d/gremios/comandos/shadows/hide.c");
       hide->setup_shadow(this_object());
    }
 }
@@ -182,7 +182,7 @@ void panic_recover(object ob, int num){
 void setup_scout(){
 
 
-   TO->set_guild_ob("/std/guilds/warriors/fighter.c");
+   TO->set_guild_ob("/d/gremios/guerreros/fighter.c");
    TO->set_level(15+random(15));
    TO->set_max_gp(query_max_gp()*2);
    TO->set_gp(query_max_gp());

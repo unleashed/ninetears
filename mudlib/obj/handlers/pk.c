@@ -43,14 +43,14 @@ void save_this_ob() {
     save_object(SAVE+"pk",1);
 }
 
-create()
+void create()
 {
    ::create();
    killer_data = ([ ]);
    load_this_ob();
 }
 
-dest_me()
+void dest_me()
 {
    save_this_ob();
    destruct(this_object());
@@ -74,7 +74,7 @@ void update_player_killed(object victim, object killer)
    string *orgs;
    int i, tmp_avg;
    if(!victim || !killer) return;
-   if(wizardp(victim) || wizardp(killer)) return;
+   if(victim->query_creator() || killer->query_creator()) return;
     if("/global/omiq"->flag_in_progress()) return;
    load_this_ob();
    tmp = killer_data[killer->query_name()];
@@ -129,30 +129,31 @@ void info_player(string name)
    int totk, totxp, totl;
    totk = totxp = totl = 0;
    if(!name) return;
-   ret = "PK Data for "+capitalize(name)+"\n\n";
+   ret = "Datos de PK para "+capitalize(name)+"\n\n";
    tmp = killer_data[name];
    if(!tmp)
    {
-      ret += "No data.\n\n";
+      ret += "No hay datos.\n\n";
       this_player()->more_string(ret);
       return;
    }
    sites = implode(tmp[2],"\n");
-   ret += "Last PKed on:  "+ctime(tmp[1])+"\n";
+   ret += "PKado por ultima vez:  "+ctime(tmp[1])+"\n";
+//	if (TP->query_creator())
    ret += sprintf("Sites:  %*#-s\n",this_player()->query_cols(),sites);
    for(i=0; i<3; i++)
    {
       switch(i)
       {
          case(0) :
-            ret += sprintf("\n%-34s%12s%12s%10s\n","Guilds","# Killed",
+            ret += sprintf("\n%-34s%12s%12s%10s\n","Gremios","# Killed",
                "Avg Tot XP","Avg Level");
             break;
          case(1) :
-            ret += sprintf("\n%-35s\n","Groups");
+            ret += sprintf("\n%-35s\n","Clanes");
             break;
          case(2) :
-            ret += sprintf("\n%-35s\n","Race Groups");
+            ret += sprintf("\n%-35s\n","Casas");
             break;
       }
       orgs = keys(tmp[3+i]);
@@ -165,7 +166,7 @@ void info_player(string name)
              totxp += org[0] * org[1];
              totl += org[0] * org[2];
          }
-         ret += sprintf("%-35O%10d%10d%9d\n",orgs[j],org[0],org[1],org[2]);
+         ret += sprintf("%-35O%10d%10d%9d\n",orgs[j]->query_short(),org[0],org[1],org[2]);
       }
    } 
    if(totk)

@@ -3,21 +3,23 @@ inherit "/obj/monster";
 
 void setup() {
 
-        set_level(5);
-        set_wimpy(0);
-        set_name("displacer");
-        add_alias("beast");
-        add_alias("displacer");
-       set_main_plural("beasts");
-        set_short("displacer beast");
+        set_level(25+random(10));
+        set_wimpy(100);
+	set_max_hp(3000);
+	set_hp(3000);
+        set_name("desplazadora");
+        add_alias("desplazadora");
+        add_alias("bestia");
+       set_main_plural("desplazadoras");
+        set_short("desplazadora");
         set_long("It is a vaguely puma-like creature with bluish black skin "
                  ", and dead black tentacles. Its eyes are a hellish "
                  "glowing green.\n");
-        set_kill_xp(550);
+        set_kill_xp(50000);
         set_guild("fighter");
        set_aggressive(1);
-       add_move_zone("lowtun");
-       set_move_after(5, 30);
+//       add_move_zone("lowtun");
+  //     set_move_after(5, 30);
 }
 
 #define AN attacker->query_cap_name()
@@ -27,10 +29,10 @@ mapping valid_attack() {
 
 int two, three, four, five;
 
-two = random(2);
-three=random(3);
-four=random(4);
-five=random(5);
+two = random(10);
+three=random(15);
+four=random(13);
+five=random(7);
 
   return ([
 "punch"   :({ AN+" "+({"claws", "rips",})[two]+" "+DN+" on the "+({"arm","hand","leg","neck",})[four]+".\n",

@@ -4,7 +4,7 @@ inherit "/std/room";
 mapping accounts;
 string save_file;
 int total_made;
-static int total_account;
+nosave int total_account;
 string owner;
 int collectbox;
 
@@ -40,19 +40,18 @@ int query_bank() { return 1; }
 
 void init() {
   add_action("balance", "balance");
-  add_action("withdraw", "withdraw");
-  add_action("create_account", "open");
-  add_action("close_account", "close");
-  add_action("deposit", "deposit");
-//  add_action("newowner", "newowner");
-//  add_action("setpercentage", "setp*ercentage");
+  add_action("withdraw", "sacar");
+  add_action("create_account", "crear");
+  add_action("close_account", "cerrar");
+  add_action("deposit", "ingresar");
+  add_action("newowner", "newowner");
+  add_action("setpercentage", "setp*ercentage");
   ::init();
 } /* init() */
 
 int get_account() 
   {
   string name;
-  int val;
 
   if (!undefinedp(this_player()->query_property("bank "+save_file)))
     return (int)this_player()->query_property("bank "+save_file);
@@ -74,7 +73,7 @@ int set_account(int amt)
 /* Owner stuff */
 string extra_look()
   {
-  return "This establishment is owned by "+capitalize(owner)+".\n";
+  return "Este establecimiento es propiedad de "+capitalize(owner)+".\n";
 }
 
 int set_owner(string str)
@@ -103,23 +102,23 @@ int newowner(string str)
   if (  ((string)this_player()->query_name() != owner) &&
      (!"/secure/master"->god((string)this_player()->query_name()))  )
   {
-    notify_fail("You don't own this bank.\n");
+    notify_fail("No eres el duenyo del banco.\n");
     return 0;
   }
   if (!str || !stringp(str))
   {
-    notify_fail("newowner <name of new owner>\n");
+    notify_fail("newowner <nombre del nuevo propietario>\n");
     return 0;
   }
   if (!"/secure/login"->test_user(str))
   {
-    notify_fail("That player doesn't exist.\n");
+    notify_fail("Ese jugador no existe.\n");
     return 0;
   }
   if (!set_owner(str))
-    write("Error setting new owner.\n");
+    write("Error estableciendo nuevo propietario.\n");
   else
-    write("Owner of this bank is now "+capitalize(query_owner())+"\n");
+    write("El duenyo del banco es ahora "+capitalize(query_owner())+"\n");
   return 1;
 }
 
@@ -128,22 +127,22 @@ int setpercentage(string str)
   int newper;
   if (!valid_owner((string)this_player()->query_name()))
   {
-    notify_fail("You don't own this bank.\n");
+    notify_fail("No eres el duenyo del banco.\n");
     return 0;
   }
   if (!sscanf(str, "%d", newper))
   {
-    notify_fail("setpercentage <new percentage>\n  ex: setp 96\n");
+    notify_fail("setp*entage <nuevo porcentaje>\n  ex: setp 96\n");
     return 0;
   }
   if ((newper < 0) || (newper > 100))
   {
-    notify_fail("percentage must be between 1 and 100\n");
+    notify_fail("El porcentaje debe estar entre 1 y 100\n");
     return 0;
   }
   percentage = newper;
   save_it();
-  write("Percentage now at "+percentage+"\n");
+  write("El porcentaje es ahora el "+percentage+"\n");
   return 1;
 }
 
@@ -152,17 +151,17 @@ int balance() {
 
   amt = get_account();
   if (amt < 0) {
-    notify_fail("You do not have an account here.\n");
+    notify_fail("No tienes una cuenta aqui.\n");
     return 0;
   }
   if (!amt) {
-    write("Your account is empty.\n");
+    write("Tu cuenta esta vacia.\n");
     return 1;
   }
   if(amt>1000000) 
     secure_log_file("MONEY",amt+" "+this_player()->query_name()+" "
          +file_name(this_object())+"\n");
-  write("You have "+MONEY_HAND->money_value_string(amt)+" in your account.\n");
+  write("En tu cuenta dispones de "+MONEY_HAND->money_value_string(amt)+".\n");
   return 1;
 } /* balance() */
 
@@ -173,46 +172,45 @@ int withdraw(string str) {
 
 if(this_player()->query_dead())
 {
-  notify_fail("You are dead, you can't carry any money.\n");
+  notify_fail("Estas muerto, no puedes llevar monedas.\n");
   return 0;
 }
   total = get_account();
   if (total < 0) {
-    notify_fail("You do not have an account here.\n");
+    notify_fail("No tienes una cuenta aqui.\n");
     return 0;
   }
-  notify_fail("Syntax: "+query_verb()+" <amount> <type> coin[s]\n");
+  notify_fail("Sintaxis: "+query_verb()+" <cantidad> <tipo> moneda[s]\n");
   if (!str)
     return 0;
-  if (sscanf(str, "%d %s coin%s", amt, type, s1) != 3 &&
+  if (sscanf(str, "%d %s monedas%s", amt, type, s1) != 3 &&
       sscanf(str, "%d %s", amt, type) != 2)
     return 0;
   if (amt <= 0) {
-    notify_fail("You must withdraw something.\n");
+    notify_fail("Debes recuperar algo.\n");
     return 0;
   }
    if(strlen(""+amt) > 6) 
    {
-      notify_fail("The bank cannot handle so many coins.\n");
+      notify_fail("El banco no puede manejar tantas monedas.\n");
       return 0;
    }
   values = (mixed *)MONEY_HAND->query_values();
   if ((i=member_array(type, values)) == -1) {
-    notify_fail("I do not know of any "+type+" coins.\n");
+    notify_fail("No conozco ninuna moneda llamada "+type+".\n");
     return 0;
   }
   val = amt*values[i+1];
   if (val > total) {
-    write("You do not have enough money in your account.\n");
+    write("No tienes suficiente dinero en tu cuenta.\n");
     return 1;
   }
   this_player()->adjust_money(amt, type);
   set_account(total - val);
   total_account -= val;
   save_it();
-  write("You withdraw "+amt+" "+type+" coins.\n");
-  say(this_player()->query_cap_name()+" withdraws some money from "+
-      this_player()->query_possessive()+" account.\n");
+  write("Recuperas "+amt+" monedas de "+type+".\n");
+  say(this_player()->query_cap_name()+" recupera dinero de su cuenta.\n");
   return 1;
 } /* withdraw() */
 
@@ -223,9 +221,7 @@ if(this_player()->query_dead())
  */
 int get_money(int offer)
   {
-  int total, amt, i;
-  mixed *values;
-  string bing;
+  int total, amt;
 
   total = get_account();
 
@@ -259,17 +255,17 @@ int deposit(string str)
    To prevent deposits in vault during CTF */
   if("/global/omiq.c"->flag_in_progress())
 	{
-	notify_fail("Sorry, the bank does not take deposits during a Flag Game.\n");
+	notify_fail("Lo siento no se puede depositar durante una omiq.\n");
 	return 0;
 	}
 
   total = get_account();
   if (total < 0) {
-    notify_fail("You do not have an account here.\n");
+    notify_fail("No tienes una cuenta aqui.\n");
     return 0;
   }
   if (!str) {
-    notify_fail("Syntax: "+query_verb()+" <money>\n");
+    notify_fail("Sintaxis: "+query_verb()+" <dinero>\n");
     return 0;
   }
   cont = clone_object("/std/container");
@@ -279,7 +275,7 @@ int deposit(string str)
       obs[i]->move(cont);
   if (!sizeof(all_inventory(cont))) {
     cont->dest_me();
-    notify_fail("You might want to deposit some money.\n");
+    notify_fail("Debes de querer depositar dinero no?.\n");
     return 0;
   }
   obs = all_inventory(cont);
@@ -295,11 +291,10 @@ int deposit(string str)
   total_made += total_amt - amt;
   save_it();
   write(capitalize((string)MONEY_HAND->money_value_string(total_amt))+
-        " deposited to give a total account of "+
+        " depositado que da un total de "+
         MONEY_HAND->money_value_string(total+amt)+
         ".\n");
-  say(this_player()->query_cap_name()+" deposits some money into "+
-      this_player()->query_possessive()+" account.\n");
+  say(this_player()->query_cap_name()+" deposita algún dinero en su cuenta.\n");
   return 1;
 } /* deposit() */
 
@@ -309,21 +304,21 @@ int create_account()
 
   amt = get_account();
   if (amt >= 0) {
-    notify_fail("You already have an account here.\n");
+    notify_fail("Ya tienes una cuenta aqui.\n");
     return 0;
   }
   if (account_cost) {
     if (this_player()->query_value() < account_cost) {
-      write("You do not have enough money to open an account.\n");
+      write("No tienes suficiente dinero para abrir una cuenta.\n");
       return 1;
     }
-    write("It will cost you "+MONEY_HAND->money_value_string(account_cost)+
-          " to open the account.\nDo you still want to ? ");
+    write("Te costara "+MONEY_HAND->money_value_string(account_cost)+
+          " abrir la cuenta.\nAun quieres hacerlo ? ");
     input_to("check_open");
     return 1;
   }
   set_account(0);
-  write("Account created.\n");
+  write("Cuenta creada.\n");
   save_it();
   return 1;
 } /* create_account() */
@@ -331,16 +326,16 @@ int create_account()
 int check_open(string str) {
   str = lower_case(str);
   if (str[0] != 'y' && str[0] != 'n') {
-    write("I don't understand.  Do you want to open an account ? ");
+    write("No entiendo, quieres abrir una cuenta ? ");
     input_to("check_open");
     return 1;
   }
   if (str[0] == 'n') {
-    write("Ok, not opening the account.\n");
+    write("Ok, no se abre la cuenta.\n");
     return 1;
   }
   set_account(0);
-  write("Account created.\n");
+  write("Cuenta creada.\n");
   save_it();
   total_made += account_cost;
   this_player()->pay_money((mixed *)MONEY_HAND->create_money_array(account_cost));

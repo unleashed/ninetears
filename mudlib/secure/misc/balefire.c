@@ -3,9 +3,9 @@
 
 #define SIZE_OF_DICE 4
 #define MISFIRE 3
-#define BALEFIRE "/std/spells/wizard/balefire_ob.c"
+#define BALEFIRE "/d/gremios/hechizos/wizard/balefire_ob.c"
 
-inherit "/std/spells/base.c";
+inherit "/d/gremios/hechizos/base.c";
 
 void hit_balefire(object target, object caster);
 

@@ -1,11 +1,12 @@
-#include "weapon.h"
+// parece q este add_attack no es para armas sino para monstruos.
 
-/* static mixed  attack_name,
-              attack_data; */
+// Vilat - Vale, supongamos ke es de monstruos... ningun npc lo carga :S
+
+#include "weapon.h"
 
 mixed attack_name,
       attack_data;
-static string skill;
+nosave string skill;
 
 void create() 
 {
@@ -136,6 +137,7 @@ int weapon_attack(object targ, object ob) {
   }
 }
 
+// este write_message nunca lo he visto en el juego.
 void write_message(int dam, object attack_ob, object attack_by, string type,
                    string name) {
   string *message;
@@ -149,17 +151,17 @@ void write_message(int dam, object attack_ob, object attack_by, string type,
     return ;
   }
   if (dam<30) {
-    tell_object(attack_by, "You missed "+attack_ob->short()+".\n");
-    tell_object(attack_ob, capitalize((string)attack_by->short()) +
-      " missed you.\n");
-    tell_room(environment(attack_ob), capitalize((string)attack_by->short()) +
-     " misses " + attack_ob->short() + ".\n", ({ attack_ob, attack_by }));
+    tell_object(attack_by, "# "+attack_ob->short()+" esquiva habilmente tu ataque.\n");
+    tell_object(attack_ob, "* Esquivas habilmente el ataque de"+
+	capitalize((string)attack_by->short()) +".\n");
+    tell_room(environment(attack_ob), capitalize((string)attack_ob->short()) +
+     " esquiva habilmente el ataque de " + attack_by->short() +".\n", ({ attack_ob, attack_by}));
   } else {
-    tell_object(attack_by, "You hit " + attack_ob->short() + ".\n");
-    tell_object(attack_ob, capitalize((string)attack_by->short()) +
-      " hits you.\n");
+    tell_object(attack_by, "# Alcanzas a " + attack_ob->short() + " con tu golpe.\n");
+    tell_object(attack_ob, "* * "+capitalize((string)attack_by->short()) +
+      " te golpea.\n");
     tell_room(environment(attack_ob), capitalize((string)attack_by->short()) +
-      " hits " + attack_ob->short() + ".\n", ({ attack_ob, attack_by }));
+      " golpea a " + attack_ob->short() + ".\n", ({ attack_ob, attack_by }));
   }
 }
 

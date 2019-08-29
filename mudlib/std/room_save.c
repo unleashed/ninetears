@@ -29,9 +29,9 @@ int query_saveroom() { return(1); }
 void set_void(string path) { voidpath = path; }
 int maxinv;
 
-create()
+void create()
 {
-    object olist;
+    object *olist;
     maxinv = MAXINV;
     ::create();
     auto_load = ({ });

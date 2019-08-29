@@ -1,0 +1,21 @@
+#include "../path.h"
+
+inherit ROOM+"primernivel.c";
+
+void setup()
+{
+  add_property("luz_real",50);
+  set_short("Primer nivel de Penumbra: %^BOLD%^Puesto de Guardia%^RESET%^");
+  set_long("Primer nivel de Penumbra: %^BOLD%^Puesto de Guardia%^RESET%^\n\n"
+  "     Esta sala es el hogar de la Guardia de Penumbra. La sobria "
+  "decoración de la sala consiste en una gran colección de cabezas "
+  "de bandidos, forajidos, ladrones y asesinos. La parte preferida "
+  "de la colección de la Guardia es la innumerable cantidad de "
+  "cabezas de enanos que resistieron escondidos en las cuevas de "
+  "Urghak. Gran multitud de armas, armaduras y escudos están "
+  "esparcidos y mal colocados por doquier.\n\n");
+  add_exit("norte", ROOM+"p1011.c", "path");
+  add_exit("sudoeste", ROOM+"g101.c", "path");
+  add_exit("sudeste", ROOM+"g102.c", "path");
+  set_zone("penumbra_tp");
+}

@@ -1,37 +1,29 @@
-
-// Taniwha 1995 uncommented clean_up
-/* Baldrick started some lobotomizing. sept '96
- * Will reduce the size of this beast.
- */
 inherit "/std/basic/light";
 inherit "/std/basic/property";
 inherit "/std/basic/cute_look";
 inherit "/std/basic/desc";
 inherit "/std/senses";
+
 #include "room.h"
+#include <memoria.h>
+#include <tiempo.h>
 #include "door.h"
-// debugging logs
-//#define CLEAN_UP_LOG "clean_up_room"
-//#define DOOR_LOG "room_doors.cloned"
 
 #define FAST_CLEAN_UP 10
 #define SLOW_CLEAN_UP 480
-private static int room_create_time;    // time of creation
-private static int room_init_time;      // time of previous init
-private static int room_stabilize;      // don't bother call_out
 
-
+private nosave int room_create_time;
+private nosave int room_init_time;
+private nosave int room_stabilize;
 object *query_hidden_objects();
 string query_dirs_string();
-static mixed *room_clones;
-
-static mapping items,
+nosave mixed *room_clones;
+nosave mapping items,
 exit_map,
 door_locks,
 door_map,
 door_control;
-
-static string exit_string,
+nosave string exit_string,
 short_exit_string,
 room_zone,
 dark_mess,
@@ -39,295 +31,225 @@ dark_mess,
 *dig_exit,
 *dest_direc,
 *aliases;
-
-static mixed *dest_other;
+nosave mixed *dest_other;
 int *co_ord;
 object *destables,
 *hidden_objects;
-/* Hamlet -- I'm adding choices for colors with the exit arrays. */
-static string exit_color;
-static string loginroom;
+nosave string exit_color;
+nosave string night_exit_color;
+nosave string loginroom;
 
-string set_login_room(string room)
-{
-    loginroom = room;
-   return loginroom;
-}
+string set_login_room(string room) {
+	loginroom = room;
+   	return loginroom;
+	}
 
-void event_login(object ob)
-{
-    if(!stringp(loginroom) || !ob) return;
-     else ob->move(loginroom);
-}
+void event_login(object ob) {
+    	if(!stringp(loginroom) || !ob) return;
+     	else ob->move(loginroom);
+	}
 
 void start_clean_up();
+
 string query_short_exit_string();
-object * query_hidden_objects() { return hidden_objects; }
+
+object *query_hidden_objects() { return hidden_objects; }
 
 int test_add(object ob, int flag) { return 1; }
+
 int test_remove(object ob, int flag) { return 1; }
+
 int add_weight(int n) { return 1; }
 
 int *query_co_ord() { return co_ord; }
+
 void set_co_ord(int *newc) { co_ord = newc; }
-mixed *query_init_data()
-{
-    return light::query_init_data()+property::query_init_data();
-}
 
-object *add_hidden_object(object ob)
-{
-    hidden_objects += ({ob});
-    return hidden_objects;
-}
-varargs string query_contents(string str,object *ob)
-{
-   if(!hidden_objects) hidden_objects = ({ });
-    if(ob)
-	ob -= hidden_objects;
-    else ob = all_inventory(TO) - hidden_objects;
-    return ::query_contents(str,ob);
-}
+mixed *query_init_data() { return light::query_init_data()+property::query_init_data(); }
 
-void reset()
-{
-    object it;
-    int flags;
-    if ( room_clones ) // From Laggard RoD
-    {
-	string thing;
-
-	int i = sizeof(room_clones);
-	// processing backwards yields room inventory in order of add_clones.
-	// (for those who care)
-	flags = 0;
-	while ( i-- > 0 )
-	{
-	    if ( stringp(room_clones[i]) ) // See if it's a tag, if so we use it for now
-	    {
-		thing = room_clones[i];
-		flags = 0;
-	    }
-	    else if(room_clones[i])
-	    {
-		flags = room_clones[i];
-	    }
-	    else if ( !room_clones[i] ) // fill up any empties using the tag
-	    {
-		//          Taniwha, clone, then TEST then move, so if it's screwed it still works
-		room_clones[i] = clone_object(thing);
-		if(room_clones[i])
-		{
-		    room_clones[i]->move(TO);
-		    if(flags == 1) add_hidden_object(room_clones[i]);
-		}
-	    }
+object *add_hidden_object(object ob) {
+	hidden_objects += ({ob});
+    	return hidden_objects;
 	}
-    }
-}
 
-/* Hamlet -- setting of exit string colors.  Meat is in the handler. */
-void set_exit_color(string which) {
-    exit_color = ROOM_HAND->exit_string_color(which);
-}
+varargs string query_contents(string str,object *ob) {
+   	if(!hidden_objects) hidden_objects = ({ });
+    	if(ob) ob -= hidden_objects;
+    	else ob = all_inventory(TO) - hidden_objects;
+    	return ::query_contents(str,ob);
+	}
 
-varargs void add_clone( string the_file, int how_many,int flags )
-{
-    // Laggard RoD 1995, minor mods by Taniwha
-    //
-	if ( !stringp(the_file) )
-    {
-	log_file("debug.log", ctime(time())
-	  + " bad clone file: " + the_file
-	  + ", " + file_name(this_object())
-	  + "\n");
-	return;
-    }
-    if ( !how_many ) how_many = 1;
-    // don't make array unless we have something to put in it!
-    if ( !room_clones )
-    {
-	room_clones = ({ });
-    }
-    while ( how_many-- > 0 )
-    {
-	// make space for objects in array
-	room_clones += ({ 0 });
-    }
-    // last, for backward processing.
-    if(flags) room_clones += ({ flags });
-    room_clones += ({ the_file });
-}
+void reset() {
+    	int flags;
+    	if ( room_clones ) {
+		string thing;
+		int i = sizeof(room_clones);
+		flags = 0;
+		while ( i-- > 0 ) {
+	    		if ( stringp(room_clones[i]) ) {
+				thing = room_clones[i];
+				flags = 0;
+	    			}
+	    		else if(room_clones[i]) {
+				flags = room_clones[i];
+	    			}
+	    		else if ( !room_clones[i] ) {
+				room_clones[i] = clone_object(thing);
+				if(room_clones[i]) {
+		    			room_clones[i]->move(TO);
+		    			if(flags == 1) add_hidden_object(room_clones[i]);
+					}
+	    			}
+			}
+    		}
+	}
+
+void set_exit_color(string which) { exit_color = ROOM_HAND->exit_string_color(which); }
+void set_night_exit_color(string which) { night_exit_color = ROOM_HAND->exit_string_color(which); }
+
+varargs void add_clone( string the_file, int how_many,int flags ) {
+    	if ( !stringp(the_file) ) {
+		log_file("debug.log", ctime(time())+ " bad clone file: " + the_file+ ", " + file_name(this_object())+ "\n");
+		return;
+    		}
+    	if ( !how_many ) how_many = 1;
+        if ( !room_clones ) room_clones = ({ });
+        while ( how_many-- > 0 ) room_clones += ({ 0 });
+        if(flags) room_clones += ({ flags });
+    	room_clones += ({ the_file });
+	}
 
 mixed *query_room_clones() { return room_clones; }
 
-string query_dark_mess(int lvl)
-{
-    if(!exit_string) query_dirs_string();
-    switch(lvl)
-    {
-    default:
-	return "Hmmph, odd, " + dark_mess;
-    case 1: /* Total blackout */
-	return dark_mess;
-    case 2: /* pretty damn dark */
-	return "You can't see much.\n"+ exit_string;
-    case 3: /* getting dim */
-	return "It's hard to see in this gloom.\n"+ ::short(1)+"\n" + exit_string;
-    case 4: /* slightly dazzled */
-	return "You are dazzled by the light.\n"+ ::short(0)+"\n"+ exit_string;
-    case 5: /* very bright */
-	return "The light is painfully bright.\n"+ exit_string;
-    case 6:
-	return "You are too blinded by the light to see properly.\n";
-    }
-}
+string query_dark_mess(int lvl) {
+    	if(!exit_string) query_dirs_string();
+    	switch(lvl) {
+    		default:
+		return "Hmmph, argh, " + dark_mess;
+	    	
+	    	case 1:
+		return dark_mess;
+    
+    		case 2:
+		return "No puedes ver mucho.\n"+ exit_string;
+    
+    		case 3:
+		return "Es dificil ver en esta oscuridad.\n"+ ::short(1)+"\n" + exit_string;
+    
+    		case 4:
+		return "Estas deslumbrado por la luz.\n"+ ::short(0)+"\n"+ exit_string;
+    		
+    		case 5:
+		return "La luz es dolorosamente brillante.\n"+ exit_string;
+    		
+    		case 6:
+		return "Estas demasiado deslumbrado como para poder ver nada.\n";
+    		}
+	}
 
 void set_dark_mess(string str) { dark_mess = str; }
 
 void create() {
-    string *inh;
-    dest_other = ({ });
-    dest_direc = ({ });
-    door_locks = ([ ]);
-    dig_where = ({ });
-    dig_exit = ({ });
-    exit_map = ([ ]);
-    items = ([ ]);
-    aliases = ({ });
-    destables = ({ });
-    hidden_objects = ({ });
-    door_control = ([ ]);
-    door_map = ([ ]);
-    room_zone = "nowhere";
-    exit_color = "%^BOLD%^%^CYAN%^";
-    seteuid((string)"/secure/master"->creator_file(file_name(this_object())));
-    set_dark_mess("It is too dark to see");
-    property::create();
-    senses::create();
-    add_property("location", "inside");
-    this_object()->setup();
-    reset();
-    if(replaceable(this_object())) {
-	inh = inherit_list(this_object());
-	if(sizeof(inh) == 1)
-   room_create_time = time();
-   start_clean_up();
-	    replace_program(inh[0]);
-    }
-} /* create() */
+    	string *inh;
+/* Vilat 17.09.2002 */ MEMORIAH->cargar_room(TO);
+    	dest_other = ({ });
+    	dest_direc = ({ });
+    	door_locks = ([ ]);
+    	dig_where = ({ });
+    	dig_exit = ({ });
+    	exit_map = ([ ]);
+    	items = ([ ]);
+	aliases = ({ });
+    	destables = ({ });
+    	hidden_objects = ({ });
+    	door_control = ([ ]);
+    	door_map = ([ ]);
+    	room_zone = "ningun sitio";
+    	exit_color = "%^BOLD%^CYAN%^";
+	night_exit_color ="%^BOLD%^CYAN%^";
+    	seteuid((string)"/secure/master"->creator_file(file_name(this_object())));
+    	set_dark_mess("Esta demasiado oscuro para poder ver.");
+    	property::create();
+    	senses::create();
+    	add_property("location", "inside");
+    	this_object()->setup();
+	reset();
+	if (night_exit_color=="%^BOLD%^CYAN%^") night_exit_color=exit_color;
+    	TO->set_light(20);
+	if (TO->query_property("luz_real")) TO->set_light(TO->query_property("luz_real"));
+    	if(replaceable(this_object())) {
+		inh = inherit_list(this_object());
+		if(sizeof(inh) == 1)
+   		room_create_time = time();
+   		start_clean_up();
+	    	replace_program(inh[0]);
+    		}
+	}
 
 string expand_alias(string str);
 
-// moved glance code to the command  (:   Radix 1996
-string short(int dark) {
-    return ::short(dark);
-} /* short() */
+string short(int dark) { return ::short(dark); }
 
 int id(string str) {
-    int i;
+    	return 0; /* Y esta paranoya? */
+    	str = expand_alias(str);
+    	return items[str];
+	}
 
-    return 0;
-    str = expand_alias(str);
-    return items[str];
-} /* id() */
+string expand_alias(string str) {
+    	str = EXIT_HAND->expand_alias(aliases,str);
+    	return str;
+	}
 
-string expand_alias(string str)
-{
-    str = EXIT_HAND->expand_alias(aliases,str);
-    return str;
-} /* expand_alias() */
+string query_dirs_string() {
+    	object room_ob = this_object();
+	if(CICLO_HANDLER->query_noche()) exit_string = EXIT_HAND->query_dirs_string(dest_direc,dest_other,room_ob,night_exit_color);
+    	else exit_string = EXIT_HAND->query_dirs_string(dest_direc,dest_other,room_ob,exit_color);
+    	return exit_string;
+	}
 
-//  Thanks to viewers like you this function [insert name here]
-//     has been moved to your local exit_handler [Piper 1/5/96]
-
-string query_dirs_string()
-{
-    object room_ob = this_object();
-
-    exit_string = EXIT_HAND->query_dirs_string(dest_direc,
-      dest_other,room_ob,exit_color);
-    return exit_string;
-}
 int reset_short_exit_string() { return short_exit_string = 0; }
 
-/*
- * This creates the exits message you keep getting
- */
 string query_short_exit_string() {
-    string ret, *dirs;
-    int no, i, nostore, add;
+    	string ret, *dirs;
+    	int no, i, nostore, add;
 
-    if (short_exit_string)
-	return short_exit_string;
-    if (!dest_direc || sizeof(dest_direc)==0)
-	dest_direc = ({ });
-    dirs = ({ });
-    for (i=0;i<sizeof(dest_other);i+=2) {
-	add = 0;
-	if (dest_other[i+1][ROOM_OBV]) {
-	    no += 1;
-	    add = 1;
-	} else if (stringp(dest_other[i+1][ROOM_OBV])) {
-	    nostore = 1;
-	    add = (int)call_other(this_object(),dest_other[i+1][ROOM_OBV]);
-	} else if (pointerp(dest_other[i+1][ROOM_OBV])) {
-	    nostore = 1;
-	    add = (int)call_other(dest_other[i+1][ROOM_OBV][0],dest_other[i+1][ROOM_OBV][1]);
+    	if (short_exit_string) return short_exit_string;
+    	if (!dest_direc || sizeof(dest_direc)==0) dest_direc = ({ });
+    	dirs = ({ });
+    	for (i=0;i<sizeof(dest_other);i+=2) {
+		add = 0;
+		if (dest_other[i+1][ROOM_OBV]) {
+	    		no += 1;
+	    		add = 1;
+			} 
+		else if (stringp(dest_other[i+1][ROOM_OBV])) {
+	    		nostore = 1;
+	    		add = (int)call_other(this_object(),dest_other[i+1][ROOM_OBV]);
+			} 
+		else if (pointerp(dest_other[i+1][ROOM_OBV])) {
+	    		nostore = 1;
+	    		add = (int)call_other(dest_other[i+1][ROOM_OBV][0],dest_other[i+1][ROOM_OBV][1]);
+			}
+		if (!add) continue;
+		if ((ret=SHORTEN[dest_other[i]])) dirs += ({ ret });
+		else dirs += ({ dest_other[i] });
+    		}
+    	if (sizeof(dirs)==0) {
+		if (nostore) return exit_color+" [ninguna]%^RESET%^";
+		return short_exit_string = exit_color+" [ninguna]%^RESET%^";
+    		}
+    	if (nostore) return exit_color+" ["+implode(dirs,",")+"]%^RESET%^";
+    	return short_exit_string  = exit_color+" ["+implode(dirs,",")+"]%^RESET%^";
 	}
-	if (!add)
-	    continue;
-	if ((ret=SHORTEN[dest_other[i]]))
-	    dirs += ({ ret });
-	else
-	    dirs += ({ dest_other[i] });
-    }
-    if (sizeof(dirs)==0) {
-	if (nostore)
-	    return exit_color+" [none]%^RESET%^";
-	return short_exit_string = exit_color+" [none]%^RESET%^";
-    }
-    if (nostore)
-	return exit_color+" ["+implode(dirs,",")+"]%^RESET%^";
-    return short_exit_string  = exit_color+" ["+implode(dirs,",")+"]%^RESET%^";
-} /* query_short_exit_string() */
 
 string long(string str, int dark) {
-    int i;
-
-    if (dark)
-	return query_dark_mess(dark)+"\n";
-    if(!exit_string) query_dirs_string();
-    if (!str)
-    {
-	return( query_long()+exit_string+"\n"+query_contents("") );
-    }
-    str = expand_alias(str);
-    return items[str];
-} /* long() */
-
-void calc_co_ord() {
-    int *old_co_ord, i, j, k;
-
-    for (i=0;i<sizeof(dest_other) && !co_ord;i+=2)
-	if (find_object(dest_other[i+1][ROOM_DEST]))
-	    if (!catch((old_co_ord = (int *)dest_other[i+1][ROOM_DEST]->query_co_ord())))
-		if (old_co_ord) {
-		    co_ord = old_co_ord + ({ });
-		    if ((j=member_array(dest_other[i], STD_ORDERS)) != -1)
-			for (k=0;k<3;k++)
-			    co_ord[k] += STD_ORDERS[j+1][k];
-		}
-		/* Set a default later -- Hamlet */
-    if(!co_ord)
-	call_out("default_calc_co_ord",0);
-} /* calc_co_ord() */
-
-void default_calc_co_ord() {
-    /* Defaults are a good thing. -- Hamlet */
-    if(!co_ord)
-	co_ord = ({ 0, 0, 0 });
-}
+    	if (dark) return query_dark_mess(dark)+"\n";
+    	if(!exit_string) query_dirs_string();
+    	if (!str) return( query_long()+exit_string+"\n"+query_contents("") );
+    	str = expand_alias(str);
+    	return items[str];
+	}
 
 void init() {
     int i, j;
@@ -357,10 +279,10 @@ void init() {
 	    } while ((j=member_array(dest_direc[i], al)) != -1);
 	}
     }
+    add_action("do_search", "buscar");
     add_action("do_search", "search");
     add_action("do_dig","dig");
-    if (!pointerp(co_ord))
-	calc_co_ord();
+    add_action("do_dig","cavar");
 
     hidden_objects -= ({ 0 });
 
@@ -449,32 +371,23 @@ string expand_direc(string str) {
 //  Externalized exit portions of room.c (Piper 12/24/95)
 //      Now look in lock_handler.c & exit_handler.c
 
-varargs int add_exit(string direc,mixed dest,string type,
-  string material)
-{
-    mixed *m;
-    if(!dest_other) dest_other = ({ });
+varargs int add_exit(string direc,mixed dest,string type,string material) {
+    	mixed *m;
+    	if(!dest_other) dest_other = ({ });
 
-    m = EXIT_HAND->add_exit(door_control,exit_map,            //mappings
-      dest_other,dest_direc,hidden_objects, //arrays
-      direc,dest,type,material             //data
-    );
+    	m = EXIT_HAND->add_exit(door_control,exit_map,dest_other,dest_direc,hidden_objects,direc,dest,type,material);
 
-    if(sizeof(m) > 0)
-    {
-
-	door_control = m[0];
-	exit_map = m[1];
-	dest_other = m[2];
-	dest_direc = m[3];
-	hidden_objects = m[4];
-	query_dirs_string();
-	return(1);
-    }
-
-
-    return 0;
-}
+    	if(sizeof(m) > 0) {
+		door_control = m[0];
+		exit_map = m[1];
+		dest_other = m[2];
+		dest_direc = m[3];
+		hidden_objects = m[4];
+		query_dirs_string();
+		return 1;
+    		}
+    	return 0;
+	}
 
 // Query for exit type... [Piper 12/24/95]
 string query_ex_type(string direc)
@@ -601,32 +514,21 @@ int query_size(string direc)
     return size;
 }
 
-int do_exit_command(string str,mixed verb,object ob,object foll)
-{
-    mixed zip;
-    int old_call_out;
-    object room_ob = this_object();
-    zip = EXIT_HAND->do_exit_command(door_control,door_locks,
-      exit_map,dest_direc,dest_other,
-      aliases,str,verb,ob,foll,room_ob);
-#ifdef FAST_CLEAN_UP
-    old_call_out = remove_call_out( "clean_up_room" );  // multiple folks in room
+int do_exit_command(string str,mixed verb,object ob,object foll) {
+    	mixed zip;
+    	int old_call_out;
+    	object room_ob = this_object();
+    	zip = EXIT_HAND->do_exit_command(door_control,door_locks,exit_map,dest_direc,dest_other,aliases,str,verb,ob,foll,room_ob);
 
-    if ( old_call_out > 0
-      &&  old_call_out < FAST_CLEAN_UP
-      &&  (time() - room_create_time) < FAST_CLEAN_UP )
-    {
-	// was merely passing through {Laggard}
-	call_out( "clean_up_room", FAST_CLEAN_UP, 0 );
-    }
-    else if ( !room_stabilize )
-    {
-	call_out( "clean_up_room", SLOW_CLEAN_UP, 0 );
-    }
+#ifdef FAST_CLEAN_UP
+    	old_call_out = remove_call_out( "clean_up_room" );  // multiple folks in room
+
+    	if ( old_call_out > 0 &&  old_call_out < FAST_CLEAN_UP &&  (time() - room_create_time) < FAST_CLEAN_UP ) call_out( "clean_up_room", FAST_CLEAN_UP, 0 );
+        else if ( !room_stabilize ) call_out( "clean_up_room", SLOW_CLEAN_UP, 0 );
 #endif
 
-    return zip;
-}
+    	return zip;
+	}
 
 /* Here is the add_item stuff, what I don't understand is why this is objects..
  * could it help if we used just a mapping? not too sure tho.
@@ -639,8 +541,6 @@ int do_exit_command(string str,mixed verb,object ob,object foll)
  */
 int add_item(string str,string desc) {
     object ob;
-    int i;
-
     if (!items)
 	items = ([ ]);
 
@@ -689,6 +589,7 @@ mapping query_items() { return items; }
 /*
  * The alias junk
  */
+// hmmm, tal vez hubiera sido mejor add_room_alias... pero weno
 int add_alias(mixed name,string str) {
     int i;
 
@@ -735,7 +636,7 @@ int query_no_writing() { return 1; }
 
 
 object * query_destables() { return destables; }
-static int empty_room(object ob)
+private int empty_room(object ob)
 {
     object *olist;
     int i;
@@ -776,7 +677,8 @@ void dest_me() {
 	    if(empty_room(room_clones[i])) room_clones[i]->dest_me();
 	}
     }
-    destruct(this_object());
+    MEMORIAH->descargar_room(TO);
+    destruct(TO);
 } /* dest_me() */
 
 
@@ -922,13 +824,13 @@ int do_search(string str)
     // Fix by wonderflug.  ghosts shouldn't search.
     if ( this_player()->query_dead() )
     {
-	notify_fail("A ghost cannot do that.\n");
+	notify_fail("Un espiritu buscando?.\n");
 	return 0;
     }
-    // A bit of gp to do this -- Wf, oct 95
-    if ( this_player()->adjust_gp(-1) < 0 )
+    // A bit of ep to do this -- Wf, oct 95
+    if ( this_player()->adjust_ep(-1) < 0 )
     {
-	notify_fail("You are too tired to search right now.\n");
+	notify_fail("Estas demasiado cansado para buscar ahora mismo.\n");
 	return 0;
     }
     hidden_objects -= ({ 0 });
@@ -937,18 +839,21 @@ int do_search(string str)
 	ob = hidden_objects[0];
 	hidden_objects -= ({ob});
 	if(present(ob,TO))
-	    write("You search round and find a "+ob->query_short()+"\n");
+	    write("Buscas un poco y encuentras un "+ob->query_short()+"\n");
     }
     else
     {
-
+/* Esta parte deberia entrar para buscar'es que encontraran cosas
+	(que para eso sirven, no solo para encontrar gente escondida).
 	write( ({
 	    "You search around for a while but dont find anything.\n",
 	    "You scrounge around, the ground does look interesting you decide.\n",
 	    "You look carefully at everything, but you find nothing.\n",
 	    "After a while of intensive searching you find nothing.\n" })[random(4)]);
+*/
+	write("Buscas esforzadamente algo en la zona.\n");
     }
-    say(this_player()->query_cap_name()+" searches around the room a bit.\n");
+    say(this_player()->query_cap_name()+" busca algo en este lugar.\n");
     event(this_object(), "player_search");
     return 1;
 } /* do_search() */
@@ -970,12 +875,12 @@ varargs object add_sign(string long, string mess, string short, string sname) {
 
     sign = clone_object("/std/object");
 
-    if(!sname) sname = "sign";
+    if(!sname) sname = "signo";
     sign->set_name(sname);
     sign->set_main_plural(pluralize(sname));
     if (short)
 	sign->set_short(short);
-    else sign->set_short("Sign");
+    else sign->set_short("Signo");
     sign->set_long(long);
     sign->set_read_mess(mess);
     sign->reset_get();
@@ -1082,3 +987,33 @@ int do_dig(string direc)
 
     return(1);
 }
+
+int query_outside() { return 0; }
+
+varargs void night_clone( string str, int i, int f ) {
+	if(!CICLO_HANDLER->query_noche()) return;
+	add_clone(str,i,f);
+	return;
+	}
+
+varargs void day_clone( string str, int i, int f ) {
+	if(CICLO_HANDLER->query_noche()) return;
+	add_clone(str,i,f);
+	return;
+	}
+
+// Vilat 21.01.2003 - Chapuza de propagacion de eventos
+void event_enter(object ob,string mess,object *avoid) {
+    object *prop=all_inventory(TO)-avoid;
+    for(int i=0;i<sizeof(prop);i++) prop[i]->event_enter(ob,mess,avoid);
+    }
+    
+void event_exit(object ob,string mess,object *avoid) {
+    object *prop=all_inventory(TO)-avoid;
+    for(int i=0;i<sizeof(prop);i++) prop[i]->event_exit(ob,mess,avoid);
+    }
+    
+void event_person_say(object person,string cabecera,string mensaje,string idioma) {
+    object *prop=all_inventory(TO)-({person});
+    for(int i=0;i<sizeof(prop);i++) prop[i]->event_person_say(person,cabecera,mensaje,idioma);
+    }

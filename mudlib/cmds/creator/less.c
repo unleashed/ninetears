@@ -12,7 +12,7 @@ void setup()
 	position = 1;
 }
 
-static int cmd(string str, object me) 
+int cmd(string str, object me) 
 {
    object *things;
    string * filenames;

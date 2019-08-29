@@ -1,0 +1,69 @@
+w/thalos/workroom.c line 9: parse error
+w/thalos/workroom.c line 49: End of file in string
+w/thalos/workroom.c line 9: parse error
+w/thalos/workroom.c line 49: End of file in string
+w/thalos/workroom.c line 11: parse error
+w/thalos/workroom.c line 49: End of file in string
+w/thalos/workroom.c line 11: parse error
+w/thalos/workroom.c line 49: End of file in string
+w/thalos/workroom.c line 22: parse error
+w/thalos/workroom.c line 9: parse error
+w/thalos/workroom.c line 33: End of file in string
+w/thalos/salon.c line 38: Undefined function set_open_condition
+w/thalos/salon.c line 41: parse error
+w/thalos/salon.c line 38: Undefined function set_open_condition
+w/thalos/salon.c line 41: parse error
+w/thalos/salon.c line 10: Undefined variable 'BOLD'
+w/thalos/salon.c line 10: parse error
+w/thalos/salon.c line 10: parse error
+w/thalos/salon.c line 10: parse error
+w/thalos/salon.c line 44: End of file in string
+w/thalos/skurt.c line 1: Cannot #include path.h
+w/thalos/skurt.c line 1: Cannot #include path.h
+w/thalos/workroom.c line 1: Cannot #include path.h
+w/thalos/workroom.c line 1: Cannot #include path.h
+w/thalos/workroom.c line 1: Cannot #include path.h
+w/thalos/salon.c line 24: Undefined function AddDetail
+w/thalos/salon.c line 28: parse error
+w/thalos/salon.c line 57: End of file in string
+w/thalos/salon.c line 24: Undefined function AddDetail
+w/thalos/salon.c line 28: parse error
+w/thalos/salon.c line 57: End of file in string
+w/thalos/salon.c line 24: Undefined function Add_item
+w/thalos/salon.c line 33: Undefined function add_Exit
+w/thalos/dormitorio.c line 2: parse error
+w/thalos/dormitorio.c line 2: parse error
+w/thalos/dormitorio.c line 2: parse error
+w/thalos/dormitorio.c line 2: parse error
+w/thalos/laboratorio.c line 2: parse error
+w/thalos/laboratorio.c line 2: parse error
+w/thalos/dormitorio.c line 2: parse error
+w/thalos/dormitorio.c line 2: parse error
+w/thalos/dormitorio.c line 2: parse error
+w/thalos/dormitorio.c line 2: parse error
+w/thalos/dormitorio.c line 2: parse error
+w/thalos/dormitorio.c line 2: parse error
+w/thalos/dormitorio.c line 2: parse error
+w/thalos/laboratorio.c line 19: parse error
+w/thalos/laboratorio.c line 19: parse error
+w/thalos/laboratorio.c line 19: parse error
+w/thalos/laboratorio.c line 19: parse error
+w/thalos/laboratorio.c line 19: parse error
+w/thalos/laboratorio.c line 19: parse error
+w/thalos/laboratorio.c line 19: parse error
+w/thalos/laboratorio.c line 19: parse error
+w/thalos/laboratorio.c line 20: parse error
+w/thalos/anillo_unico.c line 22: Undefined function add_read
+w/thalos/capi/capitan_patrulla.c line 55: parse error
+w/thalos/guardia_espectral.c line 35: Warning: Value of conditional expression is unused
+w/thalos/guardia_espectral.c line 35: parse error
+w/thalos/guardia_espectral.c line 37: Illegal LHS
+w/thalos/guardia_espectral.c line 39: parse error
+w/thalos/guardia_espectral.c line 40: Illegal LHS
+w/thalos/guardia_espectral.c line 42: parse error
+w/thalos/guardia_espectral.c line 42: Illegal LHS
+w/thalos/guardia_espectral.c line 37: parse error
+w/thalos/guardia_espectral.c line 37: Illegal LHS
+w/thalos/guardia_espectral.c line 39: parse error
+w/thalos/guardia_espectral.c line 39: Illegal LHS
+w/thalos/guardia_espectral.c line 41: parse error

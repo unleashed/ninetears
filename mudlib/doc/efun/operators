@@ -1,3 +1,8 @@
+.DT
+operators
+FR-MUD's efun help
+operators
+
 These are the operators availailable in LPC. They are listed in the
 order or precedence (low priority first):
 

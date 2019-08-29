@@ -36,8 +36,6 @@ int check_isin(mapping map,object ob)
 
 int do_aggressive_check(object ob, int aggressive,object me,int minplayer,mapping hated,mapping loved)
 {
-    mixed *list;
-    int level;
     if(!ob) return 0;
     if ( ob->query_invis() )  
         return 0;
@@ -88,7 +86,7 @@ int do_aggressive_check(object ob, int aggressive,object me,int minplayer,mappin
 string expand_string(object me,string in_str, object on, object attacker)
 {
     string *str, ret;
-    int q, i, j, add_dollar;
+    int i, j, add_dollar;
     int k,l;
 
 
@@ -275,4 +273,75 @@ void spell_heart_beat(object me,object *attacker_list,mixed attack_spells)
       spell_target, me, silent);
     /* end of the attack spell thingie */
 }
+
+//Vilat 27.08.2002
+void command_heart_beat(object me,object *attacker_list, mixed attack_commands) {
+	string command_target;
+	int a,b,numerocomandos,i,j;
+	int vida=0;
+	object *atacantespresentes=({ });
+	object *presentes;
+	
+	// Esto se supone que es para que seleccione los atacantes presentes
+	presentes=all_inventory(environment(me));
+	for (a=0;a<sizeof(presentes);a++) {
+		if (presentes[a]->query_hidden()||presentes[a]->query_invis()) continue;
+		if (member_array(presentes[a],attacker_list) != -1) atacantespresentes+=({presentes[a]});
+		}
+
+	// Cada comando esta definido por 5 elementos, asi calculamos el numero de comandos
+	numerocomandos=sizeof(attack_commands)/5;
+	
+	// Ahora comprobaremos para cada comando
+	for (i=0;i<numerocomandos;i++) {
+		// j sera nuestro identificador
+		j=i*5;
+		// Aqui se decide si el comando se va a ejecutar o no		
+		if (random(100)<attack_commands[j]) {
+			// Si se va a ejecutar, se mira el tipo que se le ha asignado
+			switch (attack_commands[j+4]) {
+				// Tipo 0: se ejecuta sin parametros
+				case 0:
+				call_other(attack_commands[j+2],attack_commands[j+3],me,0);
+				return;
+				break;
+				
+				// Tipo 1: se ejecuta sobre el propio npc
+				case 1:
+				command_target=me->query_name();
+				break;
+				
+				// Tipo 2: se ejecuta sobre todos los que haya en la room
+				case 2:
+				command_target="all";
+				break;
+				
+				// Tipo 3: se ejecuta sobre uno de los atacantes al azar
+				// Mejorar esto para que elija solo entre los atacantes que estan en la room
+				// Mejorado
+				case 3:
+				command_target=atacantespresentes[random(sizeof(atacantespresentes))]->query_name();
+				break;
+				
+				// Tipo 4 (por programar): se ejecuta sobre el atacante mas debil en la room
+				case 4:
+				for (b=0;b<sizeof(atacantespresentes);b++) {
+					if (vida==0||atacantespresentes[b]->query_hp()<vida) {
+						vida=atacantespresentes[b]->query_hp();
+						command_target=atacantespresentes[b]->query_name();
+						}				
+					}
+				break;
+				
+				// Otros tipos: No se ejecuta el comando
+				default:
+				return;
+				}
+			call_other(attack_commands[j+2],attack_commands[j+3],command_target,me,0);
+			return;	
+			}	
+		}	
+	return;
+	}
+			
 

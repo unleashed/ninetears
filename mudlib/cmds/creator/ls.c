@@ -68,7 +68,7 @@ string dir_entry(string path, string name, int mask, object me) {
  
 int ls(string str, int mask, object me) {
   string *direc, *bit, *bing, bong, path;
-  int i, j, k, size;
+  int i, j, size;
  
   seteuid(geteuid(me));
   path = str; 
@@ -78,11 +78,11 @@ int ls(string str, int mask, object me) {
     path += "*";
   direc = get_dir(path);
   if (!direc) {
-    notify_fail("No files..\n");
+    notify_fail("No hay ficheros.\n");
     return 0;
   }
   if (!sizeof(direc)) {
-    notify_fail("No files.\n");
+    notify_fail("No hay ficheros.\n");
     return 0;
   }
   if (file_size(path) == -2) {
@@ -95,7 +95,7 @@ int ls(string str, int mask, object me) {
   }
   if(path == "//")
     path = "/";
-  write("Dir of: "+path+"\n");
+  write("Dir de: "+path+"\n");
   bing = allocate(sizeof(direc));
   j = sizeof(direc);
   if (!(mask & MASK_A))
@@ -160,7 +160,6 @@ int ls(string str, int mask, object me) {
     }
   } else {
     string tmp, tmp2, fname;
-    mixed *stats;
     int *count;
     object loaded;
     /* if path is a directory get contents */
@@ -277,7 +276,7 @@ int is_dir(mixed arg, string path) {
     return (file_size(tp->get_path(sprintf("%s/%s", path, arg))) == -2);
 }
 
-static int cmd(string str, object me) {
+int cmd(string str, object me) {
 string flags;
 int mask, i;
 

@@ -16,25 +16,25 @@ void break_me()
 string cond_string() {
   switch ((100*cond)/max_cond) {
     case 0 :
-      return "It is a wreck.\n";
+      return "Esta hecho polvo.\n";
     case 1..10 :
-      return "It is in a very bad condition.\n";
+      return "Esta extremadamente estropeado.\n";
     case 11..20 :
-      return "It is in a bad condition.\n";
+      return "Esta bastante estropeado.\n";
     case 21..30 :
-      return "It is in poor condition.\n";
+      return "Esta estropeado.\n";
     case 31..40 :
-      return "It is below average condition.\n";
+      return "Esta un poco estropeado.\n";
     case 51..60 :
-      return "It is average condition.\n";
+      return "Esta en un estado medio.\n";
     case 61..70 :
-      return "It is in reasonable condition.\n";
+      return "Esta en un estado razonable.\n";
     case 71..80 :
-      return "It is in good condition.\n";
+      return "Esta en buen estado.\n";
     case 81..90 :
-      return "It is in very good condition.\n";
+      return "Este en muy buen estado.\n";
     default :
-      return "It is in excellent condition.\n";
+      return "Esta en perfecto estado.\n";
   }
 }
  

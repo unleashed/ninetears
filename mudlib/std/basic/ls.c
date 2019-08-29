@@ -29,7 +29,7 @@ string dir_entry(string path, string name) {
 int ls(string str) {
   string *direc, *bit;
   string bing;
-  int max_siz, i, size;
+  int i;
  
  
   if (file_size(str) == -2 && str[strlen(str)-1] != '/')
@@ -40,7 +40,7 @@ int ls(string str) {
     return 0;
   }
   if (!sizeof(direc)) {
-    write("No files.\n");
+    write("No hay ficheros.\n");
     return 0;
   }
   if (file_size(str) == -2) {
@@ -53,7 +53,7 @@ int ls(string str) {
   }
   if(str == "//")
     str = "/";
-  write("Dir of: "+str+"\n");
+  write("Dir de: "+str+"\n");
      
   bing = "";
   for (i=0;i<sizeof(direc);i++)

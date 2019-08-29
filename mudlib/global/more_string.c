@@ -15,12 +15,12 @@
               work, probably.
 */
 
-static int fsize,
+nosave int fsize,
     topl,
     used;
-static string last_search, *the_bit, more_bit, stat_line;
-static object finish_ob;
-static mixed finish_func;
+nosave string last_search, *the_bit, more_bit, stat_line;
+nosave object finish_ob;
+nosave mixed finish_func;
 
 #define ROWS ((int)this_object()->query_rows() - 1)
 #define COLS (int)this_object()->query_cols()
@@ -67,10 +67,10 @@ int string_display_file() {
 void more_string_status_line() {
   string *frog;
   string s;
-  int i, j,percentage;
+  int i, percentage;
 
   if (!stat_line)
-    stat_line = "$N From $T to $B of $S ($%%) - h for help. ";
+    stat_line = "$N desde $T a $B de $S ($%%) - h for help. ";
   s = "";
   frog = explode(stat_line, "$");
   for (i=0;i<sizeof(frog);i++) {

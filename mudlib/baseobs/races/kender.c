@@ -61,7 +61,7 @@ void race_heartbeat(object player)
     if(!living(item))item->move(player);
     if(!player->query_hide_shadow())
     {
-        item = clone_object("/std/commands/shadows/hide");
+        item = clone_object("/d/gremios/comandos/shadows/hide");
         item->setup_shadow(player);
     }
 }

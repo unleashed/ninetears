@@ -1,6 +1,6 @@
-mapping mylist = (["fire":1,"cold":1,"magical":1,"electrical":1,"stone":1,
-  "poison":1,"air":1,"noguild":1,"nocast":1,
-   "acid":1,
+mapping mylist = (["fuego":1,"frio":1,"magico":1,"electrico":1,"tierra":1,
+  "veneno":1,"aire":1,"noguild":1,"nocast":1,
+   "acido":1,
   "BLIND":1,
   "sense_life":1,
   "evil":1,"good":1,
@@ -13,7 +13,7 @@ mapping mylist = (["fire":1,"cold":1,"magical":1,"electrical":1,"stone":1,
    Note that the way this is coded, it is unwise to wear "enchanted"
    items for too long, you'll take a temp hit on removal if you do
 */      
-static void stat_adjust(string query_tmp,string query_total,string adj,int j,object user_ob)
+nomask void stat_adjust(string query_tmp,string query_total,string adj,int j,object user_ob)
 {
     int total,temp;
     if(!intp(j)) return;
@@ -66,64 +66,74 @@ int local_in_use(int i,object user_ob,object ob)
         // Taniwha 1996, guild only checks etc.
         if(generic_check("guild","query_guild_name",user_ob,ob))
         {
-            tell_object(user_ob,"The "+(string)ob->query_cap_name()+" requires specialized guild skills to use.\n");
+            tell_object(user_ob,(string)ob->query_short()+" requiere habilidades especiales para ser usado.\n");
+		notify_fail("");
             return 0;
         }       
         // Fits only a race or races    
         if(generic_check("race","query_race",user_ob,ob))
-        {
-            tell_object(user_ob,"The "+(string)ob->query_cap_name()+" is made for someone with a different body shape from yours. "
-              "You just can't use it.\n");
-            return 0;            
+        {	// PQ SALE ESTO 2 VECES?
+            tell_object(user_ob,(string)ob->query_short()+" esta hecho "
+		"para alguien de una forma y constitucion diferente a la tuya. "
+              "No puedes usarlo.");
+		notify_fail("\n");
+            return 0;
         }
         // special interest group
         if(generic_check("sig","query_group_name",user_ob,ob))
         {
             tell_object(user_ob,"Sigils flare to life on the "+(string)ob->query_cap_name()+
-              " preventing you from using it.\n");
-            return 0;            
+              " preventing you from using it.");
+		notify_fail("\n");
+            return 0;
         }
         // gender (0 = asexual, 1 = male, 2 = female, 3 = bisexual)
         if(generic_check("gender","query_gender_string",user_ob,ob))
         {
             tell_object(user_ob,"Try as you might to wear the"
               " "+(string)ob->query_cap_name()+", you are"
-              " clearly of the inappropriate gender.\n");
+              " clearly of the inappropriate gender.");
+		notify_fail("\n");
             return 0;
         }
         // racial group (clan)
         if(generic_check("clan","query_race_group_name",user_ob,ob))
         {
             tell_object(user_ob,"You can't bring yourself to use a "+(string)ob->query_cap_name()+
-              " belonging to another clan.\n");    
+              " belonging to another clan.");
+		notify_fail("\n");
             return 0;
         } 
         // Deity.
         if(generic_check("deity","query_deity",user_ob,ob))
         {
             tell_object(user_ob,
-              "The Gods prevent you from using this item.\n");
+              "The Gods prevent you from using this item.");
+		notify_fail("\n");
             return 0;
         } 
         // class, fighter rogue priest wizard
         if(generic_check("class","query_class_name",user_ob,ob))
         {
             tell_object(user_ob,"You lack the skills to use a "+(string)ob->query_cap_name()+
-              ".\n");    
+              ".");
+		notify_fail("\n");
             return 0;
         } 
         // individual player
         if(generic_check("player","query_name",user_ob,ob))
         {
             tell_object(user_ob,"You can't use a "+(string)ob->query_cap_name()+
-              " it's been customized to fit someone else.\n");    
+              " it's been customized to fit someone else.");
+		notify_fail("\n");
             return 0;
         } 
         // quest item, tagged when got
         targ = ob->query_property("property");
         if(stringp(targ) && !user_ob->query_property(targ))
         {
-            tell_object(user_ob,"The Gods prevent you using an item you havn't earned.\n");
+            tell_object(user_ob,"The Gods prevent you using an item you havn't earned.");
+		notify_fail("\n");
             return 0;
         }
 // added by malik for thingies for commands etc to check for 

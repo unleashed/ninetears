@@ -4,22 +4,21 @@ inherit BASE;
 int query_kill_xp() { return 0; }
 void setup()
 {
-	set_name("spectre");
-	set_main_plural("spectres");
-	set_short("Spectre");
-   set_long("Nothing more than a moaning patch of air with a bad attitude, this fiend has returned to "+
-       "life to visit woe on the living.\n");
+	set_name("espectro");
+	set_main_plural("espectros");
+	set_short("Espectro");
+   set_long("Una masa animada de aire procedente de algun incauto explorador fallecido no muy lejos seguramente. \n");
 	set_guild("fighter");
-	set_level(16);
+	set_level(26);
 	set_al(20);
    set_str(25);
    set_int(20);
    set_wis(2);
-   set_dex(5);
+   set_dex(50);
    set_con(25);
    set_cha(2);
   set_thac0(15);
-   set_max_gp(200);
+   set_max_gp(300);
    set_gp(200);
   set_kill_xp(0);
    set_aggressive(1);
@@ -30,5 +29,5 @@ void setup()
 }
 void init()
 {
-   add_attack_spell(30,"slience",({ "/std/spells/wizard/silence.c","cast_spell",1}));
+   add_attack_spell(30,"slience",({ "/d/gremios/hechizos/wizard/silence.c","cast_spell",1}));
 }

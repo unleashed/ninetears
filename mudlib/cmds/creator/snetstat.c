@@ -16,7 +16,7 @@ void setup()
   position = 1;
 }
 
-static int cmd(string str, object me) {
+int cmd(string str, object me) {
   // Use peopler code to get players - Radix, July 1996
    object *players = users();
   int sz = sizeof(players);

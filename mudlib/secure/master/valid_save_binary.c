@@ -22,6 +22,8 @@ int valid_save_binary(string file)
   case "tmp":
   case "open":
   case "d":
+  //	if (path[1] && path[1] == "gremios")
+  //		return 1;
     return 0;
  
   case "secure":

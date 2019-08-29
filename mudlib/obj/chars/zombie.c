@@ -11,7 +11,7 @@ set_long("Nothing more than an animate corpse, this fiend has returned to "+
    add_alias("zombie");
 	set_guild("fighter");
   set_race_ob("/std/races/undead");
-	set_level(10);
+	set_level(20);
 	set_al(50);
    set_str(25);
    set_int(2);

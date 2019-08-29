@@ -110,7 +110,7 @@ int query_player_object(object pob) {
 
 object *netdeads() 
   {
-  object *livs, *l, *nd;
+  object  *l, *nd;
   int i;
 
   l = ({ });

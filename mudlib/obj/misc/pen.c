@@ -12,7 +12,7 @@ void setup() {
   set_weight(1);
 }
 
-query_short(){
+string query_short(){
   return "std/paran/colour"->query_colour(sec_level)+" pen";
 }
 
@@ -22,7 +22,9 @@ void init() {
   add_action("fill_in", "fill");
 }
 
-write_on(str) {
+int start_writing();
+
+int write_on(string str) {
   object ob;
 
   if (!str) {
@@ -47,8 +49,8 @@ write_on(str) {
   return 1;
 }
 
-start_writing() {
-  write("What do you wish to write on "+ob_write[0]->short()+"?\n");
+int start_writing() {
+  write("What do you wish to write on "+ob_write->query_short()+"?\n");
   write("** to finish writing and ~q to quit.\n");
   text = "";
   write("]");
@@ -56,31 +58,31 @@ start_writing() {
   return 1;
 }
 
-finished_writing() {
-  string str, s1, s2;
+int finished_writing() {
+  string str;
 
   if (!text) {
     write("Quitting....\n");
     ob_write = 0;
     return 1;
   }
-  str = ob_write[0]->query_read();
+  str = ob_write->query_read();
   if (!str)
     str = "";
-  ob_write[0]->set_read(str+"Scribbled on in "+"std/colour"->query_colour(sec_level)+
+  ob_write->set_read(str+"Scribbled on in "+"std/colour"->query_colour(sec_level)+
                " ink is the message\n"+text);
-  write("Ok wrote on "+ob_write[0]->short()+"\n");
-  say(this_player()->short()+" just wrote on a "+ob_write[0]->short()+
-      " with a "+short()+".\n");
-  ob_write = delete(ob_write,0);
-  if (sizeof(ob_write))
+  write("Ok wrote on "+ob_write->query_short()+"\n");
+  say(this_player()->short()+" just wrote on a "+ob_write->query_short()+
+      " with a "+query_short()+".\n");
+//  ob_write = delete(ob_write,0);
+  if (ob_write)
     start_writing();
   else
     ob_write = 0;
   return 1;
 }
 
-get_text(string str) {
+int get_text(string str) {
   if (str == "**") {
     finished_writing();
     return 1;
@@ -95,9 +97,11 @@ get_text(string str) {
   return 1;
 }
 
-fill_in(string str) {
+int finish_form();
+int start_form();
+
+int fill_in(string str) {
   object ob;
-  int i;
 
   if (sscanf(str, "in %s",str)!=1) {
     notify_fail("Usage: fill in <form>\n");
@@ -110,9 +114,9 @@ fill_in(string str) {
   }
   ob_write = ob;
 /* force it give me a copy */
-  fields = ob_write[0]->query_fields() + ({ });
+  fields = ob_write->query_fields() + ({ });
   if (!sizeof(fields)) {
-    write("Could not write on "+ob_write[0]->short()+"\n");
+    write("Could not write on "+ob_write->query_short()+"\n");
     finish_form();
     return 1;
   }
@@ -120,16 +124,15 @@ fill_in(string str) {
   return 1;
 }
 
-start_form() {
-  string str;
+int start_form() {
   int i;
 
   if (!sizeof(fields)) {
-    write("Ok finished filling in form "+ob_write[0]->short()+"\n");
+    write("Ok finished filling in form "+ob_write->query_short()+"\n");
     return 1;
   }
   if (fields[1][2] == FLG_TEXT_ONLY) {
-    ddelete(fields,0,2);
+    delete(fields,0,2);
     start_form();
     return 1;
   }
@@ -138,13 +141,13 @@ start_form() {
   input_to("get_field");
 }
 
-get_field(str) {
+int get_field(string str) {
 /*  if (strlen(str) > fields[1][1])
     str = extract(str,0,fields[1][1]); */
-  ob_write[0]->set_field(fields[0],str);
-  ddelete(fields,0,2);
+  ob_write->set_field(fields[0],str);
+  delete(fields,0,2);
   if (!sizeof(fields)) {
-    write("You have finished filling in "+ob_write[0]->short()+"\n");
+    write("You have finished filling in "+ob_write->query_short()+"\n");
     finish_form();
     return 1;
   }
@@ -152,15 +155,15 @@ get_field(str) {
   input_to("get_field");
 }
 
-finish_form() {
-  ddelete(ob_write,0);
+int finish_form() {
+  delete(ob_write,0);
   if (!sizeof(ob_write)) {
     write("Finished filling the forms.\n");
     return 1;
   }
-  fields = ob_write[0]->query_fields();
+  fields = ob_write->query_fields();
   if (!sizeof(fields)) {
-    write("Sorry "+ob_write[0]->short()+" was not a form.\n");
+    write("Sorry "+ob_write->query_short()+" was not a form.\n");
     finish_form();
     return 1;
   }

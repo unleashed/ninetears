@@ -1,151 +1,95 @@
 inherit "/std/room";
-#include "path.h"
 #include "mail.h"
 
 void setup() {
-  set_short("Mail control room");
-  set_long(
-"This is the mail control room.  You can order mailing lists here if you're "
-"getting tired of extensive CC'ing.\n"
-"Available commands here are:\n"
-"create <list>              :  Creating a new mailing list.\n"
-"add <list> <names>         :  Adding a name to a mailing list.\n"
-"remove <list>              :  Removing a mailing list.\n"
-"list                       :  List all the mailing lists.\n");
+  	set_short("Oficina Postal del %^GREEN%^BOLD%^Paraiso%^RESET%^");
+  	set_long(query_short()+"\nEsta es la Oficina Postal del Paraiso, desde donde se organizan todas las oficinas de correos del Mud. Aqui se pueden crear listas de correo para enviar un mail a aquellos que esten suscritos a ella.\nLa Oficina funciona con los siguientes comandos:\n%^YELLOW%^crear %^RESET%^ORANGE%^<lista>%^RESET%^              :  Crea una lista de correo nueva.\n%^YELLOW%^anyadir %^RESET%^ORANGE%^<lista> <nombre>%^RESET%^   :  Anyade un miembro a la lista de correo.\n%^YELLOW%^borrar %^RESET%^ORANGE%^<lista>  <nombre>%^RESET%^   :  Elimina a un miembro de la lista de correo.\n%^YELLOW%^listar %^RESET%^ORANGE%^<lista>%^RESET%^             :  Muestra las listas de correo o los miembros de una dada.\n");
 
-  set_light(100);
-add_exit("south",HEAVEN+"admin2","door");
-} /* setup() */
+  	set_light(100);
+	add_exit("fuera","/d/heaven/admin1","door");
+	}
 
 void init() {
-  ::init();
-  add_action("do_add", "add");
-  add_action("do_list", "list");
-  add_action("do_remove", "remove");
-  add_action("do_create", "create");
-} /* init() */
+  	::init();
+  	add_action("do_add", "anyadir");
+  	add_action("do_list", "listar");
+  	add_action("do_remove", "borrar");
+  	add_action("do_create", "crear");
+	}
 
 int do_add(string str) {
-  string name, list, *names;
-  int i;
+  	string name, list;
 
-  notify_fail("Syntax: add <list> <name(s)>\n");
-  if (!str) return 0;
-  if (sscanf(str, "%s %s", list, name) != 2) return 0;
-  if (!MAIL_TRACK->query_list(list)) {
-    notify_fail("The mailing list "+list+" does not exist.\n");
-    return 0;
-  }
-  if (!MAIL_TRACK->query_controller(list, this_player()->query_name())) {
-    notify_fail("You have to be a member of a mailing list to get mail "
-                "from it.\n");
-    return 0;
-  }
-  names = explode(replace(lower_case(name), " ", ","), ",") - ({ "" });
-  if (!sizeof(names)) {
-    notify_fail("It helps if you tell me who to remove.\n");
-    return 0;
-  }
-  for (i=0;i<sizeof(names);i++)
-    if (names[i][0] == '*') {
-/* They are trying to add a controller. */
-      names[i] = names[i][1..1000];
-      if (!"/secure/login"->test_user(names[i]))
-        write("the player "+names[i]+" does not exist.\n");
-      else if (MAIL_TRACK->add_controller(list, names[i]))
-        write("Added "+names[i]+" as a controller of "+list+".\n");
-      else
-        write("Failed to add "+names[i]+" as a controller of "+list+".\n");
-    } else if (!"/secure/login"->test_user(names[i]) &&
-               !MAIL_TRACK->query_list(names[i]))
-      write("The player "+names[i]+" does not exist.\n");
-    else if (MAIL_TRACK->add_member(list, names[i]))
-      write("Added the player "+names[i]+" to the mailing list.\n");
-    else
-      write("Failed to add the player "+names[i]+" to the mailing list.\n");
-  return 1;
-} /* do_add() */
+  	if (!str) return notify_fail("Sintaxis: anyadir <lista> <nombre>\n");
+  	if (sscanf(str, "%s %s", list, name) != 2) return notify_fail("Sintaxis: anyadir <lista> <nombre>\n");
+  	if (!MAIL_TRACK->query_list(list)) return notify_fail("La lista de correo \""+list+"\" no existe.\n");
+
+  	if (!name) return notify_fail("Debes especificar a quien quieres anyadir.\n");
+
+  	if (name[0] == '*') {
+		name = name[1..strlen(name)-1];
+      		if (!"/secure/login"->test_user(name)) write("No existe el jugador "+capitalize(name)+".\n");
+      		else if (MAIL_TRACK->add_controller(list, name)) write("Anyadido "+capitalize(name)+" como controlador de la lista de correo \""+list+"\".\n");
+      		else write("Se produjo un error al intentar anyadir a "+capitalize(name)+" como controlador de la lista de correo \""+list+"\".\n");
+   	} else if (!"/secure/login"->test_user(name) && !MAIL_TRACK->query_list(name)) write("No existe el jugador "+capitalize(name)+".\n");
+    	else if (MAIL_TRACK->add_member(list, name)) write("Anyadido "+capitalize(name)+" a la lista de correo.\n");
+    	else write("Se produjo un error al intentar anyadir a "+capitalize(name)+" a la lista de correo.\n");
+  	return 1;
+	}
 
 int do_list(string str) {
-  string *strs, *cont;
-  int i, j;
+  	string *strs, *cont;
+  	int i, j;
 
-  if (!str) {
-    strs = MAIL_TRACK->query_mailing_lists();
-    printf("Current mailing lists: %-=*s", (int)this_player()->query_cols()-24,
-                                           implode(strs, ", ")+".\n");
-  } else {
-    strs = MAIL_TRACK->query_members(str);
-    cont = MAIL_TRACK->query_controllers(str);
-    if (!strs) {
-      notify_fail("The mailing list "+str+" does not exist.\n");
-      return 0;
-    }
-    for (i=0;i<sizeof(cont);i++)
-      if ((j = member_array(cont[i], strs)) != -1)
-        strs[j] = "*"+strs[j];
-      else
-        strs += ({ "*"+cont[i] });
-    printf(str+": %-=*s", (int)this_player()->query_cols()-strlen(str)-3,
-                          implode(strs, ", ")+".\n");
-  }
-  return 1;
-} /* do_list() */
+  	if (!str) {
+		strs = MAIL_TRACK->query_mailing_lists();
+    		printf("Listas de correo: %-=*s", (int)this_player()->query_cols()-24,implode(strs, ", ")+".\n");
+  	} else {
+    		strs = MAIL_TRACK->query_members(str) - ({ "" });
+    		cont = MAIL_TRACK->query_controllers(str);
+    		if (!sizeof(strs)) return notify_fail("La lista de correo \""+str+"\" no existe.\n");
+
+		for (i=0;i<sizeof(cont);i++) if ((j = member_array(cont[i], strs)) != -1) strs[j] = "*"+strs[j];
+      		else strs += ({ "*"+cont[i] });
+
+    		printf(str+": %-=*s", (int)this_player()->query_cols()-strlen(str)-3,implode(strs, ", ")+".\n");
+		}
+  	return 1;
+	}
 
 int do_remove(string str) {
-  string name, list, *names;
-  int i;
+  	string name, list;
+	
+	if (!str) return notify_fail("Sintaxis: borrar <lista> <nombre>\n");
+  	if (sscanf(str, "%s %s", list, name) != 2) return notify_fail("Sintaxis: borrar <lista> <nombre>\n");
+  	if (!MAIL_TRACK->query_list(list)) return notify_fail("La lista de correo \""+list+"\" no existe.\n");
+  	if (!MAIL_TRACK->query_controller(list, this_player()->query_name())&&str!=TP->query_name()) return notify_fail("Tienes que ser Administrador de la lista para poder borrar miembros.\n");
 
-  notify_fail("Syntax: remove <list>\n");
-  if (!str) return 0;
-  if (sscanf(str, "%s %s", list, name) != 2) return 0;
-  if (!MAIL_TRACK->query_list(list)) {
-    notify_fail("The mailing list "+list+" does not exist.\n");
-    return 0;
-  }
-  if (!MAIL_TRACK->query_controller(list, this_player()->query_name())) {
-    notify_fail("You have to be a controller of a mailing list to get mail "
-                "from it.\n");
-    return 0;
-  }
-  names = explode(replace(lower_case(name), " ", ","), ",") - ({ "" });
-  if (!sizeof(names)) {
-    notify_fail("It helps if you tell me who to remove.\n");
-    return 0;
-  }
-  for (i=0;i<sizeof(names);i++)
-    if (names[i][0] == '*') {
+  	if (!name) return notify_fail("Debes especificar a quien quieres borrar.\n");
+
+    	if (name[0] == '*') {
 /* They are trying to remove a controller. */
-      names[i] = names[i][1..1000];
-      if (MAIL_TRACK->remove_controller(list, names[i]))
-        write("Removed "+names[i]+" as a controller of "+list+".\n");
-      else
-        write("Failed to remove "+names[i]+" as a controller of "+list+".\n");
-    } else if (MAIL_TRACK->remove_member(list, names[i]))
-      write("Removed the player "+names[i]+" from the mailing list.\n");
-    else
-      write("Could not remove "+names[i]+" from the mailing list.\n");
-  return 1;
-} /* do_remove() */
+      		name = name[1..1000];
+      		if (MAIL_TRACK->remove_controller(list, name)) tell_object(TP,"Eliminado "+capitalize(name)+" como controlador de la lista.\n");
+		else tell_object(TP,"Fallo al intentar eliminar un controlador.\n");
+		}
+        else {
+		if (MAIL_TRACK->remove_member(list, name)) tell_object(TP,"Eliminado "+capitalize(name)+" de la lista.\n");
+      		else tell_object(TP,"Fallo al intentar eliminar un miembro.\n");
+       		}
+  	return 1;
+	} /* do_remove() */
 
 int do_create(string str) {
-  string s1, s2;
+	string s1, s2;
 
-  notify_fail("Syntax: create <name>\n");
-  if (!str) return 0;
-  if (MAIL_TRACK->query_list(str)) {
-    notify_fail("The list "+str+" already exists.\n");
-    return 0;
-  }
-  if (sscanf(str, "%s %s", s1, s2) == 2 ||
-      sscanf(str, "%s,%s", s1, s2)) {
-    notify_fail("The mailing list name cannot have spaces or commas in it.\n");
-    return 0;
-  }
-  if (MAIL_TRACK->create_list(str, this_player()->query_name())) {
-    write("Created the mailing list "+str+".\n");
-    return 1;
-  }
-  notify_fail("Failed to create the mailing list.\n");
-  return 0;
-} /* do_create() */
+  	if (!str) return 0;
+  	if (MAIL_TRACK->query_list(str)) return notify_fail("Esa lista ya existe!\n");
+  	if (sscanf(str, "%s %s", s1, s2) == 2 || sscanf(str, "%s,%s", s1, s2)) return notify_fail("Nombre incorrecto para la lista, no puede haber espacios ni comas.\n");
+
+  	if (MAIL_TRACK->create_list(str, this_player()->query_name())) {
+    		tell_object(TP,"Creada la lista \""+str+"\".\n");
+		return 1;
+  		}
+  	return notify_fail("Fallo al crear la lista de correo.\n");
+	} /* do_create() */

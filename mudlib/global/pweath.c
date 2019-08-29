@@ -1,84 +1,64 @@
 /* your very own personal weather... */
-#include "weather.h"
-static int current_thing,
-light;
+#include <tiempo.h>
 int wetness;
 
 int query_wetness() { return wetness; }
-void add_wetness(int arg) { wetness += arg; }
 void adjust_wetness(int arg) { wetness += arg; }
 void set_wetness(int i) { wetness = i; }
 
 void create() {
-    this_object()->add_alias("weather");
-    this_object()->add_alias("moon");
-    this_object()->add_alias("sun");
-}
-
-void weather_commands() {
-    add_action("make","make");
-    add_action("splash","splash");
-}
+    this_object()->add_alias("tiempo");
+    this_object()->add_alias("luna");
+    this_object()->add_alias("sol");
+    }
 
 string weather_extra_look() {
-    string me;
+    string me, oa;
+
+	oa = (TO->query_gender() == 1) ? "o" : "a";
     /* Ghosts shouldn't be wet, nor getting wet, Baldrick, june '96 */
     if (this_object()->query_dead())
     {
 	wetness = 0;
 	return "";
     } 
-    /* Nor should immortals..  Dwimmerlaik, april '97 */
-    if (this_object()->query_creator())
-    {
-	wetness = 0;
-	return "";
-    }
+
     me = capitalize(this_object()->query_pronoun());
     if (wetness>200)
-	return "Wet as a pond.\n";
+	return "Esta totalmente empapad"+oa+".\n";
     if (wetness>100)
-	return me+" is soaked. In fact really not looking that well.\n";
+	return me+" esta chorreando agua.\n";
     if (wetness>50)
-	return me+" looks wet and bedraggled.\n";
+	return me+" esta muy mojad"+oa+".\n";
     if (wetness>10)
-	return me+" looks wet.\n";
+	return me+" esta mojad"+oa+".\n";
     if (wetness>0)
-	return me+" looks slightly wet.\n";
+	return me+" esta algo mojad"+oa+".\n";
     return "";
 }
 
 string weather_long(string str) {
-    mixed *co_ords;
     object env;
-    string i;
 
     env = environment();
-    if ((string)environment()->query_property("location") == "inside")
-	return "You are not outside.\n";
+    if (!env||!env->query_outside()) return "No estas en el exterior.\n";
 
-    if (str== "sun")
-	if (WEATHER->query_day(env))
-	    return "Ouch that hurts.\n";
+    if (str=="sol") {
+	if (!CICLO_HANDLER->query_noche()) {
+	    if (CICLO_HANDLER->query_eclipse()) return "Es de dia pero el sol esta oculto tras la luna... Arrepientete de tus pecados, pues se acerca el fin del mundo!\n";
+	    else return "Tienes que retirar rapidamente la mirada para no quemarte la retina.\n";
+	    }
 	else
-	    return "The sun is not up, sorry.\n";
+	    return "El sol no suele dejarse ver de noche...\n";
+	}
 
-    if (str=="moon")
-	if (WEATHER->query_day(env))
-	    return "The moon is not up, try at night.\n";
-	else if (WEATHER->query_moon_string(env))
-	    return WEATHER->query_moon_string(env)+".\n";
-	else
-	    return "The moon is not up at the moment, try again later.\n";
-
-    if (str != "weather")
-	return "";
-    co_ords=(mixed *)environment()->query_co_ord();
-    if (pointerp(co_ords))
-	return "The weather is currently " + WEATHER->weather_string(env) + ".\n";
-    else
-	return "sorry but today the weather is on strike, hassle your nearest\n"+
-	"neighbourhood wizard.\n";
+    if (str == "luna") {
+	if (CICLO_HANDLER->query_eclipse()) return "La luna parece haber engullido al sol... Es el Apocalipsis!\n";
+	if (CICLO_HANDLER->query_noche()) return "Ves "+CICLO_HANDLER->query_luna_name()+" en el cielo.\n";
+	else return "La luz del sol te impide ver la luna, aunque seguramente este ahi arriba.\n";
+	}
+    if (str != "tiempo") return "";
+    return CLIMA->query_clima_name(env->query_ajuste_clima());
 }
 
 void event_weather() {
@@ -86,169 +66,28 @@ void event_weather() {
 }
 
 void check_it() {
-    mixed *co_ords, *arr;
-    object env;
-    int bingle, no_co_ord, *type;
-    string loc;
+    object env=environment();
 
-    if (this_object()->query_creator())
-	return ;
-    if (!environment())
-	return ;
-    env = environment();
-    loc = (string)environment()->query_property("location");
-    co_ords = (mixed *)environment()->query_co_ord();
-    if (!pointerp(co_ords)) {
-	co_ords = ({ 0, 0, 0, "standard" });
-	no_co_ord = 1; /* so we dont get wet etc, when we dont know where we are */
-    }
-    if (!WEATHER->query_day(env)) {
-	if (light && loc != "inside")
-	    tell_object(this_object(), "The sun sets slowly on the horizon.\n");
-	light = 0;
-    } else {
-	if (!light && loc != "inside")
-	    tell_object(this_object(), "The sun rises above the horizon and greets you for a new day.\n");
-	light = 1;
-    }
-    if (!no_co_ord) {
-	type = (int *)WEATHER->query_type_rain(env);
-	bingle = type[1];
-	if (current_thing != type[0] && loc != "inside")
-	    if (current_thing && type[0])
-		tell_object(this_object(), "It has stopped "+({ "raining", "hailing",
-		    "snowing" })[current_thing-1] + " and started "+
-		  ({ "raining", "hailing", "snowing"})[type[0]-1]+".\n");
-	    else if (current_thing)
-		tell_object(this_object(), "It has stopped "+({ "raining", "hailing",
-		    "snowing" })[current_thing-1]+".\n");
-	    else if (type[0])
-		tell_object(this_object(), "It has started "+({ "raining", "hailing",
-		    "snowing" })[type[0]-1]+".\n");
-	current_thing = type[0];
-	if (bingle > 0)
-	{
-	    switch (type[0]) {
-	    case 1 :
-	    case 2 :
-		if (bingle>0 && loc == "outside") 
-		{
-		    /* we get wet ;) */
-		    arr = all_inventory(this_object());
-		    arr = filter_array(arr, "check_umbrella", this_object());
-		    if (!sizeof(arr))
-			wetness += bingle; /* strength... my oh my what rain ! */
-		    tell_object(this_object(),"You get wet.\n");
+    if (!env||TO->query_dead()) return ;
+    if (CLIMA->query_lluvia() && CLIMA->query_lluvia()!=2 && !env->query_property("no_llover")) {
+		if (env->query_outside()) {
+			int ll;
+			ll=CLIMA->query_humedad()+env->query_property("ajuste_humedad");
+			if (ll<1) ll=1;
+	    		wetness+=ll;
+			if(wetness>300) wetness=300;
+	    		tell_object(TO,"Te estas mojando.\n");
+	    		}
 		}
-		break;
-	    case 3 :
-		if (bingle && loc == "outside") {
-		    arr = all_inventory(this_object());
-		    arr = filter_array(arr, "check_umbrella", this_object());
-		    if (!sizeof(arr))
-			wetness += bingle /2;
-		    tell_object(this_object(),"You get a little wet.\n");
+    if (wetness>0 && (!CLIMA->query_lluvia()||!env->query_outside()||env->query_no_llover()) ) {
+	int hu;
+	hu=CLIMA->query_humedad()+env->query_property("ajuste_humedad");
+	if (hu<1) hu=1;
+	wetness-=hu;
+	if (wetness<=0) {
+		tell_object(TO,"Te secas.\n");
+		wetness=0;
 		}
-		break;
-	    } /* switch */
-	} /* if */ 
-	else if (wetness>0) 
-	{
-	    /* the warmth property is used for fires etc... */
-	    bingle = WEATHER->temperature_index(env)+
-	    environment()->query_property("warmth");
-	    if (bingle<0)
-		/* we dry very quickly... (oh good) */
-		wetness += bingle;
-	    else
-		wetness -= 1; /* we do get dry slowly even if it is cold */
-	    tell_object(this_object(),"You dry up.\n");
 	}
-    }
-    /* try to leave it out, I don't like it tho...
-     * Baldrick, june '96.
-    if (wetness>0 && random(100) < 10)
-      tell_object(this_object(),"Squelch.\n");
-     */
-}
-
-int check_umbrella(object ob) {
-    return (int)ob->query_property("umbrella");
-}
-
-int make(string str) {
-    object ob, env;
-    int *co_ords;
-
-    env = environment();
-    if ((string)environment()->query_property("location") == "inside") {
-	notify_fail("You must be outside to do that.\n");
-	return 0;
-    }
-    co_ords = (mixed *)env->query_co_ord();
-    env = environment();
-    if (!pointerp(co_ords)) {
-	notify_fail("This room has no co-ordinates... Arggghhh.\n");
-	return 0;
-    }
-    if (str == "snowball") {
-	/* well lets do it then ;) */
-	if (!WEATHER->query_snowing(env)) {
-	    notify_fail("You need snow to make a snowball.\n");
-	    return 0;
-	}
-	ob = clone_object("/std/environ/snowball");
-	ob->move(this_object());
-	write("You make a lovely big snowball. Have fun with it ;)\n");
-	return 1;
-    }
-    if (str == "snowman") {
-	if (!WEATHER->query_snowing(env)) {
-	    notify_fail("You need snow to make a snowman.\n");
-	    return 0;
-	}
-	ob = clone_object("/std/environ/snowman");
-	ob->move(environment());
-	write("You make a snowman to make anyone else weep.\n");
-	return 1;
-    }
-    notify_fail("You can't do that!\n");
-    return 0;
-}
-
-int splash(string str) {
-    object *obs, weath,env;
-    int *co_ords, i;
-
-    if ((string)environment()->query_property("location") == "inside") {
-	notify_fail("You must be outside to do that.\n");
-	return 0;
-    }
-    if (!str) {
-	notify_fail("You must splash someone.\n");
-	return 0;
-    }
-    env = environment();
-    if (!WEATHER->query_raining(env)) {
-	notify_fail("It must be raining to splash someone.\n");
-	return 0;
-    }
-    obs = find_match(str,environment());
-    if (!sizeof(obs)) {
-	notify_fail(str+" does not exist, are you dreaming?\n");
-	return 0;
-    }
-    if (sizeof(obs) > 1)
-	for (i=0;i<sizeof(obs);i++) {
-	    obs[i]->add_wetness(2+random(4));
-	    tell_object(obs[i],(string)this_player()->query_cap_name()+
-	      " splashes you"+(sizeof(obs)==2?" and ":", ")+
-	      this_object()->query_multiple_short(obs - ({ obs[i] }))+".\n");
-	}
-    else
-	tell_object(obs[0], this_player()->query_cap_name()+" splashes you.\n");
-    str = (string)this_object()->query_multiple_short(obs);
-    write("You splash "+str+".\n");
-    say(this_object()->query_cap_name()+" splashes "+str+".\n", obs);
-    return 1;
+    return;
 }

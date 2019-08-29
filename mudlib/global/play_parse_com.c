@@ -4,9 +4,9 @@
  * bit which handles the add_action like things done from all the objects
  * for things such as read and so on.
  */
-static mapping commands,
+nosave mapping commands,
                cur_objects;
-static mixed   *suc_indir;
+nosave mixed   *suc_indir;
 
 string create_string(string pattern, mixed *args, int d,
                      int e, string s1, string s2);
@@ -30,14 +30,14 @@ mapping query_p_objects() { return cur_objects; }
  * Share and enjoy.
  */
 int add_succeeded(mixed ob) {
-  int i,j;
+  int i;
 
   if (objectp(ob))
     if (member_array(ob, suc_indir) == -1)
       suc_indir += ({ ob });
     else
       return 1;
-  else if (!pointerp(ob))    
+  else if (!pointerp(ob))
     return 0;
   else for (i=0;i<sizeof(ob);i++)
     if (member_array(ob[i], suc_indir) == -1)
@@ -52,7 +52,7 @@ int add_succeeded(mixed ob) {
  * For an example look at /std/liquid
  */
 int add_command(string command, object ob, mixed format) {
-  int i, j, k;
+  int j;
 
 /*
  * Set up the format how we want it handled.  You can put an array of
@@ -176,7 +176,7 @@ int parse_comm(string str) {
   string pattern;
   string verb, noti;
   string s1, s2, *bing;
-  int j, q, i;
+  int j, q;
   int iI, iD;
   mixed *bity;
 
@@ -190,7 +190,7 @@ int parse_comm(string str) {
     return 0;
 /* Set the the succeeded indirect objects to be the empty set */
   suc_indir = ({ });
-  notify_fail(capitalize(verb) + " what?\n");
+  notify_fail(capitalize(verb) + " que?\n");
 /*
  * You need to have some arguments, these things only work with object
  * references...
@@ -226,7 +226,7 @@ int parse_comm(string str) {
  * if the returned args actually match some objects, fail if they do not.
  */
     if (sizeof(dir) > 1)
-      dir = find_match((s=args[(iD=sizeof(explode(dir[0], "%"))-1)]), 
+      dir = find_match((s=args[(iD=sizeof(explode(dir[0], "%"))-1)]),
                         ({ this_object(), environment() }));
     else {
       noti += "Syntax: "+verb+" "+replace(bing[q], ({ "%p", "<prep>",
@@ -266,7 +266,7 @@ int parse_comm(string str) {
       s1 = query_multiple_short(dir - bity);
       s2 = query_multiple_short(indir - suc_indir);
       s = create_string(pattern, args, iD, iI, s1, s2);
-      write("You failed to "+verb+" "+s);
+      write("No has podido "+verb+" "+s);
       retval++;
     }
 /* and continue... */
@@ -276,8 +276,9 @@ int parse_comm(string str) {
     s1 = query_multiple_short(bity);
     s2 = query_multiple_short(suc_indir);
     s = create_string(pattern, args, iD, iI, s1, s2);
-    write("You "+verb+" "+s);
-    say(this_player()->query_cap_name()+" "+verb+"s "+s);
+	verb = verb[0..sizeof(verb)-2];
+    write(capitalize(verb+"s")+" "+s);
+    say(this_player()->query_cap_name()+" "+verb+" "+s);
     retval++;
   }
   if (noti != "")

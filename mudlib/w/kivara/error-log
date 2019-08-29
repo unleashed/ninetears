@@ -1,0 +1,11 @@
+w/kivara/armeria.c line 25: parse error
+w/kivara/herreria.c line 52: Undefined function set_open_condition
+w/kivara/exec_tmp.c line 4: parse error
+w/kivara/exec_tmp.c line 4: parse error
+/w/kivara/kit.c line 248: Warning: Unused local variable 'env' before the end of line
+/w/kivara/kit.c line 571: Warning: Unused local variable 'rank' before the end of line
+/w/kivara/kit.c line 571: Warning: Unused local variable 'dom' before the end of line
+/w/kivara/mustafa.c line 3: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kivara/mustafa.c line 41: Warning: Number of arguments disagrees with previous definition. before  {
+/w/kivara/mustafa.c line 3: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kivara/mustafa.c line 41: Warning: Number of arguments disagrees with previous definition. before  {

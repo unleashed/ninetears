@@ -25,9 +25,9 @@
  * tohit_bonus and body_ac_bonus thingie..
  */
 
-static int ovr_num,
+nosave int ovr_num,
            ovr_type;
-static object defender,
+nosave object defender,
               attacker;
 
 string *known_unarmed_styles,
@@ -41,7 +41,7 @@ int unarmed_attack(object def, object att);
 /* This is wrong too I think.. should make the att / defdr thing a
  * standard! Hmm... maybe it is? this is starting to be a mess..:=)
  */
-void write_message(int damage, string attack_style, object att, object defdr);
+void write_message(string happen, int damage, string attack_style, object att, object defdr);
 void apply_damage(int hps, object att);
 mixed *workout_attack(string unarmed_type);
 void unarmed_combat_commands();
@@ -68,7 +68,7 @@ int unarmed_attack(object def, object att)
   att_val=workout_attack(current_unarmed_style);
   if(att_val[0]=="hit")
     apply_damage((int)att_val[1], attacker);
-  write_message((int)att_val[1], current_unarmed_style, attacker, defender);
+  write_message(att_val[0],(int)att_val[1], current_unarmed_style, attacker, defender);
   return att_val[1];
 } /* unarmed_attack */
 
@@ -153,7 +153,7 @@ string query_current_unarmed_style()
 }
 
 /* This needs the attacker's object too.. */
-apply_damage(int hps, object att)
+void apply_damage(int hps, object att)
 {
   if(hps<0) hps=0;
   /* taniwha, was attacker here, God knows ;) who that was */
@@ -168,7 +168,7 @@ apply_damage(int hps, object att)
 //system - see that for more details .......
 
 
-void write_message(int damage, string attack_style, object att, object defdr)
+void write_message(string happen, int damage, string attack_style, object att, object defdr)
 {
   string *vatts;
   int i;
@@ -176,8 +176,8 @@ void write_message(int damage, string attack_style, object att, object defdr)
   string *va_keys;
   vatts=({ });
 
-  tell_object(att, "You do " + damage + " hp's unarmed damage.\n");
-  tell_object(defdr, "You get " + damage + " hp's unarmed damage.\n");
+  tell_object(att, "Haces " + damage + " hp's de danyo desarmado.\n");
+  tell_object(defdr, "Recibes " + damage + " hp's de danyo desarmado.\n");
 
   va_all = valid_attack();
   va_keys = keys(va_all);
@@ -201,15 +201,15 @@ mapping valid_attack()
   bing=random(3);
   bong=random(2);
   return ([
-        "punch" : ({ AN+" punches "+DN+" in the "+({ "stomach", "face", "solar plexus"})[bing]+".\n",
-                     "You punch "+DN+" in the "+({ "stomach", "face", "solar plexus"})[bing]+".\n",
-                     AN+" punches you in the "+({ "stomach", "face", "solar plexus"})[bing]+".\n" }),
-        "rapid" : ({ AN+" rapidly punches "+DN+" in the "+({ "stomach", "face", "solar plexus"})[bing]+".\n",
-                     "You rapidly punch "+DN+" in the "+({ "stomach", "face", "solar plexus"})[bing]+".\n",
-                     AN+" rapidly punches you in the "+({ "stomach", "face", "solar plexus"})[bing]+".\n" }),
-        "kick" : ({ AN+" kicks "+DN+" in the "+({ "stomach", "groin", "shin"})[bing]+".\n",
-                     "You kick "+DN+" in the "+({ "stomach", "groin", "shin"})[bing]+".\n",
-                     AN+" kicks you in the "+({ "stomach", "groin", "shin"})[bing]+".\n" }),
+        "punch" : ({ AN+" da un punyetazo a "+DN+" en "+({ "el estomago", "la cara", "plexo solar"})[bing]+".\n",
+                     "Das un punyetazo a "+DN+" en "+({ "el estomago", "la cara", "el plexo solar"})[bing]+".\n",
+                     AN+" te da un punyetazo en "+({ "el estomago", "la cara", "el plexo solar"})[bing]+".\n" }),
+        "rapid" : ({ AN+" golpea rapidamente a "+DN+" en "+({"el estomago", "la cara", "el plexo solar"})[bing]+".\n",
+                     "Golpeas rapidamente a "+DN+" en "+({ "el estomago", "la cara", "el plexo solar"})[bing]+".\n",
+                     AN+" te golpea rapidamente en "+({ "el estomago", "la cara", "el plexo solar"})[bing]+".\n" }),
+        "kick" : ({ AN+" patea a "+DN+" en "+({ "el estomago", "la espinilla", "la cadera"})[bing]+".\n",
+                     "Pateas a "+DN+" en "+({ "el estomago", "la espinilla", "la cadera"})[bing]+".\n",
+                     AN+" te patea en "+({ "el estomago", "la espinilla", "la cadera"})[bing]+".\n" }),
         "spinkick" : ({ AN+" spin kicks "+DN+" in the "+({ "side of the head", "neck", "chest"})[bing]+".\n",
                      "You spin kick "+DN+" in the "+({ "side of the head", "neck", "chest"})[bing]+".\n",
                      AN+" spin kicks you in the "+({ "side of the head", "neck", "chest"})[bing]+".\n" }),
@@ -219,21 +219,17 @@ mapping valid_attack()
         "roundhouse" : ({ AN+" roundhouse kicks "+DN+" in the "+({ "side of the head", "face", "chest"})[bing]+".\n",
                      "You roundhouse kick "+DN+" in the "+({ "side of the head", "face", "chest"})[bing]+".\n",
                      AN+" roundhouse kicks you in the "+({ "side of the head", "face", "chest"})[bing]+".\n" }),
-        "knee" : ({ AN+" knees "+DN+" in the "+({ "side", "groin"})[bong]+".\n",
-                     "You knee "+DN+" in the "+({ "side", "groin"})[bong]+".\n",
-                     AN+" knees you in the "+({ "side", "groin"})[bong]+".\n" }),
-        "headbutt" : ({ AN+" headbutts "+DN+".\n",
-                        "You headbutt "+DN+".\n",
-                        AN+" headbutts you.\n" }),
+        "knee" : ({ AN+" pega un rodillazo a "+DN+" en "+({ "el costado", "la cadera"})[bong]+".\n",
+                     "Pegas un rodillazo a "+DN+" en "+({ "el costado", "la cadera"})[bong]+".\n",
+                     AN+" te pega un rodillazo en "+({ "el costado", "la cadera"})[bong]+".\n" }),
+        "headbutt" : ({ AN+" da un cabezazo a "+DN+".\n",
+                        "Das un cabezazo a "+DN+".\n",
+                        AN+" te da un cabezazo.\n" }),
         "footsweep" : ({ AN+" foot sweeps "+DN+".\n",
                         "You foot sweep "+DN+".\n",
                         AN+" foot sweeps you.\n" }),
          ]);
 }
-
-
-
-
 
 void set_damage_dice(int numdie, int dietype)
 {
@@ -244,5 +240,3 @@ void set_damage_dice(int numdie, int dietype)
   }
   return;
 }
-
-

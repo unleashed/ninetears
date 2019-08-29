@@ -18,7 +18,7 @@ void create()
   ::create();
 }
 
-string query_spell_directory() { return "/std/spells/wizard/"; }
+string query_spell_directory() { return "/d/gremios/hechizos/wizard/"; }
 
 void on_death(object player, object killer) {
 

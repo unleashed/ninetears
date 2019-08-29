@@ -3,12 +3,17 @@
  * so clothing like shirts can be worn with armour
  *
  */
+
+// Tyrael - May '02 - Modificado para soportar nuevo ARMOUR_TABLE
+
+#define ARMOUR_TABLE "/table/armour_table"
+
 int do_unwear_ob(object on);
 int do_wear_ob(object ob);
 void reset_types();
 
 #define PASSED_OUT "passed out"
-#define MAXTYPES 20
+#define MAXTYPES ARMOUR_TABLE->query_num_types()
 
 /* Wear.c used for wearable objects.. or rather for players to be able
  * to wear armour and other stuff. 
@@ -24,14 +29,14 @@ void reset_types();
  * It won't be any problem to add new types later.
  */
 
-static private mixed *worn_objects;
-static private int worn_ac;
-static private int *armour_types;
+nosave private mixed *worn_objects;
+nosave private int worn_ac;
+nosave private int *armour_types;
 
 object *query_worn_ob() { return worn_objects; }
 
 
-create() 
+void create()
 {
     worn_objects = ({ });
     worn_ac = 0;
@@ -49,27 +54,26 @@ void reset_types()
 }
 
 /* The total AC for all worn objects.. */
-/* Shall I add the hold AC (shields) here or caculate everything 
+/* Shall I add the hold AC (shields) here or caculate everything
  * in an equip.c ? */
 
 int query_worn_ac() { return worn_ac; }
 
-
-int unwear_ob(object ob) 
+int unwear_ob(object ob)
 {
     int size;
     int slot;
     if(!ob) return 0;
-    if ((slot = member_array(ob, worn_objects)) == -1) 
+    if ((slot = member_array(ob, worn_objects)) == -1)
     {
-	notify_fail("You don't wear this item.\n");
+	notify_fail("No llevas puesto eso.\n");
 	return 0;
     }
 
     size = ob->query_size() / 4;
     if (size < 1)
 	size = 1;
-    tell_object(this_object(), "You start to take off " +  
+    tell_object(this_object(), "Empiezas a quitarte tu " +
       (string)ob->short() + ".\n");
 
     // Taniwha 1995, restrictions in, this isn't needed.
@@ -84,47 +88,49 @@ int do_unwear_ob(object ob)
 {
     int a_type;
 
-    if(!ob) return;
+    if(!ob) return 0;
     // taniwha 1996
-    if(ob->set_in_use(0) == 0)
+    if(ob->set_in_use(0, TO) == 0)
     {
 	worn_objects -= ({ ob });
 	a_type = ob->query_armour_type();
 	armour_types[a_type] -= 1;
 
-	tell_object(this_object(),"You take off your " + 
+	tell_object(this_object(),"Te quitas tu " +
 	  (string)ob->query_short() + ".\n");
 	worn_ac -= ob->query_ac();
+	//Zonzamas '02
+	if (ob->query_armour()) ob->unwear();
 	this_object()->remove_static_property("nocast");
     }
-    else tell_object(this_object(),"You can't remove your "+
+    else tell_object(this_object(),"No puedes quitarte tu "+
 	  (string)ob->query_short() + ".\n");
     return 1;
 }
 
 
-status wear_ob(object ob) 
+int wear_ob(object ob)
 {
-    int a_type, occupied;
+    int a_type, i;
     string *exp;
     string thisone;
-    int size, i;
+    int size;
     /* Maybe this check is/can be another place ? */
     /* Made a query_holdable in living.c.. */
 
     if(this_object()->query_property("loading"))
     {
-	notify_fail("Your equipment is still in limbo, wearing it is "
-	  "impossible.\n");
+	notify_fail("Tu equipo esta todavia en el limbo, ponerte algo "
+	  "es imposible.\n");
 	return 0;
     }
     if(ob->query_ac() != 0)
-	if(this_object()->query_guild_ob() && 
+	if(this_object()->query_guild_ob() &&
 	  !this_object()->query_guild_ob()->
 	  query_legal_armour(ob->query_armour_name()))
 	{
-	    tell_object(this_object(),"Wearing this item doesn't fit with "
-	      "your chosen guild.\n");
+	    tell_object(this_object(),"Ponerte eso no es digno de tu "
+	      "gremio.\n");
 	    return 1;
 	}
 
@@ -141,7 +147,7 @@ status wear_ob(object ob)
 	 * This is starting to become really ugly.
 	 * Check for one of a type
 	 */
-    notify_fail("You are already wearing this type of object.\n");
+    notify_fail("Ya estas llevando ese tipo de objeto.\n");
     exp = explode(file_name(ob),"#");
     thisone = exp[0];
     for (i=0;i<sizeof(worn_objects);i++)
@@ -153,42 +159,54 @@ status wear_ob(object ob)
 	}
     }
     a_type = (int)ob->query_armour_type();
-    /* Rings and amulets can be multipple worn.
-     * that's type 5 & 7 
+    /* Rings and amulets can be multiple worn.
+     * Pendientes also
      */
-    switch(a_type)
+/*
+    switch(ARMOUR_TABLE->query_type_name(a_type))
     {
     default:
-	if (armour_types[a_type]) 
+	if (armour_types[a_type])
 	    return 0;
-    case 5:
-    case 7:    		
+    case "Orejas":
+    case "Cuello":
+    case "Dedos":
 	if (armour_types[a_type] >= 4)
 	    return 0;
     }
+*/
+
+	// Tyrael - May '02 - Acabamos antes y mejor asi
+	if (armour_types[a_type] >=  ARMOUR_TABLE->max_type_wearing(a_type)) {
+		//tell_object(TO, armour_types[a_type] +" >= "+ ARMOUR_TABLE->max_type_wearing(a_type)+"\n");
+		return 0;
+	}
 
     if (!size = ob->query_size())
     {
 	notify_fail("Your item has not a set size, bug it with the BUG command");
 	return 0;
     }
-    if(ob->set_in_use(1))
+    if(ob->set_in_use(1, TO))
     {
 	worn_objects += ({ ob });
+	//Zonzamas '02
+	if (ob->query_armour()) ob->wear(this_object());
+
 	worn_ac += (int)ob->query_ac();
 	armour_types[a_type] += 1;
 	size = size /5;
-	tell_object(this_object(), "You start wearing " +  
+	tell_object(this_object(), "Comienzas a ponerte tu " +
 	  (string)ob->short() + ".\n");
 	/* Dwimmerlaik 97 */
 	if(this_object()->query_creator()) return (1);
 	/* Raskolnikov 96 */
-	this_object()->add_timed_property(PASSED_OUT, "You are still "
-	  "trying to wear "+(string)ob->short()+".\n", size);
-	return 1;	
+	this_object()->add_timed_property(PASSED_OUT, "Todavia estas "
+	  "intentando ponerte tu "+(string)ob->short()+".\n", size);
+	return 1;
     }
-    else tell_object(this_object(),"You can't wear "+(string)ob->short()+ ".\n");
-    return 0;	
+
+    else tell_object(this_object(),"No puedes ponerte "+(string)ob->short()+ ".\n");
+    return 0;
 
 } /* wear_ob */
-

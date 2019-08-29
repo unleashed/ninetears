@@ -9,12 +9,13 @@ string desc_f_object(object o);
 
 
 /* This is for querying about objects who don't want to be destructed */
-static object discard_obj;
+nosave  object discard_obj;
 
 int affirmative(string s) /* returns true if s is a 'yes' equiv response */
 {
     s = lower_case(s);
-    return (s == "y" || s == "yes" || s == "ok" || s == "please");
+    return (s == "y" || s == "yes" || s == "ok" || s == "please"
+	|| s == "s" || s == "si" || s == "por favor");
 } /* affirmative() */
 
 /* is there an error?  print it */
@@ -25,8 +26,8 @@ void handle_error(string erm, string desc) {
 } /* handle_error() */
 
 
-static object *dest_obj; 
-static int objn, majd;
+nosave object *dest_obj; 
+nosave int objn, majd;
 
 void ask_dest() {
     if (!pointerp(dest_obj) || objn >= sizeof(dest_obj)) {
@@ -225,8 +226,8 @@ object *wzpresent2(string str, mixed onobj) {
 varargs object *wiz_present(string str, object onobj, int nogoout) {
     /* nogoout is so that it WON'T check the environment of onobj */
     int i,j;
-    object ob, *obs, *obs2, *users_ob, *temp_ob;
-    string s1, s2, *sts, temp;
+    object ob, *obs, *obs2;
+    string s1, s2, *sts;
 
     if (!str || !onobj) {
 	return ({ });
@@ -325,7 +326,7 @@ varargs object *wiz_present(string str, object onobj, int nogoout) {
     return ({ });
 } /* wiz_present() */
 
-static mixed *parse_args(string str, string close) {
+    mixed *parse_args(string str, string close) {
     mixed *args, *m, *m2;
     object *obs;
     string s1, s2, s3, s4, s5, s6, s7;
@@ -504,14 +505,14 @@ void inform_of_call(object ob, mixed *argv) {
      */
 } /* inform_of_call() */
 
-static mixed mapped_call(object ob, mixed *argv) {
+    mixed mapped_call(object ob, mixed *argv) {
     inform_of_call(ob, argv);
     return call_other(ob, argv[0], argv[1],argv[2],argv[3],
       argv[4],argv[5],argv[6]);
 } /* mapped_call() */
 
 /* Free form parse_args code */
-static int parse_frogs(string str) {
+int parse_frogs(string str) {
     mixed junk;
 
     if ( this_player()->query_current_action_forced() )
@@ -527,7 +528,7 @@ static int parse_frogs(string str) {
     return 1;
 } /* parse_forgs() */
 
-static int function2(string str) {
+int function2(string str) {
     /* call fish(x,y,z) object */
     mixed *args;
     string *s, s1, s2;
@@ -542,13 +543,13 @@ static int function2(string str) {
     if ( this_player()->query_current_action_forced() )
       return 0;
     if (!str) {
-	notify_fail("USAGE : call lfun(arg[,arg[,arg...]]) object[s]\n");
+	notify_fail("USO : call lfun(arg[,arg[,arg...]]) object[s]\n");
 	return 0;
     }
     log_file("CALLS",(string)this_player()->query_cap_name()+" CALLS "+str+"\n");
     s = explode("&"+str+"&", ")");
     if (sizeof(s) < 2 || sscanf(s[0], "%s(%s", s1, s2) != 2) {
-	notify_fail("USAGE : call lfun(arg[,arg[,arg...]]) object[s]\n");
+	notify_fail("USO : call lfun(arg[,arg[,arg...]]) object[s]\n");
 	return 0;
     }
     fn = replace(s1[1..1000], " ", "");
@@ -558,7 +559,7 @@ static int function2(string str) {
     argv = args[0];
     os = args[1][0..strlen(args[1])-2];
     while (strlen(os) && os[0] == ' ') os = os[1..1000];
-    notify_fail("Can't find object "+os+".\n");
+    notify_fail("No se ha podido encontrar el objeto "+os+".\n");
     ov = wiz_present(os,this_object());
 
     if (!sizeof(ov)) return 0;
@@ -578,16 +579,14 @@ static int function2(string str) {
 	    inform_of_call(ov[i], ({ fn }) + argv);
 	    if ( ov[i] && interactive(ov[i]) && !ov[i]->query_creator() )
 		log_file("CALLP",ctime(time())+": "+(string)this_player()->query_cap_name()+" CALLS "+str+" -- player "+(string)ov[i]->query_name()+"\n");
-	    write("*** function on '"+ desc_object(ov[i])+"' found in "+
+	    write("*** funcion sobre '"+ desc_object(ov[i])+"' encontrada en "+
 	      file+" ***\n");
-	    write("Returned: ");
+	    write("Valor devuelto: ");
 	    printf("%O\n", retobj);
 	} else
-	    write("*** function on '"+desc_object(ov[i])+"' Not found ***\n");
+	    write("*** funcion sobre '"+desc_object(ov[i])+"' No encontrada ***\n");
 	file = 0;
     }
     this_object()->set_trivial_action();
     return 1;
 } /* function2() */
-
-

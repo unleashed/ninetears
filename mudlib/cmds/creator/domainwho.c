@@ -6,7 +6,7 @@ void setup()
    position = 1;
 }
 
-static int cmd(string str, object me) {
+int cmd(string str, object me) {
    string ret, env;
    object ob;
    ret = "";

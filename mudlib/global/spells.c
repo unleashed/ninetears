@@ -1,182 +1,158 @@
-#include "spells.h"
+// Traducido por Lummen 27-7-97
+
+#include <spells.h>
+#define TABLE "/table/stats_table"
 
 mixed spells;
-mixed minor_spheres; // Also used by schools.
+mixed minor_spheres; // Las escuelas se tratan como esferas
 mixed major_spheres;
 mixed neutral_spheres;
-
-//object guild;
-//string spell_dir;
-
-/* here is the start on the new spells.c i will try to make
- *   Baldrick, started july '93
- * Added Major/Minor/Neutral spheres.  This won't be used til
- * FR-III, probably, but I want it there for FR-2.5.  For now
- * it'll work exactly the same; but since the spheres are saved
- * on the player, I want the data to be there so we can easily
- * change the functions later.  --Wonderflug, august '95.
- */
+int salvation;
 
 void create() 
 {
-  spells = ([ ]);
-  minor_spheres = ({ });
-  neutral_spheres = ({ });
-  major_spheres = ({ });
-  //guild = this_player()->query_guild_ob();
+  spells=([]);
+  minor_spheres=({});
+  neutral_spheres=({});
+  major_spheres=({});
+  salvation=0;
 }
   
-/*
-void init_spells()
-{
-  spell_dir = guild->query_spell_directory();
-}
-*/
-
 void spell_commands() 
 {
-  add_action("show_spells", "spells");
-  add_action("show_spheres", "spheres");
-  add_action("show_schools", "schools");
+  add_action("show_spells", "hechizos");
+  add_action("show_spheres","esferas");
+  add_action("show_schools","escuelas");
   add_action("cast", "cast");
-  /* this is a reset of the spellarray,the players will have to
-   * learn again..
-   * Baldrick. sept '93 */
-  //add_action("reset_spellarray", "reset_spells");
+  add_action("cast", "formular");
 }
 
-/*  If you have a function help() in the spell itself.  It will print the
- *  string you return there. 
- */
 string help_spell(string str) 
 {
-  object guild;
+  object guild=TO->query_guild_ob();
   string spell_dir;
 
-  if (!mappingp(spells))
-    spells = ([ ]);
-  if(!m_sizeof(spells))
-    return 0;
-  if (!spells[str])
-    return 0;
-  guild = this_player()->query_guild_ob();
-  spell_dir = guild->query_spell_directory();
+  if (!guild)
+	return "";
+  spell_dir=guild->query_spell_directory();
+  if (!mappingp(spells)) spells=([]);
+  if (!m_sizeof(spells)) return ""; 
+  if (!spells[str]) return "";
 
-  /* Since I have removed the /std/spells from the spellaray
-  * do I have to put it here..Baldrick sept '93 */
   return ((string)(spell_dir+spells[str][S_OBJECT])->help(str));
 }
  
-/*
- * Lists spells you know
- */
 int show_spells(string str) 
-  {
+{
   string *frog;
-  int i;
 
-  if (!mappingp(spells))
-   spells = ([ ]);
-  if (!m_sizeof(spells)) {
-    write("You don't know any spells yet.\n");
+  if (!mappingp(spells)) spells=([]);
+  if (!m_sizeof(spells))
+  {
+    write("Todavia no conoces ningun hechizo.\n");
     return 1;
   }
 
   frog = m_indices(spells);
-  write("You know the following spells:\n");
-  printf("%#-*s\n", this_player()->query_cols(), implode(frog, "\n"));
+  write("Los hechizos que conoces son:\n");
+  printf("%#-*s\n",TO->query_cols(),implode(frog,"\n"));
   return 1;
 }
 
-/* Will cast the spell after a round of casting time */
+// Will cast the spell after a round of casting time
 int cast(string str) 
 {
-  int i, j;
-  string *s,s1;
-  object guild;
-  object *armours;
-  string spell_dir;
+  int i;
+  object guild=TO->query_guild_ob();
+  object *equipo;
+  string *s,s1,spell_dir=guild->query_spell_directory(),kk;
 
-  if( this_player()->query_property("nocast") )
+  if (TO->query_property("nocast"))
   {
-    tell_object(this_player(), "You cannot seem to summon the power "+
-      "within you right now.\n");
-    return 1;
+    notify_fail("No puedes invocar el poder para realizar esto ahora.\n");
+    return 0;
   }
 
-  if ( this_player()->query_property("stillcasting") )
+  if (TO->query_property("stillcasting"))
   {
-    tell_object(this_player(), "You cannot cast another spell again so soon "
-      "after your last one.\n");
-    return 1;
+    notify_fail("No puedes formular otro hechizo hasta que transcurra algun tiempo.\n");
+    return 0;
   }
 
-  if (environment(this_player())->query_property("nocast"))
+  if (ENV(TO)->query_property("nocast"))
   {
-    tell_object(this_player(),"The mystical powers seem to be too "+
-      "weak here to affect anything.\n");
-    return 1;
+    notify_fail("Los poderes misticos son demasido debiles aqui como para afectar a alguien.\n");
+    return 0;
   }
  
   if (!str) 
   {
-    notify_fail("Usage: cast <spell> [<target>]\n");
-    return 0;
-  }
-  /* Dead players should not cast spells!
-   * Baldrick.
-   */
-//if(this_player()->query_property("dead"))
-//Radix was here, doubtful this was necessary
-// Dec 14, 1995
-  if(this_player()->query_dead())
-  {
-    notify_fail("Ghosts cannot cast spells.\n");
+    notify_fail("Uso: formular <hechizo> [<objetivo>]\n");
     return 0;
   }
 
-  guild=(object)this_player()->query_guild_ob();
-
-  /* The spellcasters shall not be able to cast spells when in full armour. 
-   * Modify by Baldrick. oct '94.
-   * Changed a bit, now it tests on the legality of the armour.
-   */
-// Taniwha 28/09/95, we now have armour restrictions in globally, not needed, also not 100% consistant with other code
-/*
-  if (armours = this_player()->query_worn_ob())
+  if (TO->query_dead())
   {
-    for (i=0;i<sizeof(armours);i++)
-    {
-      if (!guild->query_legal_armour((string)armours[i]->
-                                   query_armour_type_name()))
-      {
-        notify_fail("You can not cast spells while wearing this armour.\n");
-        return 0;
-      }
-      }
-   }
-*/
-  s = explode(str, " ");
-  s1 = s[0];
-  j = 1;
-  while (!spells[s1] && j < sizeof(s))
-    s1 = implode(s[0..j++], " ");
+    notify_fail("Los espiritus no pueden formular hechizos.\n");
+    return 0;
+  }
+
+  if (!TO->query_guild_ob())
+  {
+    notify_fail("Formulando hechizos sin pertenecer a un gremio?\n");
+    return 0;
+  }
+  else switch ((TO->query_guild_ob())->query_base())
+  {
+    case "mg_drow":
+    case "mg_bueno":
+    case "ladron":
+      equipo=TO->query_worn_ob();
+      for (i=0;i<sizeof(equipo);i++)
+        if ( (equipo[i]->query_material()==2) &&
+             (equipo[i]->query_armour_name()!="cota de malla elfica") &&
+             (equipo[i]->query_armour_name()!="cota de malla drow") )
+          switch (equipo[i]->query_armour_type())
+          {
+            case 1:     // Armaduras
+            case 3:     // Yelmos
+            case 8:     // Guanteletes
+              notify_fail("No puedes formular hechizos mientras lleves "
+                "puestos objetos metalicos.\n");
+              return 0;
+          }
+  }
+
+  s=explode(str," ");
+  s1=s[0];
+  i=1;
+  while (!spells[s1] && i<sizeof(s)) s1 = implode(s[0..i++], " ");
+  if (DEBUG(TO)) tell_object(TO,"\nStr: "+str+".\n");
+
   if (!spells[s1]) 
   {
-    notify_fail("You don't know any "+str+" spell.\n");
+    notify_fail("No conoces ningun hechizo llamado "+str+".\n");
     return 0;
   }
-  /* ok we found our spell...
-   * cast it...
-   * Or, at least try to ;)
-   */
-  /* the Spell_dir is used to reduce space in the spellarray */
-  spell_dir = guild->query_spell_directory();
-  return (int)call_other(spell_dir + spells[s1][S_OBJECT], "cast_spell",
-                           implode(s[j..sizeof(s)], " "));
-} /* Cast */
+  
+  kk=spell_dir+spells[s1][S_OBJECT];
+  if (DEBUG(TO)) tell_object(TO,"El archivo es "+kk+".\n");
+  
+  return (int)call_other(kk,"cast_spell",implode(s[i..sizeof(s)]," "));
+}
 
-mixed query_spells() { return spells; }
+mixed query_spells()
+{
+  return spells;
+}
+
+int borra_spells()
+{
+  spells=({ });
+  return 1;
+
+}
+
 
 int add_spell(string name, mixed ob) 
 {
@@ -185,27 +161,25 @@ int add_spell(string name, mixed ob)
 
   if (pointerp(spells)) 
   {
-    tmp = ([ ]);
-    for (i=0;i<sizeof(spells);i+=2)
-      tmp[spells[i]] = spells[i+1];
-    spells = tmp;
+    tmp=([]);
+    for (i=0;i<sizeof(spells);i+=2) tmp[spells[i]]=spells[i+1];
+    spells=tmp;
   }
-  if (!mappingp(spells))
-    spells = ([ ]);
-  spells[name] = ({ ob });
+
+  if (!mappingp(spells)) spells=([]);
+  spells[name]=({ob});
   return 1;
 }
 
 int remove_spell(string name) 
 {
-  spells = m_delete(spells, name);
+  spells=m_delete(spells,name);
   return 1;
 }
 
 int reset_spellarray() 
 {
-  spells = ([ ]);
-  // write ("Bing.\n");
+  spells=([]);
   return 1;
 }
 
@@ -215,34 +189,28 @@ int query_spell(string type)
   return spells[type];
 }
 
-/* the sphere code.. added by Baldrick october '93 to use by 
- * add_spell code in the guilds..*
- * Fubaring by Wonderflug, August 95.
- */
+int remove_sphere(string);
 
-int add_sphere(string name, string power)
+int add_sphere(string name,string power)
 {
-  if (!pointerp(minor_spheres))
-    minor_spheres = ({ });
-  if (!pointerp(major_spheres))
-    major_spheres = ({ });
-  if (!pointerp(neutral_spheres))
-    neutral_spheres = ({ });
+  if (!pointerp(minor_spheres)) minor_spheres=({});
+  if (!pointerp(major_spheres)) major_spheres=({});
+  if (!pointerp(neutral_spheres)) neutral_spheres=({});
+  remove_sphere(name);
 
-  switch( power )
+  switch (power)
   {
-    case "minor":
-      minor_spheres += ({ name, });
+    case "menor":
+      minor_spheres+=({name});
       break ;
     case "neutral":
-      neutral_spheres += ({ name, });
+      neutral_spheres+=({name});
       break;
-    case "major":
-      major_spheres += ({ name, });
+    case "mayor":
+      major_spheres+=({name});
       break;
     default:
-      /* For backward compatibility. */
-      neutral_spheres += ({ name, });
+      neutral_spheres+=({name});
       break;
   }      
   
@@ -253,204 +221,289 @@ int add_spheres(mixed list)
 {
   int i;
 
-  if (!pointerp(minor_spheres))
-    minor_spheres = ({ });
-  if (!pointerp(major_spheres))
-    major_spheres = ({ });
-  if (!pointerp(neutral_spheres))
-    neutral_spheres = ({ });
+  if (!pointerp(minor_spheres)) minor_spheres=({});
+  if (!pointerp(major_spheres)) major_spheres=({});
+  if (!pointerp(neutral_spheres)) neutral_spheres=({});
 
-  for ( i=0; i<sizeof(list); i++ )
-  {
-    if ( sizeof(list[i]) < 2 )
+  for (i=0;i<sizeof(list);i++)
+    if (sizeof(list[i])<2) neutral_spheres+=({list[i]});
+    else switch (list[i][1])
     {
-      /* Again, for backward compatibility. */
-      neutral_spheres += ({ list[i] });
-      continue;
-    }
-    switch( list[i][1] )
-    {
-      case "minor":
-        minor_spheres += ({ list[i][0] });
+      case "menor":
+        minor_spheres+=({list[i][0]});
         break;
-      case "major":
-        major_spheres += ({ list[i][0] });
+      case "mayor":
+        major_spheres+=({list[i][0]});
         break;
       case "neutral":
-        neutral_spheres += ({ list[i][0] });
+        neutral_spheres+=({list[i][0]});
         break;
-      default:
-        break;
-    } /* switch */
-  } /* for */
+    }
 
   return 1;
 }
 
-/*
 int remove_sphere(string name)
-  {
-  spheres = m_delete(spheres, name);
+{
+  minor_spheres-=({name});
+  major_spheres-=({name});
+  neutral_spheres-=({name});
   return 1;
-  }
-*/
+}
 
 int reset_spheres()
 {
-  minor_spheres = ({ });
-  major_spheres = ({ });
-  neutral_spheres = ({ });
+  minor_spheres=({});
+  major_spheres=({});
+  neutral_spheres=({});
   return 1;
 }
 
-/* This we keep completely backward compatible.  Just return
- * the sum of all 3.
- */
+int query_max_spell_level(string esfera)
+{
+  return 9;
+}
+
 mixed query_spheres() 
 {
-  return minor_spheres + major_spheres + neutral_spheres + ({ });
+  return minor_spheres+major_spheres+neutral_spheres+({});
 } 
 
-/* Extensions */
-mixed query_minor_spheres() { return minor_spheres + ({ }); }
-mixed query_neutral_spheres() { return neutral_spheres + ({ }); }
-mixed query_major_spheres() { return major_spheres + ({ }); }
+mixed query_minor_spheres()
+{
+  return minor_spheres+({});
+}
 
-/* Slight change, to reflect the power of the sphere for the player */
+mixed query_neutral_spheres()
+{
+  return neutral_spheres+({});
+}
+
+mixed query_major_spheres()
+{
+  return major_spheres+({});
+}
+
 mixed query_sphere(string name)
 {
-  if ( member_array(name, minor_spheres) != -1 )
-    return 1;
-  if ( member_array(name, neutral_spheres) != -1 )
-    return 2;
-  if ( member_array(name, major_spheres) != -1 )
-    return 3;
-
+// esto es un peligro para los hechizos q lo usan ahora ya q aun no tan
+// las esferas!
+  if ( member_array(name, minor_spheres) != -1 ) return 1;
+  if ( member_array(name, neutral_spheres) != -1 ) return 2;
+  if ( member_array(name, major_spheres) != -1 ) return 3;
   return 0;
 }
 
 mixed query_minor_sphere(string name)
 {
-  if ( member_array(name, minor_spheres) != -1 )
-    return 1;
+  if ( member_array(name, minor_spheres) != -1 ) return 1;
   return 0;
 }
 
 mixed query_neutral_sphere(string name)
 {
-  if ( member_array(name, neutral_spheres) != -1 )
-    return 1;
+  if ( member_array(name, neutral_spheres) != -1 ) return 1;
   return 0;
 }
 
 mixed query_major_sphere(string name)
 {
-  if ( member_array(name, major_spheres) != -1 )
-    return 1;
+  if ( member_array(name, major_spheres) != -1 ) return 1;
   return 0;
 }
 
-/* Another extension. Just returns the string instead of a number. */
 mixed query_sphere_level(string name)
 {
   switch( query_sphere(name) )
   {
     case 1:
-      return "minor";
+      return "menor";
     case 2:
       return "neutral";
     case 3:
-      return "major";
+      return "mayor";
     default:
       return 0;
   }
   return 0;
 }
 
-
 int show_spheres()
 {
-  object guild;
-  int written, i;
+  int written=0, i;
 
-  guild = this_player()->query_guild_ob();
-
-  written = 0;
-
-  if ((!guild) || ((string)guild->query_spell_directory()!=CLERIC_ROOT))
+ /* if ( (guild->query_spell_directory()!=CLERIC_ROOT) &&
+       (guild->query_spell_directory()!=DRUID_ROOT) )
   {
-    notify_fail("You don't need spheres.\n");
+    notify_fail("No usas esferas.\n");
     return 0;
-  }
+  } */
 
-  /* Could format it better, but I don't care. */
-  for ( i=0; i<sizeof(minor_spheres); i++, written++ )
-    write(minor_spheres[i]+" (Minor)\n");
-  for ( i=0; i<sizeof(neutral_spheres); i++, written++ )
-    write(neutral_spheres[i]+" (Neutral)\n");
-  for ( i=0; i<sizeof(major_spheres); i++, written++ )
-    write(major_spheres[i]+" (Major)\n");
- 
-  if (!written)
-  {
-    notify_fail("You are sphereless.\n");
-    return 0;
-  }
-  return written;
-} /* int show spheres..*/
- 
-int show_schools()
-{ 
-  object guild;
-  int written, i;
-
-  guild = this_player()->query_guild_ob();
-
-  if ((string)guild->query_spell_directory()!=MAGE_ROOT)
-  {
-    notify_fail("You dont need schools.\n");
-    return 0;
-  }
-
-  written = 0;
-  for ( i=0; i<sizeof(minor_spheres); i++, written++ )
-    write(minor_spheres[i]+" (Minor)\n");
-  for ( i=0; i<sizeof(neutral_spheres); i++, written++ )
-    write(neutral_spheres[i]+" (Neutral)\n");
-  for ( i=0; i<sizeof(major_spheres); i++, written++ )
-    write(major_spheres[i]+" (Major)\n");
+  for (i=0;i<sizeof(minor_spheres);i++,written++)
+       write(minor_spheres[i]+" (Menor)\n");
+  for (i=0;i<sizeof(neutral_spheres);i++,written++)
+        write(neutral_spheres[i]+" (Neutral)\n");
+  for (i=0;i<sizeof(major_spheres);i++,written++)
+      write(major_spheres[i]+" (Mayor)\n");
 
   if (!written)
   {
-    notify_fail("You don't belong to any schools.\n");
+    notify_fail("No tienes esferas.\n");
     return 0;
   }
   return written;
-} /* int show schools..*/
-
-/*** damage and resistance routine for different damage types ***/
-/*** added by Eerevann 2-11-94 ***/
-/* resist calcs in /std/spells/patch.c */
-
-int spell_damage(mixed target, int damage, string type,object caster)
-{
-    if(!caster) target->adjust_hp(-damage);
-    else target->adjust_hp(-damage,caster);
-  return 1;
 }
 
-/* hmm, could we put this one somewhere else ? save up some memory.
- * Baldrick, just peeping around.. */
-
-int spell_saving_throw(mixed target, int damage, string save_type)
+int show_schools()
 {
+  int written=0,i;
 
- /*** SAVING THROW ***/
- /*** make save if random(level+20) > 15 ***/
+/*  if ( (guild->query_spell_directory()!=MAGE_ROOT) &&
+       (guild->query_spell_directory()!=BARD_ROOT) )
+  {
+    notify_fail("No usas escuelas.\n");
+    return 0;
+  }
+*/
+  for (i=0;i<sizeof(minor_spheres);i++,written++ ) write(minor_spheres[i]+" (Menor)\n");
+  for (i=0;i<sizeof(neutral_spheres);i++,written++) write(neutral_spheres[i]+" (Neutral)\n");
+  for (i=0;i<sizeof(major_spheres);i++,written++) write(major_spheres[i]+" (Mayor)\n");
 
- if ( (random( (target->query_level() )+20)) > 15)
-    damage = damage/2;  /*** save for half damage ***/
-  
- return damage;
+  if (!written)
+  {
+    notify_fail("No perteneces a ninguna escuela.\n");
+    return 0;
+  }
+  return written;
+}
 
+// ATENCION: PARA HACER DANYO, SE DAN VALORES POSITIVOS DE DAMAGE!
+int spell_damage(int damage,string type,string sphere,int salvation,object caster)
+{
+  int i=random(600);
+
+	//tell_object(TO, "Danyo: "+damage+"\n");
+
+// bug fixed - Tyrael
+  if (damage>0)
+  {
+    damage=damage*(100-TO->query_res(type))/100;
+	//tell_object(TO, "Danyo tras res: "+damage+"\n");
+    if (TO->spell_saving_throw(caster,sphere)) damage=damage*salvation/100;
+	//tell_object(TO, "Danyo tras salv: "+damage+"\n");
+  }
+  if (caster)
+  {
+    if (i<caster->query_cha())  // Critico
+    {
+      switch (i)
+      {
+        case 0:
+          damage*=2;
+          caster->adjust_gp(2);
+          break;
+        default:
+          damage*=1.5;
+          caster->adjust_gp(1);
+      }
+    }
+    else if (i>599-TO->query_cha()) // Pifia
+    {
+      switch (i)
+      {
+        case 599:
+          damage=0;
+          caster->adjust_gp(-2);
+          break;
+        default:
+          damage/=2;
+          caster->adjust_gp(-1);
+      }
+    }
+  }
+	//tell_object(TO, "Danyo tras crit. final: "+damage+"\n");
+
+// El tercer parametro a 1 indica que es danyo de hechizo llamado
+// desde aqui. Solo se tiene en cuenta para shadows como piel de piedra
+// ya que el adjust_hp sencillamente no lo mira, esta ahi pero no lo usa.
+  if(!caster)
+     TO->adjust_hp(-damage,0,1);
+  else
+     TO->adjust_hp(-damage,caster,1);
+  return damage;
+}
+
+int set_salvation(int i)
+{
+  salvation=i;
+}
+
+int query_salvation()
+{
+  return salvation;
+}
+
+int adjust_salvation(int i)
+{
+  salvation+=i;
+}
+
+// esto necesita una remodelaaaaciooooooooooooon ke pa ke!
+int spell_saving_throw(object caster,string esfera)
+{
+  int base=1;           
+  int tirada=random(200);
+	int calc;
+
+  if (tirada<=caster->query_cha()) return 0;
+  if (tirada>=(199-TO->query_cha())) return 1;
+
+  // asi no hay dios ke meta hechizos a alguien de lev 50!
+  //if (TO->query_guild_ob()!="") base=random(4)+4;
+
+  if (TO->query_guild_ob()!="") base=random(4)+1;
+
+  base*=TO->QL;
+  // tengo que mirar bien como rula lo del salvation...
+  //base+=(TO->query_sphere(esfera)-caster->query_sphere(esfera))*10+salvation;
+  // feo feo, hasta no tener hecho lo de esferas ahi keda xD
+	if (TO->query_guild_name() == "mago de agband")
+		calc = 3;
+	else
+		calc = 0;		
+	if (caster->query_guild_name() == "mago de agband")
+		calc -= 3;
+	base+=calc*10+salvation;
+
+  return tirada<=base;
+}
+
+int query_res(string tipo)
+{
+  int natural=MAX(MIN(TO->QOP(tipo),MAX_RES_NATURAL),MIN_RES_NATURAL);
+  int spell=MAX(MIN(TO->QTP(tipo),MAX_RES_SPELL),MIN_RES_SPELL);
+  int objeto=MAX(MIN(TO->QSP(tipo),MAX_RES_OBJETO),MIN_RES_OBJETO);
+
+  return MAX(MIN(natural+spell+objeto,MAX_RES_TOTAL),MIN_RES_TOTAL);
+}
+
+int query_spell_skill()
+{
+  if (TO->query_guild_ob())
+    switch (TO->query_guild_ob()->query_main_skill())
+    {
+      case "wis":
+        return TO->query_wis();
+    }
+  return TO->query_int();
+}
+
+int query_spell_bonus()
+{
+  return TABLE->calc_spell_bonus(TO->query_spell_skill());
+}
+
+int query_magic_bonus()
+{
+  return TABLE->calc_magic_bonus(TO->query_spell_skill());
 }

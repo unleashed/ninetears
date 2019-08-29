@@ -8,9 +8,9 @@
  * Will add that in version 2...:=)
  */
 
-static private mixed *held_ob;
-static private int free_hands_left;
-static private int held_ac;
+nosave private mixed *held_ob;
+nosave private int free_hands_left;
+nosave private int held_ac;
 
 // prototypes:
 
@@ -21,11 +21,11 @@ object *query_held_ob() { return held_ob; }
 
 // Support functions for the rest of the player object.
 
-/* This is missing.. 
+/* This is missing..
  * Check if the object is held.
- * Baldrick, adding sept '94 
+ * Baldrick, adding sept '94
  */
-/* Hrmf.. I'm drunk.. I have query_in_use..:=) 
+/* Hrmf.. I'm drunk.. I have query_in_use..:=)
  * Don't need this one then..
 
 int query_held(object ob)
@@ -39,14 +39,14 @@ int query_held(object ob)
   return 0;
 } */ /* int query_held */
 
-int is_shield(mixed ob) 
+int is_shield(mixed ob)
 {
     return (objectp(ob) && (int)ob->query_shield());
 }
 
-// This function is just used to filter out weapons from the 
+// This function is just used to filter out weapons from the
 // array of held objects.
-int is_weapon(mixed ob) 
+int is_weapon(mixed ob)
 {
     return (objectp(ob) && (int)ob->query_weapon());
 }
@@ -54,19 +54,19 @@ int is_weapon(mixed ob)
 // This function returns an array containing all the weapons
 // that are currently wielded. If no weapons wielded, an empty
 // array is returned. -A
-mixed *query_weapons_wielded() 
+mixed *query_weapons_wielded()
 {
     return filter_array(held_ob, "is_weapon",this_object());
 }
 
 
-mixed *query_shields_held() 
+mixed *query_shields_held()
 {
     return filter_array(held_ob, "is_shield",this_object());
 }
 
 
-create() 
+create()
 {
     held_ob = ({ });
     held_ac = 0;
@@ -85,7 +85,7 @@ void reset_hands()
 {
    object ob;
     // this shall be the correct line:
-    //free_hands_left = query_limbs(); 
+    //free_hands_left = query_limbs();
    ob = this_object()->query_race_ob();
    if(ob)
    {
@@ -113,32 +113,34 @@ void dest_held()
 }
 */
 
-int unhold_ob(object ob) 
+int unhold_ob(object ob)
 {
     int slot;
-    if ((slot = member_array(ob, held_ob)) == -1) 
-    { 
-	notify_fail("You don't hold this item.\n");
+    if ((slot = member_array(ob, held_ob)) == -1)
+    {
+	notify_fail("No estas empunyando eso.\n");
 	return 0;
     }
     // Taniwha 1996
-    if(ob->set_in_use(0) == 0)
+    if(ob->set_in_use(0, TO) == 0)
     {
 	held_ob[slot] = 0;
 	// Not really needed but good for speed.
 	// sanity check should be run against held_ob array every so often
 	free_hands_left += (int)ob->query_hands_needed();
 
-	tell_object(this_object(), "You lower your " + 
+	tell_object(this_object(), "Dejas de sostener tu " +
 	  (string)ob->query_short() + ".\n");
 	held_ac -= (int)ob->query_ac();
+	// Zonzamas '02
+	ob->unhold(this_object());
     }
-    else tell_object(this_object(),"You can't unhold your "+
+    else tell_object(this_object(),"No puedes envainar tu "+
 	  (string)ob->query_short() + ".\n");
     return 1;
 }
 
-status hold_ob(object ob) 
+int hold_ob(object ob)
 {
     int weap_hands; // hands the weapon needs.
     int slot;
@@ -152,7 +154,7 @@ status hold_ob(object ob)
 	gobj = this_object()->query_guild_ob();
 	if( gobj && !gobj->query_legal_weapon(ob->query_weapon_name()))
 	{
-	    tell_object(this_object(),"You lack the skill to wield this weapon.\n");
+	    tell_object(this_object(),"Careces de la habilidad necesaria para empuñar esta arma.\n");
 	    return 1;
 	}
     }
@@ -161,7 +163,7 @@ status hold_ob(object ob)
 	gobj = this_object()->query_guild_ob();
 	if( gobj && !gobj->query_legal_armour(ob->query_armour_name()))
 	{
-	    tell_object(this_object(),"You lack the skill to wield this armour.\n");
+	    tell_object(this_object(),"Careces de la habilidad necesaria para ponerte esta armadura.\n");
 	    return 1;
 	}
     }
@@ -178,7 +180,7 @@ status hold_ob(object ob)
     // this. -A
     if (free_hands_left < weap_hands)
     {
-	notify_fail("You don't have enough hands left to hold this weapon.\n");
+	notify_fail("No tienes suficientes manos disponibles para empuñar esto.\n");
 	return 0;
     }
     if ((slot = find_empty_slot (ob, weap_hands, held_ob)) == -1)
@@ -187,12 +189,14 @@ status hold_ob(object ob)
 	return 0;
     }
 // Taniwha 1996
-   if(!ob->set_in_use(1)) return 0;
-    held_ob[slot] = ob;
-    held_ac += (int)ob->query_ac();
-    free_hands_left -= weap_hands; 
-    tell_object(this_object(), "You hold " + (string)ob->short() + ".\n");
-    return 1;
+   if(!ob->set_in_use(1, TO)) return 0;
+   // Zonzamas '02
+   ob->hold(this_object());
+   held_ob[slot] = ob;
+   held_ac += (int)ob->query_ac();
+   free_hands_left -= weap_hands;
+   tell_object(this_object(), "Empunyas tu " + (string)ob->short() + ".\n");
+   return 1;
 
 } /* status hold_ob */
 
@@ -215,13 +219,10 @@ int query_dual_wield_penalty()
 	return gob->query_dual_wield_penalty(this_object(), held_ob[0], held_ob[1] );
 }
 
-
-
-
 /* Returns what's in what hand, will traverse through the hands.
  * have to take care of two handed (or more) weapons, can't return an iten for both hands then..
  */
-mixed *stats() 
+mixed *stats()
 {
 
 }
@@ -241,7 +242,7 @@ int find_empty_slot(object ob, int nh, mixed *h) {
 
     int i, good, start_slot;
 
-    // How many hands do we need?   
+    // How many hands do we need?
     // sent from hold,,
     nh = (int)ob->query_hands_needed();
 
@@ -256,8 +257,8 @@ int find_empty_slot(object ob, int nh, mixed *h) {
     for(i=0;i<sizeof(h);i++) {
 
 	// if there is an object in this slot, skip this slot plus any
-	// extra slots this object controls. 
-	if (objectp(h[i])) 
+	// extra slots this object controls.
+	if (objectp(h[i]))
 	{
 	    i += ((int)h[i]->query_hands_needed()-1); // -1 as we skip current slot
 	    // at the end of the for-loop.
@@ -265,26 +266,26 @@ int find_empty_slot(object ob, int nh, mixed *h) {
 
 	    continue;
 	}
-	// Later, differenciate between the various integer values in the 
+	// Later, differenciate between the various integer values in the
 	// slots for amputated hands, cursed hands etc
 	// For now, just assume a !0 slot is a no-no
 
-	else 
-	if (h[i]) 
+	else
+	if (h[i])
 	{
 	    // No continue here, just subtract one from the good-counter.
 	    // This allows a three handed monster to wield a twohanded weapon
-	    // even though the middle hand is gone. This will also have to 
+	    // even though the middle hand is gone. This will also have to
 	    // depend on the integer given at some point. I.e. can't do it
-	    // if the hand in between is cursed, but no problem if it's 
+	    // if the hand in between is cursed, but no problem if it's
 	    // amputated etc.
 
 	    good -= 1;
-	} 
+	}
 	// Now we have to remember what slot we actually started off in
 	// so we can return that to the calling function.
 	if (!good)
-	    start_slot = i; 
+	    start_slot = i;
 
 	// We have a good slot!
 	good++;
@@ -294,4 +295,3 @@ int find_empty_slot(object ob, int nh, mixed *h) {
     }
     return -1;
 }
-

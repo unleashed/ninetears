@@ -1,9 +1,9 @@
 #include "spells.h"
 void do_call_out_effect(mixed *params);
-static int spell_hp;
+nosave int spell_hp;
 #define SP_DIV 5
 
-static mixed *effects;
+nosave mixed *effects;
 
 void create() {
     effects = ({ });
@@ -49,7 +49,7 @@ int remove_spell_effect(string name) {
 } /* remove_spell_effect() */
 
 mixed query_spell_effect(string name) {
-    int i, j;
+    int i;
 
     if ((i=member_array(name, effects)) == -1)
         return 0;
@@ -57,6 +57,10 @@ mixed query_spell_effect(string name) {
         return effects[i..i]+effects[0..1];
     return 0;
 } /* query_spell_effect() */
+
+mixed *query_spell_effects() {
+	return effects;
+}
 
 mixed *query_spell_effects_type(string type) {
     int i, j;
@@ -73,7 +77,7 @@ mixed *query_spell_effects_type(string type) {
 int do_spell_effects(object attacker) {
     int i, j;
 
-    this_object()->remove_property("casting");
+    this_object()->remove_static_property("casting");
     for ( i=sizeof(effects)-2; i>=0; i-=2)
         for ( j=sizeof(effects[i+1])-2; j>=0; j-=2) 
         {
@@ -82,9 +86,9 @@ int do_spell_effects(object attacker) {
             {
                 tell_room(environment(this_object()),
                   (string)this_object()->query_cap_name()+
-                  " winces, and loses concentration !\n",({this_object()}));
-                tell_object(this_object(),"You flinch under the assault, "
-                  "and lose your concentration!\n");
+                  " pierde la concentracion!\n",({this_object()}));
+                tell_object(this_object(),"Te estremeces y pierdes "
+                  "la concentracion!\n");
                 remove_spell_effect(effects[i+1][j]);
                 continue;
             }

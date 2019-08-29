@@ -8,10 +8,10 @@
 
 string *DEVELOPERS = ({ "guilo", "krelk", "cherokee" });
 
-static mapping gods;
-static mapping sac_items;
-static string *races;
-static mapping race_gods;
+nosave mapping gods;
+nosave mapping sac_items;
+nosave string *races;
+nosave mapping race_gods;
 
 /* This one stores the high priests.  SHOULD be the only thing saved. */
 mapping highs;
@@ -50,7 +50,7 @@ int is_deity(string which) { return gods[which]; }
 int deity_gender(string which) { return gods[which]; }
 
 mixed query_high_priest(string whichgod) { return highs[whichgod]; }
-static int set_high_priest(string whichgod, string theplayer, int gender, 
+nomask int set_high_priest(string whichgod, string theplayer, int gender, 
                                                                 int value) {
   if(gods[whichgod]) {
     highs[whichgod] = ({ theplayer, value, time(), gender });
@@ -344,6 +344,9 @@ string altar_long(string whichgod) {
     case "radix"     : return ALTAR_RADIX;
     case "ducky"     : return ALTAR_DUCKY;
     case "grimbrand" : return ALTAR_GRIMBRAND;
+    case "tyrael"    : return ALTAR_TYRAEL;
+    case "barthleby" : return ALTAR_BARTHLEBY;
+    case "leviathan" : return ALTAR_LEVIATHAN;
     case "none"      : return ALTAR_NONE;
   };
 }

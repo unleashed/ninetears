@@ -1,0 +1,6 @@
+/w/oldcreators/grimfang/npc/aokorki.c line 1: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/oldcreators/grimfang/npc/aokorki.c line 50: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/oldcreators/grimfang/npc/aokorki.c line 50: Warning: Function inherited from '/obj/monster.c' does not match current function in return type ( void vs int ) before the end of line
+/w/oldcreators/grimfang/npc/aokorki.c line 54: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/oldcreators/grimfang/npc/aokorki.c line 58: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/oldcreators/grimfang/npc/aokorki.c line 58: Warning: Function inherited from '/std/living/combat.c' does not match current function in return type ( void vs int ) before the end of line

@@ -4,7 +4,7 @@
  * Maybe make it a girl. 
  */
 
-#define SPELL "/std/spells/cleric/raise_dead"
+#define SPELL "/d/gremios/hechizos/cleric/raise_dead"
 
 inherit "/obj/monster";
 
@@ -17,8 +17,8 @@ void setup()
   //set_race("human");
   set_gender(1);
   //set_class("taniwha");
-  set_race_ob("/std/races/human");
-  set_guild_ob("/std/guilds/priests/taniwha");
+//  set_race_ob("/std/races/human");
+//  set_guild_ob("/d/gremios/clerigos/taniwha");
   set_level(15);
   set_max_gp(100);
   adjust_gp(100);
@@ -29,11 +29,13 @@ void setup()
 
 int do_raising(object player)
   {
+  //if(player->query_property("noregen") && query_static_property("noregen_static")) {
   if(player->query_property("noregen")) {
-  tell_object(player,"Death is not finished with you.  Wait for "
-              "a time.\n");
+  tell_object(player,"Jakel no ha acabado contigo.  Espera unos momentos.\n");
   return 0;
   }
+  else if (player->query_property("noregen"))
+	player->remove_property("noregen");
 //  say("James raises his hands.\n");
    tell_room(environment(this_object()),"The healer raises his hands, summons the powers of the gods, and you appear again in mortal form!\n");
   /* This won't work even If I manage to give James the spell! */

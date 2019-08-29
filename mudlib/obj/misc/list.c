@@ -1,11 +1,11 @@
 /*
  * Telluride
  */
-int timelast;
 
 #define LISTHAND "/obj/handlers/list"
 inherit "/std/object";
 
+int timelast;
 void update_list();
 
 void setup() {

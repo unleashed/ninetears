@@ -48,7 +48,7 @@ void exit_ed() {
   input_to("ed_get_line");
 }
 
-start_ed() {
+void start_ed() {
   write("Entering ed....  Use 'q' to quit, 'x' to save and exit, 'Q' to quit "
         "without saveing changes and 'h' for help.\n");
   write_file(TMP_FILE, my_bit);

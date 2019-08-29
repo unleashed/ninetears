@@ -8,17 +8,17 @@
 /* Have fun, and win awards */
 /* One other possible use for LE is for cute aliases */
 
-static int line;
-static string *cfile, cfile_name, last_search;
+nosave int line;
+nosave string *cfile, cfile_name, last_search;
 
-print_line()
+void print_line()
 {
    if (line > sizeof(cfile)) line = sizeof(cfile);
    if (!line) { write("No line.\n"); return; }
    write(extract("   ", 0, 3 - strlen(line + "")) + line + ":" + cfile[line-1] + "\n");
 }
 
-le(s)
+int le(string s)
 {
    int j;
 
@@ -69,7 +69,7 @@ le(s)
    case 'r':
       {
          string sA, sB;
-      
+
          sA = extract(s, 1);
          while (sA[0] == ' ') sA = extract(sA,1);
          sB = this_player()->get_path(sA);

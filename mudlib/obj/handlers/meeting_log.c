@@ -12,7 +12,7 @@ void log_it(string junk) {
   else
     dt = tm[4..6]+tm[9..9];
 
-  if(file_name(previous_object()) != "/room/admin/meeting")
+  if(file_name(previous_object()) != "/open/meeting")
     return;
 
   write_file(FNAME+dt,junk);

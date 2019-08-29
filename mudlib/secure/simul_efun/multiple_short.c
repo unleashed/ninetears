@@ -50,5 +50,5 @@ if(objectp(obs[i]))
     return "";
   if (sizeof(str) == 1)
     return str[0];
-  return implode(str[0..sizeof(str)-2],", ")+" and "+str[sizeof(str)-1];
+  return implode(str[0..sizeof(str)-2],", ")+" y "+str[sizeof(str)-1];
 }

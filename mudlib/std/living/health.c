@@ -1,20 +1,22 @@
 #include "drinks.h"
 /* ok handles hps, Spell/Power points and drinking/eating things...
- * Hmmmm, considering we dont want to have drinks/food I will not 
+ * Hmmmm, considering we dont want to have drinks/food I will not
  * put that in at the moment.
  */
 /* Logging Taniwha 1995 */
 #define XP_LIMIT 15000
 #define LOGFILE "BUSTED"
-int max_hp,
-max_gp,
-total_xp,
-wimpy;
-int hp,
-xp,
-gp;
+int hp=1;
+int max_hp=1;
+int gp=1;
+int max_gp=1;
+int ep=1;
+int max_ep=1;
+int xp, total_xp, wimpy, fp;
+int rp=50;
+
 private int *drink_info;
-static mapping damage_done;
+nosave mapping damage_done;
 
 void create() {
     damage_done = ([ ]);
@@ -64,9 +66,61 @@ varargs int set_hp(int i, object hp_remover)
     return hp;
 } /* set_hp() */
 
-int adjust_hp(int i, object hp_remover)
+// int is_spell_damage a 1 indica que se produjo como consecuencia
+// de un hechizo -> solo importante para shadows como piel piedra
+// se llama desde global/spell.c con 1 en is_spell_damage.
+int adjust_hp(int i, object hp_remover, int is_spell_damage)
 {
     int bah = 1;    // for color on hp monitor - Radix
+	/*if (is_spell_damage) {
+		tell_object(TO, "Danyo por spell:" + i);
+	}*/
+    hp += i;
+    if(hp_remover && !(int)hp_remover->query_dead() )
+	damage_done[hp_remover] += i;
+    if ( hp>max_hp )
+	hp = max_hp;
+
+    if ( hp<0 ) /* eeek we died! */
+    {
+	if(i > 0 && hp_remover == this_object() ) call_out("do_death",0,0); /* NOT this object, use attacker list */
+	else if (i <= 0 && hp_remover == TO) // new by Tyrael - Evita ver que te propinas.
+	{
+		tell_object(TO, "Acabas con tu triste existencia.\n");
+		tell_room(ETO, TO->QCN + " termina con su triste existencia.\n", TO);
+		call_out("do_death",0,0);
+	}
+	else
+	    call_out("do_death", 0, hp_remover);
+    }
+    // Radix Jan 1996
+    if (hp < max_hp/5)
+	bah = 0;
+    if(interactive(this_object()))
+    {
+	remove_call_out("display_monitor");
+	call_out("display_monitor",0,bah);
+    }
+    return hp;
+} /* adjust_hp() */
+
+
+// ahora pierdes piel de piedra si la llevas
+int really_adjust_hp(int i, object hp_remover) // se pasa por el forro shadows
+{
+	// EL is_spell_damage NO INDICA NECESARIAMENTE Q SEA DANYO POR HECHIZO
+	// PUEDE USARSE PARA QUE ESTA FN SI HAGA DANYO INCLUSO CON PIEL PETREA
+	// POR EJEMPLO SI UNA CLERA METE LEPRA AL TIO SIN PIELES Y LUEGO
+	// SE LAS TIRA, LA LEPRA SEGUIRA DANYANDOLE SIN QUITAR PIELES.
+	//
+	// AUN NO RULA
+	//
+	// Tyrael - Ene'02
+    int bah = 1;    // for color on hp monitor - Radix
+/*	if (query_stoneskin_spell()) {
+		if (!is_spell_damage)
+			return adjust_hp(i, hp_remover);
+	}*/
     hp += i;
     if(hp_remover && !(int)hp_remover->query_dead() )
 	damage_done[hp_remover] += i;
@@ -88,7 +142,7 @@ int adjust_hp(int i, object hp_remover)
 	call_out("display_monitor",0,bah);
     }
     return hp;
-} /* adjust_hp() */
+} /* really_adjust_hp() */
 
 int set_max_gp(int i) 
 {
@@ -180,32 +234,110 @@ void update_volumes() {
 } /* update_volumes() */
 
 string health_string() {
+	if (hp < max_hp/25)
+		return "esta al borde de la muerte";
+	if (hp < max_hp/20)
+		return "esta en estado critico";
     if (hp < max_hp/10)
-	return "is in very bad shape";
+	return "esta en muy mal estado";
     if (hp < max_hp/5)
-	return "is in bad shape";
+	return "esta en mal estado";
     if (hp < max_hp/2)
-	return "is not in a good shape";
+	return "no esta en muy buen estado";
     if (hp < max_hp - 200)
-	return "is slightly hurt";
-    return "is in good shape";
+	return "esta algo herido";
+	if (hp < max_hp)
+    return "esta en buen estado";
+	if (hp == max_hp)
+    return "esta en perfecto estado";
 } /* health_string() */
 
-string volume_string()
-{
-    int i = 0;
+string volume_string() {
+    	int i = 0;
+	if(drink_info[i]<= 0) return "sobrio";
+    	if(drink_info[i] <= 50) return "algo contentillo";
+    	if(drink_info[i] <= 100) return "borracho";
+    	if(drink_info[i] <= 500) return "ciego de bebida";
+    	if(drink_info[i] <= 2000) return "vomitando por el alcohol";
+    	if(drink_info[i] <= 6000) return "al borde del coma etilico";
+    	return "en coma etilico";
+	}
 
-    if(drink_info[i]<= 0)
-	return "Sober";
-    if(drink_info[i] <= 50)
-	return "Tipsy";
-    if(drink_info[i] <= 100)
-	return "Drunk";
-    if(drink_info[i] <= 500)
-	return "Very drunk";
-    if(drink_info[i] <= 2000)
-	return "Dead to the world";
-    if(drink_info[i] <= 6000)
-	return "Close to death";
-    return "Pray for painless death";
-}
+// Puntos de Energia (Vilat 04.09.2002)
+
+int set_max_ep(int i) {
+    	if (max_ep) ep = ep*i/max_ep;
+    	else ep = max_ep;
+    	max_ep = i;
+    	if (ep>max_ep) ep = max_ep;
+    	return max_ep;
+	} /* set_max_ep() */
+
+int set_ep(int i) {
+    	ep = i;
+    	if (ep > max_ep) ep = max_ep;
+    	return ep;
+	} /* set_ep() */
+
+int adjust_ep(int i) {
+    	if(ep + i < 0) return -1;
+    	ep += i;
+    	if (ep>max_ep) ep = max_ep;
+    	return ep;
+	} /* adjust_ep() */
+
+int query_ep() { return ep; }
+int query_max_ep() { return max_ep; }
+
+int query_fp() { return fp; }
+
+int query_rp() { return rp; }
+
+int set_fp(int i) {
+ if (!i||i<0||i>100) return fp;
+ fp=i;
+ return fp;
+ }
+
+int set_rp(int i) {
+ if (!i||i>100||i<0) return rp;
+ rp=i;
+ return rp;
+ }
+
+int adjust_fp(int i) {
+ if(!i||fp+i<0||fp+i>100) return fp;
+ fp+=i;
+ return fp;
+ }
+
+int adjust_rp(int i) {
+ if(!i||rp+i>100||rp+i<0) return rp;
+ rp+=i;
+ return rp;
+ }
+
+string query_fp_name() {
+ switch(fp) {
+  case 0..10:return "Newbie";
+  case 11..20:return "Aprendiz";
+  case 21..30:return "Iniciado";
+  case 31..50:return "Maestro";
+  case 51..70:return "Profesional";
+  case 71..100:return "Viciado";
+  default:return "Bug";
+  }
+ }
+
+string query_rp_name() {
+ switch(rp) {
+  case 0..9:return "Despreciado";
+  case 10..24:return "Odiado";
+  case 25..44:return "Traicionero";
+  case 45..55:return "Normal";
+  case 56..75:return "Honesto";
+  case 76..90:return "Admirado";
+  case 91..100:return "Santo";
+  default:return "Bug";
+  }
+ }

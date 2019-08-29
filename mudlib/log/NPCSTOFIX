@@ -1,0 +1,4 @@
+/baseobs/monsters/centipede tried to add event_death.
+  Fix: Just take out the add_triggered_action.  It never did a damn thing for this monster anyway.
+/baseobs/monsters/centipede#436 tried to add event_death.
+  Fix: Just take out the add_triggered_action.  It never did a damn thing for this monster anyway.

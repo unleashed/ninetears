@@ -1,0 +1,107 @@
+Fri Jan 31 14:37:25 2003: Leviathan CALLS set_xp(100000000)tester -- player tester
+Fri Jan 31 14:39:15 2003: Leviathan CALLS set_xp(1000000000)tester -- player tester
+Fri Jan 31 15:49:57 2003: Vilat CALLS query_property("nato")uvhata -- player uvhata
+Fri Jan 31 15:56:59 2003: Valar CALLS set_race("duergar")uvhata -- player uvhata
+Fri Jan 31 22:33:22 2003: Turin CALLS set_hp(216)mazian -- player mazian
+Fri Jan 31 23:08:53 2003: Kryger CALLS receive_message("Kryger %^CYAN%^[info]:%^RESET%^Help nuevo actualizado \n")everyone -- player mazian
+Fri Jan 31 23:08:53 2003: Kryger CALLS receive_message("Kryger %^CYAN%^[info]:%^RESET%^Help nuevo actualizado \n")everyone -- player gloin
+Sat Feb  1 01:37:32 2003: Gareth CALLS adjust_hp(100)testgareth -- player testgareth
+Sat Feb  1 01:41:13 2003: Turin CALLS do_death()testiculos -- player testiculos
+Sat Feb  1 01:41:44 2003: Gareth CALLS do_death()testgareth -- player testgareth
+Sun Feb  2 00:43:55 2003: Leviathan CALLS add_known_command("esconderse")tester -- player tester
+Sun Feb  2 00:44:46 2003: Leviathan CALLS remove_known_command("esconderse")tester -- player tester
+Sun Feb  2 00:45:00 2003: Leviathan CALLS add_known_command("esconderse")tester -- player tester
+Sun Feb  2 12:16:04 2003: Valar CALLS set_guild(khurgar)testvalar -- player testvalar
+Sun Feb  2 12:59:27 2003: Valar CALLS set_str(99)testvalard -- player testvalard
+Sun Feb  2 12:59:30 2003: Valar CALLS set_dex(99)testvalard -- player testvalard
+Sun Feb  2 12:59:37 2003: Valar CALLS set_con(99)testvalard -- player testvalard
+Mon Feb  3 02:14:54 2003: Drakzten CALLS set_hp(200)testdrakz -- player testdrakz
+Mon Feb  3 02:37:52 2003: Drakzten CALLS set_hp(200)testdrakz -- player testdrakz
+Mon Feb  3 02:39:53 2003: Drakzten CALLS set_hp(200)testdrakz -- player testdrakz
+Tue Feb  4 14:07:51 2003: Vilat CALLS receive_message("Shinji-Yuu se restriega en Turin.")slaanesh -- player slaanesh
+Tue Feb  4 14:08:31 2003: Vilat CALLS receive_message("Shinji-Yuu encula a Turin con fuerza sobrehumana.")slaanesh -- player slaanesh
+Sun Feb  9 01:44:31 2003: Drakzten CALLS adjust_level(60)testdrakzz -- player testdrakzz
+Sun Feb  9 01:46:06 2003: Drakzten CALLS adjust_level(30)testdrakzz -- player testdrakzz
+Sun Feb  9 01:46:17 2003: Drakzten CALLS adjust_level(25)testdrakzz -- player testdrakzz
+Sun Feb  9 01:46:51 2003: Drakzten CALLS adjust_level(-50)testdrakzz -- player testdrakzz
+Sun Feb  9 01:47:02 2003: Drakzten CALLS adjust_level(-100)testdrakzz -- player testdrakzz
+Sun Feb  9 01:47:18 2003: Drakzten CALLS adjust_level(10)testdrakzz -- player testdrakzz
+Sun Feb  9 01:47:22 2003: Drakzten CALLS adjust_level(20)testdrakzz -- player testdrakzz
+Sun Feb  9 01:47:29 2003: Drakzten CALLS adjust_level(20)testdrakzz -- player testdrakzz
+Sun Feb  9 01:47:38 2003: Drakzten CALLS adjust_level(5)testdrakzz -- player testdrakzz
+Sun Feb  9 01:47:40 2003: Drakzten CALLS adjust_level(5)testdrakzz -- player testdrakzz
+Sun Feb  9 01:47:41 2003: Drakzten CALLS adjust_level(5)testdrakzz -- player testdrakzz
+Sun Feb  9 01:47:43 2003: Drakzten CALLS adjust_level(5)testdrakzz -- player testdrakzz
+Sun Feb  9 01:47:47 2003: Drakzten CALLS adjust_level(5)testdrakzz -- player testdrakzz
+Sun Feb  9 01:47:50 2003: Drakzten CALLS adjust_level(5)testdrakzz -- player testdrakzz
+Sun Feb  9 01:47:52 2003: Drakzten CALLS adjust_level(5)testdrakzz -- player testdrakzz
+Sun Feb  9 01:47:59 2003: Drakzten CALLS adjust_level(5)testdrakzz -- player testdrakzz
+Sun Feb  9 01:48:01 2003: Drakzten CALLS adjust_level(5)testdrakzz -- player testdrakzz
+Sun Feb  9 01:48:05 2003: Drakzten CALLS adjust_level(5)testdrakzz -- player testdrakzz
+Sun Feb  9 01:48:07 2003: Drakzten CALLS adjust_level(5)testdrakzz -- player testdrakzz
+Sun Feb  9 01:48:30 2003: Drakzten CALLS adjust_level(5)testdrakzz -- player testdrakzz
+Sun Feb  9 01:48:32 2003: Drakzten CALLS adjust_level(5)testdrakzz -- player testdrakzz
+Sun Feb  9 01:49:08 2003: Drakzten CALLS adjust_level(-50)testdrakzz -- player testdrakzz
+Mon Feb 10 18:13:16 2003: Vilat CALLS query_level()zardhor -- player zardhor
+Wed Feb 12 14:44:24 2003: Vilat CALLS process_input("get all")testkryger -- player testkryger
+Wed Feb 12 17:04:43 2003: Vilat CALLS query_level()zardhor -- player zardhor
+Wed Feb 12 17:14:49 2003: Vilat CALLS query_sp()zardhor -- player zardhor
+Wed Feb 12 17:15:15 2003: Vilat CALLS process_input("sc")zardhor -- player zardhor
+Wed Feb 12 17:15:22 2003: Vilat CALLS process_input("sc -v")zardhor -- player zardhor
+Wed Feb 12 17:15:33 2003: Vilat CALLS process_input("verbose")zardhor -- player zardhor
+Wed Feb 12 17:15:34 2003: Vilat CALLS process_input("sc -v")zardhor -- player zardhor
+Wed Feb 12 17:15:38 2003: Vilat CALLS process_input("verbose")zardhor -- player zardhor
+Wed Feb 12 17:25:28 2003: Vilat CALLS query_sp()zardhor -- player zardhor
+Thu Feb 13 11:57:26 2003: Vilat CALLS query_sp()zardhor -- player zardhor
+Thu Feb 13 12:24:08 2003: Vilat CALLS query_max_sp()zardhor -- player zardhor
+Thu Feb 13 12:24:13 2003: Vilat CALLS query_sp()zardhor -- player zardhor
+Thu Feb 13 12:29:14 2003: Vilat CALLS query_name()all -- player zardhor
+Thu Feb 13 12:29:39 2003: Vilat CALLS query_alias()all -- player zardhor
+Thu Feb 13 17:07:24 2003: Vilat CALLS query_level()zonzamas -- player zonzamas
+Thu Feb 13 17:15:15 2003: Vilat CALLS query_sp()zardhor -- player zardhor
+Fri Feb 14 20:52:49 2003: Vilat CALLS set_guild("barbarocaos")testvilat -- player testvilat
+Fri Feb 14 20:54:35 2003: Vilat CALLS set_guild("barbarocaos")testvilat -- player testvilat
+Fri Feb 14 20:58:16 2003: Vilat CALLS adjust_level(1)testvilat -- player testvilat
+Fri Feb 14 20:58:25 2003: Vilat CALLS adjust_level(5)testvilat -- player testvilat
+Fri Feb 14 20:58:27 2003: Vilat CALLS adjust_level(5)testvilat -- player testvilat
+Fri Feb 14 20:58:38 2003: Vilat CALLS adjust_level(5)testvilat -- player testvilat
+Fri Feb 14 20:58:43 2003: Vilat CALLS adjust_level(5)testvilat -- player testvilat
+Fri Feb 14 20:58:45 2003: Vilat CALLS adjust_level(5)testvilat -- player testvilat
+Fri Feb 14 20:58:49 2003: Vilat CALLS adjust_level(5)testvilat -- player testvilat
+Fri Feb 14 20:58:52 2003: Vilat CALLS adjust_level(5)testvilat -- player testvilat
+Fri Feb 14 20:58:54 2003: Vilat CALLS adjust_level(5)testvilat -- player testvilat
+Fri Feb 14 20:58:58 2003: Vilat CALLS adjust_level(5)testvilat -- player testvilat
+Fri Feb 14 20:59:00 2003: Vilat CALLS adjust_level(5)testvilat -- player testvilat
+Fri Feb 14 21:27:17 2003: Vilat CALLS receive_message("Podeis buscar el gremio de espartakistas, ke diga, de Barbaros del Caos al este del campo")everyone -- player sherilen
+Fri Feb 14 21:27:17 2003: Vilat CALLS receive_message("Podeis buscar el gremio de espartakistas, ke diga, de Barbaros del Caos al este del campo")everyone -- player slaanesh
+Fri Feb 14 21:36:12 2003: Vilat CALLS query_level()banhen -- player banhen
+Fri Feb 14 22:14:16 2003: Drakzten CALLS query_habilidades()banhen -- player banhen
+Fri Feb 14 22:46:40 2003: Vilat CALLS query_sp()banhen -- player banhen
+Fri Feb 14 22:52:15 2003: Vilat CALLS query_ep()banhen -- player banhen
+Fri Feb 14 22:52:20 2003: Vilat CALLS query_gp()banhen -- player banhen
+Fri Feb 14 22:57:23 2003: Vilat CALLS query_hp()banhen -- player banhen
+Fri Feb 14 22:57:28 2003: Vilat CALLS query_max_hp()banhen -- player banhen
+Fri Feb 14 23:52:38 2003: Vilat CALLS query_race()banhen -- player banhen
+Sat Feb 15 14:24:00 2003: Xerxes CALLS query_level()mazian -- player mazian
+Sat Feb 15 15:02:12 2003: Leviathan CALLS adjust_level(-10)banhen -- player banhen
+Sun Feb 16 20:47:11 2003: Turin CALLS set_hp (1)mugas -- player mugas
+Sun Feb 16 20:47:36 2003: Turin CALLS set_hp (1)mugas -- player mugas
+Sun Feb 16 20:47:43 2003: Turin CALLS set_hp (0)mugas -- player mugas
+Sun Feb 16 20:50:39 2003: Vilat CALLS query_hp()mugas -- player mugas
+Sun Feb 16 23:02:00 2003: Vilat CALLS query_guild()slaanesh -- player slaanesh
+Mon Feb 17 12:29:55 2003: Vilat CALLS query_sp()zardhor -- player zardhor
+Mon Feb 17 18:16:46 2003: Gareth CALLS remove_ghost()testgareth -- player testgareth
+Mon Feb 17 18:17:02 2003: Gareth CALLS set_hp(1500)testgareth -- player testgareth
+Mon Feb 17 18:17:35 2003: Gareth CALLS adjust_hp(9000)testgareth -- player testgareth
+Tue Feb 18 16:08:36 2003: Drakzten CALLS query_habilidades()zardhor -- player zardhor
+Wed Feb 19 13:46:01 2003: Vilat CALLS query_sp()zardhor -- player zardhor
+Wed Feb 19 17:28:17 2003: Gareth CALLS add_known_command(cabezazo)x -- player testgareth
+Thu Feb 20 22:28:08 2003: Turin CALLS set_alineamiento()fe -- player felice
+Thu Feb 20 22:29:11 2003: Turin CALLS set_alineamiento(9)fe -- player felice
+Thu Feb 20 22:29:41 2003: Turin CALLS set_alineamiento()fe -- player felice
+Thu Feb 20 22:29:47 2003: Turin CALLS set_alineamiento(9)fe -- player felice
+Thu Feb 20 22:31:56 2003: Turin CALLS set_alineamiento()fe -- player felice
+Thu Feb 20 22:32:02 2003: Turin CALLS set_alineamiento()fe -- player felice
+Thu Feb 20 22:32:04 2003: Turin CALLS set_alineamiento(2)fe -- player felice
+Thu Feb 20 22:33:53 2003: Turin CALLS do_force_on_me("f")fe -- player felice
+Fri Feb 21 23:18:35 2003: Vilat CALLS process_input("'yo no tengo la culpa de que se la comas a espartaco, david")mugas -- player mugas

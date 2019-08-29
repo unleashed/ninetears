@@ -1,0 +1,11 @@
+#/d/ciudades/master.c
+open_read 1
+open_write 0
+DOM_LORD "vilat"
+DOMAIN "ciudades"
+read_perms ([])
+write_perms ([])
+dir_owners ([])
+finger_info "El dominio donde se definen las relaciones de las ciudades."
+members (["valar":"Sin Proyecto.","xerxes":"Penumbra.","vilat":"Organizacion de las Ciudadanias",])
+regencias (["jade":({"asgard",}),"valar":({"keroon",}),"xerxes":({"penumbra",}),"vilat":({"inframundo",}),"flangerant":({"faeleen",}),])

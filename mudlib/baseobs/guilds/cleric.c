@@ -22,7 +22,7 @@ void create()
   ::create();
 }
 
-string query_spell_directory(){return "/std/spells/cleric/";}
+string query_spell_directory(){return "/d/gremios/hechizos/cleric/";}
 
 int query_dual_wield_penalty(object me, object w1, object w2)
 {

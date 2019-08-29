@@ -4,7 +4,7 @@ inherit "/std/basic/light";
 inherit "/std/basic/move";
 /* this will also handle value... */
 
-static int weight;
+nosave int weight;
 int value;
 int resale_value; /* Hamlet */
 int stolen_modifier; /* Hamlet */
@@ -45,8 +45,6 @@ int query_weight() {
 }
 
 varargs int adjust_money(mixed amt, string type) {
-  int i;
-
   if (pointerp(amt)) {
     value += (int)MONEY_HAND->query_total_value(amt);
     if (value < 0)
@@ -62,15 +60,15 @@ varargs int adjust_money(mixed amt, string type) {
 
 int adjust_value(int i) { return (value += i); }
 
-mixed *query_money_array() { 
+mixed *query_money_array() {
   return (mixed *)MONEY_HAND->create_money_array(value);
 }
 
-int query_money(string type) { 
+int query_money(string type) {
   int i;
   mixed *m_a;
 
-  m_a = (mixed *)MONEY_HAND->create_money_array(value); 
+  m_a = (mixed *)MONEY_HAND->create_money_array(value);
   if ((i=member_array(type, m_a)) == -1)
     return 0;
   return m_a[i+1];
@@ -79,7 +77,7 @@ int query_money(string type) {
 void set_value(int i) { value = i; }
 int query_value() { return value; }
 
-move(mixed dest, mixed messout, mixed messin) {
+int move(mixed dest, mixed messout, mixed messin) {
   int i;
   object from;
 
@@ -106,7 +104,6 @@ move(mixed dest, mixed messout, mixed messin) {
 }
 
 void dest_me() {
-   object ob;
    object *olist;
    int i;
   if (environment()) {

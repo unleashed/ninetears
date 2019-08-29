@@ -77,10 +77,7 @@ string long() {
   return ret;
 } /* long() */
 
-/*
-void set_long(string s) { lng[cur_desc] = s; }
-string query_long() { return lng[cur_desc]; }
- */
+
 int *query_cur_desc() { return cur_desc; }
 mapping query_verbs() { return verb; }
 mapping query_plurals() { return plural; }
@@ -179,12 +176,9 @@ int modify_item(string str, mixed long) {
 
 int remove_item(string str, string new_long) {
   int i;
-  string *inds;
 
   if ((i = member_array(str, shrt)) == -1)
     return 0;
-/* Ok, got him.  Now we need to track down all the bits.  Sigh. */
-/* this is a mess.  I am not sure I want to do it.  So I won't for now. */
 } /* remove_item() */
 
 string *parse_command_id_list() { return name; }
@@ -266,13 +260,12 @@ int move() { return 1; }
 
 int command_control(string command) {
   int i;
-  string ret;
-
+  
   if (!other_things[command])
     return 0;
   for (i=0;i<sizeof(cur_desc);i++)
     if (other_things[command][cur_desc[i]])
-      write(process_string(other_things[command][cur_desc[i]]));
+      write(other_things[command][cur_desc[i]]);
     else
       cur_desc = delete(cur_desc, i--, 1);
   return sizeof(cur_desc);

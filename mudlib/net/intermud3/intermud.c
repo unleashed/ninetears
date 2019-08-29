@@ -27,7 +27,7 @@ static void create() {
     Password = 0;
     Tries = 0;
     Banned = ([]);
-    Nameservers = ({ ({ "*gjs", "208.192.43.105 9000" }) });
+    Nameservers = ({ ({ "*9T", "localhost 4004" }) });
     MudList = new(class list);
     ChannelList = new(class list);
     MudList->ID = -1;
@@ -50,7 +50,7 @@ static void Setup() {
     if( eventCreateSocket(ip, port) < 0 ) return;
     eventWrite( ({ "startup-req-2", 5, mud_name(), 0, Nameservers[0][0], 0,
                    Password, MudList->ID, ChannelList->ID, PORT_MUD,
-		   IMUD_TCP_PORT, IMUD_UDP_PORT,  MUDLIB_VERSION, 
+		   IMUD_TCP_PORT, IMUD_UDP_PORT,  MUDLIB_VERSION,
 		   "FR", __VERSION__, "LP",
                    OPEN_STATUS, ADMIN_EMAIL,
 		   (mapping)SERVICES_D->GetServices(), OTHER_SERVICES }) );
@@ -84,11 +84,11 @@ static void eventRead(mixed *packet) {
 	  return;
         case "mudlist":
 	  if( sizeof(packet) != 8 ) return;
-	  if( packet[6] == MudList->ID ) return; 
+	  if( packet[6] == MudList->ID ) return;
 	  if( packet[2] != Nameservers[0][0] ) return;
 	  MudList->ID = packet[6];
 	  foreach(cle, val in packet[7]) {
-	      if( !val && MudList->List[cle] != 0 ) 
+	      if( !val && MudList->List[cle] != 0 )
 		map_delete(MudList->List, cle);
 	      else if( val ) MudList->List[cle] = val;
 	  }
@@ -112,11 +112,11 @@ static void eventRead(mixed *packet) {
         case "chanlist-reply":
 	  if( packet[2] != Nameservers[0][0] ) return;
 	  ChannelList->ID = packet[6];
-	  foreach(cle, val in packet[7]) { 
-	      if( !val && ChannelList->List != 0 ) 
+	  foreach(cle, val in packet[7]) {
+	      if( !val && ChannelList->List != 0 )
 		map_delete(ChannelList->List, cle);
 	      else if( val ) ChannelList->List[cle] = val;
-	  } 
+	  }
 	  save_object(SAVE_INTERMUD);
 	  SERVICES_D->eventRegisterChannels(packet[7]);
 	  return;
@@ -164,7 +164,7 @@ static void eventRead(mixed *packet) {
 }
 
 static void eventRequestMudList() {
-    eventWrite( ({ "mudlist-request", 5, mud_name(), 0, 
+    eventWrite( ({ "mudlist-request", 5, mud_name(), 0,
 		   Nameservers[0][0], 0, MudList->ID }) );
 }
 

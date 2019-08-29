@@ -71,7 +71,7 @@ int i;
 player->add_static_property("nocast",1);
 player->add_static_property("noguild",1);
 player->add_static_property("magical",70);
-"/std/spells/wizard/useful_stuff"->force_drop_everything(player);
+"/d/gremios/hechizos/wizard/useful_stuff"->force_drop_everything(player);
 /*
 for(i=0;i<2;i++)
    {

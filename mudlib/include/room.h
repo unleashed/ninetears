@@ -13,12 +13,11 @@
 #define EXIT_HAND "/std/room/exit_handler"
 #define DIG_HAND "/std/room/dig_handler"
 #define STD_ORDERS ({\
-"north", ({ -1, 0, 0 }), "south", ({ 1, 0, 0 }), "east", ({ 0, -1, 0 }),\
-"west", ({ 0, 1, 0 }), "up", ({ 0, 0, -1 }), "down", ({ 0, 0, 1 }),\
-"northeast", ({ -1, -1, 0 }), "northwest", ({ -1, 1, 0 }),\
-"southwest", ({ 1, 1, 0 }), "southeast", ({ 1, -1, 0 }), })
+"norte", ({ -1, 0, 0 }), "sur", ({ 1, 0, 0 }), "este", ({ 0, -1, 0 }),\
+"oeste", ({ 0, 1, 0 }), "arriba", ({ 0, 0, -1 }), "abajo", ({ 0, 0, 1 }),\
+"noreste", ({ -1, -1, 0 }), "noroeste", ({ -1, 1, 0 }),\
+"sudoeste", ({ 1, 1, 0 }), "sudeste", ({ 1, -1, 0 }), })
 #define SHORTEN ([\
-"north":"n", "south":"s", "west":"w", "east":"e", "northeast":"ne",\
-"northwest":"nw", "southeast":"se", "southwest":"sw", "up":"u",\
-"down":"d" ])
- 
+"norte":"n", "sur":"s", "oeste":"o", "este":"e", "noreste":"ne",\
+"noroeste":"no", "sudeste":"se", "sudoeste":"so", "arriba":"ar",\
+"abajo":"ab", "fuera":"fu", "dentro":"de"])

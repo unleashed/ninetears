@@ -15,32 +15,11 @@ void setup()
    position = 1;
 }
 
-string query_short_help()
-{
-   return "Usage: info <object>\n\n"
-      "All items and NPCs can be info'ed.  Different "
-      "information is of course obtained for the different "
-      "objects.  Info is stored in /obj/handlers/object_track.c "
-      "for items and death.c for NPCs.\n\n"
-      "Item info is checked everytime it is cloned, and "
-      "updated.  If the old data is no longer valid, the object "
-      "loses its QC status and must be re-QCed by the "
-      "appropriate immortal(s).  "
-      "\n\n"
-      "NPC data is updated everytime an NPC is killed or kills "
-      "another player.  The NPC's query_kill_xp is the main "
-      "stat of concern here, when it is either adjusted up or "
-      "down for various reasons determined by stored data.  " 
-      "\n\n"
-      "See also:\n"
-      "  stat, qc\n\n";
-}
-
-static int cmd(string str, object ob)
+int cmd(string str, object ob)
 {
    object itm, *obs;
    string *tmp;
-   switch(this_player(1)->query_object_type())
+/*   switch(this_player(1)->query_object_type())
    {
       case "B" :
           notify_fail("You don't have permissions to use this "
@@ -48,7 +27,8 @@ static int cmd(string str, object ob)
           return 0;
           break;
    }
-   if(!ob) return;
+*/
+   if(!ob) return 0;
    if(!str)
    {
       notify_fail("Syntax: info <object>\n");
@@ -132,11 +112,12 @@ static int cmd(string str, object ob)
       DEATHTRACK->info_npc(itm);
       return 1;
    }
-   if(!OBTRACK->query_info_perms(geteuid(ob),itm)) 
+/*   if(!OBTRACK->query_info_perms(geteuid(ob),itm)) 
    {
       notify_fail("You do not have permission to info this item.\n");
       return 0;
    }
+*/
    if(itm->query_item_container())
    {
       OBTRACK->info_item_container(itm);

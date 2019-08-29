@@ -1,0 +1,9929 @@
+sc
+l
+save
+quit
+glance
+wh
+woh
+who
+cre nas
+i
+sc
+sc
+i
+i
+l
+h
+h
+h
+ls
+clone armadura.c
+clone yelmo2.c
+clone espada.c
+i
+l
+i
+eq
+l
+sc
+sonreir
+sonreir
+call do_death() valar
+sonreir
+decir o no??
+decir sharky
+decir es veloz
+sonreir
+l
+sc
+sc
+sc
+sc
+sc
+sc
+sc
+i
+sur
+sonreir
+decir que te mate?
+l
+fuera
+glance
+gritar noooo
+l
+plaza
+sc
+goto sala1.c
+glance
+fuera
+glance
+trans valar
+l
+plaza
+l
+sonreir valar
+l
+l
+norte
+glance
+sonreir valar
+l
+goto sala1.c
+glance
+l
+l cuerpo
+z
+enterrar
+i
+eq
+l
+l
+cre alguien me puede decir que me falta para pasar la prueba?
+l
+l
+cre aps
+decir pos
+decir esta room
+decir una espada
+decir una armadura
+decir un yelmo
+decir un npc
+decir y ya
+sc
+l
+sonreir
+sc
+l
+decir si
+sc
+decir si
+l
+decir jejeje
+decir si
+l
+decir oks
+sc
+l
+i
+i
+dest yelmo
+dest dolor
+clone yelmo2.c
+i
+eq
+l
+l
+i
+save
+i
+save
+dest yelmo
+dest dolor
+clone yelmo2.c
+i
+l
+dest yelmo
+dest dolor
+i
+clone yelmo2.c
+i
+dest espada
+dest aramdura
+dest armadura
+dest yelmo
+dest dolor
+l
+i
+who
+who
+interwho
+interwho RL
+interwho ILU
+L
+l
+who
+i
+vis
+l
+who
+l
+plaza
+noreste
+glance
+sudoeste
+glance
+este
+glance
+oeste
+glance
+oeste
+glance
+este
+glance
+sur
+glance
+norte
+glance
+dentro
+glance
+l armadin
+l armadin
+l posadero
+l
+l barman
+fuera
+glance
+driade
+glance
+hueco
+hueco
+l
+goto hueco
+l
+goto trin
+l
+sc
+i
+goto trin
+sl
+ls
+i
+goto workroom2.c
+glance
+l
+more here
+i
+clone yelmo
+clone yelmo2.x
+clone yelmo2.c
+i
+eq
+l
+more dolor
+dest dolor
+sc
+i
+i
+clone yelmo2.c
+i
+i
+i
+l
+sc
+dest yelmo
+i
+dest dolor
+sc
+l
+i
+sc
+i
+sc
+wo
+who
+l
+plaza
+sc
+sc
+sur
+glance
+sur
+sur
+sur
+norte
+glance
+sudoeste
+glance
+sudoeste
+glance
+sudoeste
+glance
+norte
+noreste
+glance
+noreste
+glance
+noreste
+glance
+sc
+i
+goto sala1.c
+glance
+sc
+l
+more here
+l
+i
+sc
+l ventanal
+who in
+who
+sc
+i
+l
+goto rebaneitor
+goto armadin
+l
+goto vulvax
+goto vulvac
+glance
+i
+plaza
+sudoeste
+glance
+sudoeste
+glance
+sudoeste
+glance
+sudoeste
+glance
+sudoeste
+glance
+sudoeste
+glance
+noroeste
+glance
+arriba
+arriba
+arriba
+arriba
+arriba
+arriba
+arriba
+arriba
+l
+more here
+l
+sudeste
+glance
+goto aenima
+noreste
+glance
+noreste
+glance
+goto sala1.c
+glance
+sc
+fix
+l
+fuera
+glance
+nomun
+comun
+glance
+leer
+.
+leer
+.
+leer
+.
+leer
+leer
+cre nas
+who
+leer
+leer
+leer
+leer
+leer
+leer
+leer
+leer
+leer
+leer
+leer
+leer
+clone /w/aprendizaje/camikaze.c
+i
+cd ..
+cd aprendizaje
+ls
+clone armadura_hielo_negro
+i
+eq
+l armadura
+more armadura
+goto espartaco
+l
+plaza
+norte
+glance
+matar espartaco
+goto sala1.c
+goto sala1.c
+ls
+goto tiendaprueba.c
+glance
+listar
+l
+listar
+listar
+l
+l
+cd ..
+ls
+cd vulvac
+goto sala1.c
+glance
+cd ..
+ls
+cd aprendizaje
+ls
+clone bastonrunico.c
+i
+eq
+l baston
+plaza
+l
+fuera
+glance
+goto espartaco
+glance
+descarga espartaco
+l espartaro
+l espartaco
+sur
+glance
+i
+sc
+mote baston
+more baston
+i
+ls
+clone ckamikaze.c
+i
+eq
+l cinta
+sharky
+l
+more cinta
+i
+ls
+clone jamoneto.c
+clone jamonero.c
+i
+eq
+l
+more cuchillo
+i
+sc
+l
+dejar all
+update here
+i
+l
+dejar all
+dest armadura
+dest baston
+l
+goto sala1.c
+cd ..
+ls
+cd vulvac
+goto sala1.c
+glance
+sc
+fuera
+glance
+goto espartaco
+glance
+sur
+glance
+norte
+glance
+sur
+glance
+i
+resucitar
+sc
+sc
+l
+resucitar
+sc
+l
+norte
+glance
+z
+enterrar
+este
+sur
+glance
+sc
+goto sala1.c
+glance
+sc
+sc
+i
+clone espada.x
+clone espada.c
+i
+eq
+sc
+l
+who
+goto monhal
+glance
+sonreir
+l
+decir que tal?
+more here
+l
+elfos
+camino
+glance
+l joyera
+more here
+l
+t monhal joe yo no lo tengo tan avanzado
+l
+cd..
+cd ..
+l
+l
+more joyera
+decir las cosas
+l
+decir yua ya
+decir pero yo lo tengo casi sin empexar
+sur
+glance
+sur
+glance
+sur
+glance
+sur
+glance
+sur
+glance
+sur
+glance
+l guardian
+sur
+sur
+m guardia
+matar guardia
+matar guardian
+cre nas
+who
+cre kivara
+cre tengo hecho
+cre un arma un armadura un yelmo una room y un npc
+cr qu eme falta?
+l
+di
+sur
+glance
+sur
+norte
+glance
+sur
+glance
+sur
+sur
+l
+sur
+norte
+glance
+norte
+glance
+norte
+glance
+norte
+glance
+norte
+glance
+norte
+glance
+norte
+glance
+norte
+workroom
+glance
+cd ..
+l
+ls
+cd w
+sc
+ls
+goto vulvac
+glance
+cd vulvac
+goto sala1.c
+glance
+sc
+i
+l
+clone armadura
+clone dolor
+clone yelmo2.c
+i
+l
+eq
+i
+l
+clone sharky.c
+save
+cre piro
+save
+quit
+who
+qq na nas
+cre na nas
+cre disme
+cre me han dicho que tu eres el que me tienes que examinar
+cre no se
+cre creo que lo tengo todo
+sc
+cre que es lo que tengo que hacer?
+sc
+l
+i
+cre aps 5 rooms?
+cre oks oks
+cre pos lo tengo todo ya
+cre menos las 4 rooms
+cre no prefiero  que sea una especi de templ
+cre si lo puedo hacer claro
+i
+eq
+cre oks
+cre tonces
+cre creo las 4 rooms y ya?
+cre es que
+cre creia que mi dominio seria el de thalos
+cre pero bueno
+cre si hay otra faena pos otra
+ls
+cr eoks
+cre oks
+update sharky.c
+i
+l
+clone sharky.c
+l
+l
+cre thane?
+cre eso no es mucho?
+i
+l
+more here
+sc
+cre una cosilla
+cre mi npc
+cre no hace decires te sale en la room la frase y ya ta
+cre alguien puede mirarlo un segundillo
+cre creo que es por el acento
+trans vilat
+l
+i
+l sharky
+i
+l
+dest sharky
+clone sharky.c
+l
+l sharkyu
+l sharky
+l
+l Sharky
+l Sharky
+decir a ver
+l
+dest sharky
+update sharky
+glone sharky.c
+clone sharky.c
+l
+l sharky
+cre vale ya ta
+sc
+i
+sc
+i
+l
+matar sharky
+i
+dest sharky
+l
+decir oks
+l
+clone sharky.c
+l
+enterrar
+decir pero
+decir no habla bien
+decir no se por que
+l
+l
+sc
+clone sharky.c
+l
+decir nas
+decir vilat
+decir mria a ver por que no habla bien please
+decir ta tonto
+decir es orco
+decir pero no tanto
+sc
+decir sharky
+l
+l sharky
+decir ta puesto
+more sharky
+decir vale
+decir me equiboque de acento
+dest sharky
+update sharky.c
+l
+clone sharky.c
+l
+l cuerpos
+enterrar
+l
+decir oks
+decir a ver si ahora va bien
+sc
+l
+decir tonces hago 4 rooms mas no
+decir la room esta ya tiene items vilat
+decir podrias ir corrigiendome
+alias de %^BOLD%^decir
+de puedes?
+%^BOLD%^decir puedes?
+de puedes
+%^BOLD%^decir puedes
+l
+sonreir
+unalias de
+l
+decir einnnnn=
+decir eso no se lo he puesto yo
+decir jajajaj
+decir orco rules
+sc
+l
+decir oks
+decir funciona perfecto
+sc
+sonreir
+decir ta mayor
+sc
+decir aps oks
+decir arregaldo
+l
+dest sharky
+clone hsharky.c
+clone sharky.c
+l
+decir pos el tio habla normal
+sc
+l
+i
+call set_race(orc) vulvac
+f
+l
+sc
+i
+decir oks
+decir vilat ves mirando las cosas que tengo hechas please
+update sharky
+l
+sc
+sc
+l
+decir ale a programar
+sonreir
+more here
+l
+decir iros a hablar a otro lao que nme flodeais
+sonreir
+l
+sonreir vilat
+more here
+cre el thalos ta ciego no puede hablar
+cre borracho!
+mo
+more here
+ls
+l
+sc
+fuera
+glance
+goto sala1.c
+glance
+update pasillo1.c
+more here
+update pasillo1.c
+goto pasillo1.c
+more pasillo1.c
+more here
+update pasillo1.c
+.
+update pasillo1.c
+.
+update pasillo1.c
+more here
+update pasillo1.c
+l
+more pasillo1.c
+more here
+update pasillo1.c
+update pasillo1.c
+more pasillo1.c
+more here
+update sala1.c
+l
+update pasillo1.c
+update pasillo1.c
+more here
+goto pasillo1.c
+more here
+update pasillo1.c
+update pasillo1.c
+who
+cre jode
+update pasillo1.x
+update pasillo1.c
+update pasillo2.c
+more here
+more pasillo2.c
+update pasillo2.c
+goto pasillo2.c
+sc
+ls
+update pasillo2.c
+i
+l
+more here
+who
+sc
+l
+goto pasillo2.c
+goto pasillo1.c
+update pasillo2.c
+goto pasillo2.c
+ls
+update pasillo1.c
+goto pasillo1.c
+glance
+dentro
+glance
+fuera
+glance
+goto pasillo1.c
+glance
+l
+l antorchas
+sc
+i
+sc
+goto sala1.c
+glance
+fuera
+glance
+comun
+glance
+goto pasillo2.c
+goto pasillo1.c
+glance
+l
+update pasillo1.c
+l
+sur
+update pasillo2.c
+sur
+l
+sur
+l
+de [D
+dentro
+glance
+fuera
+glance
+goto pasillo2.c
+more pasillo2.c
+more pasillo1.c
+update pasillo2.c
+l
+goto pasillo2.c
+glance
+norte
+glance
+norte
+sur
+glance
+sur
+sur
+l
+sur
+sur
+sur
+sur
+update pasillo3.c
+sur
+glance
+fuera
+norte
+glance
+norte
+glance
+norte
+dentro
+glance
+fuera
+glance
+goto pasillo3.c
+glance
+l
+who
+sc
+l
+update calle1.c
+ls
+update calle1.c
+.
+update calle1.c
+ls
+ls
+update calle1.c
+update calle1.c
+l
+fuera
+glance
+oeste
+l
+l puerta
+update calle1.c
+cre vilat
+l
+cre tas?
+l puerta
+l
+oeste
+puerta
+glance
+l
+norte
+glance
+norte
+glance
+norte
+dentro
+glance
+du
+fuera
+glance
+goto sala1.c
+glance
+ls
+update pasillo1.c
+goto pasillo1.c
+glance
+l
+dentro
+glance
+fuera
+glance
+goto pasillo1.c
+glance
+update pasillo1.c
+l
+update pasillo1.c
+l
+update pasillo1.c
+l
+altar
+glance
+fuera
+glance
+save
+l
+save
+glance
+who
+cre nas
+finger vilat
+sc
+intercre nas
+who
+ls
+goto calle1.c
+glance
+puerta
+glance
+norte
+glance
+norte
+glance
+norte
+altar
+glance
+fuera
+glance
+sc
+l
+who
+sc
+who
+cre nas nas
+i
+who
+dejar ton
+dejar ron
+l ron
+dest ron
+sc
+i
+ls
+update calle2.c
+goto calle2.c
+glance
+este
+glance
+oeste
+glance
+oeste
+oeste
+este
+glance
+oeste
+glance
+oeste
+este
+glance
+oeste
+glance
+glance
+who
+cre nas
+cre cuanto dios
+cre no tara vilat por ahi no?
+l
+ls
+este
+glance
+oeste
+glance
+oeste
+cre es que tengo esto terminado ya
+oeste
+este
+glance
+puerta
+glance
+este
+norte
+glance
+norte
+glance
+norte
+altar
+glance
+fuera
+glance
+clone sharky.c
+l
+i
+goto call2.c
+goto calle2.c
+glance
+l
+este
+glance
+oeste
+glance
+oeste
+who
+cre jode
+cre que pasa que somos tos unos newbes o que?
+cre si
+l
+cre  ya la tengo terminado
+l
+cre a ver que me dicen
+l
+goto sala1.c
+glance
+cre
+who
+l
+fuera
+glance
+goto calle2.c
+glance
+l
+oeste
+este
+glance
+l puerta
+puerta
+glance
+l
+l antorchas
+encender antorcha
+encender antorchas
+norte
+glance
+l
+norte
+glance
+l
+altar
+glance
+l
+fuera
+glance
+l
+clone sharky.c
+l
+l sharky
+sc
+who
+intercre las las
+who intercre
+intercre RL
+l
+sc
+who mortales
+cre pos eso tara mu atrasao no?
+cre lo van a abrir?
+l
+	intercre alguien?
+sc
+intercre alguien
+sc
+quit
+glance
+who
+cre que vulat por las noches se conecta?
+vis
+l
+who
+decir idme
+eq
+i
+i
+eq
+i
+coger all
+eq
+wear botas
+eq
+decir si
+l
+more botas
+f
+decir jajaj
+decir 20
+dejar botas
+l
+who
+cre pito
+cre piro
+save
+quit
+glance
+who
+quit
+glance
+who
+cre nas ans
+cre vilat ya ta todo
+cre miramelo please
+i
+dest yelmo
+dest dolor
+dest armadura
+dest espada
+sc
+i
+who
+t vilat puedes o estar ocupado?
+goto vilat
+glance
+leer
+leer
+leer
+leer
+f
+leer
+leer
+leer
+leer
+leer
+l
+leer
+sur
+glance
+norte
+glance
+abajo
+glance
+arriba
+glance
+este
+norte
+glance
+sur
+glance
+sur
+glance
+este
+glance
+este
+glance
+fuera
+glance
+norte
+glance
+fuera
+glance
+sur
+glance
+fuera
+glance
+oeste
+glance
+oeste
+glance
+oeste
+glance
+fuera
+glance
+norte
+glance
+fuera
+glance
+oeste
+glance
+f
+sur
+f
+fuera
+glance
+sur
+glance
+leer
+WHO
+who
+t vilat cuando puedas please xd
+cre que ta terminado ya
+cre miramelo a ver
+cre si
+cre pos
+cre se empieza desde calle2.c
+cre sigue el camino
+cre jejej
+cre dime dime
+cre dime dime
+cre es que es un pasillo
+cre la sala ta currada no?
+cre tiene items y de to
+cre ypos?
+cre que es eso?
+cre xd
+cre bueno mirame las armas y el npc
+cre asi solo tendria que arreglar
+cre las rooms
+goto vilat
+glance
+l
+cre por que
+cre me dijisteis
+cre que lo pusiera
+cre eso lo quito si quieres
+cre aps oks
+cre pos las leere bien
+cre tengo los dedos algo morcillones sabes...xd
+l
+cre es que tengo ganas de empezar a trabajar en algo util
+cre pero na tranqui que manyana le pegas otro vistazo y seguro que ta mejor
+goto vilat
+glance
+decir pero creo
+decir que he puesto cosillas interesantes
+oks
+cre oks
+l
+more here
+l
+altar
+glance
+cre actions?
+cre que tengas que apretar algo dices?
+cre pos no
+cre tampcoo sabia que tenia que hacerlo
+cre jode
+cre menuda chapuza de examen
+cre caguen to
+who
+cre no me suspendaaaaasssss!!! buaaa xd
+cre fallos de ortografia?
+l
+cre oks
+l
+decir a mi me gustan
+decir pero son sencillas
+decir nada complejo
+decir es que he visto que hacen do_death y cosas asi
+l
+decir oks
+decir pero dime que quieres que haga
+decir y te lo hago
+decir es que
+decir a esto
+decir por ejemplo
+decir le he puesto
+decir que diga cosillas
+decir si quieres le pongo
+decir yo que se
+decir que tenga protecciones magicas
+decir o que haga danyo al equiparla
+decir pero es que en realidad
+decir no me gustan esas cosas
+decir ya pero la cosa
+decir es que no se enciendan
+decir pa que te oscuro
+llorar
+decir oks
+decir una boldosa me parece bien
+decir la trampilla que sea una trampa te vale?
+sonreir
+decir oks mria las armas
+i
+decir armaduras
+decir y al npc
+decir asi me quito faena de encima
+sc
+decir como?
+decir que thalos no es dios?
+decir ya
+decir es thane creo no?
+decir pero eso por que me lo dices?
+decir bueno
+decir pero es el que tiene a los duergars bajo su mando
+decir si esto en verdad
+decir es una room que borrare cuando la des por buena
+decir bueno
+decir la armadura bien?
+l
+l vilat
+sonreir
+clone armadura
+more armadura
+sonreir
+decir pos cambiate de gremio un segundo
+dest armadura
+l
+sc
+decir jo
+decir que mal suena eso
+decir uuueeeeeeeeee
+.
+decir uuueeeeeeeeee
+decir pero es que
+decir yo no quiero crear barbaridades
+decir vale que es para saber si puedo valer o no
+decir pero esa espada por ejemplo
+decir la quiero pa ponersela a un npc
+decir sin ese enchat claro
+decir pero...xd
+decir seria un mandoble chulo
+i
+l
+sonreir sharky
+acariciar sharky
+l
+decir me encata
+decir ups
+decir es que confundo terminos
+decir es que poner creador vuvlac
+decir en relidad queda feo
+decir pero vale
+decir lo  cambiare
+decir pero a que es bonito me nene???
+acaricar sharky
+sonreir
+decir jooo
+decir no es pa tanto
+decir un error de na
+decir es que creador queda mu mal
+decir bueno algo pondre
+decir las frases son buenisimas jejeje
+sc
+decir tambien
+decir no lo habia pensado
+decir mu bueno
+decir hazle un more y ya ta
+sonreir
+asentir
+decir siiii
+decir es sharky
+decir no jugabas en el 23'
+decir ?
+l
+decir pos no corria el tio ni na
+sonreir
+decir jejej
+decir trucos que tiene uno
+decir mira el yelmo
+i
+l
+decir que ta chulo tambien
+decir pero no
+decir no que va
+decir mira
+decir ummm
+decir te lo muestro
+decir en una letra
+alias ll seguir vilat;stop;matar vilat;stop;mirar vilat;stop;decir nas
+ll
+seguir vilat
+stop
+matar vilat
+stop
+mirar vilat
+stop
+decir nas
+decir jejeje
+l
+decir te mola
+decir la rapidez?
+l
+sonreir
+peace
+l
+noseguir all
+decir o este a ver
+alias ll seguir vilat;stop;matar vilat,stop;mirar vilat;stop;noseguir all;stop;seguir vilat;stop;decir nas
+ll
+seguir vilat
+stop
+matar vilat,stop
+mirar vilat
+stop
+noseguir all
+stop
+seguir vilat
+stop
+decir nas
+sonreir
+noseguir all
+l
+p
+perder all
+l
+sonreir
+unalias ll
+decir poderoso sharky
+l
+i
+decir y esto?
+l tutti frutti
+more Tutti Frutti
+l Tutti Frutti
+l tutti
+l frutti
+l
+eq
+comer all
+i
+sonreir
+l
+decir tonces
+decir solo
+l turin
+decir si
+decir jejeje
+decir claro
+decir pero
+decir hazle un seguir
+decir jeejeje
+decir ni yo
+l
+l sharky
+l
+decir vilat
+decir tonces las rooms
+decir y ya?
+asentir
+decir manyana a que hora taras mas o menos por la manyana para pasar el examen???
+sonreir
+decir toy ansioso
+decir oks
+decir por la manyana
+decir a ver si me time
+l
+decir a saco a las 8
+decir a ver si a las 10 asi lo tengo terminado
+l
+l cuerpo
+coger monedas de cuerpos
+f
+i
+enterrar
+wh
+who
+cre nus vemos
+quit
+ls
+update calle1.c
+l
+goto calle1.c
+glance
+l
+l puerta
+oeste
+glance
+l
+oeste
+glance
+who
+quit
+glance
+ls
+clone armadura.c
+eq
+clone yelmo2.c
+eq
+clone espada
+eq
+l
+save
+save
+quit
+glance
+who
+cre ueee cuanta gente
+cre arreglo eso y lo miras vilat
+ls
+ls
+ls
+cre ahora me lo miras si tas...xd
+cre voy a poner la room esa secreta y ya
+l
+l
+sonreir
+ls
+cd ..
+l
+ls
+cd thalos
+ls
+l
+goto salon.c
+glance
+more here
+cd ..
+l
+ls
+cd vulvac
+cre no
+cre que toy terminadnooo
+cd vulvac
+cre xd
+ls
+goto muerto.c
+goto muerte.c
+ls
+cd ..
+cd thalos
+ls
+more salon
+more salon
+more salon.c
+cre falta pcoo
+cd ..
+cd vulvac
+goto muerte.c
+update muerte.c
+cd ..
+cd thalos
+more salon.c
+update muerte.c
+cd ..
+cd vulvac
+ls
+goto muerte.c
+whgo
+who
+cre joer
+update muerte.c
+goto muerte.c
+glance
+l
+levantar losa
+l
+trampilla
+glance
+cre vilat ya ta
+update here
+cre juas
+cre na dejalo si eso
+cre era para hacer algo util
+cre hoy pero bueno
+cre na
+l
+cre oks
+cre oks thanks
+cre si
+cre muerte es lo que me faltaba
+l
+cre bye
+l losa
+levatar losa
+levantar losa
+l
+trampilla
+glance
+ls
+cd ..
+ls
+cd ..
+ls
+cd d
+cd kerron
+l
+ls
+cd keroon
+ls
+cd keeron
+cd keroon
+ls
+cd keroon_pobre
+ls
+more tejado.h
+goto keroon_164.c
+cd \
+cd ..
+cd ..
+cd ..
+cd driade
+cd
+ls
+cd ..
+cd ..
+cd d
+ls
+glance
+who
+cre nas
+update muerte1.c
+update muerte1.c
+goto muerte.c
+glance
+levantar losa
+l
+trampilla
+glance
+l
+update muerte1.c
+update muerte.c
+l
+goto muerte.c
+glance
+levnatar losa
+levantar losa
+l
+trampilla
+glance
+l
+fuera
+glance
+ls
+sc
+l
+ls
+puerta
+glance
+norte
+glance
+norte
+glance
+levantar losa
+levantar
+levantar al
+l
+l losa
+update pasillo1.c
+l
+update ls
+ls
+update muerte.c
+l
+levantar losa
+l
+sur
+glance
+l
+norte
+glance
+ls
+update muerte.c
+l
+levantar losa
+update pasillo1.c
+l
+l
+update muerte.c
+l
+norte
+sur
+glance
+sur
+glance
+sur
+goto muerte.c
+glance
+l
+sur
+glance
+sur
+glance
+sur
+fuera
+glance
+oeste
+glance
+oeste
+este
+glance
+puerta
+glance
+norte
+glance
+norte
+glance
+l
+ls
+update here
+l
+l
+sur
+goto calle1.c
+glance
+puerta
+glance
+norte
+glance
+norte
+norte
+update pasillo2.c
+l
+norte
+glance
+l
+levantar losa
+l
+trampilla
+glance
+l
+fuera
+glance
+oeste
+glance
+oeste
+cd ..
+ls
+cd ..
+cd d
+ls
+cd keroon
+ls
+cd keroon
+ls
+cd keroon_pobre
+l
+ls
+goto tejado_1.c
+goto tejado.h
+l
+mote tejado.h
+more tejado.h
+clone hacha.c
+l
+sc
+ls
+cd ..
+cd ..
+cd ..
+ls
+cd ..
+l
+ls
+cd w
+ls
+cd karndaragh
+ls
+clone hacha_sangrienta.c
+i
+more hacha
+who
+i
+dest all
+i
+l
+ls
+cd ..
+l
+ls
+cd karndaragh
+ls
+goto entrada.c
+glance
+arriba
+glance
+arriba
+arriba
+abajo
+glance
+fuera
+glance
+fuera
+glance
+arriba
+karn-daragh
+Karn-Daragh
+l
+ls
+goto entrada.c
+glance
+arriba
+glance
+l
+arriba
+abajo
+glance
+l
+fuera
+glance
+l
+clone bestia.c
+l
+i
+l
+cd ..
+l
+cd vulvac
+goto sala1.c
+glance
+glance
+who
+quit
+glance
+who
+cre nas nas
+cre jade
+sc
+l
+sc
+l
+who
+t jade si estas consciente de aqui en un rato...me pegas un toque gracias
+sc
+glance
+who
+cre nas nas
+cre maele
+cre tas?
+cre perdona
+who
+cre una cosilla
+cre quiero poner
+cre que cuando entres en una room
+cre te haga un do_death
+cre alguna room de ejemplo hay por ahi?
+decir nas
+l
+decir dime
+l
+decir ya ta todo
+decir pero queria poner que la sala
+decir hicera un dodeath
+decir y al final no lo he puesto
+decir que me parecia mu gore
+sonreir
+decir ademas
+decir tampoco lo tenia mu claro
+l
+decir ya ta todo hecho
+l
+decir eso no lo he cambiado
+decir por que si
+sonreir
+decir es mi casa
+decir por eso lo he puesto
+decir pero si quieres
+decir tambien lo quito
+decir lo que quiero es aprobar y borrar esto
+sonreir
+l
+l
+decir pos na lo cambiare eso no es problema es solo borrar
+decir cuando me des tu aprobacion
+decir empiezo a trabajar
+	decir en el encargo
+decir en el encargo
+sc
+l
+i
+decir lo que me ha dicho thalos que haga
+decir si me das el rango al final
+cre nas nas
+who
+decir no
+decir solo esta sala
+decir que no la tengo
+decir en el disco
+decir las demas estan bien
+goto calle1.c
+glance
+l
+more here
+cre que typo hay aqui?
+who
+glance
+decir hombre
+decir me da igual la verdad
+decir es que creo
+decir que kerron
+decir tiene otro creador
+decir pero como tu veas
+decir en serio
+decir toy a tu entera disposicion
+decir se que thalos es keroon
+decir yaps
+decir pero
+decir es que el es de aqui
+decir y me ayudara mas
+l
+decir si a ti te parece bien
+decir si hago falta en otro sitio
+decir me lo dices
+decir que no tengo problemas
+decir sabes lo que quiero decirte?
+decir oks
+l
+decir pos ahi
+sonreir
+decir si
+l
+decir cierto
+decir jejej
+decir ya
+decir por eso
+decir creia
+decir que lo unico
+decir que haria
+decir bulto
+decir por eso
+decir un sitio que te mas rezagao
+decir pa hacer rooms
+decir y cosas asi
+decir pero si tu crees que eso ta bien
+decir oks
+sonreir
+decir oks
+decir asi no dare la paliza jejeje
+decir hobmre a mi mas o menos... me cae bien to el mundo
+decir jejeje siempre mas o menos
+sonreir
+decir oks
+decir thanks
+sc
+decir hostias!
+decir y eso?
+decir please
+decir orcos
+decir please
+decir siiii!!!!
+decir siii
+decir la ilusion de mi vida
+decir oks oks
+decir currare a saco en keroon
+decir siiii dios que ilusion
+decir lo se
+decir lo se
+decir tengo conocimientos minimos
+decir pero aprendo rapido
+decir oks
+decir muchas gracias tio
+save
+l
+decir oks
+decir tienes alguna tarea pa mi?
+decir o hago lo que me han dicho?
+finger keroon
+sonreir
+l
+decir oks
+decir oks pos empiezo isofasto
+sonreir
+l
+decir gracias
+decir oks
+decir pos
+decir ahora
+decir voy a hacer
+decir unos cultivo
+decir cultivos
+decir oks
+decir cuando tenga acabada la zona
+decir te lo digo
+sc
+decir thanks
+decir bueno piro con la novia
+decir jejeje
+decir gracias por todo
+besar vilat
+.
+besar vilat
+sc
+i
+l
+i
+decir ta luegooo
+cre nas nus vemos
+save
+save
+quit
+glance
+who
+cre nas nas
+l
+listar
+l
+ls
+sc
+cd ..
+ls
+cd ..
+ls
+cd d
+ls
+cd keroon
+ls
+cd cementerio
+ls
+goto cemen_1.c
+glance
+oeste
+glance
+l guardia
+este
+glance
+l zombie
+oeste
+glance
+oeste
+sur
+glance
+sur
+glance
+sur
+glance
+este
+glance
+este
+glance
+este
+glance
+norte
+glance
+l guardia
+panteon
+glance
+l nosferatu
+abrir sarcofago
+abrir sarcofago
+more here
+l
+abrir sarcofago
+l sarcofago
+m nosferatu
+matar nosferatu
+l
+stop
+peaca
+peace
+peace
+pece
+l
+puerta
+glance
+save
+panteon
+glance
+call do_death() nosferatu
+l
+update here
+l
+sl
+ls
+goto cemen1.c
+l
+goto cemen_1.c
+glance
+este
+glance
+este
+glance
+oeste
+glance
+oeste
+glance
+oeste
+glance
+sur
+glance
+sur
+glance
+sur
+glance
+saber
+save
+glance
+who
+cre nas nas
+ls
+l
+goto calle2.c
+glance
+este
+glance
+oeste
+glance
+oeste
+este
+glance
+puerta
+glance
+l
+norte
+glance
+norte
+glance
+l
+levantar losa
+l
+trampilla
+glance
+l
+fuera
+glance
+puerta
+glance
+norte
+glance
+norte
+glance
+altar
+glance
+l
+i
+ls
+clone sharky.c
+l
+l sharky
+more sharky
+l
+sc
+clone espada.c
+i
+i
+eq
+l espada
+l mal
+dest sharky
+l
+clone armadura.c
+clone sharky.c
+l
+more sharky
+i
+dest sharky
+eq
+unwear armadura
+unwear armadura
+unwear armadura
+l
+unwear oscuridad
+l
+desequiparse aramdura
+i
+unwear armadura
+i
+dest armadura
+dest espada
+clone yelmo2.c
+i
+eq
+i
+l
+l telmo
+l yelmo
+l dolor
+save
+quit
+who
+cre nas nas
+intercre nas nas
+who
+save
+quit
+glance
+who
+cre nas nas
+l
+ls
+cd ..
+cd ..
+cd d
+ls
+cd keroon
+ls
+cd entrada
+l
+ls
+goto ent01.c
+goto ent02.c
+glance
+este
+glance
+more here
+l
+oeste
+glance
+oeste
+noroeste
+glance
+sudeste
+glance
+este
+glance
+este
+glance
+sudeste
+glance
+este
+noreste
+glance
+este
+glance
+este
+glance
+este
+noreste
+glance
+sur
+glance
+sur
+glance
+sur
+glance
+sudeste
+glance
+noreste
+glance
+noreste
+glance
+l vibora
+este
+glance
+este
+glance
+more
+more here
+este
+glance
+more here
+intercre nas nas
+l
+more here
+cd ..
+cd ..
+cd ..
+cd
+l
+ls
+goyo workroom.c
+goto workroom.c
+glance
+more here
+intercre como se define una room de subcuridad
+intercre underground?
+cre ok thanks
+l
+ls
+cd ..
+cd ..
+ls
+cd d
+cd keroon
+ls
+goto gruta
+cd gruta
+ls
+goto gruta_30.c
+glance
+cre dime
+cre aps
+more here
+cre ya ya lo vi
+cre por que en la room en la que estoy no pone.c?
+cre eso da igual o que?
+l
+sur
+glance
+norte
+glance
+cre no
+l
+more here
+cre inherit "/stf/undergoud";
+cre asi funciona igual?
+cre pero bien escrito claro
+mor ehre
+moe here
+more here
+cre como puedo subir lo que hago desde mi casa si no tengo ftp
+cre se puede bajar ese programa?
+cre bueno lo que sea
+cre yo quiero bajar un archivo al mud
+cre como lo hago?
+cre es que siempre lo hago desde la uji
+cre ande puedo bajar programas de ese tipo?
+sc
+l
+more here
+l
+l
+t kivara ande me bajo eso?
+who
+more here
+cre esto de include"../path.h" pa que es?
+cre pero yo path no toy usando
+cre no toy pillando una
+cre chicos que soy un puto newbe
+cre explicar
+glance
+more here
+ls
+l
+decir pero como miro eso?
+more here
+cd ..
+cd ..
+cd ..
+cd w
+cd kivara
+cd cavernas4
+ls
+decir si
+l
+more path.h
+sudoeste
+glance
+more path.h
+noreste
+glance
+decir na sigo sin entender
+decir para que vale
+past
+more Sub4_o1.c
+more Sub4_i.c
+decir no dejalo
+decir yo lo pongo y ya esta
+mote here
+more here
+decir bueno que me lo expliquen el lunes cara a cara
+decir pero es mejor ponerlo no?
+decir oks thanks
+l
+cd ..
+ls
+cd ..
+cd ..
+glance
+ccd d
+sonreir
+cd d
+cd keroon
+ls
+cd gruta
+ls
+cd gruta2_,c
+goto gruta_2.c
+glance
+more here
+cre jode ahora no se por que no va el ftp
+cre ya t apuesto
+cre conect failed
+cre cual es?
+cre nada
+cre no pueo
+cre na snas
+cre conect failed 213..... y to el numero
+cre jode que asco
+cre tonces como lo pongo?
+cre nada
+cre conection fail
+cre ya subire las cosas en la universidad
+cre profile name?
+cre qe pongo
+cre host name adress?
+qq oks
+cre oks
+q auntomatic detect
+cre automatic detec
+cre user vulvac
+cre y mi pass del juego
+cre el pas del juego
+cre conect retry 0
+cre newtork ese 65
+cre remote port 4001
+cre pasive transfer activado
+cre nada
+cre que no quiere la muy zorra
+cre no
+cre ande toy de qeu? si
+cre en mi casa con modem de banda ancha
+cre como?
+sc
+who
+cre ains que newbe soy
+cre vilat tu no sabes por que puede ser esto?
+cre que no me deja entrar con el ws_ftp
+cre me lo he bajado
+cre bueno piro da igual nus vemos
+quit
+who
+cre nas nas
+more here
+cre na no consigo entrar con
+cre l ftp
+cre menuda mierda
+cre no se si tengo la room bien o mal
+cre ueeee
+cre entre
+l
+sc
+ls
+goto cultivo.c
+l
+more here
+UPDATE CULTIVO.C
+update cultivo.c
+more here
+goto cultivo.c
+update cultivo.c
+more here
+update cultivo.c
+goto cultivo.c
+glance
+l
+norte
+sur
+l
+cre inciso
+cre como se sabe
+cre la xp que da un bicho
+cre como se pone eso?
+intercre nas nas fentecilla
+cre eso
+cre la xp que da un bicho
+cre es por el level ddel bicho?
+l
+i
+dest yelmo
+sc
+dest dolor
+cre como?
+l
+cre bueno entonces
+cre ahora
+cre como lo hago?
+cre algun bicho tendre que poner en la room
+ce no no
+cre no no
+cre era por si era por level o algo
+cre oks
+cre tonces el level medio de un bicho para xpear?
+cre que es 15 o asi?
+cre vale
+cre pos lebel apox..
+cre de un bicho normal
+l
+cre juer es un agricultor
+l
+cre oks
+l
+l
+sc
+sc
+l
+update cultivo1.c
+sur
+norte
+glance
+norte
+update cultivo2.c
+sur
+glance
+sur
+norte
+glance
+norte
+glance
+oeste
+norte
+glance
+norte
+glance
+norte
+glance
+norte
+glance
+norte
+glance
+sur
+glance
+sur
+norte
+glance
+norte
+glance
+sur
+glance
+sur
+update cultivo2.c
+norte
+glance
+norte
+glance
+norte
+glance
+norte
+glance
+norte
+glance
+oeste
+sur
+glance
+sur
+norte
+glance
+norte
+glance
+sur
+glance
+sur
+l
+norte
+glance
+norte
+glance
+sur
+glance
+sur
+update cultivo2.c
+norte
+glance
+norte
+glance
+norte
+glance
+sur
+glance
+sur
+update cultivo2.c
+sur
+sur
+l
+norte
+glance
+norte
+glance
+norte
+sur
+glance
+sur
+glance
+norte
+glance
+norte
+glance
+oeste
+update cultivo3.c
+l
+norte
+glance
+sur
+update cultivo3.c
+l
+sur
+glance
+sur
+glance
+cre nas nas
+cre vilat una cosa
+cre toy haciendo una zona
+cre pero
+cre la estoy haciendo en mi directorio
+cre luego eso para pasarlo a el directorio que sea no hay problema no?
+cre es que no me han dicho donde tengo que construirla
+sc
+sur
+glance
+l
+sur
+norte
+glance
+norte
+glance
+norte
+glance
+norte
+noroeste
+sudeste
+sur
+glance
+sur
+glance
+norte
+glance
+cre ya
+cre pero es que no toy poniendo path
+cre por que no lo he entendido
+cre lo del path
+update cultivo4.c
+l
+sur
+glance
+norte
+glance
+este
+glance
+este
+oeste
+glance
+cre si tienes un ratito me lo explicas
+cre si
+l
+sc
+cre si especie de alias
+cre oks tonce slo primero que tengo que ahcer es el fichero ese
+cre pos como lo hago?
+sc
+l
+cre oks
+cre #define CULTIVOS "/w/vulvac/cultivos/"???
+sc
+l
+cre oks
+cre voy pillando
+cre oks
+cre pero solo tengo que poner esa linea
+cre para definir el path?
+cre solo tengo que poner #define CULTIVOS "/w/vulvac/cultivos.c"????
+cre y lo subo?
+cre o tengo que poner algo mas?
+l
+sc
+cre por ahora solo cultivos
+cre mas adelanet lo modificaria si acaso
+ls
+cre oks lo tengo
+update path.c
+cre pero tengo que ponerle los corchetes tambien?
+cre es que me da eroor
+cre al hacer update
+cre oks oks
+sc
+i
+more path.c
+cre si
+cre tonces tal como lo tengo
+cre solo tendria
+#include "../path.h"
+cre #include "../path.h
+cre vale eso lo pongo en todas las rooms
+cre oks
+cre si quitar el w/vulvac
+cre si
+cre aps
+sc
+l
+ls
+cre vale pero es que
+cre a mi se me esa definiendo
+cre cada room
+cre es un cultivo
+decir osea entra en mi archivos
+l
+cre oks
+cre seria
+cre CULTIVOS+/cultivo_1.c
+cre no?
+cre sin la barra oks
+more path.h
+more path.h
+ls
+more path.c
+l
+sur
+glance
+sur
+glance
+update cultivo.c
+cre no
+l
+sur
+cre undefined variable CUKLTIVOS
+sc
+l
+goto cultivo.c
+ls
+more path.c
+decir ta bien escrito
+decir el el path esta asi
+decir una cosa puedo borrar mi examen?
+l
+decir no cultivos
+decir si
+deci rno
+decir eso lo pongo despues
+decir de?
+l
+sc
+ls
+decir include ../path.c?
+update cultivo.c
+.
+update cultivo.c
+more cultivo.c
+decir na d
+decir more cultivo.c
+decir dice que el path ta mal
+l
+ls
+decir /w/vulvac
+sc
+decir no
+decir tan dentro de /w/vulvac
+cd ..
+ls
+cd vulvac
+ls
+decir por eso te he dicho
+decir que si tengo que hacer algun tipo de carpeta o algo para meter todas las rooms
+decir ya
+decir quito los ..
+decir como los meto
+decir en una carpeta?
+decir a ver si puedo yo solo
+mkdir cultivos
+ls
+decir pera eso me lo apunto
+alias mk mkdir
+alias mk
+alias mv mv *.c
+mv cultivos
+mv *.c cultivos
+ls
+sonreir
+ls cultivos
+decir oks
+update cultivo.c
+l
+ls
+cd cultivos
+ls
+update cultivo.c
+deci rummm
+decir falla el path igual
+decir haz mote cultivo.c
+more cultivo.c
+update cultivo.c
+decir me cague to
+more cultivo.c
+decir ahora me da fallo en la 12 cuando antes no lo daba
+update cultivo.c
+update path.h
+cd ..
+update path.h
+l
+cd cultivos
+update cultivo.c
+decir na
+decir dejalo vilat que te estoy consumiendo mogollon de tiempo
+decir y sera una totneria
+decir el lunes hablare con thalos a ver que me dice o algo por que te estoy pegando aqui la paliza
+decir aps tocnes oks
+l
+more cultivo.c
+more path.h
+cd ..
+more path.h
+decir ya ta quite la c
+decir no
+goto cultivo.c
+l
+ls
+cd cultvios
+decir cultivo1.c
+decir cultivo.c
+cd cultivos
+goto cultivo.c
+more cultivo.c
+sc
+ls
+sonreir
+l
+goto cultivo2.c
+glance
+t vilat no por que a los demas me deja ir
+este
+oeste
+sur
+norte
+l
+sur
+ls
+sur
+sur
+goto cultivo1.c
+glance
+sur
+norte
+norte
+sur
+sur
+t vilat a los cultivos
+l
+decir ves
+l
+decir aunque
+decir no tienen el inherit
+more cultivo.c
+decir pera que le pongo el inherit a todas
+decir digo el include
+decir oks
+l
+update cultivo1.c
+sur
+norte
+norte
+goto cultivo3.c
+glance
+norte
+sur
+noroeste
+sur
+t vilat an deja ir a todas menos al cultivo 2
+goto cultivo2.c
+glance
+sur
+t vilat falso
+tt vilar no me deja moverme
+t vilat no me deja moverme
+decir no no
+decir no me deja moverme a ninguna
+decir ahora vengo si eso siue con lo que quieras que voy a estar un rato desaparecido
+decir telefono
+sonreir
+sc
+sc
+l
+cre a ver
+sc
+i
+cre nas
+sc
+l
+decir has encontrado el fallo?
+sonreir
+sc
+l
+decir pos na tranui
+sc
+l
+decir voy a borrarlo todo y a empezar de 0
+save
+l
+ls
+goto cultivo.c
+cd ..
+cd ..
+cd ..
+cd d
+cd keroon
+ls
+cd grura
+cd gruta
+ls
+goto gruta_2.c
+glance
+more here
+cre tocnes mejor suboscuridad que udergorund?
+l
+ls
+cd ..
+ls
+more path.h
+l
+more here
+cre que es standar??
+cre o standart?
+cre en la room
+cre "standart"
+cre en lugar de "room"
+who
+cre en lugar de door room o cualquier cosa
+cre como es el nombre correcto?
+l
+sc
+ls
+man add_exit
+cre da igual
+l
+cd ..
+cd ..
+cd w
+cd vulvac
+cd cultivos
+goto workroom.c
+glance
+more here
+cd ..
+cd ..
+cd ..
+cd d
+cd keroon
+ls
+cd gruta
+goto gruta_2.c
+glance
+mote here
+more here
+update cultivo.c
+ls
+cd ..
+cd ..
+l
+ls
+cd ..
+cd w
+cd vulvac
+cd cultivos
+update cultivo.c
+.
+update cultivo.c
+more here
+update cultivo.c
+cre vilat si pudes mirar esto un segundo please...
+l
+cre el cultivo.c
+cre de /w/vulvac/cultivos
+l
+sc
+more here
+more cultivo.c
+cre que no me deja cargarlo
+l
+cre dice que tine error en la 13 creo
+update cultivo.c
+cre en la 12
+sc
+i
+update cultivo.c
+more cultivo.c
+more cultivo.c
+ls
+more cultivo.c
+update cultivo.c
+more cultivo.c
+update cultivo.c
+more cultivo.c
+cre bueno pos na esto ha petado
+cre lo bajo y no me loc ambia
+more cultivo.c
+cre ahora
+update cultivo.c
+l
+ls
+update cultivo.c
+ls
+cre jejej si que lo he arreglado ahora falla mas xd
+update cultivo.c
+more cultivo.c
+more here
+cre ya tan quitados
+update cultivo.c
+update cultivo.c
+update cultivo.c
+cre na que no tira
+cre me retiro
+cre demasiadas desilusiones en un dia
+cre para hacer una room
+cre jejej
+cre se lo he quitado tambien
+cre y no rula
+cre dime
+cre es cosa del more
+sc
+update cultivo.c
+cre da el error igual
+cre ahora volvere
+cre dime
+cre joddeeeeeerrrrrrrrrr
+cre siempre igual
+cre puto formato dos
+cre mierda
+cre perdona por todas las molestias
+cre me caguen mi stampa
+l
+update cultivo.c
+goto cultivo.c
+glance
+cre oka
+cre tonces
+cre ahora
+cre la salida
+l
+l
+man add_exit
+cre oks oks
+l
+glance
+who
+cre nas nas
+sc
+ls
+cd cultivos
+norte
+glance
+sur
+glance
+sur
+norte
+glance
+norte
+update cultivo_2.c
+l
+norte
+glance
+oeste
+cre nas nas
+sur
+glance
+cs
+norte
+glance
+norte
+sur
+glance
+sur
+glance
+sur
+norte
+glance
+norte
+glance
+sur
+glance
+sur
+glance
+sur
+update cultivo_4.c
+norte
+glance
+norte
+glance
+este
+glance
+noreste
+oeste
+glance
+sur
+glance
+sur
+glance
+update cultivo_6.c
+norte
+glance
+norte
+glance
+este
+glance
+noreste
+oeste
+glance
+oeste
+oeste
+update cultivo_3.c
+oeste
+glance
+sur
+glance
+norte
+glance
+oeste
+glance
+sur
+glance
+sur
+glance
+sur
+update cultivo_2.c
+norte
+glance
+norte
+glance
+este
+glance
+noreste
+oeste
+glance
+cre si
+update cultivo_3.c
+oeste
+glance
+oeste
+update cultivo_6.c
+oeste
+glance
+este
+glance
+este
+glance
+sur
+glance
+sur
+cre quien esta haciendo este lag?
+norte
+glance
+norte
+glance
+este
+glance
+oeste
+glance
+sc
+update cultivo_2.c
+l
+sudeste
+sudeste
+update cultivo_2.c
+l
+cre es sudeste verda??? xd
+sudeste
+cre jejeje
+cre pedazo de zona he creado
+cre bueno en el papel
+cre jejeje
+cre ahora hay que pasarla que es lo chungo
+cre xd
+l
+cre bueno perdon
+cre la ha creado mi novia
+cre que esta aqui a mi vera
+cre consolandome
+cre xd
+cre asi que si algo sale mal
+cre sus paso su direccion
+cre y se lo comentais a ella jejejeje
+cre xd
+update cultivo_2.c
+l
+sc
+este
+update cultivo_3.c
+l
+oeste
+glance
+update cultivo_4.c
+cre jodo el lag
+oeste
+glance
+update cultivo_5.c
+noreste
+glance
+update cultivos_5.c
+l
+ls
+update cultivo_5.c
+l
+sudoeste
+glance
+este
+glance
+este
+glance
+oeste
+glance
+oeste
+glance
+oeste
+noreste
+glance
+noroeste
+glance
+update cultivo_6.c
+l
+update cultivo_6.c
+l
+norte
+update cultivo_7.c
+norte
+glance
+norte
+update cultivo_9.c
+l
+sur
+glance
+sudeste
+glance
+sudoeste
+glance
+este
+glance
+este
+glance
+este
+glance
+noreste
+glance
+l
+gritar no floodees!!!!!
+update cultivo_10.c
+noreste
+l
+l
+l
+cre porfavor parar!
+.
+cre porfavor parar!
+.
+cre porfavor parar!
+.
+cre porfavor parar!
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+goto cultivo_1.c
+glance
+norte
+glance
+este
+glance
+noreste
+glance
+goto cultivo_1.c
+glance
+norte
+glance
+glance
+goto cultivo_1.c
+glance
+norte
+glance
+este
+glance
+noreste
+glance
+l
+l
+l
+goto cultivo_1.c
+glance
+norte
+glance
+este
+glance
+noreste
+glance
+noreste
+glance
+norte
+l
+sc
+sudoeste
+glance
+l
+noreste
+glance
+l
+who
+cre bueno nus vemos
+save
+quit
+glance
+who
+cre nas amores mios
+cre una cosilla
+cre una zona de xp de 100 rooms ta bien no?
+cre no es pequenya
+cre oks
+cre te parece bien?
+cre vilat?
+cre es que en teoria
+cre lo he enfocado
+cre como que son los cultivos
+cre de donde
+cre sacan los viveres para todo keroon
+sc
+i
+cre entonces no me excedo de 50?
+cre jejeje
+cre tu dime que quieres que haga
+cre y como
+cre nos vemos
+cre para poder ir a orcos
+cre si
+cre de keroon
+cre oks
+cre no las rooms primero
+cre luego
+cre voy a poner
+cre un random de 1 a 3 agricultores
+cre room si room no
+cre con equipo asi de campesino
+cre de un level de entre 12 a 15
+cre si si
+cre oks random 1 a 2 cada room
+cre primero voy a ver si hago las 50 rooms
+cre aps oks me lo apnto
+alias ll
+cre me quedo
+alias ll "/obj/civil"
+l
+cre cuando puedas me dices mas o menos cuantas cosas y de que indole tengo que ahcer
+cre para estar preparado...
+cre oks
+cre en 50 rooms
+cre voy a poner 5 descripciones diferentes
+cre oks
+cre oks
+cre huys
+cre bueno ahora mirare de cambiarlo
+l
+cre sigo creando
+cre no hobmre pero es que una zona de xp...
+cre eso si queria poner una mini quest
+cre que en realidad es una tonteria pero bueno..
+cre si no os gusta lo quitais y ya ta
+norte
+cre pos mira
+cre queria poner un
+cre npc
+cre mujer por ejemplo
+cre que diga
+cre ooo ooo se  ha perdido mi hija
+cre y tal
+cre la hija esta en una esquina del mapeado
+cre cuando llegas esta lorando y tal
+cre entonces cuando llegas a su room te dice
+cre llebame con mi madre
+cre y te hace un seguir
+cre claro esta la puedes perder
+cre osea hcerle un perde
+cre bueno llegas a la madre
+cre y agradecida te da algo..
+cre ese algo lo llebas
+cre un una caseta de los vultivos
+cre y te dan un random de hongos
+cre curativos
+cre pense de 1 a 3
+crcre es una vez por ficha
+cre una vez por ficha
+cre o por dia de juego
+cre tambien
+cre que la han pillado
+cre unos orcos
+cre oks
+cre si por que si n o
+cre llega el newbe level 5 y la hace
+cre i
+cre si
+l
+cre na
+cre bandidos
+cre humanos
+cre o algo asi
+cre civilizados
+cre si no se la comerian
+cre puedo preguntarte algo?
+who
+cre por que habeis borrado a grinfang
+cre ains y eso?
+cre aps
+cre tara ocupado o algo
+l
+cre ta de inmo en el 23???
+cre juas menos mal que no voy a jugar al uevo
+cre jajajaja
+cre madre del senyor
+cre jajaja
+cre bueno
+cre no vo a hacer comentarios al respecto
+cre no quiero meterme con nadie
+l
+cre como  es marron?
+cre en ingles que no me acuerdo
+cre el color
+cre que usas al hablar tu
+cre jode pos que mal hecho
+cre xd
+update caseta_1.c
+norte
+l
+ls
+cd cultivos
+update caseta_1.c
+norte
+norte
+sudoeste
+glance
+noreste
+glance
+norte
+update caseta_1.c
+norte
+goto caseta_1.c
+glance
+l
+sur
+glance
+norte
+more here
+update here
+norte
+glance
+sur
+glance
+norte
+glance
+sur
+glance
+update caseta_1.c
+norte
+glance
+sur
+glance
+norte
+glance
+l
+cre jejeje
+cre ven a ver si te gusta como ta quedando
+l
+update here
+l
+sur
+glance
+sudeste
+decir pera pera
+decir no he pillado lo de
+decir el plater
+decir player
+decir explcia explica
+decir te atiendo
+update cultivos_11.c
+l
+norte
+glance
+sur
+glance
+decir dime
+decir que propones pues?
+decir juer oks oks
+i
+update here
+l
+sudoeste
+glance
+noreste
+glance
+sudoeste
+glance
+l
+noreste
+glance
+decir bueno
+decir asi que cambia de color
+decir queda mejor para otra descripcion
+decir oks
+decir pos ahora probare con otras descripciones
+sc
+norte
+glance
+sur
+glance
+sudeste
+sudeste
+sudeste
+decir hombre
+decir si eres humano
+decir igual no ves no?
+l
+decir o no esta puesto eso?
+decir aps oks
+decir lo quitare
+l
+update hre
+decir si
+update here
+l
+call query_light()here
+l
+decir aps
+decir oks
+update here
+l
+decir pos na lo quitare
+sudeste
+sudeste
+sudoeste
+glance
+noreste
+glance
+sudeste
+sedecir si
+decir si eso lo se
+decir lo que pasa
+decir es que no se
+decir es que quiere que ponga thalos
+decir yo tengo ideas de
+decir si que se mira
+decir te pongo uno si quieres
+decir queria poner
+decir item
+decir liquen
+l
+decir si
+decir pero no se si le parece bien a thalos
+decir por eso
+decir liquen o hongo queria poner
+decir yo que se...
+decir claro
+decir queda mucho mejor
+decir mas rolero lo se
+asentir
+decir lo se lo se
+decir pero es por lo que te he dicho
+decir pera que lo pongo
+l
+sudeste
+decir umm
+decir haz se
+sudeste
+sudeste
+more cultivo_11.c
+decir aps
+decir pera pera
+decir el .c
+update here
+sudeste
+glance
+cre oks jeje
+l
+cre umm no me gusta este color asi
+update here
+l
+decir ya
+decir no las salidas si
+decir pero el short no me gustaba en ese color asi mejor
+sc
+decir voy a poner un item o dos en la caseta a ver
+update caseta_1.c
+norte
+noroeste
+noreste
+noroeste
+l
+noroeste
+noroeste
+noroeste
+mote here
+more here
+l
+decir umm
+decir por que no deja hacer noroste
+noroeste
+noroeste
+l
+noroeste
+noroeste
+more here
+decir joder
+decir meirda del plural
+update here
+l
+noroeste
+glance
+norte
+glance
+cre cachis plural feo
+l
+l saco
+cre jejeje ya ta el item
+sc
+asentir
+decir buenooooo
+decir mi novia ya va toda ciega
+decir de la maria
+decir madre miaaaa
+l
+decir jajaj
+decir como ahora se pase te buscare y lo fliparas tronco
+decir no no que toda la maria es mia por eso lleva mi nombre chavalin
+decir na
+decir ni cas
+decir ni caso
+decir que ta toda ciega
+l
+decir es que
+decir la plantamos en marzo
+decir y la hemos pillado hoy
+decir y se ha pegado una bueno catada
+l
+decir de ande eres?
+decir huys
+decir mu lejos
+decir me parece que te quedas
+decir si maria
+sonreir
+decir del sitio con peor fama de el mud
+decir castellon!!!!
+decir jajaja
+decir bueno
+decir si el segundo
+decir murcia tambien ta finito la verdad
+decir bueno ves como si que se hacer items...xd
+decir hombre de poca fe
+l
+l saco
+l
+decir bueno
+decir me piro a acostar a esta
+decir y a dormir yo tambien
+decir que toy cansaete
+decir cuentame algo de los orcos
+sonreir
+decir si
+decir como ta de avanzado
+decir si hay guilds
+decir si ta avanzado
+decir esas cosillas
+sonreir
+decir jajaja
+sc
+i
+decir jajaja
+decir pos a ver si me curro esto raudo y veloz
+decir y me pongo con la ilusion de mi live
+sonreir
+sc
+i
+decir lo se
+decir pero esto
+decir no es comparable a los orcos
+sonreir
+decir na
+decir hay que ser viril en modo orco
+l
+sc
+sonreir
+decir no son los lacallos de nadie
+decir y menos aun esclavos
+decir ondonadas
+decir con los drows amos a tener
+sonreir
+decir bueno piro
+decir thanks
+decir por la paciencia
+l
+decir nus vemos
+save
+save
+save
+save
+quit
+glance
+who
+cre nas nas
+l
+ls
+cd cultivos
+ls
+sur
+glance
+sudeste
+glance
+sudeste
+noroeste
+glance
+sudeste
+glance
+l
+update cultivo_12.c
+noreste
+glance
+l
+update here
+l
+sudoeste
+glance
+noreste
+glance
+l hongos
+l liguenes
+l liquenes
+l setas
+l
+noreste
+sudoeste
+glance
+sudeste
+noreste
+glance
+update cultivo_13.c
+noreste
+glance
+sudoeste
+glance
+sudoeste
+glance
+noreste
+glance
+noreste
+glance
+norte
+update cultivo_14.c
+norte
+l
+norte
+update here
+norte
+glance
+sur
+sudeste
+update here
+l
+sur
+glance
+norte
+glance
+sudeste
+norte
+update cultivo_15.c
+norte
+sur
+glance
+norte
+glance
+sudeste
+glance
+sur
+intercre nas nas
+l
+update cultivo_19.c
+sur
+glance
+norte
+glance
+sur
+glance
+sur
+norte
+glance
+sudeste
+noroeste
+glance
+sudeste
+glance
+sur
+glance
+update gruta_18.c
+sur
+glance
+update here
+l
+norte
+glance
+sur
+glance
+l
+l huemdad
+l humedad
+sudoeste
+sudoeste
+update gruta_17.c
+sudoeste
+glance
+l
+update gruta_16.c
+noroeste
+noroeste
+oeste
+glance
+noroeste
+glance
+sudeste
+sudeste
+update here
+sudeste
+glance
+noroeste
+glance
+sudeste
+glance
+este
+glance
+noreste
+glance
+norte
+glance
+sur
+glance
+sudoeste
+glance
+oeste
+glance
+noroeste
+glance
+sudeste
+glance
+este
+glance
+noreste
+glance
+norte
+glance
+norte
+glance
+sudeste
+save
+l
+save
+quit
+glance
+who
+l
+sur
+glance
+sur
+glance
+sudoeste
+glance
+sudoeste
+oeste
+glance
+noroeste
+glance
+noreste
+glance
+noreste
+glance
+norte
+glance
+norte
+norte
+norte
+norte
+norte
+more here
+l
+update caseta_2.c
+l
+ls
+cd cultivos
+update caseta_2.c
+norte
+glance
+ls
+sur
+glance
+sudeste
+glance
+sudeste
+more here
+l
+sur
+glance
+sur
+glance
+sudoeste
+glance
+sudoeste
+oeste
+glance
+oeste
+noroeste
+glance
+noroeste
+glance
+sudoeste
+glance
+oeste
+glance
+oeste
+glance
+oeste
+glance
+noreste
+glance
+noroeste
+glance
+norte
+glance
+norte
+glance
+noroeste
+noreste
+save
+save
+quit
+who
+cre nas
+intercre ans nas
+noreste
+sur
+glance
+sudeste
+sur
+glance
+norte
+glance
+norte
+glance
+norte
+noreste
+noroeste
+update here
+l
+norte
+sur
+glance
+sur
+glance
+sur
+sudeste
+glance
+sudoeste
+glance
+este
+glance
+este
+glance
+sudeste
+sudeste
+este
+glance
+noreste
+glance
+sudeste
+glance
+sudeste
+glance
+este
+glance
+noreste
+glance
+norte
+glance
+norte
+glance
+sudeste
+update here
+update cultivo_20.c
+cd cultivos
+update cultivo_20.c
+sudeste
+glance
+sudeste
+update cultivo_21.c
+sudeste
+glance
+noroeste
+glance
+dr
+sudeste
+glance
+noreste
+update cultivo_22.c
+l
+noreste
+glance
+l
+l carretilla
+update cultivo_23.c
+norte
+glance
+norte
+sur
+glance
+sur
+glance
+sur
+glance
+sur
+glance
+sur
+glance
+l
+update here
+sur
+glance
+sudoeste
+glance
+noreste
+glance
+norte
+glance
+norte
+cre nas nas
+cre demaisdo alchol
+cre jejej
+cre jajajaj
+cre mi novia otra vez fuma
+cre voy a esconder la maria
+cre que en 2 dias se la fuma toda
+cre yo es que me la comoo
+l
+sc
+who
+cre jajaja
+intercre va de colocon!
+intercre jajajaj
+intercre efectos de la maria sera..xd
+cre bueno bueno
+cre esto empieza a ahcerse grnade
+cre los cultivos
+cre que se empiezan a agrandar
+cre jejeej pos
+cre una mierdecilla
+cre para lo que queria hacer pero amos para 50.. no ta mal en un dia
+cre tengo
+ls
+cre la mitad justo
+cre 25
+sc
+l
+sur
+glance
+sudoeste
+glance
+noroeste
+glance
+sudeste
+glance
+noreste
+glance
+noreste
+norte
+glance
+norte
+glance
+norte
+cre pos
+cre pera las cuento
+sur
+glance
+sur
+glance
+sur
+sudoeste
+glance
+noroeste
+glance
+noroeste
+glance
+noroeste
+glance
+norte
+glance
+sur
+glance
+sudoeste
+sur
+glance
+sudoeste
+glance
+sudoeste
+glance
+sudeste
+glance
+noroeste
+glance
+noroeste
+glance
+sudoeste
+glance
+sudoeste
+oeste
+glance
+oeste
+glance
+oeste
+glance
+noreste
+glance
+cre 7
+sudoeste
+glance
+este
+glance
+este
+glance
+este
+glance
+noreste
+glance
+norte
+glance
+sur
+glance
+sudeste
+glance
+sudeste
+glance
+este
+glance
+noreste
+glance
+norte
+glance
+norte
+glance
+noroeste
+glance
+norte
+glance
+sur
+glance
+sudeste
+glance
+sudeste
+glance
+sudeste
+glance
+noreste
+glance
+norte
+glance
+norte
+glance
+norte
+cre bueno nus vemos
+cre aus que te dure el ciego...xd
+save
+glance
+who
+cre nas nas que vengo a ponerle una sala a mi novia jeje
+update mery.c
+update mery.c
+goto mery.c
+glance
+update here
+l
+update here
+l
+ls
+cre bye
+save
+quit
+glance
+who
+cre nas
+ls
+cd cultivos
+goto caseta_1.c
+glance
+save
+quit
+glance
+whgo
+who
+cre nas nas amores mios
+cre noches?
+cre ejem ejem
+who
+cre tamos algo desfasaetes...xd
+l
+sur
+glance
+sudeste
+glance
+sudeste
+glance
+este
+glance
+este
+noreste
+glance
+este
+norte
+glance
+norte
+glance
+sudeste
+glance
+sudeste
+glance
+cre jajjaaj
+noroeste
+glance
+noroeste
+glance
+sudeste
+glance
+sudeste
+glance
+noreste
+glance
+norte
+glance
+norte
+glance
+norte
+norte
+norte
+update cultivo_25.c
+ls
+cd cultivos
+cre nas nas
+ls
+l
+norte
+glance
+oeste
+este
+glance
+update here
+l
+sur
+glance
+norte
+sur
+glance
+sur
+glance
+updatre here
+l
+update here
+sur
+glance
+norte
+glance
+oeste
+save
+quit
+glance
+who
+cre nas
+intercre nas
+l
+decir na snas
+quit
+glance
+who
+cd ..
+cd ..
+cd d
+cd keroon
+ls
+cd camino
+ls
+goto cami_31.c
+glance
+l
+noroeste
+noroeste
+glance
+sudoeste
+glance
+oeste
+glance
+noroeste
+glance
+lsa
+ls
+cd npcs
+ls
+norte
+l
+noroeste
+noreste
+glance
+noreste
+glance
+norte
+noreste
+glance
+norte
+glance
+norte
+oeste
+glance
+oeste
+glance
+oeste
+noroeste
+glance
+noreste
+glance
+neo
+noroeste
+glance
+on
+noroeste
+glance
+noroeste
+glance
+l rata
+sudoeste
+glance
+sudoeste
+glance
+oeste
+oeste
+glance
+oeste
+glance
+oeste
+sur
+glance
+sur
+glance
+sudoeste
+sudoeste
+glance
+sudeste
+glance
+sudeste
+sudeste
+glance
+oeste
+glance
+oeste
+sudoeste
+glance
+sudoeste
+glance
+sudoeste
+glance
+sudoeste
+glance
+oeste
+sudoeste
+os
+sudoeste
+glance
+l
+ls
+cd ..
+ls
+cd ..
+ls
+cd comenterio
+l
+cd cementerio
+l
+ls
+cd npcs
+ls
+clone nosferatu.c
+l
+l nosferatu
+l
+more here
+more nosferatu.c
+ls
+clone guardia_espectral.c
+l
+l guardia
+more guardia_espectral.c
+l
+l guardia
+sc
+call de_death guardia
+l
+m guardia
+matar guardia
+l guardia
+.
+l guardia
+.
+l guardia
+sc
+l guarida
+l
+call do_death()guardia
+l
+l cuerpos
+l
+l cuerpoos
+l cuerpos
+z
+save
+l
+save
+enterrar
+who
+l
+update here
+l
+sur
+sudeste
+sudeste
+glance
+save
+quit
+glance
+who
+goto mery.c
+glance
+sc
+l
+sc
+l
+wh
+who
+sc
+l
+figner keroon
+finger keroon
+ls
+cd cultivos
+l
+ls
+goto cultivo_25.c
+glance
+sur
+glance
+sur
+glance
+norte
+glance
+norte
+glance
+oeste
+sur
+glance
+sur
+glance
+sur
+glance
+sur
+sudoeste
+glance
+noroeste
+glance
+noroeste
+glance
+noroeste
+glance
+norte
+glance
+sur
+glance
+sur
+glance
+sudoeste
+glance
+sudoeste
+glance
+sudeste
+glance
+este
+glance
+noreste
+glance
+este
+norte
+glance
+este
+norte
+glance
+sudeste
+glance
+sudeste
+glance
+sudeste
+noreste
+glance
+norte
+glance
+norte
+glance
+norte
+glance
+oeste
+oeste
+sc
+l
+who
+save
+l
+quit
+who
+interwho RL
+intercre Sirio o kien este en devel ke he robado el ordenador ke soy GURTHANG Y HE NO ME ACUERDO DEL PASSWD!!!! ALGUIEN KE ME AYUDE?? xddddddddd
+.
+intercre Sirio o kien este en devel ke he robado el ordenador ke soy GURTHANG Y HE NO ME ACUERDO DEL PASSWD!!!! ALGUIEN KE ME AYUDE?? xddddddddd
+intercre si diselo a rutseg please
+cre pos dile que me lo mande a
+intercr eque me mande el pas
+intercre que me mande el pas
+intercre apunta
+intercre hidachampi@yahoo.es
+intercre por si acaso
+intercre apunta y tal por si eso
+intercre oks oks por si no se acuerdo o algo thanks tiu
+save
+quit
+l
+who
+cre nas nas
+ls
+quit
+wo
+who
+quit
+glance
+who
+cre nas nas
+intercre nas
+glance
+who
+quit
+glance
+who
+goto mary.c
+goto mery.c
+glance
+l
+l
+save
+i
+save
+who
+quit
+glance
+who
+update cultivo_26.c
+l
+ls
+goto cultivo_26.c
+ls
+l
+save
+quit
+glance
+who
+l
+quit
+who
+who
+l
+l
+who
+glance
+who
+l
+gritar bauthor?
+qq nas
+cre nas
+l
+who
+l
+decir eres bauthro?
+decir si
+decir es que toy ocupadillo ahora
+decir dile que lo siento mucho
+decir pero que toy currando en mi casa ya lo bajare todo de golpe
+l
+decir oks
+decir bueno que tal todo por aqui?
+decir tienen pensado abrirlo?
+decir me parece que aun no ta listo esto pa abrirse no?
+l
+decir aun asi lo quieren abrir?
+l
+l
+decir bueno
+decir yo cuando termine la
+decir hombre
+decir iluminado
+decir devel
+decir nexus...
+decir el pusa pirata ese es algo lamentable jejeje
+decir pero bueno a la gente le gusta
+decir no se si estas entre ellos pero..
+l
+sc
+decir juas
+decir ta bien ta bien
+decir de qeu?
+decir jejejeje eso eso amor
+decir juas
+decir yo es que no se usar scrip
+decir no
+decir muchas diferencias con grimfang paso
+decir no
+decir log de que
+decir ande ta ese log?
+decir pos no se
+decir dile a vilat que si aun sigue en pie lo de los orcos
+l
+decir cuando lo veas
+who in
+who
+decir voy a ver
+decir jausjaus
+decir he visto dos lineas y es muuu bueno
+sonreir
+l
+decir dios!
+decir coo se ralla
+decir madre mia
+decir eso tiene que estar prohibido o algo no?
+decir hostia que fuerte
+decir bufff
+decir ya me lo he terminado
+decir no se quien ha sido
+decir pero se han rallado un poco
+decir a mi la verdad es que no te voy a enganyar
+decir pero esta gente me cae fatal
+decir pero no es pra publicarlo por ahi
+decir pero la copia del pusa es legal o que?
+alias log decir http://www.geocities.com/reinosdedrogata/index.html
+log
+decir http://www.geocities.com/reinosdedrogata/index.html
+decir oks
+decir me lo guardo
+decir que esto es mu heavy
+decir nus vemos
+decir dile a vialt que si que continuo auqneu no me vea currar que no tengo time ahora
+decir y que si lo de los orcos ta aun en pie y tal
+decir nos vemos
+save
+quit
+glance
+who
+gritar oeoo cuanto imo
+cre nas nas
+cre ya me han dicho lo
+decir nas
+decir si que voy a seguir
+l
+decir pero es que ahora no puedo programar
+cre a quien?
+decir jejeej
+decir es que toy pero no toy
+decir s
+decir si
+decir lo vi hoy
+decir yo la semana que viene
+decir entrare a saco ya
+decir es que en el ilu estoy
+decir pero por que me hacen la xp
+decir en grupo
+decir por anda mas
+decir siempre que quiero xd
+decir que lo de los orcos seguiria en pie?
+l
+decir de todas formas
+decir la zona que me han encargado
+decir ta casi lista
+l
+decir si si
+decir ta claro
+decir pero queria saber si aun taba la posibilidad
+decir pero lo quereis abrir no?
+decir ya
+decir pero como vais a abrir con dos razas?
+l
+sc
+i
+h
+ls
+decir aps
+decir de todas formas
+decir a mi me faltan 18 rooms
+decir y tengo lista la zona
+decir no se si thalos tiene mas faena para mi
+decir bueno ahora vendre cena time
+l
+gritar aokromes? juas
+gritar juas
+resucitar
+l
+cre no me mateis perras
+resucitar
+l
+who
+cre vovlere!
+sc
+cre a ver
+cre preguntarme lo que querais jejejeje
+cre que de comandos de 23 y hechizos se algo
+cre que comando o hechizo
+cre tipo enciclopedia xd
+sc
+cre juas
+cre kakita?
+cre pos no se que decirte
+cre por que
+cre el sidonu metia golpeo de 2xx
+cre pos eso
+cre es que realmente
+cre cualquier ficha
+cre eso
+cre targhas
+cre ven
+cre call dodeath
+cre juas
+cre el champi que taba loco
+cre a ver la cosa es que
+cre a mi
+cre particularmente me gusta mucho mas el iluminado
+cre que el 23
+cre y eso?
+who
+cre pos a mi lo unico que me jode
+cre es que creo y pienso
+cre que cuando se pone algo
+cre se quede asi hasta el fin d elo dias
+cre y no cambiarlo por qu ealguien diga que ta dopao o que no se que
+cre pos lo que te estoy diciendo yo
+cre ande tas con saskia
+cre que quiero hablar contigo xd
+l
+call do_death() esqueleto
+l
+enterrar
+l
+cre los palatas tan fatal
+cre a level 9 no tienes ni el luz
+cre ni el leves
+cre eso si
+cre el dia que suba un palata a level alto
+cre la armadura la tendran que bajar
+cre por que es la dopez
+h
+hechizos
+l
+l
+cre pos seras la elite si
+cre na es que en keleb se hace mu poca xp
+cre xd
+l
+cre que pua
+l
+who
+cre bueno
+cre tonces
+cre cuando abrimos??? xd
+cre mira ficha de vulvac
+g 19
+cre oks
+cre manyana se lo digo
+cre a ver
+cre fuerza 1
+fuerza 19
+cre fuerza 19
+cre bueno 18/100
+cre  con 18
+cre des 18
+cre int 15
+cre sab 17
+cre car 18
+cre con eliduc nuevo claro
+cre jajaja
+l
+who
+cre jode ta mu bien
+cre con un eliduc nuevo
+cre cha 19
+cre juas
+cre yo ni me planteo entrar en el 23 ese
+cre ademas
+cre habeis visto el log ese
+l
+cre el de grimfang
+cre si
+cre lo he visto hoy
+cre que brutal
+dentro
+log
+decir http://www.geocities.com/reinosdedrogata/index.html
+cre http://www.geocities.com/reinosdedrogata/index.html
+cre ese
+cre si
+cre un natiguo player
+cre de 23
+cre no
+cre yo no lo conozco pero se que no es de la uji
+cre por?
+cre que ilusion
+cre toy abriendo el regalo de mi culpleanyos
+cre ains ains
+cre que sera
+cre joooo
+cre no me dejan abrirlo
+cre ole!
+cre es una pistola!!!!!
+cre ueeee
+sc
+l
+cre bueno
+cre ademas de thalos
+cre quien me puede mandar faena??
+cre a ver
+cre encargame algo
+cre que a thalos le tengo terminada la faena
+who
+cre m_de_toro_perez@hotmail.com
+cre mandame un poco detallado
+cre que
+cre amos
+cre el thalos de mdice
+cre haz una zona
+cre de 100 casillas
+cre y se queda tan tranquilo el capullo
+cre ok que lo tenias prefabricado o que?
+cre xd
+who
+cre sa pirado el xer
+who
+cre na
+cre nadie me dice el numeros de rooms
+sc
+cre a por el!!
+cre que le den! x
+cre xd
+cre jajajajaja
+ls
+cre bueno gentes del mundo
+cre juas
+cre igual quiere xde
+cre piro
+cre meterle muchas cosas punzantes por el culo a aok nos vemos
+save
+quit
+glance
+who
+who
+cre juas
+l
+cre a buenas horas meloncio cuando no hay nadie
+intercre nas nas
+help nuevo
+l
+help admin
+l
+ls
+cd cultivos
+ls
+goto cultivo:23.c
+goto cultivo_23.c
+glance
+l
+cre jodo
+g hago un goto
+cre hago un goto y tas aqui
+sur
+glance
+norte
+glance
+norte
+glance
+norte
+glance
+norte
+ls
+cre bueno bueno
+decir ta esto casi terminado
+sc
+ls
+l
+g ni me lo preguntes
+who
+cre a ver si te crees que lo se
+cre no los he dejado todos menos el ultimo
+cre tengo las leendas ahora
+cre me las regalaron ayer
+cre las cronicas ya me las he leido
+l
+cre pero antes de las leyendas
+cre no
+cre primero raistlin
+sc
+cre a ver como crece el pequenyin
+cre que otros dos libritos
+cre yo em voy a leer
+cre por ahora
+cre en este orden
+cre raistlin los 4
+cre las 3 leyendas
+cre y fistandantilus
+l
+oeste
+oeste
+l caretillas
+l caretilla
+l careta
+cre jur
+cre pos no se xd
+l
+more here
+l carretilla
+l
+sur
+glance
+l
+norte
+glance
+decir ummm
+decir falla en el long
+decir bueno
+decir esta tarde igual termino
+decir depende si tengo que estudiar o no
+sc
+l
+l
+l thalos
+cre pero al final
+cre el raist se hace el rey de la oscuridad o que?
+cre bueno da igual
+cre no me lo cuentes
+cre que si no no tiene emocion
+cre bueno piro
+call do_death() thalos
+cre ale de regalo
+save
+quit
+glance
+update cultivo_26.c
+sc
+ls
+cd cultivos
+update cultivo_26.c
+oeste
+glance
+este
+glance
+este
+sur
+glance
+norte
+glance
+oeste
+glance
+cre miraa ver si te gusta
+este
+glance
+sur
+glance
+sur
+glance
+norte
+glance
+norte
+glance
+oeste
+glance
+sc
+cre al oeste
+este
+glance
+oeste
+glance
+cre dani!
+who
+l
+who
+who
+who
+oeste
+l
+update here
+l
+l
+decir que
+who
+l hongos
+l liquenes
+more here
+decir es que
+decir se sobrecarga de items las rooms
+decir pero bueno
+decir lo pongo
+sc
+l
+decir ta luego
+save
+quit
+glance
+who
+cre nas nas
+cre el vilat ta o que?
+l
+cre na sa salio xd
+sc
+l
+oeste
+norte
+glance
+sur
+glance
+norte
+glance
+norte
+glance
+norte
+glance
+norte
+sur
+glance
+sur
+glance
+sur
+glance
+sudoeste
+glance
+noreste
+glance
+norte
+glance
+norte
+glance
+norte
+glance
+norte
+oeste
+glance
+cre que tal tas?
+cre pos keeron
+cre por ahora toy mirando a ver si termino una zona
+cre y luego tengo un trabajito en urghak
+cre asi que parece ser que eres mi jefe xd
+L
+L
+l
+CRE JEJEJE
+cre jejeje
+cre solo te he matado una vez hombre
+cre eso no es nada
+cre hombre a mi me sabia mal pero es que esta gente no se sacia de sangre nunca
+l
+cre jajaja
+este
+glance
+sur
+glance
+sur
+glance
+sur
+glance
+m
+norte
+glance
+norte
+glance
+norte
+glance
+oeste
+glance
+gritar ole!
+cre asi me mola te lo mereces xd
+update here
+ls
+cd cultivos
+ls
+l
+norte
+cre jajaja
+l
+este
+glance
+sur
+glance
+sur
+glance
+sur
+glance
+l
+more here
+cre bye
+who
+l
+norte
+glance
+norte
+glance
+norte
+glance
+norte
+oeste
+glance
+norte
+glance
+sur
+glance
+norte
+glance
+sudoeste
+noreste
+sur
+glance
+sur
+sudeste
+este
+glance
+norte
+oeste
+glance
+norte
+glance
+norte
+sur
+glance
+este
+glance
+oeste
+glance
+norte
+glance
+sudoeste
+noreste
+l
+noreste
+noreste
+more here
+update cultivo_28.c
+noreste
+l
+update here
+noreste
+glance
+l flor
+coger flor
+l
+update cultivo_30.c
+norte
+glance
+sc
+norte
+goto plaza
+plaza
+sur
+glance
+more here
+goto cultivo_30.c
+glance
+norte
+norte
+norte
+update cultivo_31.c
+l
+norte
+glance
+ls
+goto caseta_1.c
+glance
+more here
+decir %^BOLD%^%^ORANGE%^ NAS NAS %^RESET%^
+l
+sur
+glance
+sudeste
+glance
+goto cultivo_30.c
+glance
+who
+l
+norte
+glance
+noreste
+noreste
+more here
+update cultivo_33.c
+norte
+l
+noreste
+glance
+sudoeste
+suroeste
+glance
+sudoeste
+more here
+update cultivo_33.c
+noreste
+glance
+norte
+l
+l plastico
+who in
+sonreir
+l
+decir esto funciona
+decir ein?
+decir la zona
+decir anda que no me esta quedando chulo ni na
+l
+update cultivo_34.c
+norte
+glance
+sur
+glance
+sc
+l
+decir que maloso
+decir umm
+decir me gusta me gusta
+decir solo
+decir he autoresucitado
+sc
+decir si
+decir si me lo ha dicho
+decir pero
+decir a mi me ha dicho
+decir que
+decir no  sabe que hay que hacer
+decir que tiene que hablar con thalos
+decir yo ahora que hago cuando termine esto
+decir me voy a lo de los goblins o sigo aqui o que
+sl
+l
+sonreir
+z
+enterrar
+l
+decir juas oks
+decir lo que quieras
+decir pero lo que mas cuente para hacerme thane de orcos jejejeje
+l
+sc
+decir ahora mismo
+decir puedo con uno
+decir pero cuando termine examenes..
+decir para los orcos me interesa mas terminar keroon?
+decir pos me quedo en keroon de cabeza
+sonreir
+decir cuando terminemos
+decir oks
+decir pero
+decir creo que esta mu acabado esto
+l
+decir oks
+decir la sigiento orcos jejeje
+decir ole ole
+decir no no
+decir sin prisas
+decir ocmo tu vea
+decir hobmre
+decir siempre seria trabajo adelantado
+decir pero amos
+decir primero aprender
+decir ta claro
+decir yaps
+decir ta claro
+decir ademas
+decir no considerar que haya trabajado como para merecerme un reino
+decir eso na mas
+sonreir
+decir bueno yo termino hoy esto ya
+decir oks
+glance
+l
+l
+f
+sc
+decir que fem?
+l
+sc
+decir aps
+l
+z
+enterrar
+who
+l
+enterrar
+enterrar
+sur
+sc
+l
+goto cultivo_34.c
+glance
+norte
+sur
+glance
+norte
+glance
+update cultivo_35.c
+sur
+glance
+norte
+glance
+norte
+glance
+norte
+sur
+glance
+norte
+glance
+N
+nb
+norte
+glance
+norte
+norte
+update cultivo_&:c
+update cultivo_36.c
+L
+ls
+LS
+ls
+update cultivo_36.c
+norte
+glance
+sudoeste
+sur
+glance
+norte
+glance
+sudoeste
+l
+l
+sa
+sur
+glance
+norte
+glance
+ls
+cd..
+cd ..
+ls
+cd cultivos
+goto cultivo_1.c
+glance
+sur
+glance
+sur
+sur
+norte
+glance
+norte
+glance
+sudeste
+oeste
+glance
+oeste
+glance
+noreste
+glance
+noroeste
+glance
+norte
+glance
+norte
+glance
+noroeste
+noreste
+glance
+norte
+glance
+sur
+glance
+sudoeste
+sur
+glance
+sudoeste
+glance
+goto cultivo_4.c
+glance
+noreste
+glance
+noroeste
+glance
+norte
+glance
+norte
+glance
+more here
+l
+sur
+glance
+sur
+glance
+sur
+sudeste
+glance
+sudoeste
+glance
+este
+glance
+este
+glance
+sudeste
+este
+glance
+noreste
+glance
+norte
+glance
+sur
+glance
+sudeste
+glance
+noreste
+glance
+noreste
+glance
+norte
+glance
+norte
+glance
+sur
+glance
+sudeste
+glance
+sur
+glance
+sur
+glance
+sudoeste
+glance
+sudoeste
+oeste
+glance
+noroeste
+glance
+sudeste
+glance
+este
+glance
+noreste
+glance
+norte
+glance
+norte
+glance
+sudeste
+glance
+sudeste
+glance
+noreste
+glance
+norte
+glance
+norte
+glance
+norte
+glance
+oeste
+glance
+norte
+glance
+sudoeste
+sur
+glance
+norte
+glance
+oeste
+sudoeste
+noreste
+glance
+norte
+glance
+norte
+glance
+sur
+glance
+norte
+glance
+cre nas
+L
+l
+decir ta casi apunto esto ya
+sudoeste
+sur
+glance
+sur
+sur
+l
+sur
+more here
+sur
+l
+norte
+glance
+noreste
+glance
+norte
+glance
+norte
+glance
+norte
+glance
+noroeste
+sur
+glance
+sur
+glance
+sur
+sudoeste
+glance
+sudoeste
+sudoeste
+more here
+sudoeste
+goto cultivo_32.c
+l
+ls
+sur
+glance
+more here
+sur
+l
+ls
+goto cultivo 25_c
+glance
+norte
+glance
+norte
+glance
+sudeste
+este
+glance
+este
+noreste
+glance
+este
+norte
+glance
+sur
+glance
+sudeste
+glance
+sudeste
+glance
+este
+glance
+noreste
+glance
+norte
+glance
+norte
+glance
+sudeste
+glance
+sudeste
+glance
+noreste
+glance
+norte
+glance
+norte
+glance
+norte
+glance
+oeste
+glance
+norte
+glance
+sudoeste
+more here
+ls
+noreste
+glance
+more here
+l
+norte
+glance
+more here
+l
+goto cultivo_28.c
+glance
+sudoeste
+glance
+sur
+glance
+sur
+goto cultivo_1.c
+glance
+t vilat no
+t vilat tengo que ponerlos
+l
+t vilat tamos discutiendo minucias con respecto a los npcs
+norte
+glance
+este
+glance
+este
+noreste
+glance
+este
+sudeste
+glance
+este
+sudeste
+glance
+este
+glance
+este
+noreste
+glance
+este
+norte
+glance
+norte
+glance
+sudeste
+glance
+sudeste
+glance
+noreste
+glance
+norte
+glance
+norte
+glance
+norte
+glance
+noroeste
+oeste
+glance
+more here
+este
+glance
+oeste
+glance
+norte
+glance
+cre toy mirando una cosa que ta mal creo
+more here
+noreste
+glance
+more here
+norte
+glance
+l
+more here
+sur
+cre na na
+cre ahora lo arreglo
+update here
+l
+sur
+glance
+sudoeste
+glance
+noreste
+glance
+cre arreglado
+norte
+glance
+norte
+glance
+more here
+sudoeste
+ls
+noreste
+glance
+sudoeste
+glance
+noreste
+glance
+norte
+glance
+norte
+glance
+norte
+glance
+sur
+glance
+sudoeste
+sur
+glance
+sudoeste
+glance
+sur
+glance
+norte
+glance
+sudoeste
+sur
+glance
+sur
+glance
+sur
+sudoeste
+glance
+sur
+glance
+norte
+glance
+sudoeste
+more here
+noreste
+glance
+norte
+glance
+norte
+glance
+oeste
+sudoeste
+noreste
+glance
+norte
+glance
+norte
+glance
+norte
+glance
+sudoeste
+sur
+glance
+sur
+glance
+sur
+sudoeste
+glance
+sudoeste
+cre nas
+sur
+glance
+norte
+glance
+noreste
+glance
+norte
+glance
+norte
+glance
+norte
+glance
+sudoeste
+oeste
+cre vilat
+cre no pasa nada por que sea casi todo pasillo unico no?=
+cre cre los cultivos
+l
+cre noooo
+cre pero que en pocos puntos se pueden tomar varias direcciones
+cre na dejalo
+l
+sudoeste
+l
+sur
+glance
+norte
+glance
+save
+sc
+sc
+who
+cre nas
+more here
+l
+sur
+glance
+sur
+glance
+sur
+ls
+cd cultivos
+goto cultivo_1.c
+glance
+l
+norte
+glance
+este
+glance
+noreste
+glance
+sudeste
+glance
+sudeste
+glance
+este
+glance
+noreste
+glance
+norte
+glance
+norte
+glance
+sudeste
+glance
+sudeste
+glance
+noreste
+glance
+norte
+glance
+norte
+glance
+norte
+glance
+oeste
+glance
+norte
+glance
+noreste
+glance
+norte
+glance
+norte
+glance
+noreste
+glance
+norte
+glance
+norte
+glance
+norte
+glance
+update cultivo_37.c
+sudoeste
+glance
+decir %^CYAN%^ NAS NAS %^RESET%^
+updte here
+update here
+l
+norte
+glance
+sur
+glance
+norte
+glance
+norte
+oeste
+glance
+norte
+glance
+norte
+este
+noreste
+glance
+norte
+glance
+norte
+glance
+noreste
+glance
+norte
+glance
+norte
+glance
+norte
+glance
+sudoeste
+glance
+decir %^BOLD%^CYAN%^ MAS
+update here
+l
+noreste
+glance
+sudoeste
+glance
+sur
+upsate cultivo 38.c
+update cultivo_38.c
+noreste
+glance
+sudoeste
+glance
+sur
+glance
+sur
+sudoeste
+norte
+glance
+sur
+glance
+update cultivo_39.c
+sur
+sudoeste
+glance
+noroeste
+noreste
+glance
+sudoeste
+glance
+noreste
+glance
+norte
+glance
+noreste
+glance
+sur
+glance
+sur
+glance
+sudoeste
+glance
+sudoeste
+norte
+norte
+update here
+l
+norte
+noreste
+glance
+sudoeste
+glance
+update cultivo_xx.c
+norte
+glance
+sur
+glance
+norte
+glance
+cre nas
+noreste
+glance
+sudoeste
+glance
+sur
+glance
+update cultivo_xx.c
+l
+sur
+glance
+sur
+glance
+norte
+glance
+norte
+glance
+sur
+glance
+a xj g
+l
+sc
+cre ein?=
+sc
+l
+norte
+glance
+norte
+glance
+sudoeste
+sur
+glance
+sudoeste
+glance
+noroeste
+noroeste
+noroeste
+noroeste
+noreste
+glance
+sudoeste
+glance
+noroeste
+noroeste
+update cultivo_40.c
+sc
+ls
+noroeste
+glance
+update here
+l
+sudeste
+glance
+noroeste
+glance
+sudoeste
+cd ..
+ls
+cd cultivos
+sc
+sc
+l
+sudoeste
+sudeste
+glance
+noreste
+glance
+sur
+glance
+sur
+glance
+noroeste
+sur
+glance
+norte
+glance
+noreste
+glance
+sudoeste
+glance
+noreste
+glance
+sudoeste
+glance
+sudoeste
+more here
+ls
+cd ..
+ls
+l
+cd cultivos
+sc
+l
+cre nas
+l
+save
+qui
+quit
+glance
+who
+cre nas nas
+cre bueno
+cre piro
+c cre cultivos
+cre cultivos
+cre hago 3 rooms mas
+cre y los termino
+cre las 3 rooms de enlazarlos
+g y ale
+cre y ale
+l
+who
+cre tonces que hago vilat
+cre cuando termine que?
+cre nas
+l
+sc
+l
+who
+cre oks
+cre perfecto
+cre hay alguna forma
+cre de bajar todo lo que he creado de golpe
+cre en lugar de room a room?
+cre si
+cre oks piro ya me explicaras
+save
+quit
+glance
+who
+cre nas ans
+l
+cre bueno
+sur
+glance
+norte
+glance
+norte
+norte
+glance
+sur
+g jejeej como mola
+cre como mola esta room
+cre jejeje
+cre pega un poco el cantazo que es de quest no? jajaja
+l
+l
+decir ains
+decir como hao
+decir como hago
+decir para que estar en la room
+decir haga pvs
+decir cada tantos segundos
+decir 5 o 10 pvs
+sc
+intercre madre mia
+intercre a saber que taras viendo xd
+intercre conicas marcinas fijo
+who
+intercre nus vemos
+l
+cre nus vemos vilat
+intercre porcierto
+intercre el luz sigue sin funcionar bien
+intercre jajajajaja
+intercre buenas noches nes no os canseis
+intercre besitos vilat muaca ( que gay me toy volviendo)
+intercre que va
+intercre que no se como hacer una cosa en la room
+inercre y como el vilat es una machine
+intercre y como el vilat es una machine
+intercre a ver si me lo solucionaba
+intl
+cre dime
+l
+cre bua
+cre pos
+cre dejalo que me piro a foll...digo a dormir
+intercre pero sera en igles como todos
+intercre sus amos ha arrasar
+intercre cuando abramos
+intercre juasca
+intercre ale nus vemos gentucilla
+intercre pro cierto gestur muchas gracias por contestarme al mail
+intercre que al radkar le mande un mail mas largo casi que a ti
+intercre y ni las gracias la perra
+l
+intercre eso que que estas caliente nada mas
+intercre jajaja
+intercre lo dices por el luz?
+intercre jajajaja tal vez si le poneis la esfera de llamada a los antis
+intercre funcionaria mejor jajaja
+sc
+intercre xd
+intercre si yo se que os lo currais hobmre
+intercre es por jode un poquillo la marrana na mas
+intercre y si no que se lo digan a gestur que lo tengo amargado jajajaja
+intercre bueno dejarme salir ya joer que tengo que acostarme con mio novia
+intercre sipes la verdad es que sipes
+intercre tengo la ficha demasiado buena...xd
+intercre comprendeme vilat
+intercre es que se me pone morcillona cuando entro xd
+intercre argg
+intercre que perra
+intercre ademas ahora me falta un pk
+intercre pa entrar en el highscore ese
+intercre buenas noches inmortales del mundo
+intercre que no sus coma el coco del ultraedit xd
+intercre bye
+cre bye vilat
+l
+abraza vilat
+sonreir vilat
+save
+quit
+glance
+who
+l
+sc
+norte
+glance
+norte
+glance
+sur
+glance
+sudoeste
+glance
+noroeste
+glance
+sudoeste
+oeste
+oeste
+sudoeste
+sudeste
+glance
+noreste
+glance
+l
+dir
+ls
+cd cultivos
+ls
+sar keroon Keroon *.c
+update *.c
+m
+l
+alias herror sar el fallo a lo correcto *.c
+sar gra gran *.c
+update *.c
+l
+glance
+who
+l
+norte
+glance
+noreste
+glance
+l
+sur
+glance
+norte
+glance
+sudoeste
+glance
+sur
+glance
+sudoeste
+glance
+noreste
+glance
+sur
+glance
+sur
+glance
+sudoeste
+norte
+glance
+norte
+glance
+sudoeste
+glance
+noroeste
+glance
+sudoeste
+glance
+who
+cre nas
+intercre nas
+l
+l
+sso
+sudoeste
+ls
+cd cultivos
+update here
+l
+sudoeste
+glance
+update here
+l
+noreste
+sudeste
+glance
+noroeste
+glance
+sudoeste
+glance
+log
+decir http://www.geocities.com/reinosdedrogata/index.html
+l
+l
+who
+cre nas nas
+sc
+l
+l
+save
+l
+ls
+save
+quit
+glance
+who
+cre nas nas
+intercre nas nas currantes de los muds xd
+intercre rutseg que tal va el devel?
+l
+i
+l
+l
+intercre jajaja
+intercre es que oi algo de que lo abririais en navidades o asi
+intercre supongo que seria chachara
+intercre jeje
+intercre na habladurias de la gente
+sc
+l
+save
+quit
+who
+cre nas nas gentucillas
+intercre nas nas gentucillas programadoras
+update here
+l
+l
+sudeste
+glance
+sse
+sudeste
+glance
+noroeste
+glance
+sudoeste
+glance
+sur
+ls
+cd cultivos
+update cultivo_42.c
+l
+sur
+glance
+sudeste
+norte
+glance
+noreste
+sudeste
+glance
+noroeste
+sudeste
+glance
+noreste
+glance
+sur
+glance
+norte
+glance
+sudoeste
+glance
+noroeste
+glance
+sudoeste
+glance
+update here
+l
+noreste
+glance
+sudoeste
+glance
+sur
+glance
+sudeste
+l
+sudeste
+glance
+este
+glance
+noreste
+glance
+norte
+glance
+noreste
+glance
+sudeste
+glance
+noreste
+glance
+este
+sur
+glance
+sur
+glance
+l
+more here
+update *.c
+l
+sudoeste
+glance
+oeste
+glance
+noroeste
+glance
+norte
+glance
+noreste
+glance
+sudeste
+glance
+este
+noreste
+glance
+este
+norte
+glance
+noreste
+glance
+sur
+glance
+sur
+glance
+sur
+sudoeste
+glance
+sur
+glance
+sur
+glance
+este
+sudoeste
+glance
+sudoeste
+sudoeste
+more here
+noreste
+glance
+sudoeste
+glance
+update *.c
+l
+sudoeste
+glance
+update here
+l
+noreste
+glance
+sudoeste
+glance
+noreste
+glance
+sur
+glance
+este
+glance
+sur
+glance
+sur
+glance
+sur
+glance
+sudoeste
+glance
+noroeste
+glance
+noroeste
+glance
+noroeste
+glance
+norte
+glance
+sur
+glance
+sur
+glance
+sudoeste
+glance
+sudoeste
+glance
+noroeste
+glance
+oeste
+sudoeste
+glance
+oeste
+glance
+oeste
+glance
+oeste
+glance
+noreste
+glance
+noroeste
+glance
+norte
+glance
+norte
+glance
+cre 4 room y termino
+cre bueno piro a cenar
+sc
+who
+cre manyana hablare con thalos
+cre a ver que dice
+intercre bye
+save
+quit
+glance
+cre nas
+intercre nas nas
+l
+more here
+norte
+sur
+glance
+norte
+glance
+update ehre
+update here
+noroeste
+upadte *.c
+update *.c
+cd cultivos
+update *.c
+noroeste
+more here
+update here
+l
+noroeste
+glance
+l
+sudeste
+glance
+noreste
+glance
+update here
+update ].c
+update *.c
+cre termine!
+l
+sudoeste
+glance
+noreste
+glance
+l barrera
+sudoeste
+glance
+noroeste
+glance
+l saco
+update here
+l
+l saco
+l
+sudeste
+glance
+noroeste
+glance
+intercre uee termine! xd
+intercre que ilu
+who
+intercre lastima que este vilat que me va a decir que ta todo mal
+intercre xd
+cre xd
+update here
+l.
+update here
+ls
+update here
+cre vilat tas?
+who
+more here
+l
+goto cultivo_8.c
+glance
+noroeste
+l
+update caseta_4.c
+goto caseta_4.c
+t vilat please cuando puedas
+sc
+l
+update caseta_4.c
+more caseta_4.c
+update here
+update caseta_4.c
+update caseta_4.c
+noroeste
+glance
+l
+l saco
+mover saco
+l
+dentro
+cre oks arreglad
+cre soy un cazurro
+update here
+cre pos
+cre hoy lo he visto subiendo algo
+cre no se que seria
+l
+mover saco
+dentro
+l
+dentro
+dentro
+l
+dentro
+update cultivo_60.c
+cre jode
+cre no hay algun modo
+cre de que
+cre sea siempre unix lo que programas
+cre que siempre me pasa igual cojone
+l
+dentro
+glance
+norte
+fuera
+glance
+dentro
+glance
+cre si
+update cultivo_61.c
+norte
+update cultivo_61.c
+norte
+glance
+norte
+cre ok
+cre manyana le digo que lo suba
+cre senyores senyoras
+c [?1;2cre en estos momentos
+cre en estos momentos
+cre cumplo anyos
+intercre senyores y senyoras en estos momentos cumplo anyos xd
+intercre gracias gracias
+intercre 12
+intercre xxxxxddddddddddd
+intercre na soy pqeuenyin 19
+l
+intercre como regalo quiero un cursillo de programacion xd
+norte
+glance
+l
+intercre si
+intercre soy petenyo
+l
+update here
+l
+sur
+sur
+more here
+update here
+sur
+glance
+norte
+glance
+sur
+glance
+sur
+glance
+sur
+fuera
+glance
+sudeste
+glance
+noroeste
+glance
+l
+cre vilat?
+who
+cre yas?
+sc
+l
+cre tas?
+l
+update here
+cre pos contesta! xd
+l
+sc
+cre a ver si me puedes explciar una cosilla
+cre como hago
+cre para cuando
+cre una room con salida secreta ok?
+cre como hago
+cre para que una ve
+cre ha pasado uno
+cre la salida desaparezca
+l
+cre hasta que no salga el que esta dentro
+cre si
+cre pero quiero
+cre que solo
+cre pueda entrar uno
+cre mientras hay un tio dentro no pueda entrar otro
+cre un xxxx ok
+cre como hago eso xd
+cre que?
+cre .....
+cre si si
+cre jode
+cre y como lo hago para que solo haya uno en la room
+cre ok ok
+cre a ver
+cre quiero primero
+cre que una vez un tio activa la salida secreta y entra en ella
+cre la saldia
+cre desaparezca
+cre y tengas que vovler a mover arbustos y tal
+cre que puendan entrar los dos a la room
+cre o los que quieras
+cre pero es que un dentro
+cre no queda bien que este ahi todo el rato
+l
+mover saco
+l
+l puerta
+l
+dentro
+glance
+l
+norte
+glance
+norte
+glance
+l
+sur
+glance
+sur
+glance
+sur
+fuera
+glance
+cre sabes?
+sc
+who
+cre ok dime una room que ya te hecha asi y la miro
+sc
+ls
+cd ..
+ls
+cd cultivos
+l
+cre nas nas
+vis
+who
+more vulvac
+l
+l vulvac
+l
+sc
+wgho
+who
+who drow
+who enano
+who orco
+who duergar
+who goblin
+l
+sc
+finger orco
+finger drow
+finger drows
+sc
+l
+who
+cre vilat dejalo me piro a dormir
+cre dime una room que te asi y la miro manyana
+sc
+l
+who
+who
+l
+who
+l
+sc
+plaza
+norte
+glance
+bow espartaco
+sur
+glance
+sur
+glance
+sur
+sur
+l signo
+norte
+glance
+sudoeste
+glance
+sudoeste
+glance
+sudoeste
+glance
+sudoeste
+glance
+sudoeste
+glance
+sudoeste
+glance
+noreste
+glance
+noreste
+glance
+noreste
+glance
+norte
+norte
+goto rebaneitor
+l
+norte
+more here
+goto guild_guerreros_elfos
+l
+sur
+sudoeste
+glance
+sur
+sudoeste
+glance
+sudoeste
+glance
+sur
+glance
+sur
+norte
+glance
+sudeste
+glance
+noroeste
+glance
+sur
+glance
+more here
+qq ok
+cre ok
+apartar hojas
+l
+l hojas
+l
+l maleza
+l
+abajo
+glance
+l
+more here
+l roca
+noreste
+l
+apartar roca
+l
+noreste
+glance
+este
+glance
+sudeste
+glance
+l ogro
+more ogro
+more ogro
+plaza
+l
+noroeste
+glance
+sudeste
+glance
+call do_death orgr
+call_dodeat ogro
+l
+resucitar
+l
+sc
+z
+sc
+f
+z
+enterrar
+l
+l ogro
+more ogro
+call do_Death() ogro
+l
+clone tronco de arbol
+ls
+l
+cd..
+cd ..
+cd ..
+cd ..
+cd room
+cd camino_avalon
+ls
+cd objs
+cd
+ls
+cd
+cd ..
+cd ..
+cd room
+cd camino_avalon
+cd objs
+ls
+clone tronco.c
+i
+l tronco
+eq
+l
+l
+noroeste
+glance
+oeste
+glance
+oeste
+sudoeste
+glance
+sto
+stop
+arriba
+glance
+more tronco
+i
+eq
+l
+norte
+glance
+noroeste
+glance
+arriba
+arriba
+abajo
+sur
+ls
+clone brazalete_ogro.c
+l brazalete
+i
+more brazalete_ogro.c
+clone cinturon_prisma.c
+more cinturon
+cd
+cd
+ls
+save
+goto mery.v
+goto mery.c
+glance
+save
+save
+save
+quit
+who
+ls
+cd cultivos
+l
+ls
+goto cultivo_8.c
+glance
+noreste
+glance
+sudoeste
+glance
+noroeste
+glance
+sudeste
+glance
+sc
+l
+noroeste
+glance
+mover saco
+l
+dentro
+glance
+fuera
+glance
+who
+l
+sudeste
+glance
+sur
+glance
+sur
+glance
+sur
+sudeste
+glance
+sudoeste
+glance
+este
+glance
+este
+glance
+sudeste
+update here
+l
+sudeste
+glance
+l
+update here
+l
+l mesa
+l
+noroeste
+glance
+l
+sudoeste
+glance
+cre nas
+noroeste
+glance
+oeste
+sudoeste
+glance
+oeste
+glance
+sudeste
+glance
+update here
+noroeste
+glance
+sudeste
+glance
+noroeste
+glance
+cre siempre le buscan
+cre buscan a...jax
+sc
+cre ale rooms terminadas
+cre empecemos con los npcs
+ls
+cd ..
+cd ..
+l
+ls
+cd aprendizaje
+ls
+clone cgsivil.c
+l
+i
+l
+l
+sc
+sudeste
+glance
+noroeste
+glance
+ls
+clone hunther.c
+l
+l hunther
+dest hunther
+l
+cd ..
+ls
+cd thalos
+ls
+cd ..
+l
+cd ..
+ls
+cre vilat
+cre donde miro un npc
+cre asi de xp?
+cd ..
+cd ..
+l
+cd vulvac
+cre viajeros y tal
+cre cosas de xp
+cre sipes
+l
+l
+cre de ande pillo un npc?
+sc
+l
+cre de xp
+l
+sc
+l
+cre si
+l
+cd ..
+ls
+cre pos
+cre un mercenario
+cre mismamente
+cre no
+cre demasiado flojo
+cre mercenario
+cre pos
+cre bandido o ladron si
+sc
+	
+cre juas
+cre y eso?
+sc
+cre jode
+cre pos
+cre un agricultor de esos
+cre osea un habitante
+cre yaps me lo suponia por eso no lo queria
+cre pos eso
+cre ande ta?
+sc
+l
+l
+ls
+cd w
+ls
+cd vulvac
+ls
+cre thanks
+clone hab_eloras.c
+l
+more habitante
+l
+ls
+cd ..
+ls
+cd ..
+cd baseobs
+ls
+cd weapons
+ls
+clone fauchard_fork.c
+l
+i
+l
+ls
+clone daga
+l daga
+ls
+ls
+l
+cd
+l
+sc
+ls
+dest habitante
+sc
+sc
+l
+l
+sls
+ls
+mk dir
+mkdir dir
+l
+ls
+mkdir armas
+ls
+alias crear
+alias crear mkdir
+crear armaduras
+mkdir armaduras
+l
+ls
+ls
+crear npcs
+mkdir npcs
+ls
+cd npcs
+clone agricultor.c
+sc
+l
+update agricultor.c
+clone agricultor.c
+ls
+cd ..
+ls
+cd npcs
+l
+ls
+l
+ls
+cd..
+cd ..
+ls
+cp path.h /w/vulvac/npcs/
+cd npcs
+ls
+up *
+up agricultor.c
+update agricultor.c
+l
+clone agricultor.c
+l
+l agricultor
+l Agricultor
+l
+l agricultor
+l agricultor
+l agricultores
+update agricultor.c
+l
+l agricultor
+l agricultores
+l Agricultor
+l
+l agricultores
+update agricultor.c
+update agricultor.c
+l
+dest agricultor
+clone agricultor.c
+l agricultor
+plaza
+sur
+glance
+more khalium
+more khalim
+l
+ls
+goto cultivo_8.c
+update agricultor.c
+clone agricultor.c
+l
+l agricultor
+call do_death() thalos
+who
+call remove_death()thalos
+call remover_death() thalos
+l
+who
+call do_death() thalos
+who
+l
+z
+enterrar
+norte
+glance
+sc
+sc
+ls
+cd ..
+ls
+cd cultivos
+goto cultivo_8.c
+glance
+sc
+l
+update thalos
+who
+update thalos
+l
+sc
+l
+sc
+l
+entrar todo
+enterrar
+sc
+l
+update agricultora.c
+ls
+cd ..
+cd npcs
+update agricultora.c
+update agricultora.c
+l
+clone agricultor.c
+clone agricultora.c
+l
+l
+save
+l
+l
+ls
+sc
+l
+sur
+glance
+sur
+glance
+sur
+sudeste
+glance
+sudoeste
+glance
+este
+glance
+este
+glance
+sur
+glance
+update here
+l
+update cultivo_1.c
+l
+update cultivo_1.c
+ls
+cd ..
+ls
+cd cultivos
+update here
+l
+l
+l
+update here
+l
+save
+update here
+l
+update
+l
+update
+save
+l
+glance
+sc
+sur
+glance
+norte
+glance
+norte
+glance
+sur
+glance
+alias arreglar
+alias
+sar pot por *.c
+l
+ls
+cd npcs
+sar pot por *.c
+cre algo de lag
+update *.c
+cd ..
+cd cultivos
+update *.c
+l
+norte
+glance
+norte
+este
+glance
+qq ale
+cre ale
+qq terminado
+cre terminado
+este
+noreste
+glance
+este
+sudeste
+glance
+qq ya podeis enlazarla
+cre ya podeis enlazarla
+sc
+l
+sc
+l
+cre bueno amo y senyor thalos
+cre que hago ahora xd
+sc
+l
+cre arrabales?
+cre hablame en cristiano
+l
+sc
+cre vilat
+cre que da mas puntos de esas dos cosas
+cre para thane de orcos?? xd
+cre el palacio creo que dara msa puntos no?
+trns testvulvac
+trans tescvulvac
+l
+woh
+who
+trans testvulvac
+l
+l
+sc
+call adjust(level) 5
+call adjust level(testvulvac) 5
+cre y luchare por ello
+cre asi que como tenga oposicion
+cre van a ver dodeaths
+l
+cre un poco de seriedad hombre
+cre * Agricultor te pega con un arma perforante pero no sale un buen mensaje porque nadie se ha molestado en hacerlo.
+cre que es esto hombres de dios?
+cre si
+l
+z
+enterrar
+matar agricultor
+sc
+cre tengo que anyadir yo el mensaje?
+sc
+l
+sc
+l
+coger daga
+coger daga
+l
+coger curva
+coger daga curva
+l
+l
+eq
+sc
+l
+z
+enterrar todo
+l
+update
+l
+sc
+cre ok
+cre lo que queria saber era si era culpa mia
+cre ok
+qq bueno
+cre bueno
+qq zona acabada
+cre zona acabada
+l
+alias recordar quest de cultivos
+alias recordar
+sc
+l
+cre bueno ya que thalos de me deja elegir
+cre y que ahora es valar mi jefe
+cre dime valar
+cre que prefieres que haga
+sc
+l
+cre naaa
+cre no cuentas ya xd
+sc
+l
+intercre ans nas
+cre oks
+cre vale
+who
+cre si ademas
+cre no se a quien le he oido
+cre que el palacio cuenta mucho para ser thane de orcos
+cre que cosas se oyen por ahi
+cre fiajte tu
+cre xd
+cre jajajaja
+cre no hombre
+cre es una conya
+cre por que tengo que hacer puntos para ser thane
+sc
+l
+cre juas
+cre de verdad
+cre que poco respeto
+sc
+cre jode
+cre con lo orgulloso que estoy yo de mi zona
+cre y nadie me da palmaditas en la espalda
+cre buaaaaaaa!!!!!
+cre snif snif
+lks
+ls
+cd ..
+goto mery.c
+glance
+save
+save
+quit
+glance
+sc
+who
+intercre y a mi tambien! xd
+cre pero sin llegar a las manos
+sc
+l
+intercre seth
+intercre los magos que tal van? les falta mucho o que?
+quit
+glance
+wh
+cre juas
+cre que os mola mi room o que?
+sc
+cre la hizo mi novia cuanto taba toda ciega de maria
+l
+sonreir
+who
+cre a to esto nas
+intercre nas nas
+cre vilat
+cre por que salgo en verde?
+sc
+sc
+save
+quit
+glance
+who
+cre nas nas
+cre vilat
+cre has visto mi zona terminada?
+intercre nas nas gentucillas
+l vilat
+sc
+l
+l
+l
+l
+lllllllllllllllllllll
+woh
+who
+sc
+cd
+ls
+cd cultivos
+ls
+go cultiv_70.c
+goto cultivo_70.c
+goto cultivo_60.c
+glance
+du
+fuera
+glance
+sudeste
+glance
+sur
+glance
+sur
+glance
+norte
+glance
+sudeste
+sur
+glance
+sudeste
+glance
+sudoeste
+glance
+este
+glance
+este
+glance
+este
+glance
+noreste
+glance
+norte
+glance
+sur
+glance
+sudeste
+glance
+noreste
+glance
+noreste
+glance
+norte
+glance
+norte
+glance
+sur
+glance
+sudeste
+glance
+sur
+glance
+norte
+glance
+sudeste
+glance
+sudeste
+glance
+noreste
+glance
+norte
+glance
+norte
+glance
+norte
+glance
+oeste
+glance
+trans vilat
+l
+norte
+glance
+sudoeste
+glance
+noreste
+glance
+noreste
+glance
+norte
+glance
+norte
+glance
+sudoeste
+glance
+trans vilat
+oeste
+glance
+noroeste
+glance
+norte
+glance
+noreste
+glance
+sudeste
+glance
+trans vilat
+trans vilat
+who
+l
+trans vilat
+l
+who
+l
+noreste
+glance
+sc
+l
+inform all
+call do_death () agricultor
+l
+di
+coger monedas de cuerpos
+z
+l
+enterrar todo
+sc
+i
+quit
+glance
+who
+cre las
+unform all
+inform
+inform off
+inform all off
+l
+sc
+intercre nas nas
+sc
+who
+save
+goto mery.c
+glance
+l
+cre bueno viste la zona ya?
+sc
+l
+f
+cre xd igual que ahora jejeje
+l
+goto cultivo_30.c
+cd cultivos
+goto cultivo_60.c
+glance
+fuera
+glance
+goto cultivo_35.c
+glance
+trans vilat
+sur
+glance
+sudoeste
+glance
+cre ta eso
+cre ta esta
+trans vilat
+sudoeste
+glance
+oeste
+glance
+cre esta es la que mas me gusta
+trans vilat
+cre bueno
+cre piro
+sc
+l
+cre si
+cre ya me descriminas luego...xd
+cre aus
+save
+save
+quit
+who
+cre vilat tio
+cre duerme un poco o sal
+cre haz algo
+cre xd
+intercre nas nas currantes
+quit
+glance
+who
+l
+sc
+quit
+glance
+who
+cre na snas
+intercre nas nas
+goto mery.c
+glance
+sc
+l
+l
+l
+quit
+glance
+who
+cre na slas
+intercre nas las
+l
+cre bueno
+cre empecemos con el palacio
+sc
+cre no tengo ni idea de donde va pero en fin
+cre jode me dicen las cosas y no me dicen como hacerlo
+cre ains estos inmos...xd
+sc
+l
+sc
+cre vilat viste algun fallo en mis cultivos?
+sc
+l
+who
+sc
+l
+cre o no has mirado?
+l
+cd
+ls
+alias
+crear palacio
+mkdir palacio
+ls
+cre valar igual esta un poco picado conmigo no se...xd
+who
+l
+cre por que lo he matado hoy con la xp para level
+l
+cre pero
+cre creia que estaba de pk
+cre me he sentido fatal
+sc
+l
+quit
+glance
+who
+eq
+who
+i
+who
+CRE LAS
+cre nas
+	who
+who
+intercre nas nas
+whjo
+who
+who
+quit
+who
+cre nas nas
+cre valar
+cre tas
+cre te pongo en el nick o no? xd
+cre ok pero en general digo
+cre ok
+cre como quieres que sea el palacio?
+l
+t valar ahora ahre past pk pera xd
+sc
+past
+who
+cre aus
+cre nas nas
+cre xerxes que al final sigo currando en keroon oks?
+l
+cre osrry
+ls
+cd cultivos
+goto cultivo_71.c
+goto cultivo_70.c
+l
+ls
+goto cultivo_60.c
+glance
+fuera
+glance
+apartar saco
+l
+mover sao
+l saco
+apartar saco
+mover saco
+l
+dentro
+glance
+norte
+glance
+norte
+glance
+got cultivo_xx.c
+goto cultivo_xx.c
+glance
+l
+l
+norte
+glance
+norte
+glance
+noreste
+glance
+este
+sur
+glance
+sur
+glance
+sur
+sudoeste
+glance
+sur
+glance
+sur
+glance
+sudoeste
+glance
+oeste
+os
+oeste
+sudoeste
+glance
+oeste
+l
+noreste
+glance
+goo cultiv_1.c
+goto cultivo_1.c
+glance
+norte
+glance
+sudeste
+glance
+noroeste
+glance
+oeste
+glance
+oeste
+glance
+oeste
+noreste
+glance
+norte
+noroeste
+glance
+norte
+glance
+norte
+glance
+noreste
+glance
+sudoeste
+glance
+more agricultor
+alias
+ls
+cd ..
+cd npcs
+sar 30 20 ].c
+l
+sar 30 20 *.c
+l
+more agricultor
+l
+sar 20 10 *.c
+l
+ls
+cd ..
+cd cultvios
+cd cultivos
+update *.c
+goto cultivo 60.c
+glance
+norte
+glance
+norte
+glance
+l
+goto cultivo_60.c
+l
+sur
+glance
+sur
+glance
+norte
+glance
+norte
+glance
+oeste
+glance
+oeste
+glance
+noreste
+glance
+noroeste
+glance
+noroeste
+norte
+glance
+norte
+glance
+noroeste
+glance
+mover saco
+dentro
+dentro
+update cultivo_61.c
+goto cultivo_61.c
+glance
+norte
+glance
+sur
+glance
+sur
+update cultivo_60.c
+norte
+glance
+sur
+glance
+sur
+glance
+l
+norte
+f
+fuera
+glance
+dentro
+glance
+norte
+update here
+l
+norte
+norte
+l
+norte
+norte
+l
+norte
+norte
+norte
+norte
+norte
+goto cultivo_61.c
+glance
+sur
+glance
+norte
+norte
+norte
+norte
+norte
+more hgere
+more here
+ls
+update here
+l
+norte
+glance
+sur
+glance
+sur
+norte
+glance
+norte
+glance
+sur
+glance
+sur
+fuera
+glance
+save
+sudeste
+glance
+who
+who
+goto mery.c
+cd ..
+goto mery.c
+glance
+cd
+cd palacio
+update *.c
+goto palacio.c
+glance
+l
+l armaduras
+l
+who
+gritar tas malito
+update her
+update here
+l
+sur
+update
+l
+sar honrrar honrar *.c
+l
+update here
+l
+cre nas nas
+intercre nas nas
+sc
+l
+l antorchas
+l armaduras
+sar aramaduras armaduras ].c
+sar aramaduras armaduras *.c
+l armaduras
+update here
+l aramaduras
+l armaduras
+sc
+glance
+who
+cre na snas
+cre vilat
+cre tienes idea de como se llama el rey de los duergars???
+intercre na snas
+cre como mola thalos y valar
+cre me dicen haz un palacio
+cre y no me dicen ni pa quien
+cre a mi
+cre lo que mas puntos me da xd
+cre vilat
+cre que me da mas puntos trabajar con jade o en keroon??? xd
+cre pero si he hablado hoy con xerges
+cre y me ha dicho que no hay problema
+cre a mi donde me decis
+cre lo que no puedo es programar dos zonas
+cre yo ahora he terminado en keroon
+cre VILAT DIME DONDE VOY Y AHI ME QUEDO
+cre pero es que yo voy donde me decis donde mas falta hago
+cre empiezo el palazio?
+cre ok empizo el palacio
+who
+cre sorry jade
+cre jade de todas formas tu eres raza buena?
+finger jade
+save
+quit
+WHO
+who
+cd
+ls
+cd ..
+ls
+cd thalos
+l
+ls
+cd ..
+l
+ls
+cd ..
+ls
+cd d
+ls
+cd keroon
+ls
+cd entrada
+l
+ls
+goto ent02.c
+glance
+este
+glance
+este
+glance
+sudeste
+glance
+noreste
+glance
+este
+glance
+este
+glance
+noreste
+glance
+sur
+glance
+sur
+glance
+sur
+glance
+sudeste
+glance
+noreste
+glance
+noreste
+glance
+ls
+cd ..
+ls
+cd keroon
+ls
+cd ..
+cd keroon
+cd
+cd keroon
+ls
+cd ..
+cd ..
+cd kerron
+cd keroon
+l
+ls
+cd d
+cd keroon
+cd keroon
+l
+ls
+cd keroon_pobre
+ls
+cd keroon_0.c
+goto keroon_0.c
+glance
+l
+sudoeste
+glance
+sur
+glance
+sur
+glance
+sudoeste
+glance
+este
+glance
+este
+glance
+este
+glance
+este
+glance
+este
+glance
+este
+glance
+puertas
+glance
+puertas
+glance
+sur
+glance
+sur
+glance
+sur
+glance
+sur
+glance
+sur
+glance
+sur
+oeste
+glance
+oeste
+glance
+got keroon_21.c
+goto keroon_21.c
+glance
+l signo
+leer signo
+l
+leer signo
+more here
+l
+sc
+quit
+glance
+who
+cre nas nas gentucilla
+intercre nas nas gentucilla
+l guardia
+matar guardia
+l guardia
+.
+l guardia
+cre umm
+cre estoe esta bugeado
+cre estos guardias tiene el equipo cargando
+l
+l
+puertas
+glance
+puertas
+glance
+cre no se vi a mirar es que no son mios son de thalos
+more guardia
+cre si
+cre init_equip();
+l
+l
+more guardia
+qq si
+cre si
+qq despuest
+cre despuest
+m guardias
+matar guardias
+more guardia
+cre ummm vilat
+cre los comandos rabia y bash tan puestos?
+l
+matar guardias
+l guardia
+cre tan puestos los comandos?
+l
+cre es que en teoria hacen bash y rabia y no han hecho ninguno de los dos comandos
+mote guardias
+sc
+more guardia
+cre bufff
+cre estos guardias tan super bugeados
+cre madre mia
+cre que maroon le voy a meter el thalos manyana
+sc
+cre xd
+l
+l cuerpos
+coger armadura de cuerpos
+more armadura
+z
+l
+enterrar
+coger capa
+coger hacha
+more armadura
+cre el que?
+l
+coger hacha
+more hacha
+cre por?
+cre que es blinck?
+cre y pa que usais eso?
+cre es una rallada
+l
+sc
+qq a mi ver es inutil
+cre a mi ver es inutil
+qq pero bueno
+cre pero bueno
+qq no se no me parece mu normal
+cre no se no me parece mu normal
+qq aunque pa algunas cosas es super util
+cre aunque pa algunas cosas es super util
+qq calla guarro!
+cre calla guarro!
+qq jajaja
+cre jajaja
+qq puede ser un continuo semaforo
+cre puede ser un continuo semaforo
+cre bueno gentecilla
+cre piro a ducharme
+cre a ver si me pongo con el palacio pero es que me estan tocando los huevos estos dos
+cre el thalos
+who
+cre el thalos que tiene hecha la forma del palacio
+cre pero no me lo pasa
+cre y el valar
+cre que no  me dice na
+cre ale
+sc
+l
+cre juas
+cre ducha time
+sc
+l
+quit
+glance
+who
+sc
+l
+who
+goto palacio.c
+ls
+cs palacio
+cd palacio
+l
+ls
+goto palacio.c
+glance
+l
+alias
+sar Pepe Ramthor
+sar Pepe Ramthor *.c
+update here
+l
+l antorchas
+l armaduras
+sc
+who
+cre nas
+sc
+update *.c
+l
+norte
+norte
+sur
+goto palacio_1.c
+glance
+norte
+arriba
+norte
+update palacio_2.c
+update *.c
+update *.c
+l
+ls
+cd
+ls
+cd cultivos
+ls
+cd ..
+l
+cd palacio
+ls
+cd
+cd
+cd ..
+cd ..
+cd d
+ls
+cd keroon
+ls
+cd  cementerio
+ls
+cd path.h
+cd ..
+ls
+cd path,h
+more path.h
+l
+cd ..
+cd ..
+cd vulvac
+cd w
+cd vulvac
+cd palacio
+goto palacio_1.c
+update  *.c
+cd
+cd cultivos
+update *.c
+goto cultivo_2.c
+glance
+norte
+este
+glance
+este
+noreste
+glance
+este
+norte
+glance
+sur
+glance
+sudeste
+glance
+este
+noreste
+glance
+este
+noreste
+glance
+este
+norte
+glance
+norte
+glance
+sur
+glance
+sudeste
+glance
+sudeste
+glance
+cd ..
+cd palacio
+l
+ls
+update *.c
+who
+update *.c
+cd ..
+cd ..
+cd ..
+cd d
+cd keroon
+ls
+more path2.h
+more path.h
+ls
+cd ..
+cd ..
+cd w
+cd vulvacv
+cd vulvac
+ls
+more path.h
+update *.c
+update *.h
+l
+more path.h
+cd palacio
+update *.c
+update *.c
+l
+goto palacio_1.c
+glance
+norte
+glance
+norte
+glance
+norte
+update *.c
+update *.c
+l
+norte
+glance
+norte
+sur
+glance
+sur
+glance
+norte
+glance
+cre nas nas
+sur
+glance
+sur
+glance
+sur
+norte
+glance
+norte
+glance
+norte
+glance
+update *.c
+l
+norte
+glance
+norte
+sur
+glance
+sur
+glance
+sc
+update palacio_a.c
+oeste
+oeste
+l
+oeste
+more here
+ls
+oeste
+update palacio_a.c
+oeste
+l
+update here
+oeste
+l
+more here
+UPDATE *.C
+update *.c
+oeste
+glance
+este
+glance
+norte
+glance
+norte
+glance
+oeste
+sur
+glance
+sur
+glance
+sur
+glance
+sur
+oeste
+norte
+glance
+norte
+glance
+norte
+glance
+norte
+glance
+oeste
+update *.c
+l
+oeste
+glance
+oeste
+glance
+oeste
+glance
+sur
+este
+glance
+oeste
+glance
+update *.c
+sur
+glance
+l
+l papeles
+l mesas
+norte
+glance
+sur
+glance
+norte
+glance
+oeste
+este
+glance
+l
+sar antrochas antrochas *.c
+update *.c
+l
+sar honrrar honrar *.c
+update *.c
+l
+sar antrochas antorchas *.c
+update *.c
+l
+l
+sar Pepe Brauthor II *.c
+update *.c
+l
+l
+sar Brauthor Zhorthor *.c
+update *.c
+l
+sar rey Rey *.c
+update *.c
+ls
+l
+sar Zhorthor Zhorthor II *.c
+update *.c
+l
+l
+oeste
+glance
+oeste
+sar Zhorthor ZhorthorIII *.c
+update *.c
+l
+sar ZhorthorIII Zhorthor *.c
+update *.c
+l
+oeste
+l
+sc
+l
+update cultivo_9.c
+ls
+update palacio_9.c
+oeste
+glance
+oeste
+oeste
+oeste
+este
+glance
+este
+glance
+update *.c
+l
+oeste
+glance
+oeste
+glance
+sur
+glance
+sur
+glance
+sur
+este
+norte
+glance
+norte
+glance
+sur
+glance
+l
+l mosaico
+l mosacios
+l antorcha
+l antorchas
+b
+norte
+glance
+norte
+norte
+este
+glance
+este
+glance
+este
+glance
+este
+este
+este
+este
+glance
+este
+este
+update here
+l
+este
+glance
+este
+glance
+l
+l antorchas
+sar grandes pequenyas *.c
+update *.c
+l
+l antorchas
+oeste
+glance
+oeste
+glance
+oeste
+glance
+oeste
+glance
+oeste
+oeste
+sur
+glance
+sur
+glance
+sur
+sc
+l
+update palacio_c.c
+este
+glance
+oeste
+glance
+este
+glance
+l sillas
+oeste
+glance
+sc
+sur
+norte
+glance
+save
+who
+quit
+glance
+who
+cre nas nas
+intercre nas nas
+intercre que tal rutseg?? mucha faena ahi o que?? xd
+intercre pero al final es mentira eso de que abris en navidad no??
+intercre me han dicho que ta sin hacer casi
+intercre me lo dijo bastante gente
+intercre yo que fuy con toda la buena intencion a ayudar al rl y me escupiste xd
+intercre que poco corazon xd
+intercre ummmm
+intercre snif snif xd
+intercre que es bromeja cari
+L
+intercre con lo que me molas...XD
+save
+glance
+who
+glance
+cre nas
+wh
+owho
+who
+intercre nas
+cre bueno
+cre ya he programado hoy unr atillo xd
+cre aus
+save
+quit
+glance
+l
+l antorchas
+l mosaicos
+l mosaicos
+l mosaicos
+l mosaico
+more here
+sar mosacios mosaicos *.c
+cd palacio
+sar mosacios mosaicos *.c
+update *.c
+l
+l mosacio
+l mosaicos
+norte
+glance
+norte
+este
+glance
+este
+glance
+este
+glance
+sur
+glance
+l
+sar peqeunya pequenya *.c
+update +.c
+update *.c
+l
+l papeles
+l mesas
+norte
+glance
+este
+glance
+l
+l antorchas
+l armaduras
+i
+dest armadura
+l armadura
+l armaduras
+sar aramaduras armaduras *.c
+update *.c
+l
+l armaduras
+este
+glance
+este
+glance
+este
+sur
+glance
+sur
+glance
+oeste
+glance
+l
+l mes
+l mesa
+sar camostros camastros *.c
+update *.
+update *.c
+l camastros
+l
+este
+glance
+sur
+glance
+sur
+glance
+oeste
+arriba
+norte
+glance
+norte
+glance
+oeste
+glance
+l camastro
+l camastros
+l
+este
+glance
+norte
+glance
+norte
+glance
+norte
+norte
+oeste
+glance
+oeste
+glance
+oeste
+glance
+oeste
+glance
+l
+l mosaicos
+sc
+l
+save
+save
+quit
+glance
+who
+cre muahahaha
+cre que bonito esta el palacio
+cre xd
+intercre naslas
+l
+sc
+oeste
+glance
+oeste
+glance
+oeste
+sur
+glance
+sur
+glance
+sur
+este
+glance
+oeste
+glance
+sur
+sur
+cre el primer level
+cre voy a ahcerlo de 3
+cre y luego
+cre el trono
+cre muhahahaha
+cre sala de espera jejeje ale ale a esperar a la audieicnia muhahaha
+sc
+cre juas
+quit
+glance
+who
+cre nas nas
+intercre nas nas gentes
+l
+sc
+oeste
+este
+glance
+oeste
+glance
+sur
+norte
+glance
+norte
+glance
+sur
+glance
+sur
+glance
+norte
+glance
+norte
+glance
+este
+glance
+este
+este
+este
+este
+este
+sur
+glance
+sur
+glance
+sur
+glance
+sur
+glance
+oeste
+oeste
+norte
+glance
+norte
+glance
+norte
+glance
+norte
+glance
+oeste
+glance
+oeste
+oeste
+glance
+este
+glance
+este
+glance
+este
+oeste
+glance
+oeste
+glance
+oeste
+glance
+oeste
+glance
+oeste
+glance
+oeste
+glance
+sur
+glance
+sur
+glance
+sur
+sur
+update *.c
+cd palaci
+cd palacio
+update *.c
+l
+sur
+glance
+sur
+glance
+sur
+update palacio_16.c
+sur
+glance
+este
+norte
+glance
+norte
+glance
+norte
+glance
+norte
+glance
+norte
+glance
+este
+glance
+este
+glance
+este
+glance
+este
+glance
+este
+glance
+este
+glance
+update *.c
+sur
+glance
+sur
+glance
+sur
+glance
+norte
+glance
+norte
+glance
+norte
+norte
+norte
+oeste
+oeste
+oeste
+glance
+oeste
+oeste
+oeste
+oeste
+sur
+glance
+sur
+glance
+sur
+glance
+sur
+sur
+glance
+este
+glance
+este
+glance
+este
+glance
+sur
+update here
+l
+oeste
+glance
+este
+glance
+este
+oeste
+glance
+oeste
+glance
+oeste
+glance
+oeste
+norte
+glance
+norte
+glance
+norte
+glance
+norte
+norte
+glance
+norte
+este
+glance
+este
+glance
+este
+este
+este
+este
+este
+sur
+sur
+glance
+sur
+sur
+oeste
+oeste
+arriba
+more here
+norte
+glance
+sur
+glance
+update *.c
+l
+oeste
+glance
+oeste
+este
+glance
+oeste
+glance
+update palacio_1x1.x
+update palacio_1x1.c
+oeste
+glance
+oeste
+este
+glance
+oeste
+glance
+update *.c
+l
+oeste
+glance
+oeste
+oeste
+este
+glance
+oeste
+glance
+oeste
+more here
+update here
+oeste
+glance
+l
+l mosaicos
+more here
+sar mosacios mosaicos *.c
+l
+l antorchas
+sar grandes pequenyas *.c
+este
+glance
+l
+sar Pepe Zhorthor *.c
+l
+l antorchas
+update *.c
+l
+l antrochas
+l antorchas
+este
+glance
+este
+glance
+este
+glance
+norte
+glance
+norte
+glance
+oeste
+glance
+l
+l camastros
+update here
+l
+l camastros
+cre na
+intercre nas nas
+who
+l
+este
+glance
+sur
+glance
+sur
+glance
+sur
+cd placio
+cd palacio
+update *.c
+l
+ls
+arriba
+oeste
+glance
+oeste
+glance
+oeste
+glance
+oeste
+glance
+oeste
+glance
+oeste
+glance
+oeste
+glance
+arriba
+glance
+norte
+glance
+norte
+glance
+norte
+glance
+l
+l salas
+norte
+glance
+norte
+norte
+sur
+glance
+sur
+glance
+sur
+glance
+sur
+glance
+sur
+norte
+glance
+norte
+glance
+norte
+glance
+norte
+glance
+norte
+sur
+glance
+sur
+glance
+sur
+glance
+sur
+glance
+sur
+abajo
+glance
+norte
+glance
+norte
+glance
+norte
+glance
+norte
+glance
+norte
+glance
+norte
+sur
+glance
+sur
+glance
+sur
+glance
+sur
+glance
+sur
+glance
+este
+glance
+este
+glance
+este
+glance
+este
+este
+glance
+este
+glance
+este
+glance
+norte
+glance
+norte
+glance
+norte
+glance
+norte
+glance
+oeste
+glance
+oeste
+glance
+oeste
+glance
+oeste
+glance
+oeste
+glance
+oeste
+glance
+oeste
+sur
+glance
+sur
+glance
+sur
+glance
+sur
+glance
+m
+m
+norte
+glance
+norte
+glance
+norte
+glance
+norte
+glance
+norte
+d
+d
+sur
+glance
+sur
+glance
+sur
+glance
+sur
+glance
+sur
+glance
+norte
+glance
+norte
+glance
+norte
+glance
+norte
+norte
+glance
+norte
+sur
+glance
+sur
+glance
+sur
+glance
+sur
+glance
+sur
+glance
+update *.c
+l
+sur
+norte
+glance
+norte
+glance
+norte
+glance
+norte
+glance
+sur
+glance
+sur
+glance
+sur
+glance
+sur
+glance
+arriba
+glance
+norte
+glance
+norte
+glance
+norte
+glance
+norte
+glance
+norte
+sur
+glance
+sur
+glance
+sur
+glance
+sur
+glance
+norte
+glance
+norte
+nn
+norte
+glance
+norte
+glance
+update here
+l
+norte
+este
+este
+sur
+glance
+sur
+glance
+sur
+glance
+sur
+glance
+abajo
+glance
+este
+glance
+este
+glance
+este
+glance
+este
+glance
+este
+glance
+este
+glance
+oeste
+glance
+oeste
+glance
+oeste
+glance
+este
+glance
+este
+glance
+este
+glance
+este
+glance
+oeste
+glance
+este
+glance
+este
+norte
+glance
+norte
+glance
+norte
+glance
+norte
+glance
+oeste
+glance
+oeste
+glance
+oeste
+glance
+oeste
+glance
+oeste
+glance
+oeste
+glance
+sur
+glance
+sur
+glance
+sur
+glance
+sur
+este
+glance
+este
+glance
+este
+glance
+este
+glance
+este
+glance
+este
+glance
+update *.c
+este
+glance
+este
+oeste
+glance
+oeste
+glance
+oeste
+glance
+oeste
+glance
+oeste
+glance
+oeste
+glance
+arriba
+glance
+norte
+glance
+norte
+glance
+norte
+glance
+norte
+glance
+este
+este
+ls
+update *.c
+l
+este
+glance
+este
+glance
+este
+glance
+este
+oeste
+glance
+oeste
+glance
+oeste
+glance
+oeste
+sur
+glance
+sur
+glance
+sur
+glance
+sur
+glance
+este
+abajo
+glance
+este
+glance
+este
+glance
+este
+glance
+este
+glance
+este
+glance
+este
+glance
+norte
+glance
+norte
+glance
+norte
+glance
+norte
+glance
+norte
+oeste
+glance
+oeste
+glance
+oeste
+glance
+oeste
+glance
+oeste
+glance
+oeste
+glance
+oeste
+sur
+glance
+sur
+glance
+sur
+glance
+sur
+glance
+sur
+arriba
+glance
+norte
+glance
+norte
+glance
+norte
+glance
+norte
+glance
+este
+glance
+este
+glance
+este
+glance
+este
+glance
+who
+cre nas las
+cre como es que has cambiado la ventana de acceso?
+intercre nas nas
+cre algo larga
+cre pero supongo que sera hasta que lo abramos
+cre si
+cre a primera vista parece un poco caotica pero ta bien
+cre no ta descentrada
+l
+este
+este
+cre yhea!
+oeste
+glance
+oeste
+glance
+oeste
+glance
+oeste
+sur
+glance
+sur
+glance
+sur
+glance
+sur
+glance
+sur
+este
+more here
+cre pos
+cre toy por el segundo nivl
+cre aunque me parece que lo estoy haciendo algo pequenyo
+cre npcs no
+cre por que
+cre no solo van a tener
+cre unas rooms especificas
+cre es que por los pasillos de palacio no hay npcs
+cre es el palacio rel
+cre solo hay gente respetable
+cre nobles y tal que estan en las salas de juego y demas
+cre de npcs si
+cre no quiero que usen el palacio como zona de xp
+cre lo unico que voy a poner son
+cre los
+cre guardias
+cre y
+cre nobles y tal
+cre pero que van a estar en rooms fijas
+l
+cre xd
+cre thalos esta aqui a mi vera
+cre y si protesta le doy de leches xd
+cre y valar
+cre si protesta sabe que le mato en el iluminado
+cre muhahahaha
+cre soy el senyor de keroon
+cre juasjuasjaus
+cre yhea!
+cre les tengo domiados
+cre y ese efecto cual es????' xd
+cre juas
+cre pos menudos creadores
+cre ese mud
+cre tiene menos futuro...
+cre no entiendo como juega la gente
+cre yo solo tenia niveles 20
+cre y destruia
+cre esta fatal hecho
+cre y sin control de trampas y cosas asi
+cre yo se de quien es
+cre y ni he entrado a verlo
+cre paso mogollon
+cre el iluminado a mi ver esta mucho mejor
+cre y eso
+l
+cre yo lo veo un mud bastante bien
+cre pequenyo pero bien
+cre tambien es verdad
+l
+cre ummm
+cre tengo ladillas creo xd
+l vulvac
+cre eso parece
+cre jejeje
+cre me anticipo
+l
+l
+l vulvac
+f
+cre a mi es que la ficha como esta
+cre no me agrada del todo
+cre pocos datos
+brief
+f
+cre no
+cre el normal
+cre asi ta mejor
+cre na dejalo
+ccre sera la costumbre de las otras fichas
+cre no
+cre lo de la ficha sera la costumbre de verlas en otros muds
+l
+sc
+f
+cre jejeje
+cre muchi
+cre mucho
+more vulvac
+l
+l
+CRE VULVAC DICE
+qq vulvac dice:
+cre vulvac dice:
+cre no tendras una pomadita por ahi no???
+cre arg arg nunca vayas al emanuelle club xd
+qq no me las has puesto tu?
+cre no me las has puesto tu?
+l
+este
+este
+l
+update *.c
+cd palacio
+update *.c
+este
+look
+este
+eupdate *.c
+update *.c
+este
+look
+este
+cre jur que es esto
+cre E d/ss/daggerford/wall1.c line 3: Illegal to redefine 'nomask' function "query_dest_dir"
+eqq ein?=
+qq ein?
+cre ein?
+update *.c
+l
+este
+oeste
+norte
+look
+sur
+oeste
+look
+oeste
+este
+look
+este
+look
+norte
+look
+sur
+oeste
+look
+oeste
+brief
+l
+este
+glance
+este
+glance
+glance
+who
+cre nas nas guarris
+intercre nas nas gentecilla
+intercre ans ans
+cre nas ans
+who
+sc
+i
+who
+l
+quit
+glance
+who
+cre nas nas
+cre alguna novedad?
+cre bueno pos si no hay novedades nos vemos xd
+quit
+who
+cre nas ans
+intercre nas gentucilla
+save
+l
+who
+save
+quit
+glance
+who
+cre nas nas
+intercre nas nas
+glance
+who
+cre nas nas
+intercre ilu
+who intercre ilu
+cre vilat
+cre como se hacia para ver el who del ilu o el rl'
+whointercre ILU
+whoILU
+who ILU
+l
+sur
+oeste
+glance
+este
+glance
+este
+alias ilu interwho ILu
+cre yhanks
+ilu
+interwho ILu
+ilu
+interwho ILu
+interwho ILU
+alias ilu
+interwho ILU
+cre no va
+alias ilu interwho ILU
+ilu
+interwho ILU
+l
+who
+glance
+who
+cre nhuys
+cre tendre que matar a un valar...xd
+l
+oeste
+glance
+oeste
+glance
+norte
+glance
+norte
+glance
+este
+norte
+glance
+norte
+glance
+norte
+este
+glance
+este
+glance
+este
+glance
+sur
+este
+este
+este
+oeste
+glance
+oeste
+glance
+oeste
+glance
+oeste
+sur
+glance
+sur
+glance
+sur
+glance
+sur
+glance
+abajo
+glance
+norte
+glance
+norte
+glance
+este
+glance
+l
+oeste
+glance
+norte
+glance
+norte
+glance
+este
+glance
+este
+glance
+este
+glance
+sur
+glance
+norte
+glance
+este
+glance
+este
+glance
+este
+glance
+este
+sur
+glance
+sur
+glance
+oeste
+glance
+este
+glance
+oeste
+glance
+este
+glance
+sur
+glance
+sur
+glance
+oeste
+glance
+oeste
+glance
+oeste
+glance
+oeste
+glance
+oeste
+glance
+oeste
+glance
+oeste
+arriba
+glance
+quit
+glance
+who
+cre nas nas
+ls
+alias
+cre jode
+cre que pesaos en mi casa no me dejan el ordenador
+save
+cre aus
+cre xd
+quit
+glance
+sc
+cre ans ans
+cre oye como te ponias vida que no lo recuerdo xd
+who
+l
+sc
+l
+decir para bajarmelos
+decir que me molesta tanto pv
+cre que es un flood tanto pv
+set_mac_hp
+set_max_hp
+set_max_hp (100) vulvac
+cre set_max_hp(numeo) vuvlac?
+glance
+cre nas
+woh
+ls
+ls
+cd
+cd cultivos
+l
+ls
+mote cultivo_1.c
+more cultivo_1.c
+sc
+who
+ls
+cd ..
+ls
+mote path.h
+glance
+who
+qq nas
+cre nas
+qq a ver si termino esto
+cre a ver si termino esto
+qq ?
+cre ?
+qq que pasa?
+cre que pasa?
+qq pero por que algun subnormal
+cre pero por que algun subnormal
+qq lo estaba piratenando
+cre lo estaba piratenando
+qq el mud
+cre el mud
+l
+qq sabeis quien?
+cre sabeis quien?
+qq jum
+cre jum
+qq pos fale..xd
+cre pos fale..xd
+juas
+qq jaus
+cre jaus
+qq nombre de la ficha?
+cre nombre de la ficha?
+qq veamos
+cre veamos
+qq parece ser que eso ta penado por la ley
+cre parece ser que eso ta penado por la ley
+qq segun me comentan ahora
+cre segun me comentan ahora
+qq a ver si tiene su localidad en el finger
+cre a ver si tiene su localidad en el finger
+qq ummmm
+cre ummmm
+qq perar
+cre perar
+qq toy hablando con un policero
+cre toy hablando con un policero
+qq juasca
+cre juasca
+qq vilat repite el ordenata please
+cre vilat repite el ordenata please
+qq yaps pos ma dicho thalos
+cre yaps pos ma dicho thalos
+qq que nos han folimangao
+cre que nos han folimangao
+qq la biblio
+cre la biblio
+qq aus
+cre aus
+sc
+l
+who
+qq bueno
+cre bueno
+qq no ta de mas
+cre no ta de mas
+qq quitar a uno de en medio
+cre quitar a uno de en medio
+qq thans vilar
+cre thans vilar
+qq me preguntan
+cre me preguntan
+qq que si sabeis
+cre que si sabeis
+qq la universidad que es eso?
+cre la universidad que es eso?
+gremio !
+chat !
+cre !
+qq oka
+cre oka
+qq muhahaha
+cre muhahaha
+qq jode como se pone el tio este
+cre jode como se pone el tio este
+qq sa puesto hecho una furia el policero
+cre sa puesto hecho una furia el policero
+qq no
+cre no
+qq no juega xd
+cre no juega xd
+qq es mi vecino xd
+cre es mi vecino xd
+qq que si
+cre que si
+qq es un no se que de la intimidad
+cre es un no se que de la intimidad
+qq ya tiene los datos
+cre ya tiene los datos
+qq dentro de una hora se va al curro
+cre dentro de una hora se va al curro
+qq no se si hara algo o que
+cre no se si hara algo o que
+qq no se
+cre no se
+qq yo no le he dicho nada al tipo
+cre yo no le he dicho nada al tipo
+qq lo ha hecho el por que si xd
+cre lo ha hecho el por que si xd
+qq aus
+cre aus
+quit
+glance
+alias
+who
+quit
+glance
+who
+l
+l
+qtui
+quit

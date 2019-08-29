@@ -150,7 +150,7 @@ string rnfr;
 void setup_ftp(int port);
 void finish_lookup(string host, string number);
 string get_path(int fd, string str);
-static void do_update(string name, int fd);
+protected void do_update(string name, int fd);
  
 mixed *query_connections()
 /* returns an array of users connected to ftpd */
@@ -331,7 +331,8 @@ string ls( string path, int mask) {
         }
     }
 
-    return sprintf( "%-#70s\n", implode( files, "\n" ) );
+// Chapuceando
+    return /* sprintf( "%-#70s\n", implode( files, "\n" ) ); */ implode(files,"\n");
 }
 
 void data_write_callback(int fd) {
@@ -461,7 +462,7 @@ void data_write_callback(int fd) {
   }
 } /* data_write_callback() */
 
-static void data_conn(int fd, string mess, string name, int type) {
+protected void data_conn(int fd, string mess, string name, int type) {
   int new_fd, ret, data_mode;
   string data_mode_name;
 
@@ -514,7 +515,7 @@ static void data_conn(int fd, string mess, string name, int type) {
       "(%d bytes).\r\n", data_mode_name, name, socket_info[new_fd][LEN]));
 }  /* data_conn() */ 
 
-static void read_connection(int fd, string path, int append) {
+protected void read_connection(int fd, string path, int append) {
   int new_fd, ret, data_mode;
   string data_mode_name;
 
@@ -629,7 +630,7 @@ string name;
  
 void  parse_comm(int fd, string str)
 {
-string *bits, tmp, *tmpar;
+string *bits, tmp;
 mixed *misc;
 int   port, i, mask;
 
@@ -668,9 +669,10 @@ int   port, i, mask;
           }
         if (socket_info[fd][LOGGED_IN])
           logout(fd);
-        if (!LOGIN_OB->test_user(bits[1]))
+	// fixed error entrando con inicial mayuscula
+        if (!LOGIN_OB->test_user(lower_case(bits[1])))
             socket_write(fd, sprintf("530 User %s access denied...\r\n", bits[1]));
-        else if (!LOGIN_OB->test_creator(bits[1]))
+        else if (!LOGIN_OB->test_creator(lower_case(bits[1])))
             socket_write(fd, sprintf("530 User %s access denied...\r\n", bits[1]));
         else {
           socket_write(fd, 
@@ -1307,8 +1309,8 @@ void  in_close_callback(int fd)
  
 string  get_path(int fd, string str)
 {
-string *array, *array1, temp, temp1;
-int   i, j;
+string *arra, *array1, temp;
+int i;
  
  
   if (!str || str == "")
@@ -1353,27 +1355,27 @@ int   i, j;
   }
   if (str == "/")
     return "/";
-  array = explode(str, "/") - ({ "" });
-  for (i = 0; i < sizeof(array); i++) {
-    if (array[i] == "..")
+  arra = explode(str, "/") - ({ "" });
+  for (i = 0; i < sizeof(arra); i++) {
+    if (arra[i] == "..")
     {
       if (i < 1)
         return "/";
       if (i == 1)
         array1 = ({ "." });
       else
-        array1 = array[0..i - 2];
-      if (i + 1 <= sizeof(array) - 1)
-        array1 += array[i + 1..sizeof(array) - 1];
-      array = array1;
+        array1 = arra[0..i - 2];
+      if (i + 1 <= sizeof(arra) - 1)
+        array1 += arra[i + 1..sizeof(arra) - 1];
+      arra = array1;
       i -= 2;
     }
     else
-      if (array[i] == ".")
-        array[i] = 0;
+      if (arra[i] == ".")
+        arra[i] = 0;
   }
-  if (array)
-    str = implode(array, "/");
+  if (arra)
+    str = implode(arra, "/");
   else
     str = "";
   return "/" + str;
@@ -1407,9 +1409,9 @@ string get_cfile(string str) {
   return str;
 } /* get_cfile() */
 
-static void do_update(string name, int fd) {
+protected void do_update(string name, int fd) {
    string pname, err;
-   int i, j;
+int j;
    object *invent, rsv, env, dup, loaded, ov;
    mixed static_arg, dynamic_arg;
 

@@ -1,22 +1,19 @@
 int valid_snoop(object snooper, object snoopee, object pobj) {
     if (snooper == snoopee) {
-	tell_object(snooper, "You can't snoop yourself.\n");
+	tell_object(snooper, "Que pretendes snoopeandote?\n");
 	return 0;
     }
     if (snoopee && query_snoop(snoopee)) {
 	tell_object(snooper,
-	  snoopee->query_cap_name()+" is already being snooped.\n");
+	  snoopee->query_cap_name()+" ya esta siendo snoopeado.\n");
 	return 0;
     }
     if (snooper->query_snoopee()) {
 	if (!snooper->query_property("quiet snoop")) {
-	    event(users(), snooper->query_cap_name()+" stops qsnooping "+
-	      snooper->query_snoopee()->query_name(), "snoop");
-	    tell_object((object)snooper->query_snoopee(),
-	      snooper->query_cap_name()+" stops snooping you.\n");
+	    event(users(), "snoop",snooper->query_cap_name()+" stops qsnooping "+snooper->query_snoopee()->query_name());
+	    tell_object((object)snooper->query_snoopee(),snooper->query_cap_name()+" deja de snoopearte.\n");
 	} else {
-	    event(users(), snooper->query_cap_name()+" stops snooping "+
-	      snooper->query_snoopee()->query_name(), "snoop"); 
+	    event(users(), "snoop",snooper->query_cap_name()+" stops snooping "+snooper->query_snoopee()->query_name());
 	    snooper->remove_property("quiet snoop");
 	}
 	snooper->set_snoopee(0);
@@ -30,8 +27,7 @@ int valid_snoop(object snooper, object snoopee, object pobj) {
     if (!snooper->query_creator())
 	return 0;
     if (pobj == this_object()) {
-	event(users(), snooper->query_cap_name()+" starts qsnooping "+
-	  snoopee->query_name(), "snoop"); 
+	event(users(), "snoop",snooper->query_cap_name()+" starts qsnooping "+snoopee->query_name());
 	return 1;
     }
     if (query_verb() == "qsnoop" && query_lord(geteuid(snooper)))
@@ -39,8 +35,8 @@ int valid_snoop(object snooper, object snoopee, object pobj) {
 	tell_object(snooper, "You are quiet snooping "+
 	  snoopee->query_cap_name()+"\n");
 	snooper->add_property("quiet snoop", 1);
-    } 
-    else 
+    }
+    else
     {
 	tell_object(snoopee, "You are being snooped by "+
 	  snooper->query_cap_name()+".\n");
@@ -57,8 +53,7 @@ int valid_snoop(object snooper, object snoopee, object pobj) {
       tell_object(snooper, "Please share with us the reason why you are " +
 	"snooping.\n: ");
       input_to("snoop_reason");
-      event(users(), snooper->query_cap_name()+" starts snooping "+
-	snoopee->query_name(), "snoop");
+      event(users(), "snoop", snooper->query_cap_name()+" starts snooping "+snoopee->query_name());
     }
     snoop_list[snooper] = snoopee;
     return 1;
@@ -91,3 +86,4 @@ void snoop_reason(string str) {
     else
 	write("Snoop failed.\n");
 } /* snoop_reason() */
+

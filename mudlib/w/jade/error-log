@@ -1,0 +1,66 @@
+/w/jade/weapon/vara.c line 25: parse error before 6;
+/w/jade/weapon/vara.c line 30: Undefined variable 'me' before query_cap_name();
+/w/jade/weapon/vara.c line 30: Illegal LHS before the end of line
+/w/jade/weapon/vara.c line 31: Reserved type name unexpected. before =him->query_cap_name
+/w/jade/weapon/vara.c line 31: parse error before =him->query_cap_name
+/w/jade/weapon/vara.c line 31: Undefined variable 'him' before query_cap_name();
+/w/jade/weapon/vara.c line 31: Warning: Expression has no side effects, and the value is unused before the end of line
+/w/jade/animas.c line 5: "#pragma strict_types" requires type of function before ) 
+/w/jade/animas.c line 285: Warning: Unused local variable 'i' before the end of line
+/w/jade/animas.c line 5: "#pragma strict_types" requires type of function before ) 
+/w/jade/animas.c line 285: Warning: Unused local variable 'i' before the end of line
+/w/jade/animas.c line 5: "#pragma strict_types" requires type of function before ) 
+/w/jade/animas.c line 285: Warning: Unused local variable 'i' before the end of line
+/w/jade/animas.c line 5: "#pragma strict_types" requires type of function before ) 
+/w/jade/animas.c line 285: Warning: Unused local variable 'i' before the end of line
+/w/jade/weapon/vara.c line 25: parse error before 6;
+/w/jade/weapon/vara.c line 30: Undefined variable 'me' before query_cap_name();
+/w/jade/weapon/vara.c line 30: Illegal LHS before the end of line
+/w/jade/weapon/vara.c line 31: Reserved type name unexpected. before =him->query_cap_name
+/w/jade/weapon/vara.c line 31: parse error before =him->query_cap_name
+/w/jade/weapon/vara.c line 31: Undefined variable 'him' before query_cap_name();
+/w/jade/weapon/vara.c line 31: Warning: Expression has no side effects, and the value is unused before the end of line
+/w/jade/animas.c line 5: "#pragma strict_types" requires type of function before ) 
+/w/jade/animas.c line 285: Warning: Unused local variable 'i' before the end of line
+/w/jade/npc/avatar.c line 2: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/jade/weapon/vara.c line 25: parse error before 6;
+/w/jade/weapon/vara.c line 30: Undefined variable 'me' before query_cap_name();
+/w/jade/weapon/vara.c line 30: Illegal LHS before the end of line
+/w/jade/weapon/vara.c line 31: Reserved type name unexpected. before =him->query_cap_name
+/w/jade/weapon/vara.c line 31: parse error before =him->query_cap_name
+/w/jade/weapon/vara.c line 31: Undefined variable 'him' before query_cap_name();
+/w/jade/weapon/vara.c line 31: Warning: Expression has no side effects, and the value is unused before the end of line
+/w/jade/animas.c line 5: "#pragma strict_types" requires type of function before ) 
+/w/jade/animas.c line 285: Warning: Unused local variable 'i' before the end of line
+/w/jade/npc/avatar.c line 2: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/jade/weapon/vara.c line 25: parse error before 6;
+/w/jade/weapon/vara.c line 30: Undefined variable 'me' before query_cap_name();
+/w/jade/weapon/vara.c line 30: Illegal LHS before the end of line
+/w/jade/weapon/vara.c line 31: Reserved type name unexpected. before =him->query_cap_name
+/w/jade/weapon/vara.c line 31: parse error before =him->query_cap_name
+/w/jade/weapon/vara.c line 31: Undefined variable 'him' before query_cap_name();
+/w/jade/weapon/vara.c line 31: Warning: Expression has no side effects, and the value is unused before the end of line
+/w/jade/animas.c line 5: "#pragma strict_types" requires type of function before ) 
+/w/jade/animas.c line 285: Warning: Unused local variable 'i' before the end of line
+/w/jade/npc/avatar.c line 2: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/jade/weapon/vara.c line 25: parse error before 6;
+/w/jade/weapon/vara.c line 30: Undefined variable 'me' before query_cap_name();
+/w/jade/weapon/vara.c line 30: Illegal LHS before the end of line
+/w/jade/weapon/vara.c line 31: Reserved type name unexpected. before =him->query_cap_name
+/w/jade/weapon/vara.c line 31: parse error before =him->query_cap_name
+/w/jade/weapon/vara.c line 31: Undefined variable 'him' before query_cap_name();
+/w/jade/weapon/vara.c line 31: Warning: Expression has no side effects, and the value is unused before the end of line
+/w/jade/animas.c line 5: "#pragma strict_types" requires type of function before ) 
+/w/jade/animas.c line 285: Warning: Unused local variable 'i' before the end of line
+/w/jade/npc/avatar.c line 2: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/jade/weapon/vara.c line 25: parse error before 6;
+/w/jade/weapon/vara.c line 30: Undefined variable 'me' before query_cap_name();
+/w/jade/weapon/vara.c line 30: Illegal LHS before the end of line
+/w/jade/weapon/vara.c line 31: Reserved type name unexpected. before =him->query_cap_name
+/w/jade/weapon/vara.c line 31: parse error before =him->query_cap_name
+/w/jade/weapon/vara.c line 31: Undefined variable 'him' before query_cap_name();
+/w/jade/weapon/vara.c line 31: Warning: Expression has no side effects, and the value is unused before the end of line
+/w/jade/animas.c line 5: "#pragma strict_types" requires type of function before ) 
+/w/jade/animas.c line 285: Warning: Unused local variable 'i' before the end of line
+/w/jade/animas.c line 5: "#pragma strict_types" requires type of function before ) 
+/w/jade/animas.c line 285: Warning: Unused local variable 'i' before the end of line

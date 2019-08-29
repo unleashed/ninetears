@@ -47,9 +47,9 @@ void do_resume(string sub, int limited, string info, string *candidates,
                int flag1, string *whoflag1, int flag2);
 
 
+void restore_function();
 
-
-create()
+void create()
 {
    ::create();
    vote_data = ([ ]);
@@ -68,7 +68,7 @@ void restore_function()
       restore_object(LOGFILE, 1);
 }
 
-dest_me()
+void dest_me()
 {
    save_function();
    destruct(this_object());
@@ -87,7 +87,7 @@ void init()
    ::init();
 }   
 
-void event_enter(object who, string mess)
+void event_enter(object who, string mess, object *fo)
 {
    int i;
    
@@ -359,8 +359,6 @@ int can_vote(string str)
 int vote(string str)
 {
    mixed tmp;
-   int i;
-   string list;
 
    restore_function();
    
@@ -697,7 +695,7 @@ void resume(string str)
    if(!tmp)
    {
       write("Not a valid votation.\n");
-      return 1;
+      return;
    }
    else
    {
@@ -705,7 +703,7 @@ void resume(string str)
          candidates += ({ (string)tmp[2][i][0] });
       do_resume(str, tmp[0], tmp[1],candidates,tmp[3],tmp[4],tmp[5]);
    }
-   return 1;
+   return;
 }
    
    

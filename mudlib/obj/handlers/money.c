@@ -6,7 +6,7 @@ inherit "/std/object.c";
 
 mapping pool;
 
-create()
+void create()
 {
    ::create();
    pool = ([ ]);
@@ -40,11 +40,11 @@ void info_money(string str)
       if(explode(dom,"/")[0] == str)
          printf("%-18s %8d %8d %8d %8d %8d %8d\n",
             dom[3..48],
-            (val1 = pool[dom]["copper"]),
-            (val2 = pool[dom]["silver"]*10)/10,
-            (val3 = pool[dom]["electrum"]*50)/50,
-            (val4 = pool[dom]["gold"]*100)/100,
-            (val5 = pool[dom]["platinum"]*500)/500,
+            (val1 = pool[dom]["cobre"]),
+            (val2 = pool[dom]["plata"]*10)/10,
+            (val3 = pool[dom]["estanyo"]*50)/50,
+            (val4 = pool[dom]["oro"]*100)/100,
+            (val5 = pool[dom]["platino"]*500)/500,
             val1 + val2 + val3 + val4 + val5);
    return;
 }

@@ -5,20 +5,19 @@
 //inherit "/std/basic/ls";
 inherit "/global/le";
 inherit "/global/wiz_object_comm";
-inherit "/global/player.c";
-inherit "/global/wiz_inter_comm";
 inherit "/global/wiz_info_comm";
 inherit "/global/wiz_communicate";
 
+#include "/global/player.c"
 #define MASTER "/secure/master"
 
-static mixed in_editor;
+nosave mixed in_editor;
 
 varargs object *wiz_present(string str, object onobj, int nogoout);
 string desc_object(mixed o);
 string desc_f_object(object o);
 
-static void wiz_commands() {
+nomask void wiz_commands() {
     add_action("update","update");
     add_action("indent", "indent");
     /* This may not work: (baldrick) */
@@ -34,30 +33,34 @@ static void wiz_commands() {
 ** we must be careful in what we place here
 */
 
-static void app_commands() {
+nomask void app_commands() {
     wiz_object_comm::app_commands();
     wiz_info_comm::app_commands();
-    wiz_inter_comm::wiz_commands();
-} /* app_commands() */
+    } /* app_commands() */
 
 /* These commands go to ALL players. Note that master.c
 ** gives only limited read/write access to dirs anyway,
 ** so the apparent security problems are NOT a problem
 */
 
-all_commands() {
-    add_action("what_dir","pw*d");  
-    //add_action("list_files","ls");
+void all_commands() {
+    add_action("what_dir","pwd");
     add_action("change_dir","cd");
     add_action("edit","ed");
     add_action("le", "le");
-    add_action("set_home_dir", "homed*ir");
+    add_action("set_home_dir", "homedir");
     wiz_object_comm::all_commands();
     wiz_info_comm::all_commands();
 } /* all_commands() */
 
-static int do_update(object *ov) {
-    string pname, dummy, err;
+void enable_wizard() {
+	all_commands();
+	app_commands();
+	wiz_commands();
+	}
+
+nomask int do_update(object *ov) {
+    string pname, dummy;
     int i, j;
     object *invent, rsv, env, dup, loaded;
     /* next three Hamlet's */
@@ -179,11 +182,11 @@ static int do_update(object *ov) {
 int update(string str) {
     string tring, *filenames, err;
     object ob, *val, *obs;
-    int loop, loop2;
+    int loop;
 
     notify_fail("No such object.\n");
     tring = str;
-    if (!str || str == "here") { 
+    if (!str || str == "here") {
 	str = file_name(environment());
 	sscanf(str, "%s#%d", str, loop);
 	filenames = ({ "/" + str });
@@ -226,8 +229,8 @@ int update(string str) {
 	return do_update(obs);
 } /* update() */
 
-static int edit(string str) {
-    string *filenames, spam, bing;
+nomask int edit(string str) {
+    string *filenames, spam;
     object *things;
     int egg;
 
@@ -295,7 +298,7 @@ void fini_editor() {
     in_editor = 0;
 } /* fini_editor() */
 
-static int what_dir() {
+nomask int what_dir() {
     write(current_path+"\n");
     return 1;
 } /* what_dir() */
@@ -303,7 +306,7 @@ static int what_dir() {
 // Radix - Added wis_present call to 'cd' allowing 'cd here'
 // or any other object, same as 'ed'
 // December 15, 1995
-static int change_dir(string str) {
+nomask int change_dir(string str) {
     string *filenames;
     object *obs = ({ });
     string tmp = 0;
@@ -359,7 +362,7 @@ static int change_dir(string str) {
 	}
     }
     str = filenames[0];
-    if (file_size(str) != -2) 
+    if (file_size(str) != -2)
 	write("Bad directory : " + str + ".\n");
     else
 	current_path = str;
@@ -369,19 +372,9 @@ static int change_dir(string str) {
 
 string query_path() { return current_path; }
 
-static int set_home_dir(string str) {
+nomask int set_home_dir(string str) {
     if (this_player(1) != this_object()) return 0;
     if (str) home_dir = get_path(str);
     write("Home directory set to "+home_dir+".\n");
     return 1;
 } /* set_home_dir() */
-
-int query_ed_setup() { return ed_setup; }
-void set_ed_setup(int i) { ed_setup = i; }
-
-int review() {
-    player::review();
-    wiz_info_comm::review();
-    return 1;
-} /* review() */
-

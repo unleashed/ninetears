@@ -4,7 +4,7 @@
 
 #define DURATION 300
 #define STRENGTH 5
-#define MYPOISON "/std/spells/cleric/poisoned"
+#define MYPOISON "/d/gremios/hechizos/cleric/poisoned"
 
 object my_weapon;
 

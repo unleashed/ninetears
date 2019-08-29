@@ -1,17 +1,18 @@
 #include "parse_command.h"
 inherit "/std/basic/print_object";
 
-static string name,
+nosave string name,
        *alias,
        *adjectives,
        *plurals;
 
 /* name handleing stuff */
 void set_name(string str) { name = str; }
+void set_full_name(string str) { name = str; }
 string query_name() { return name; }
 string query_cap_name() {
    if(!name)
-     return "Someone";
+     return "Alguien";
    return capitalize(name);
 } /* query_cap_name() */
 
@@ -64,9 +65,7 @@ void set_plurals(string *str) {
   plurals = str;
 } /* set_plurals() */
 
-void add_plural(mixed str) { 
-  int i;
-
+void add_plural(mixed str) {
   if (pointerp(str))
     plurals += str;
   else

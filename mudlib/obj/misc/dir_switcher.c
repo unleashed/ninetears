@@ -38,7 +38,7 @@ void do_switch(string str) {
     tell_object(this_player(), "Have you entered the paths "
       "correctly?\nOld path: "+old_path+"\nNew path: "+new_path+"\n");
     input_to("path_check");
-    return 1;
+    return;
 }
 
 void path_check(string str) {
@@ -53,5 +53,5 @@ void path_check(string str) {
 	tell_object(this_player(), "Error:  Switch not entered.\n");
 	break;
     }
-    return 1;
+    return;
 }

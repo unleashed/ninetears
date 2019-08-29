@@ -1,8 +1,7 @@
 #ifndef _PLAYER_H
 #define _PLAYER_H
 
-#define NO_POWER "Insufficient Social Points.\n"
-#define NOT_ALLOWED "You do not have that ability yet.\n"
+#define NOT_ALLOWED "Aun no dispones de esa habilidad.\n"
 #define SHOUT_COST 20
 #define TELL_COST 1
 #define EMOTE_COST 1
@@ -11,8 +10,8 @@
 #define EMOTEALL_COST 40
 #define NO_LINE_PROP "no new line"
 #define RACE_STD "/std/races/unknown"
-#define NO_POWER "Insufficient Social Points.\n"
-#define MAX_IDLE 900
+#define NO_POWER "Insuficientes puntos sociales.\n"
+#define MAX_IDLE 15
 #define DEATH_CHAR clone_object("/obj/death")
 #define DEATH_SHADOW "/obj/death_shadow"
 #define TIME_BETWEEN_SAVES 450

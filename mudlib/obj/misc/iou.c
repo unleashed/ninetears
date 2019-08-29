@@ -9,32 +9,30 @@ void setup()
     set_name("iou");
     add_alias("IOU");
     set_short("IOU");
-    set_long("This is an IOU for an item that went missing for some unknown reason, probably something obscure to do with gods meddling with things wat man is not meant to know of. (The buggers have been messing with the fabric of reality again.). "
-      "Hang onto it, and you never know, it might be reclaimed.\n"
-      "\"reclaim\" to try to reclaim on the IOU.\n"+
-      "\"inspect iou\" to try to read the fine print on the IOU.\n"+
-      ""
-    );
+    set_long("Esto es un IOU, un objeto que por alguna razon se ha quitado del juego, bien puede ser un objeto retirado "+
+	"o un objeto que tenga un bug y este siendo reparado\n"+
+      "\"reclamar\" intenta recuperar el objeto si ya ha sido puesto en juego otra vez.\n"+
+      "\"inspeccionar iou\" para intentar averiguar de que objeto se trata.\n");
 }
 string stat()
 {
     string *path;
-    if(!sizeof(auto_string)) return "Nothing, totally useless, throw it away";
+    if(!sizeof(auto_string)) return "Nada, algo sin ningun tipo de uso.. tiralo.\n";
     path = explode(auto_string[1],"/");
     if(sizeof(path) < 3) return "Something wierd wat mortal man was not meant to mess with.\n";
     switch(path[0] )
     {
     case "w":
 	call_out("dest_me",2,0);
-	return "Some gods toy, which aught not be in the hands of mortals.\n";
+	return "Un objeto perteneciente a los Dioses que no deberia estar en manos de un simple mortal.\n";
 	break;
     case "d":
-	return "It's for an item from the domain of "+path[1]+" and it's called "+path[sizeof(path)-1]+"\n";
+	return "Es un objeto del domionio "+path[1]+" y su nombre es: "+path[sizeof(path)-1]+"\n";
     default:
-	return "It's for some generic object know as "+path[sizeof(path)-1]+"\n";
+	return "Es un objeto generico llamado : "+path[sizeof(path)-1]+"\n";
 	break;
     }
-    return "Damned if I know really.\n";
+    return "Que me maten si se que es eso!.\n";
 }
 mapping query_static_auto_load()
 {
@@ -46,8 +44,8 @@ void init_static_arg(mapping stuff)
 }
 void init()
 {
-    add_action("try_loading","reclaim");
-    add_action("inspect","inspect");
+    add_action("try_loading","reclamar");
+    add_action("inspect","inspeccionar");
 }
 mixed add_auto_string(mixed str)
 {
@@ -77,7 +75,7 @@ int try_loading(string str)
 	olist = load_auto_load(auto_string,ETP);
 	if(sizeof(olist))
 	{
-	    write("A small demon hands you something and runs off with the IOU\n");
+	    write("Un pequenyo demonio aparece y sale corriendo con tu IOU.\n");
 	}
     }
     dest_me();

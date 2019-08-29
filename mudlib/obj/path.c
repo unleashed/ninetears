@@ -1,5 +1,5 @@
 string home_dir;
-static string current_path;
+nosave string current_path;
 
 string invalid_path() {
     write("Invalid path.\n");
@@ -7,8 +7,8 @@ string invalid_path() {
 } /* invalid_path() */
                         
 string get_path(string str) {
-string *array, *array1, temp, temp1;
-int i,j;
+string *arra, *array1, temp;
+int i;
   if (!str) {
     if(!home_dir) {
       home_dir = "/w/" + this_player()->query_name();
@@ -39,31 +39,31 @@ int i,j;
   if (str == "/")
     return "/"; 
   else
-    array = explode(str,"/") - ({ "" }) ;
-  for (i=0;i<sizeof(array);i++)
-    if (array[i] == "..") {
+    arra = explode(str,"/") - ({ "" }) ;
+  for (i=0;i<sizeof(arra);i++)
+    if (arra[i] == "..") {
       if (i<1)
         return invalid_path();
       if (i == 1)
         array1 = ({ "." });
       else
-         array1 = array[0..i-2];
-      if (i+1 <= sizeof(array)-1) 
-        array1 += array[i+1..sizeof(array)-1];
-      array = array1;
+         array1 = arra[0..i-2];
+      if (i+1 <= sizeof(arra)-1) 
+        array1 += arra[i+1..sizeof(arra)-1];
+      arra = array1;
       i -=2;
     } else
-      if (array[i] == ".")
-        array[i] = 0;
- if (array)
-   str = implode(array, "/");
+      if (arra[i] == ".")
+        arra[i] = 0;
+ if (arra)
+   str = implode(arra, "/");
  else
    str = "";
   }
   return "/"+str;
 } /* get_path() */
  
-static string *get_files(string str) {
+nomask string *get_files(string str) {
     int loop, count;
     string *filenames, rmpath, temp1, temp2, *names, *files;
  
@@ -103,7 +103,7 @@ static string *get_files(string str) {
 }
 
 /* Changed to be *.* so as to handle virtual wombles as well */
-static string *get_cfiles(string str) {
+nomask string *get_cfiles(string str) {
   int loop;
   string temp, *names, temp2;
 

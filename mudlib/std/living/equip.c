@@ -6,7 +6,6 @@ inherit "/std/living/hold.c";
 inherit "/std/living/wear.c";
 inherit "/std/living/combat.c";
 
-private static int worn_ac;
 mixed *stats()
 {
    return hold::stats();
@@ -16,11 +15,10 @@ void create()
   hold::create();
   wear::create();
   combat::create();
-  worn_ac = 0;
-}
+  }
 /* the equip_ac will be added to body_ac and then calculated to a
  * defender_ac that weapon_logic can query on */
-/* Body_ac will be added to either stats.c or skills.c 
+/* Body_ac will be added to either stats.c or skills.c
  * not sure about the yet.. */
 
 int query_equip_ac()
@@ -52,16 +50,15 @@ int do_equip(string str)
    {
    object *obs, *holds, *wears;
    int i, j;
-   int size;
 
    // Assum going to tell us something about the autoequip
    if (str && stringp(str)) {
       if (str == "off") {
          this_object()->remove_property("autoequip");
-         write("Automatic equip at login turned OFF.\n");
+         write("Equipamiento automatico al entrar OFF.\n");
       } else if (str == "on") {
          this_object()->add_property("autoequip","yes");
-         write("Automatic equip at login turned ON.\n");
+         write("Equipamiento automatico al entrar ON.\n");
       } else
          write("Usage : equip [on|off].\n(NOTE! on/off are for automatic equip at login.)\n");
       return 1;
@@ -84,8 +81,8 @@ int do_equip(string str)
                if(!obs[i])  continue;  /* Hamlet */
          holds += ({ obs[i] });
          }
-        /* Items can be both not_holdable & not_wearable, so we have to 
-         * check both. 
+        /* Items can be both not_holdable & not_wearable, so we have to
+         * check both.
          */
             if(!obs[i])  continue;   /* Hamlet */
       if ( (obs[i]->query_wearable()) && !obs[i]->query_in_use() )
@@ -98,7 +95,7 @@ int do_equip(string str)
    // First of all, take care of holdables.
    // The 'if' here is to save a few for-loop checks later
 
-   if (sizeof(holds)) 
+   if (sizeof(holds))
       {
       object *wpns, *harms;
 
@@ -171,11 +168,11 @@ int do_equip(string str)
       wears -= warms;
 
       // First of all, we burn through the loop of wearable armour
-      for(j=0;j<sizeof(warms);j++) 
+      for(j=0;j<sizeof(warms);j++)
         this_object()->wear_ob(warms[j]);
 
       // Then anything without ac.
-      for(j=0;j<sizeof(wears);j++) 
+      for(j=0;j<sizeof(wears);j++)
         this_object()->wear_ob(wears[j]);
 
       // End of line here as well.

@@ -24,7 +24,7 @@ void setup()
 
 #define PAD(x,y,z)      sprintf("%-*s: %s\n",z,x,"" + y)
 
-static int cmd(string str, object me)
+int cmd(string str, object me)
 {
    mapping r;
    float cpu;
@@ -43,27 +43,31 @@ static int cmd(string str, object me)
           __PORT__ + ")";
    vers = __VERSION__;
    cpu = ((r["utime"] + r["stime"]) / uptime() / 10.0);
-   width = 15;
+   width = 20;
    memory = memory_info();
    up = pretty_time(uptime(), 4);
    loadav = query_load_average();
    callouts = sizeof(call_out_info());
    
-   tmp = PAD("Mud name", name, width) +
-         PAD("Driver", vers, width) +
-         PAD("Architecture", mach, width) +
-         PAD("Compiler", cc, width) +
-         PAD("Driver uptime", up, width) +
-          PAD("Avg Cpu usage", sprintf("%4.2f%%", cpu), width) +
-         PAD("Load Average", loadav, width) +
-         PAD("No of users", sizeof(users()), width) +
-         PAD("Objects", obs + " loaded.", width) +
-         PAD("Call Outs", callouts + " pending.", width) +
-         PAD("Memory usage", memory, width);
+   tmp = "%^BOLD%^-- %^GREEN%^Informacion para %^YELLOW%^" + mud_name() + " %^RESET%^BOLD%^----------\n";
+   tmp += PAD("Nombre..............", name, width) +
+         PAD("Driver..............", vers, width) +
+         PAD("Arquitectura........", mach, width) +
+         PAD("Compilador..........", cc, width) +
+         PAD("Tiempo activo.......", up, width) +
+         PAD("Uso de CPU..........", sprintf("%4.2f%%", cpu), width) +
+         PAD("Carga media.........", loadav, width) +
+         PAD("No. de usuarios.....", sizeof(users()), width) +
+         PAD("Objetos.............", obs + " cargados.", width) +
+         PAD("Llamadas............", callouts + " pendientes.", width) +
+         PAD("Uso de memoria......", memory, width);
+   tmp+="%^BOLD%^-------------------------------------%^RESET%^\n";
    tell_object(me,sprintf("\n%-*#s\n", 80, tmp));
    return 1;
 }
 
-short_help() { 
+/*short_help() { 
   return "Show some information about the mud's system usage.\n"; 
 }
+*
+* */

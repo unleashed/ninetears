@@ -1,4 +1,4 @@
-static mixed *rest;
+private mixed *rest;
 
 /* If anyone can tell me what this does...
  * I would be most apprecative, Pinkfish... Yes yes ok i did write it.
@@ -17,12 +17,12 @@ string *parse_blocks = ({
   "things",
 });
 
-static int not_hidden(object ob) { return ob && !ob->query_hide_shadow(); }
+private int not_hidden(object ob) { return ob && !ob->query_hide_shadow(); }
 
 varargs mixed find_match(string str, mixed ob, int no_hidden) {
-    mixed *array, test, *ret;
+    mixed *arra, test, *ret;
     int i, num, top, bot, bing, j;
-    string nick, type, *bits;
+    string nick, *bits;
     mapping rabbit;
 
     if (!ob || intp(ob))
@@ -38,11 +38,11 @@ varargs mixed find_match(string str, mixed ob, int no_hidden) {
 	if (!ob)
 	    return ({ });
     } else {
-	array = ({ });
+	arra = ({ });
 	for (i=0;i<sizeof(ob);i++)
 	    if ((test = (object *)ob[i]->find_inv_match(str)))
-		array += test;
-	ob = array;
+		arra += test;
+	ob = arra;
     }
     if(no_hidden)
       ob = filter(ob, "not_hidden", this_object());
@@ -58,31 +58,31 @@ varargs mixed find_match(string str, mixed ob, int no_hidden) {
 	if (str == "it" || str == "them" || str == "him" || str == "her") {
 	    rest = all_inventory(this_player()) +
 	    all_inventory(environment(this_player()));
-	    array = (object *)this_player()->query_it_them();
-	    while (i<sizeof(array))
-		if (member_array(array[i], rest) == -1)
-		    array = delete(array, i, 1);
+	    arra = (object *)this_player()->query_it_them();
+	    while (i<sizeof(arra))
+		if (member_array(arra[i], rest) == -1)
+		    arra = delete(arra, i, 1);
 		else
 		    i++;
-	    if (!sizeof(array))
+	    if (!sizeof(arra))
 		continue;
 	    if (str == "it") {
-		ret += array[0..0];
+		ret += arra[0..0];
 		continue;
 	    }
 	    if (str == "her")
-		if (living(array[0]) && (int)array[0]->query_gender() == 2) {
-		    ret += array[0..0];
+		if (living(arra[0]) && (int)arra[0]->query_gender() == 2) {
+		    ret += arra[0..0];
 		    continue;
 		} else
 		    continue;
 	    if (str == "him")
-		if (living(array[0]) && (int)array[0]->query_gender() == 1) {
-		    ret += array[0..0];
+		if (living(arra[0]) && (int)arra[0]->query_gender() == 1) {
+		    ret += arra[0..0];
 		    continue;
 		} else
 		    continue;
-	    ret += array;
+	    ret += arra;
 	    continue;
 	}
 	test = explode(str, " ");
@@ -107,15 +107,15 @@ varargs mixed find_match(string str, mixed ob, int no_hidden) {
 		rabbit = ([ ]);
 		for (i=1;i<sizeof(test);i++)
 		    rabbit[test[i]] = 1;
-		array = query_strange_inventory(keys(rabbit));
+		arra = query_strange_inventory(keys(rabbit));
 		test = ({ });
-		for (i=0;i<sizeof(array);i+=2)
-		    test += map_array(array[i+1], 
+		for (i=0;i<sizeof(arra);i+=2)
+		    test += map_array(arra[i+1],
 		      "query_frac_simul_efun_id",
-		      this_object(), ({ num, str, 0, sizeof(array[i+1]),
+		      this_object(), ({ num, str, 0, sizeof(arra[i+1]),
 			top, bot }) );
-		array = test + rest;
-		ret += array;
+		arra = test + rest;
+		ret += arra;
 		continue;
 	    }
 	    if (test[0] == 1 && bing)
@@ -123,10 +123,10 @@ varargs mixed find_match(string str, mixed ob, int no_hidden) {
 	    rabbit = ([ ]);
 	    for (i=1;i<sizeof(test);i++)
 		rabbit[test[i]] = 1;
-	    array = map_array(keys(rabbit), "query_simul_efun_id",
+	    arra = map_array(keys(rabbit), "query_simul_efun_id",
 	      this_object(), ({ test[0], str }));
-	    array += rest;
-	    ret += array;
+	    arra += rest;
+	    ret += arra;
 	}
     }
     if (this_player() && sizeof(ret))

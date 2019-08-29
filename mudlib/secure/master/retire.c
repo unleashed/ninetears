@@ -1,6 +1,6 @@
 /* The first attempt on a Retire command.
- * It will make the players able to delete their own charachters. 
- * Baldrick march '94 
+ * It will make the players able to delete their own charachters.
+ * Baldrick march '94
  * Put it in /secure/master and add it to master.c (#include).
  * Add an add_action and a call in player.c (test on force!)
  */
@@ -11,19 +11,19 @@
 string password;
 int no_times;
 
-static int put_password(string str);
+int put_password(string str);
 int do_retirejob(mixed name);
 
 int try_retire() 
   {
   if(this_player()->query_creator())
     {
-    notify_fail("You are a creator, you can not retire this way. Ask a God.\n");
+    notify_fail("Los Inmortales no pueden retirarse sin el permiso de un Dios o Administrador.\n");
     return 0;
     }
-  write("This removes the character you are playing. Be sure you know what " +
-	"you do. Just don't enter the password if you regret.\n\n");
-  write("Enter your password: ");
+  write("Esto borra la ficha que estas jugando. Mejor que estes seguro de " +
+	"lo que haces. No insertes tu password si te arrepientes.\n\n");
+  write("Inserta tu password: ");
   input_to("put_password");
   } /* logon() */
  
@@ -39,21 +39,20 @@ int test_password(string name, string pass)
   return crypt(pass, password) == password;
 } /* test_password() */
 
-static int put_password(mixed str) 
+int put_password(mixed str)
   {
-  string bing;
   string playername;
 
   playername = this_player(1)->query_name();
   write("\n");
-  if (!str) 
+  if (!str)
     {
     write("No password, no retire!\n");
     return 0;
     } /* if str == "" */
   if (!test_password(playername, str))
     {
-    write("Wrong password, no retire.\n");
+    write("Password incorrecto, no retirado.\n");
     return 0;
     } /* if (password .. */
   do_retirejob(playername);
@@ -69,12 +68,12 @@ static int put_password(mixed str)
  *  -- Wahooka
  */
 
-static int do_retirejob(string name)
+int do_retirejob(string name)
   {
   // write ("You made it !" + name + "\n");
   this_player()->add_property("guest",1);
 
-  rm ("/players/" + name[0..0] + "/" + name + ".o");
+  rename("/players/"+name[0..0]+"/"+name+".o","/players/oldplayers/"+name+".o."+time());
 
   /* remove the mails */
   /* May make problem if the player don't have a mail.o file.. */
@@ -87,9 +86,9 @@ static int do_retirejob(string name)
   /* WHY does the BANK_HANDLER thingie work here and not in bank.c ? */
   // BANK_HANDLER->refresh_account(name);
 
-  write ("You are now a Guest. Quit to get rid of the character for good.\n");
+  write ("Ahora eres un invitado. Sal para olvidarte de tu ficha.\n");
   /* Wonerflug1997, adding a log til someone fixes the bug */
-  log_file("RETIRE", this_player()->query_cap_name()+" retired.\n");
+  log_file("RETIRAR", this_player()->query_cap_name()+" se ha retirado en "+ctime(time())+".\n");
   return 0;
 
 } /* do_retire */

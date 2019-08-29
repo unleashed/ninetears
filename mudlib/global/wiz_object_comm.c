@@ -7,12 +7,13 @@ varargs object *wiz_present(string str, object onobj, int nogoout);
 string desc_object(mixed o);
 string desc_f_object(object o);
 
-static void wiz_commands() {
-    add_action("function2","ca*ll");
+void wiz_commands() {
+    add_action("function2","call");
     add_action("parse_frogs", ";*");
-    add_action("dest", "dest*ruct");
-    add_action("show_stats", "st*at");
-    add_action("trans", "tra*ns");
+    add_action("dest", "destruct");
+    add_action("dest", "dest");
+    add_action("show_stats", "stat");
+    add_action("trans", "trans");
 } /* wiz_commands() */
 
 /*
@@ -22,48 +23,48 @@ static void wiz_commands() {
 ** we must be careful in what we place here
 */
 
-static void app_commands() {
-    add_action("whereis","whe*reis");
-    add_action("get_pathof","pat*hof");
+void app_commands() {
+    add_action("whereis","donde");
+    add_action("get_pathof","pathof");
     add_action("get_creator","coder");
     add_action("get_inv","inv");
-    add_action("goback","gob*ack");
-    add_action("upgrade_player", "upg*rade");
-    add_action("find_shadows", "sh*adows");
+    add_action("goback","goback");
+    add_action("upgrade_player", "upgrade");
+    add_action("find_shadows", "shadows");
     add_action("do_find", "find");
     add_action("do_debug", "dump");
     add_action("do_debug", "debug");
 } /* app_commands() */
 
-static all_commands() {
+void all_commands() {
 } /* all_obj_commands() */
 
 int whereis(string str) {
     object *ov,e;
     int i;
 
-    notify_fail("Where is what?\n");
+    notify_fail("Donde esta quien?\n");
     ov = wiz_present(str,this_player());
-    if (!sizeof(ov)) return 0; 
+    if (!sizeof(ov)) return 0;
 
     for (i = 0; i < sizeof(ov); i++) {
 	if (ov[i]->query_invis() > 1) continue;
 	if(interactive(ov[i]))
         if(!(this_player()->query_lord() || this_player()->query_thane()))
-	   { log_file("LOCATE",this_player()->query_cap_name()+" attempted to locate interactive: "+ov[i]->query_cap_name()+".\n");
-	  write("Sorry, Locating players is not allowed for you.\n");
+	   { log_file("LOCATE",this_player()->query_cap_name()+" intento localizar a: "+ov[i]->query_cap_name()+".\n");
+	  write("Lo siento, localizar jugadores no te esta permitido.\n");
 	continue;
 	}
-	write(desc_object(ov[i]) + " is : \n");
+	write(desc_object(ov[i]) + " es : \n");
 	e = ov[i];
 	while (e = environment(e))
-	    write("  in " + desc_f_object(e) + "\n");
+	    write("  en " + desc_f_object(e) + "\n");
     }
     return 1;
 } /* whereis() */
 
 /* This is for querying about objects who don't want to be destructed */
-static object discard_obj;
+nosave object discard_obj;
 
 int affirmative(string s) /* returns true if s is a 'yes' equiv response */
 {
@@ -131,12 +132,12 @@ int get_inv(string str) {
 /*
 	if( (interactive(ov[i])) && !(this_player()->query_lord() || this_player()->query_thane()) && !(ov[i]==this_player()))
 	{
-		log_file("LOCATE",this_player()->query_cap_name()+" attempted to find the inventory of interactive: "+ov[i]->query_cap_name()+".\n");
-		write("Sorry, You are not permitted to chcek the inventory of "+ov[i]->query_cap_name()+".\n");
+		log_file("LOCATE",this_player()->query_cap_name()+" intento encontrar el inventario de: "+ov[i]->query_cap_name()+".\n");
+		write("Lo siento, no estas permitido a ver el inventario de "+ov[i]->query_cap_name()+".\n");
 	continue;
 	}
 */
-	write("Inv of " + desc_object(ov[i]) + " in " + 
+	write("Inv de " + desc_object(ov[i]) + " en " +
 	  desc_object(environment(ov[i])) + ":\n");
 	obj = first_inventory(ov[i]);
 	while (obj) {
@@ -156,15 +157,15 @@ int get_creator(string str) {
     if (!sizeof(ov)) return 0;
 
     for (i = 0; i < sizeof(ov); i++) {
-	write("Creator of " + desc_object(ov[i]) + ": " +
+	write("Creador de " + desc_object(ov[i]) + ": " +
 	  "secure/master"->creator_file (file_name(ov[i])) + ", uid: " +
 	  getuid(ov[i]) + ", euid: "+geteuid(ov[i])+"\n");
     }
     return 1;
 } /* get_creator() */
 
-static object *dest_obj; 
-static int objn, majd;
+nosave object *dest_obj;
+nosave int objn, majd;
 
 void ask_dest() {
     if (!pointerp(dest_obj) || objn >= sizeof(dest_obj)) {
@@ -194,8 +195,8 @@ void dest_answer(string s)
 	    majd = 0;
 	    if (dest_obj[objn]) write("It didn't dest.\n");
 	    else {
-		say((string)this_player()->query_cap_name()+" disintegrates "+
-		  (shrt ? shrt : "something") +".\n"); 
+		say((string)this_player()->query_cap_name()+" desintegra "+
+		  (shrt ? shrt : "algo") +".\n");
 		write("Ok.\n");
 	    }
 	    objn++;
@@ -209,7 +210,7 @@ void dest_answer(string s)
 		majd = 1;
 		input_to("dest_answer");
 		return;
-	    } 
+	    }
 	    write("Ok.\n");
 	    objn++;
 	    ask_dest();
@@ -249,7 +250,7 @@ int dest(string str) {
     ob = wiz_present(str,this_player());
     if (!sizeof(ob)) return 0;
 
-    for (i = 0; i < sizeof(ob); i++) 
+    for (i = 0; i < sizeof(ob); i++)
     {
 	if(interactive(ob[i]) && (sizeof(ob) !=1 || "/secure/master"->high_programmer(geteuid(ob[i]))))
 	{
@@ -257,8 +258,8 @@ int dest(string str) {
 	    continue;
 	}
 	if(interactive(ob[i]) && !(this_player()->query_lord() || this_player()->query_thane()))
-	{ log_file("BUSTED",this_player()->query_cap_name()+" attempted to dest interactive "+ob[i]->query_cap_name()+".\n");
-	write("Sorry, you are not permitted to dest "+ob[i]->query_cap_name()+".\n");
+	{ log_file("BUSTED",this_player()->query_cap_name()+" intento destruir al jugador "+ob[i]->query_cap_name()+".\n");
+	write("Lo siento, no tienes permiso para destruir a "+ob[i]->query_cap_name()+".\n");
 	continue;
 	}
 	catch(shrt = (string)ob[i]->short());
@@ -268,13 +269,13 @@ int dest(string str) {
 	      " from "+environment(ob[i])->query_name()+" file "+file_name(environment(ob[i]))+"\n");
 	err = catch(ob[i] -> dest_me());
 	handle_error(err, "dest_me");
-	if (ob[i]) 
+	if (ob[i])
 	    dest_obj += ({ ob[i] });
-	else 
+	else
 	{
 	    write("You destruct " + dobj + ".\n");
-	    say((string)this_player()->query_cap_name()+" disintegrates "+
-	      (shrt ? shrt : "something") + ".\n"); 
+	    say((string)this_player()->query_cap_name()+" desintegra "+
+	      (shrt ? shrt : "algo") + ".\n");
 	}
     }
     if (sizeof(dest_obj) > 0) {
@@ -288,7 +289,6 @@ int dest(string str) {
 
 string desc_object(mixed o){
     string str;
-    int p;
 
     if (!o) return "** Null-space **";
     if (!catch(str = (string)o->short()) && str) return str;
@@ -321,13 +321,14 @@ object *wzpresent2(string str, mixed onobj) {
 	return obs;
     }
 
+// //
     if (str == "all")
 	return all_inventory(onobj);
 
     /* every fish */
 
     if (sscanf(str,"every %s",s1) == 1) {
-	obs2 = all_inventory(onobj); 
+	obs2 = all_inventory(onobj);
 	obs = ({ });
 	for (i=0;i<sizeof(obs2);i++)
 	    if (obs2[i]->id(s1)) obs += ({ obs2[i] });
@@ -353,8 +354,8 @@ object *wzpresent2(string str, mixed onobj) {
 varargs object *wiz_present(string str, object onobj, int nogoout) {
     /* nogoout is so that it WON'T check the environment of onobj */
     int i,j;
-    object ob, *obs, *obs2, *users_ob, *temp_ob;
-    string s1, s2, *sts, temp;
+    object ob, *obs, *obs2;
+    string s1, s2, *sts;
 
     if (!str || !onobj) {
 	return ({ });
@@ -454,7 +455,7 @@ varargs object *wiz_present(string str, object onobj, int nogoout) {
     return ({ });
 } /* wiz_present() */
 
-static mixed *parse_args(string str, string close) {
+nomask mixed *parse_args(string str, string close) {
     mixed *args, *m, *m2;
     object *obs;
     string s1, s2, s3, s4, s5, s6, s7;
@@ -633,14 +634,14 @@ void inform_of_call(object ob, mixed *argv) {
      */
 } /* inform_of_call() */
 
-static mixed mapped_call(object ob, mixed *argv) {
+nomask mixed mapped_call(object ob, mixed *argv) {
     inform_of_call(ob, argv);
     return call_other(ob, argv[0], argv[1],argv[2],argv[3],
       argv[4],argv[5],argv[6]);
 } /* mapped_call() */
 
 /* Free form parse_args code */
-static int parse_frogs(string str) {
+nomask int parse_frogs(string str) {
     mixed junk;
 
     if (this_player(1) != this_object()) return 0;
@@ -654,25 +655,26 @@ static int parse_frogs(string str) {
     return 1;
 } /* parse_forgs() */
 
-static function2(string str) {
+nomask int function2(string str) {
     /* call fish(x,y,z) object */
     mixed *args;
     string *s, s1, s2;
-    string fn,os;
+    string fn,os, f;
     string *argv;
     object *ov,retobj;
-    object fish, shad, f, file;
+    object fish, shad;
+    mixed file;
     int i;
 
     if (this_player(1) != this_object()) return 0;
     if (!str) {
-	notify_fail("USAGE : call lfun(arg[,arg[,arg...]]) object[s]\n");
+	notify_fail("USO : call lfun(arg[,arg[,arg...]]) objeto[s]\n");
 	return 0;
     }
     log_file("CALLS",(string)this_player()->query_cap_name()+" CALLS "+str+"\n");
     s = explode("&"+str+"&", ")");
     if (sizeof(s) < 2 || sscanf(s[0], "%s(%s", s1, s2) != 2) {
-	notify_fail("USAGE : call lfun(arg[,arg[,arg...]]) object[s]\n");
+	notify_fail("USO : call lfun(arg[,arg[,arg...]]) objeto[s]\n");
 	return 0;
     }
     fn = replace(s1[1..1000], " ", "");
@@ -701,23 +703,23 @@ static function2(string str) {
 	    inform_of_call(ov[i], ({ fn }) + argv);
 	    if ( ov[i] && interactive(ov[i]) && !ov[i]->query_creator() )
 		log_file("CALLP",ctime(time())+": "+(string)this_player()->query_cap_name()+" CALLS "+str+" -- player "+(string)ov[i]->query_name()+"\n");
-	    write("*** function on '"+ desc_object(ov[i])+"' found in "+
-	      file+" ***\n");
-	    write("Returned: ");
+	    write("*** funcion en '"+ desc_object(ov[i])+"' encontrada en "+file+" ***\n");
+	    write("Devuelve: ");
 	    printf("%O\n", retobj);
+		write("A PARTIR DE AHORA, los calls para retocar fichas o dar xp a players seran sancionados.\n");
 	} else
-	    write("*** function on '"+desc_object(ov[i])+"' Not found ***\n");
+	    write("*** funcion en '"+desc_object(ov[i])+"' No encontrada ***\n");
 	file = 0;
     }
     return 1;
 } /* function2() */
 
-static int do_find(string str) {
+nomask int do_find(string str) {
     string func, thing, s, ping;
     object *obs, fish;
     int i;
 
-    notify_fail("Usage: find function() <object(s)>\n");
+    notify_fail("Uso: find funcion() <objeto(s)>\n");
     if(!str) return 0;
     if(sscanf(str, "%s() %s", func, thing) != 2)
 	if(sscanf(str, "%s %s", func, thing) != 2)
@@ -748,9 +750,8 @@ static int do_find(string str) {
 int show_stats(string str) {
     object *ob;
     mixed *ob1;
-    string *key;
-    string s,str2,bing;
-    int i,c,j;
+    string s,bing;
+    int i,j;
 
     bing = "";
     ob = wiz_present(str, this_object());
@@ -792,7 +793,7 @@ int trans(string str) {
     }
     for (i=0;i<sizeof(obs);i++) {
 	if (environment(obs[i]) == environment()) {
-	    write(desc_object(obs[i])+" is already here.\n");
+	    write(desc_object(obs[i])+" ya esta aqui.\n");
 	    continue;
 	}
 /*
@@ -807,7 +808,7 @@ int trans(string str) {
 	log_file("MISC",(string)this_player(1)->query_cap_name()+" trans'd "+
 	  obs[i]->query_cap_name()+" from "+file_name(environment(obs[i]))+
 	  " to "+file_name(environment(this_player()))+"\n");
-	tell_object(obs[i], "You are magically transfered somewhere.\n");
+	tell_object(obs[i], "Eres transferido magicamente a algun sitio.\n");
 	obs[i] -> move_player("X", file_name(environment(this_player())));
 
 	// Radix, December 15, 1995   -  Warn about transing newbies
@@ -858,7 +859,7 @@ int do_debug(string str) {
     object *obs;
 
     if(!str) {
-	notify_fail("Usage: " + query_verb() + " <object>\n");
+	notify_fail("Usage: " + query_verb() + " <objeto>\n");
 	return 0;
     }
     if(!sizeof(obs = wiz_present(str, this_object()))) {
@@ -868,4 +869,3 @@ int do_debug(string str) {
     write(debug_info( (query_verb() == "dump"?0:1), obs[0]));
     return 1;
 } /* do_debug() */
-

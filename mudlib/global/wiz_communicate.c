@@ -1,23 +1,26 @@
 #include "inet.h"
 #include "udp.h"
-static string my_file_name;
+nosave string my_file_name;
 
 void wiz_commands() {
-  add_action("do_echo","ec*ho");
+  add_action("do_echo","echo");
+  add_action("do_echo_all","echoall");
+  add_action("do_echo_all","ecall");
   add_action("do_emote_all", "emoteall");
   add_action("do_echo_to", "echoto");
   add_action("do_channels", "cre");
-  add_action("do_channels","dwcre");
   add_action("do_channels","intercre");
-  add_action("do_channels","sport");
-  add_action("do_channels","geek");
+  add_action("do_channels","zonas");
+  add_action("do_channels","programacion");
   // Radix was here...
   if(this_object()->query_lord())
   {
-     add_action("do_channels","demi");
+     add_action("do_channels","semidios");
      add_action("do_channels","thane");
-    add_action("do_channels", "dwadmin");
+     add_action("do_channels", "admin");
      add_action("do_god_inform", "ginfo");
+     if (TO->query_god())
+     	add_action("do_channels", "dios");
      return;
   }
   if(this_object()->query_thane())
@@ -29,22 +32,22 @@ void my_mess(string fish, string erk);
  /*
 void my_mess(string fish, string erk) {
   if(!interactive()) return;
-  printf("%s%-=*s\n", fish, (int)this_player()->query_cols()-strlen(fish), 
+  printf("%s%-=*s\n", fish, (int)this_player()->query_cols()-strlen(fish),
           this_object()->fix_string(erk));
 } */ /* my_mess() */
 
 int do_god_inform(string mess)
   {
-   if(!mess) 
+   if(!mess)
    {
       notify_fail("Syntax: ginfo <message>\n");
       return(0);
    }
   mess = replace(mess, " ", " ");
   event(users(), "god_inform", (string)this_object()->query_cap_name() +
-    " [Info]: ", mess); 
+    " [Info]: ", mess);
   /*
-  tell_object(users(), (string)this_object()->query_cap_name() + 
+  tell_object(users(), (string)this_object()->query_cap_name() +
               " Info: " + mess", this_object());
   */
 
@@ -52,7 +55,7 @@ int do_god_inform(string mess)
   return 1;
 } /* do god inform */
 
-int do_echo(string str) 
+int do_echo(string str)
   {
   if (!str || str == "") {
     notify_fail("Syntax : echo <text>\n");
@@ -65,8 +68,8 @@ int do_echo(string str)
   event(environment(), "player_echo", str + "\n");
   return 1;
 } /* do_echo() */
- 
-int do_echo_to(string str) 
+
+int do_echo_to(string str)
   {
   string who, what;
   object ob;
@@ -115,6 +118,26 @@ int do_emote_all(string str)
                  + str + "\n");
   return 1;
 } /* do_emote_all() */
+
+int do_echo_all(string str) 
+  {
+  if(!str || str == "") {
+    notify_fail("Syntax : echoall <string>\n");
+    return 0;
+  }
+   // Radix cause Piper & Taniwha wanted it...
+   //if(this_player(1)->query_object_type() == "B") // Comentado By leviathan
+   //{
+    //  notify_fail("Echoall is not available to Builders.\n");
+    //  return(0);
+   //}
+  log_file("ECHOALLS", ctime(time())+" "+this_player()->query_cap_name()+
+                    " Echoalls: "+str+"\n");
+  str += "%^RESET%^";
+  my_mess("Tu echoall : ", str);
+  event(users(), "player_echo_all", str + "\n");
+  return 1;
+} /* do_echo_all() */
 
 int do_inter_creator_tell(string str) 
   {

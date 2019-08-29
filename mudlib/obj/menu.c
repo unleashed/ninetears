@@ -83,7 +83,6 @@ varargs void do_query(mixed hand, string str, object me, int match_all,
   string *fnames;
   string *dir_wants = ({ });
   string *doc_wants = ({ });
-  int is_directory;
   int i, j;
 
   if(!reenter) { /* Most checks and assignments can be skipped if
@@ -115,15 +114,14 @@ varargs void do_query(mixed hand, string str, object me, int match_all,
   fnames = hand->get_doc_fnames(str);
   
   if(!sizeof(fnames)) {
-    tell_object(user,"Your subject was not found in the index.\n");
+    tell_object(user,"Peticion no encontrada en el indice.\n");
     if(reenter) {
       tell_object(user,PRESS_RETURN);
       input_to("delay_prompt");
       return;
     }
     else if(building)
-      tell_object(user,"However, the system is currently loading.  "
-                  "Try again in a few seconds.\n");
+      tell_object(user,"El sistema esta en carga, espera un momento.\n");
     dest_me();
     return;
   }
@@ -181,8 +179,7 @@ varargs void do_query(mixed hand, string str, object me, int match_all,
     /* Show them all the docs */
     if(enter_menu || (reenter == '^')) {
       if(building) {
-        tell_object(user,"The menu system is currently loading.  "
-                    "Please wait a few seconds.\n");
+        tell_object(user,"El sistema esta en carga, espera un momento.\n");
         dest_me();
         return;
       }
@@ -195,8 +192,7 @@ varargs void do_query(mixed hand, string str, object me, int match_all,
   }
   else if((!sizeof(doc_wants) && (sizeof(dir_wants) == 1))) {
     if(building) {
-      tell_object(user,"The menu system is currently loading.  "
-                  "Please wait a few seconds.\n");
+      tell_object(user,"El sistema esta en carga, espera un momento.\n");
       dest_me();
       return;
     }
@@ -260,7 +256,7 @@ varargs void show_menu(string file, int redisplay) {
     else if(file_size(index_root + "_NO_README") > 0)
       ftext = NROFF_HAND->nroff_file(index_root + "_NO_README", cols);
     else
-      ftext = "This directory has no description.\n";
+      ftext = "Este directorio no tiene descripcion.\n";
 
     if(redisplay != -1) {
       subdirs = handler->get_subdirs(implode(curpath,"/"));
@@ -268,7 +264,7 @@ varargs void show_menu(string file, int redisplay) {
     }
 
     if(sizeof(curpath))
-      menu_screen = MTOPIC_COLOR + "Topic: "+implode(curpath,"/")+
+      menu_screen = MTOPIC_COLOR + "Tema: "+implode(curpath,"/")+
              "%^RESET%^\n\n";
     else
       menu_screen = "";
@@ -289,24 +285,24 @@ varargs void show_menu(string file, int redisplay) {
 #endif
 
     if(sizeof(thesubdirs))
-      menu_screen += "Subtopics:\n\n" + MSUBTOP_COLOR + 
+      menu_screen += "Subtema:\n\n" + MSUBTOP_COLOR + 
               sprintf("  %-#*s", cols,
               implode(thesubdirs,"\n"))+"\n\n%^RESET%^";
     if(sizeof(thedocs))
-      menu_screen += "Documents:\n\n" + MDOC_COLOR +
+      menu_screen += "Documentos:\n\n" + MDOC_COLOR +
               sprintf("  %-#*s", cols,
               implode(thedocs,"\n"))+"\n\n%^RESET%^";
     if(sizeof(other_matches)) {
-      menu_screen += MTOPIC_COLOR + sprintf("*Other topics: %-=*s\n\n", 
+      menu_screen += MTOPIC_COLOR + sprintf("*Otros temas: %-=*s\n\n", 
                      (cols - 15), implode(other_matches, ", ")) +
                      "%^RESET%^";
       other_matches = 0;
     }
 
     if(!expert)
-      menu_screen += "Type 'q' to quit, 'h' for help.  Enter subtopic "
-            "or document to continue.\n'.' will redisplay this menu.  "
-            "Press <ret> to go one level lower.\n";
+      menu_screen += "Escribe 'q' para salir, 'h' para ayuda.  Introduce subtema "
+            "o documento para continuar.\n'.' redibujara este menu.  "
+            "Pulsa <intro> para ir a un nivel mas bajo.\n";
  
   }
 
@@ -327,7 +323,7 @@ void show_document(string file) {
   string data;
   
   if(file_size(index_root + file) <= 0) {
-    tell_object(user,"Oops.  That file seems to be empty.\n" +
+    tell_object(user,"Oops.  Este fichero parece vacio.\n" +
                 PRESS_RETURN);
     input_to("delay_prompt");
     return;
@@ -340,7 +336,7 @@ void show_document(string file) {
       topic = file;
 
     if(sizeof(fdata[has_merge_dirs..]))
-      data = "\n" + MTOPIC_COLOR + "Topic: "+topic+"%^RESET%^\n\n";
+      data = "\n" + MTOPIC_COLOR + "Tema: "+topic+"%^RESET%^\n\n";
     else
       data = "\n";
 
@@ -348,7 +344,7 @@ void show_document(string file) {
                                                     cols), file);
 
     if(!sizeof(view_files) && sizeof(other_matches)) {
-      data += MTOPIC_COLOR + sprintf("*Other topics: %-=*s\n\n", 
+      data += MTOPIC_COLOR + sprintf("*Otros temas: %-=*s\n\n", 
               (cols - 15), implode(other_matches, ", ")) +
               "%^RESET%^";
       other_matches = 0;
@@ -476,8 +472,7 @@ void input_prompt(string str) {
                    user->add_property("MENU_EXPERT", 1);
                    expert = 1;
                    menu_screen = 0;
-                   tell_object(user, "You will no longer see the "
-                     "help lines at the bottom of menus.\n" + 
+                   tell_object(user, "Ya no volveras a ver lineas de ayuda en el pie de los menus.\n" + 
                      PRESS_RETURN);
                    input_to("delay_prompt");
                    return;
@@ -486,8 +481,7 @@ void input_prompt(string str) {
                    user->remove_property("MENU_EXPERT");
                    expert = 0;
                    menu_screen = 0;
-                   tell_object(user, "You will again see the help "
-                     "lines at the bottom of menus.\n" +
+                   tell_object(user, "Volveras a ver lineas de ayuda en el pie de los menus.\n" +
                      PRESS_RETURN);
                    input_to("delay_prompt");
                    return;
@@ -543,7 +537,7 @@ void input_prompt(string str) {
         else if(sizeof(matches = regexp(subdirs,str)))
           match_type = 's';
         else { /* nothing valid was typed, whatsoever. */
-          tell_object(user,"That selection is not valid.\n\n" + 
+          tell_object(user,"Seleccion no valida.\n\n" + 
                       PRESS_RETURN);
           input_to("delay_prompt");
           return;
@@ -560,7 +554,7 @@ void input_prompt(string str) {
 
   /* crap out immediately if they matched multiple subdirs. */
   if((sizeof(matches) > 1) && (match_type == 's')) {
-     tell_object(user, "Your query matches multiple subtopics.\n\n" +
+     tell_object(user, "Tu peticion coincide con multiples subtemas.\n\n" +
                        PRESS_RETURN);
      input_to("delay_prompt");
      return;

@@ -106,7 +106,7 @@ int remove_member(string name) {
 int set_project(string name, string pro) {
   if(!query_dom_manip()) return 0;
   if(!members[name]) return 0;
-  if(!pro || pro == "") pro = "project unset";
+  if(!pro || pro == "") pro = "proyecto no especificado";
   members[name] = pro;
   save_me();
   return 1;
@@ -118,7 +118,7 @@ int query_member(string name) {
 
 string query_project(string name) {
   if (!members[name])
-    return "project unset";
+    return "proyecto no especificado";
   return members[name];
 } /* query_project() */
 
@@ -133,6 +133,6 @@ string log_who(string where) {
 string author_file(string *str) {
   switch (str[1]) {
     case "fr" : return DOM_LORD;
-    default: return "baldrick";
+    default: return "baldrick";  /* hmm, creo q esto sa de cambiar xD */
   }
 } /* author_file() */

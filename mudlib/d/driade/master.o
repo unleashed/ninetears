@@ -1,0 +1,10 @@
+#/d/driade/master.c
+open_read 0
+open_write 0
+DOM_LORD "jade"
+DOMAIN "driade"
+read_perms ([])
+write_perms ([])
+dir_owners ([])
+finger_info "Driade, la ciudad sobre la que se levantaran los nuevos reinos."
+members (["thalos":"Sin Proyecto.","barthleby":"No Project","testyra":"Sin Proyecto.","tyrael":"No Project","vilat":"Sin Proyecto.","shimmer":"Sin Proyecto.","maele":"Sin Proyecto.","flangerant":"Sin Proyecto.","jerkat":"Sin Proyecto.","valar":"Sin Proyecto.","zonzamas":"Sin Proyecto.","kryger":"Sin Proyecto.","lokpik":"Sin Proyecto.","prechini":"Sin Proyecto.","leviathan":"Sin Proyecto.","grimfang":"Sin Proyecto.","huascar":"Sin Proyecto.","xerxes":"Sin Proyecto.","methril":"Sin Proyecto.","deceit":"Sin Proyecto.","jade":"No Project",])

@@ -1,198 +1,126 @@
 /* domain administration room */
 #include "access.h"
-#include "path.h"
 inherit "/std/room";
 #define MASTER "/secure/master"
 
 void setup() {
-  string *doms, com;
-  int i;
-  
-  set_light(100);
-  set_short("Domain room");
-  set_long("You float in the empty wastes of the ethereal plane. "
-    "In all directions stars twinkle in the black " 
-    "curtain of space, just lying there avaiting your creative hand "
-    "for being developed.\n" 
-"Available commands:\n"
-"  list                         : list all domains.\n"
-"  list <domain>                : list members of a domain.\n"
-"  create <domain>              : create a domain (you are lord).\n"
-"  create <domain> <lord>       : create a domain for someone else.\n" 
-"  add <creator> <domain>       : add a creator to a domain you own.\n" 
-"  delete <creator> <domain>    : remove a creator from a domain you own.\n" 
-"  project <cre> <dom> <proj>   : Set the creators project.\n");
-  add_alias("ethereal", "plane");
-  add_item("plane", "This plane works as a void of creativity.\n");
-  add_alias("curtain", "space");
-  add_item("space", "Space is something that isn't really there. So how can "
-   "you look at it ?\n");
-add_exit("south",HEAVEN+"admin3","door");
-  seteuid("Root");
-} /* setup() */
+  	set_short("Despacho de control de %^BOLD%^Dominios%^RESET%^");
+  	set_long(query_short()+"\nEn este despacho los Inmortales pueden dar forma al plano material creando nuevos mundos para los mortales, asi que si tienes ideas para un dominio y ganas de trabajar, comunicaselo a un Dios para que te conceda ese nuevo dominio.\n"
+		"Comandos:\n"
+		"  %^YELLOW%^listar%^RESET%^ORANGE%^                       %^RESET%^: Muestra un resumen de todos los dominios.\n"
+		"  %^YELLOW%^listar%^RESET%^ORANGE%^ <dominio>             %^RESET%^: Muestra los miembros de un dominio.\n"
+		"  %^YELLOW%^crear%^RESET%^ORANGE%^ <dominio>              %^RESET%^: Crea un dominio (contigo como Thane).\n"
+		"  %^YELLOW%^crear%^RESET%^ORANGE%^ <dominio> <thane>      %^RESET%^: Crea un dominio para alguien.\n"
+		"  %^YELLOW%^añadir%^RESET%^ORANGE%^ <creador> <dominio>   %^RESET%^: Anyade un creador a uno de tus dominios.\n"
+		"  %^YELLOW%^borrar%^RESET%^ORANGE%^ <creador> <dominio>   %^RESET%^: Elimina a un creador de uno de tus dominios.\n"
+		"  %^YELLOW%^proyecto%^RESET%^ORANGE%^ <cre> <dom> <pro>   %^RESET%^: Establece el proyecto de un creador en un dominio.\n");
+	add_exit("fuera","/d/heaven/admin3","door");
+  	seteuid("Root");
+	} /* setup() */
 
 void init() {
-  ::init();
-  add_action("list", "list", 10);
-  add_action("create_domain", "create", 10);
-  add_action("add_creator", "add", 10);
-  add_action("delete_creator", "delete", 10);
-  add_action("do_project", "project", 10);
-} /* init() */
+  	::init();
+  	add_action("list", "listar");
+  	add_action("create_domain", "crear");
+  	add_action("add_creator", "anyadir");
+	add_action("add_creator", "añadir");
+  	add_action("delete_creator", "borrar");
+  	add_action("do_project", "proyecto");
+	} /* init() */
 
 int list(string arg) {
-  string *members, *domains, mast;
-  int i, cols;
+  	string *members, *domains, mast;
+  	int i, cols;
 
-  if (this_player() != this_player(1))
-    return 0;
-  domains = get_dir("/d/");
-  if(!sizeof(domains)) {
-    notify_fail("No domains exist.\n");
-    return 0;
-  }
-  if(arg) {
-    if(member_array(arg, domains) == -1) {
-      notify_fail("No such domain as " + arg + ".\n");
-      return 0;
-    } else {
-      mast = "/d/" + arg + "/master";
-      write(capitalize((string)mast->query_dom_lord()) + " is the lord of " +
-        arg + ".\nMembers         Project\n");
-      members = (string *)mast->query_members();
-      cols = (int)this_player()->query_cols();
-      for (i=0;i<sizeof(members);i++)
-        printf("%-15s %*-=s\n", members[i], cols-16,
-                               mast->query_project(members[i]));
-      return 1;
-    }
-  }
-  write("Current domains:\n");
-  for(i=0; i<sizeof(domains); i++) {
-    mast = "/d/" + domains[i] + "/master";
-    members = (string *)mast->query_members(arg);
-    printf("%8s has %2d members and is owned by %s.\n", domains[i],
-      sizeof((string *)mast->query_members()),
-      capitalize((string)mast->query_dom_lord()));
-  }
-  return 1;
-} /* list() */
+  	if (this_player() != this_player(1)) return 0;
+
+	domains = get_dir("/d/");
+  	if(!sizeof(domains)) return notify_fail("No hay dominios.\n");
+
+  	if(arg) {
+    		if(member_array(arg, domains) == -1) return notify_fail("No existe un dominio llamado "+capitalize(arg)+".\n");
+		else {
+      			mast = "/d/" + arg + "/master";
+      			write(capitalize((string)mast->query_dom_lord()) + " es Thane de " + capitalize(arg) + ".\n%^BOLD%^Miembros        Proyecto%^RESET%^\n");
+      			members = (string *)mast->query_members();
+      			cols = (int)this_player()->query_cols();
+      			for (i=0;i<sizeof(members);i++) printf("%-15s %*-=s\n", capitalize(members[i]), cols-16, mast->query_project(members[i]));
+      			return 1;
+    			}
+  		}
+  	tell_object(TP,"%^BOLD%^Actualmente existen los siguientes Dominios:%^RESET%^\n");
+  	for(i=0; i<sizeof(domains); i++) {
+    		mast = "/d/" + domains[i] + "/master";
+    		members = (string *)mast->query_members(arg);
+    		printf("%12s tiene %2d miembro(s) y es propiedad de %s.\n", capitalize(domains[i]), sizeof((string *)mast->query_members()), capitalize((string)mast->query_dom_lord()));
+  		}
+  	return 1;
+	} /* list() */
 
 int create_domain(string arg) {
-  string dom, lord;
+  	string dom, lord;
 
-  if (this_player() != this_player(1))
-    return 0;
-  if(!arg) {
-    notify_fail("Usage: create <domain>\n" 
-                "       create <domain> <lord>\n");
-    return 0;
-  }
-  if(!((MASTER->high_programmer(geteuid(previous_object()))) &&
-     (previous_object()->query_god())))
-    { 
-    notify_fail("You lack the Power of Change on this scale!\n");
-    return 0;
-  }
-  if(sscanf(arg, "%s %s", dom, lord) != 2) {
-    dom = arg;
-    lord = (string)this_player()->query_name();
-  } else {
-    lord = (string)this_player()->expand_nickname(lord);
-  }
-  if (!MASTER->create_domain(dom, lord)) {
-    notify_fail("Failed to create domain " + arg + ".\n");
-    return 0;
-  }
-  write("You create the domain " + dom + " with " + capitalize(lord) +
-    " as its lord.\n");
-  return 1;
-} /* create_domain() */
+  	if (this_player() != this_player(1)) return 0;
+  	if(!arg) return notify_fail("Uso:   crear <dominio>\n       crear <dominio> <thane>\n");
+
+  	if(!((MASTER->high_programmer(geteuid(previous_object()))) && (previous_object()->query_god()))) return notify_fail("Comienzas a dar forma a la nada, creando la materia necesaria para tu deseado dominio a partir del vacio estelar, pero te das cuenta de que es mas poder del que puedes controlar sin deformar la Realidad y te detienes justo a tiempo.\n");
+
+  	if(sscanf(arg, "%s %s", dom, lord) != 2) {
+    		dom = arg;
+    		lord = (string)this_player()->query_name();
+  	} else lord = (string)this_player()->expand_nickname(lord);
+
+  	if (!MASTER->create_domain(dom, lord)) return notify_fail("Fallo al crear el dominio " + capitalize(dom) + ".\n");
+
+  	tell_object(TP,"Creas el Dominio " + capitalize(dom) + " para " + capitalize(lord) + ".\n");
+  	return 1;
+	} /* create_domain() */
 
 int add_creator(string arg) {
-  string dom, cre, mast;
-  
-  if (this_player() != this_player(1))
-    return 0;
-  if (!arg || sscanf(arg, "%s %s", cre, dom) != 2) {
-    notify_fail("Usage: add <creator> <domain name>\n");
-    return 0;
-  }
-  if(file_size("/d/" + dom) != -2) {
-    notify_fail("No such domain as " + dom + ".\n");
-    return 0;
-  }
-  cre = (string)this_player()->expand_nickname(cre);
-  mast = "/d/" + dom + "/master";
-  if(!mast->query_dom_manip())
-       {
-    notify_fail("You are not the Lord of that domain.\n");
-    return 0;
-  }
-  if(!mast->add_member(cre)) {
-    notify_fail("Failed to add " + capitalize(cre) + " to domain " +
-      dom + ".\n");
-    return 0;
-  }
-  write("Creator " + capitalize(cre) + " now added to domain " + dom + ".\n");
-  return 1;
-} /* add_creator() */
+  	string dom, cre, mast;
+
+  	if (this_player() != this_player(1)) return 0;
+  	if (!arg || sscanf(arg, "%s %s", cre, dom) != 2) return notify_fail("Uso: anyadir <creador> <dominio>\n");
+
+	if(file_size("/d/" + dom) != -2) return notify_fail("No existe el dominio "+capitalize(dom)+".\n");
+
+  	cre = (string)this_player()->expand_nickname(cre);
+  	mast = "/d/" + dom + "/master";
+  	if(!mast->query_dom_manip()) return notify_fail("Ese dominio no te pertenece.\n");
+  	if(!mast->add_member(cre)) return notify_fail("Error al anyadir a " + capitalize(cre) + " al dominio "+capitalize(dom) + ".\n");
+	tell_object(TP,capitalize(cre) + " anyadido al dominio " + capitalize(dom) + ".\n");
+  	return 1;
+	} /* add_creator() */
 
 int delete_creator(string arg) {
-  string cre, dom, mast;
+  	string cre, dom, mast;
 
-  if (this_player() != this_player(1))
-    return 0;
-  if (!arg || sscanf(arg, "%s %s", cre, dom) != 2) {
-    notify_fail("Usage: delete <creator> <domain>\n");
-    return 0;
-  }
-  if(file_size("/d/" + dom) != -2) {
-    notify_fail("No such domain as " + dom + ".\n");
-    return 0;
-  }
-  cre = (string)this_player()->expand_nickname(cre);
-  mast = "d/" + dom + "/master";
-  if(!mast->query_dom_manip())
-    {
-    notify_fail("You are not the Lord of that domain.\n");
-    return 0;
-  }
-  if (!mast->remove_member(cre)) {
-    notify_fail("Failed to remove " + capitalize(cre) + " from domain " +
-       dom + "\n");
-    return 0;
-  }
-  write("Member " + capitalize(cre) + " removed from domain " + dom + ".\n");
-  return 1;
-} /* delete_creator() */
+	if (this_player() != this_player(1)) return 0;
+  	if (!arg || sscanf(arg, "%s %s", cre, dom) != 2) return notify_fail("Uso: borrar <creador> <dominio>\n");
+
+  	if(file_size("/d/" + dom) != -2) return notify_fail("No existe el dominio "+capitalize(dom)+".\n");
+
+  	cre = (string)this_player()->expand_nickname(cre);
+  	mast = "d/" + dom + "/master";
+	if(!mast->query_dom_manip()) return notify_fail("Ese dominio no te pertenece.\n");
+  	if (!mast->remove_member(cre)) return notify_fail("Error al borrar a " + capitalize(cre) + " del dominio " + capitalize(dom) + "\n");
+	tell_object(TP,capitalize(cre) + " borrado del dominio " + capitalize(dom) + ".\n");
+	return 1;
+	} /* delete_creator() */
 
 int do_project(string arg) {
-  string cre, dom, project, mast;
+  	string cre, dom, project, mast;
 
-  if (this_player() != this_player(1))
-    return 0;
-  if (!arg || sscanf(arg, "%s %s %s", cre, dom, project) != 3) {
-    notify_fail("Usage: project <creator> <domain> <project>\n");
-    return 0;
-  }
-  if(file_size("/d/" + dom) != -2) {
-    notify_fail("No such domain as " + dom + ".\n");
-    return 0;
-  }
-  cre = (string)this_player()->expand_nickname(cre);
-  mast = "d/" + dom + "/master";
-  if(!mast->query_dom_manip()) 
-    {
-    notify_fail("You are not the Lord of that domain.\n");
-    return 0;
-    }
-  if (!mast->set_project(cre, project)) {
-    notify_fail("Failed to set the project " + project + " for " +
-                capitalize(cre) + " in the domain " + dom + "\n");
-    return 0;
-  }
-  write("Project for " + capitalize(cre) + " set to " + project + 
-        " in the domain " + dom + ".\n");
-  return 1;
-} /* do_project() */
+  	if (this_player() != this_player(1)) return 0;
+  	if (!arg || sscanf(arg, "%s %s %s", cre, dom, project) != 3) return notify_fail("Uso: proyecto <creador> <dominio> <proyecto>\n");
+
+  	if(file_size("/d/" + dom) != -2) return notify_fail("No existe el dominio "+capitalize(dom)+".\n");
+
+  	cre = (string)this_player()->expand_nickname(cre);
+  	mast = "d/" + dom + "/master";
+	if(!mast->query_dom_manip()) return notify_fail("Ese dominio no te pertenece.\n");
+
+  	if (!mast->set_project(cre, project)) return notify_fail("Error al establecer el proyecto de " + capitalize(cre) + " en el dominio " + capitalize(dom) + "\n");
+	tell_object(TP,"Establecido proyecto de "+capitalize(cre) + " en el dominio " + capitalize(dom) + ".\n");
+  	return 1;
+	} /* do_project() */

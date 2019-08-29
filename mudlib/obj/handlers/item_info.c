@@ -28,7 +28,7 @@ void save_this_ob() {
     save_object(SAVE+"item_info",1);
 }
  
-create()
+void create()
 {
    object::create();
    container_data = ([ ]);
@@ -45,7 +45,7 @@ create()
    purge_info();
 }
  
-dest_me()
+void dest_me()
 {
    save_this_ob();
    destruct(this_object());
@@ -65,7 +65,7 @@ void purge_info()
 // Called from /global/creator/cmds/qc.c
 int query_qc_perms(string name)
 {
-   string *rights = ({ "taniwha", "radix" });
+   string *rights = ({ "tyrael", "barthleby", "jade" });
    return member_array(name, rights) != -1;
 }
 
@@ -132,7 +132,7 @@ void mapping_update()
    }
    save_this_ob();
    write("Done.\n");
-   return 1;
+   return;
 }
 /* container_data mapping:
      ([ "domain" : 
@@ -220,7 +220,6 @@ void info_item_container(object ob)
 {
    mapping obmap = ([ ]);
    mixed tmp = ({ });
-   int caught = 0;
    string dom, file;
    if(!ob) 
       return;
@@ -354,7 +353,6 @@ void qc_weapon(object ob)
 {
    mapping obmap = ([ ]);
    mixed tmp = ({ });
-   int caught = 0;
    string dom, file;
    if(!ob) 
       return;
@@ -410,7 +408,6 @@ void info_weapon(object ob)
 {
    mapping obmap = ([ ]);
    mixed tmp = ({ });
-   int caught = 0;
    string dom, file;
    if(!ob) 
       return;

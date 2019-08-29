@@ -1,96 +1,74 @@
-/* New workroom.c for newbie immortals.  Same basic functions
- * as the old one, but isn't going to force the entire mudlib
- * down your throat in comments.
- *
- * Radix : September 27, 1995
- */
+/* Probablemente esta sera la primera room que tengas que editar, asi que intentare explicarlo con detalle - Vilat 20.10.2002 */
+
+// Mas arriba aparecia una linea tal que asi:
+// #define CREATOR <tu_nombre>
+// Los defines nos sirven para reemplazar cosas en el archivo, asi que cada vez que escribas CREATOR sera reemplazado por tu nombre
+// Esto nos permite anyadir portabilidad a las rooms, de modo que podemos cambiar cosas globalmente, no una a una
+// Pronto aprenderas que la mejor herramienta para la portabilidad es el #include . Pregunta a otro Inmortal para que te lo explique
 
 inherit "/std/room.c";
-// inherit the file "/std/outside.c" if you want clouds and such.
+// Toda room debe heredar (inherit) o bien /std/room.c o bien una especializacion.
+// La mas importante de estas especializacioneses /std/outside.c , que anyade a la room basica ajustes relativos al clima y similares.
+// Generalmente cuando hagas una room de interior tendras que heredar /std/room.c , pero si se trata de una room de suboscuridad
+// tendras que heredar /std/suboscuridad.c
+// El problema viene al hacer rooms de exterior, donde hay muchisima mas variedad:
+// /std/artico.c : Para rooms de clima muy frio. Estas rooms kitan vida al player si no va correctamente ekipado
+// /std/bosque.c : Las rooms de bosque deben heredar esto.
+// /std/ciudad.c : Para las rooms de ciudad.
+// /std/desierto.c : Las rooms de extremo calor tienen que heredar esto. El player pierde vida en estas rooms si no va bien ekipado.
+// /std/jungla.c : Es como el bosque pero con un clima mas calido
+// /std/llanura.c : Hay que utilizar esto en rooms completamente al aire libre, como los caminos.
+// /std/muralla.c : Es una especializacion de la ciudad, obviamente se usa en las murallas y permite a los players escalarlas.
+// /std/pantano.c : Para esas rooms con un aire tetrico xD El clima es mas frio y humedo en estas rooms
+// Hay muchas mas especializaciones, como tabernas, bancos... pero estos son los que mas usaras generalmente.
 
+void setup() {
+	// El short es lo que aparece como titulo del long, y cuando vamos en modo brief
+   	set_short("Sala de trabajo de "+capitalize(CREATOR));
 
-void setup()
-{
-   set_short(CREATOR+"'s workroom");
+	// El long aparece al mirar la room o cuando vamos en verbose
+   	set_long(query_short()+"\n   La habitacion donde te encuentras ha sido pintada recientemente. Unos pocos muebles adornan la habitacion, algunos todavia en sus embalajes. Los mas importantes son el escritorio y su silla, que parecen haber pasado antes por otras manos a juzgar por su deterioro. En mitad del techo, una lampara oscila dando a la sala una iluminacion bastante tenue. Sin lugar a dudas deberias reacondicionar este lugar pronto.\n\n");
 
-   set_long("\nWorkroom of "+CREATOR+".\n\n"
-      "   The workroom you find yourself standing in has a new layer "
-      "of paint.  A normal assortment of dusty furniture is "
-      "arranged around the room.  The most important being the "
-      "large desk and old chair against the far wall facing you.  "
-      "Hanging from the ceiling, a small lamp gives ample light for "
-      "the room.  With some consideration, you decide the room "
-      "is in need of cleaning.  "
-      "\n\n");
+   	//add_item() sirve para describir los objetos que aparecen en la descripcion. Sirve para anyadir detalles que dan mas
+	//realismo a las salas asi que usa tantos como puedas
+   	add_item("sala","La habitacion huele a pintura fresca. La luz tenue no llega a iluminar todos los rincones.\n");
 
-   // sets the level of light in the room.   "help light" for details
-   set_light(80);
+   	add_item("pared","Las cuatro paredes parecen haber sido pintadas recientemente, aunque no con demasiado esmero.\n");
 
-   //add_item() is used to describe ALL nouns you have in descriptions
-   add_item("workroom","The workroom surrounds you with the smell "
-      "of a fresh coat of paint.  The walls glisten in the light.\n");
+   	add_item("pintura","Alguien ha dado a toda la habitacion una mano de pintura, aunque no se ha debido de cansar mucho porque la capa no es uniforme y en algunos lugares se ve la pintura que habia antes...\n");
 
-   add_item("wall","All four walls are white frshly coated with "
-      "paint.\n");
+   	// Puedes dar a varios objetos la misma descripcion
+   	add_item(({"mobiliario","escritorio","silla"}),"En la pared opuesta a la puerta hay un escritorio y una silla. Ambos tienen un aspecto desvencijado y sucio. La silla esta casi rota asi que seria mejor no sentarse en ella.\n");
 
-   add_item("paint","The entire room has been painted with a new "+
-      "coat of paint.  The paint upon the walls reflects light from "
-      "lamp hanging from the center of the room.\n");
+   	add_item(({"techo","lampara"}),"Colgando del centro del techo hay una lampara de aceite, que ilumina tenuemente la habitacion.\n");
 
-   // you can also give many items the same description
-   add_item(({"furniture","desk","chair"}),"Facing you against "
-      "the far wall, a large desk and chair are set.  The desk and "+
-      "chair have a large layer of dust covering their entire "
-      "surface.  The chair has nearly worn through and perhaps "
-      "is in need of repair.\n");
+   	//Tambien podemos poner informacion para otros sentidos (olor, tacto, gusto y oido)
+   	add_smell(({"habitacion","sala","aire"}),"La habitacion huele a pintura fresca.\n");
 
-   add_item(({"ceiling","lamp","small lamp"}),
-      "Hanging from the center of the room's ceiling, a small "
-      "oil lamp burns continuously emitting ample lighting for "
-      "for the room.\n");
+   	add_feel("escritorio","Sientes el tacto del roble al tocar el escritorio, si bien esta muy gastado.\n");
 
-   //SENSES by Sojan.  This adds even more life to your rooms
-   add_smell(({"room","workroom","air"}),"Here we put what the "
-      "player would get when they typed 'smell room'  They should "
-      "smell the paint in the air of course.\n");
+   	add_taste("pintura","Pasas el dedo por la pared y pruebas el sabor de la pintura... Para darte cuenta de que ni siquiera es pintura, sino que lo que han hecho es encalar la habitacion.\n");
 
-   add_feel("desk","Here we would put what the player would "
-      "get when they typed 'touch desk'\n");
+   	add_sound(({"habitacion","sala","aire"}),"Escuchas un fuerte ruido que viene de debajo del pupitre.\n");
 
-   add_taste("paint","You lick the paint from the wall and soon "
-      "realize this was a major mistake...  get this by typing "
-      "'taste paint'\n");
+   	//Recuerda al hacer tus rooms darles todo el detalle posible para crear una atmosfera adecuada
 
-   add_sound(({"room","workroom"}),"You hear a rumbling noise "+
-      "coming from above.  Get this by typing 'listen room'\n");
+   	//La siguiente funcion sirve para anyadir objetos a la room, que pueden sar tanto items, como armas, armaduras o npcs
+	//El primer argumento es el objeto que queremos incluir, y el segundo el numero de estos objetos que deseamos
+	add_clone("/obj/misc/button.c",1);
 
-   //Remember, when describing your future rooms, always describe
-   //everything as richly as possible (not half-baked like these)
+   	//Ahora vamos a anyadir las salidas de la habitacion. Sus parametros son, por orden:
+   	//direccion - Lo que debemos escribir para ir en esa direccion
+   	//destino - La room a la que iremos
+   	//tipo - El tipo de salida. Si no ponemos este parametro la salida sera de tipo 'standard'
+   	//Lee /doc/roomgen/exit_type_help o escribe 'man add_exit' para mas informacion (en ingles de momento)
 
-   //The following is used to "clone" objects into rooms.
-   //These objects can range from NPCs and monsters to weapons.
-   //A seperate file (much like this workroom) will be required
-   //so we use the function add_clone to bring them into your rooms.
+   	add_exit("comun","/w/common","door");
 
-   add_clone("/obj/misc/button.c",1);
+   	//Esta linea es una llamada sobre otro objeto. En este caso estamos llamando sobre "/w/common" y anyadiendole una salida hacia aqu
+   	"/w/common.c"->add_exit( CREATOR,"/w/"+CREATOR+"/workroom","door");
+	}
 
-   //Here are the exits from your room
-   //add_exit(direction, destination, type)
-   //direction - What they must type to leave that direction
-   //destination - The room they will be moved to
-   //type - The exit type, can be "path","corridor","door"...
-   //Read /doc/roomgen/exit_type_help for more info.
-
-   add_exit("common","/w/common","door");
-  add_exit("entryroom","/room/entryroom.c","door");
-
-   //This is something neat, adds an exit IN the common to this room.
-
-   "/w/common.c"->add_exit( CREATOR,"/w/"+CREATOR+"/workroom","door");
-
-}
-
-// This ends the basic workroom.
-// For a workroom with added features such as add_action()'s
-// look at workroom2.c 
-// This should be in your work directory as well...
+// Aqui termina la documentacion basica de rooms. Si quieres saber mas puedes leer workroom2.c (en tu directorio).
+// Ahi te explican como anyadir funciones especiales, pero intenta probar primero a hacer una room como esta.
+// De momento workroom2.c esta en ingles

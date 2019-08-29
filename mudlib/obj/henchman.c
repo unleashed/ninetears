@@ -31,7 +31,7 @@ void house_clean();
 void save_my_data();
 void load_my_data();
 
-create()
+void create()
 {
     monster::create();
     call_out("find_owner", 1);
@@ -69,6 +69,7 @@ void set_protect_owner(int i)
     if(protect_owner == 1) {
 	call_out("do_protect", 0,
 	  this_object()->query_owner()->query_name());
+	write( this_object()->query_owner()->query_name());
     }
 }
 
@@ -79,7 +80,7 @@ void find_owner()
     tell_object(owner,join_me_mess+"\n");
 }
 
-house_clean()
+void house_clean()
 {
     tell_room(environment(),leave_room_mess+"\n");
     dest_me();
@@ -149,13 +150,13 @@ void load_my_data()
     set_hp(my_data["hp"], this_object());
     set_gp(my_data["gp"]);
     adjust_volume(0,my_data["volume"]);
-    adjust_align(my_data["align"]);
+//    adjust_align(my_data["align"]);
     set_gender(my_data["gender"]);
     total_xp = my_data["total_xp"];
     xp = my_data["xp"];
     set_wimpy(my_data["wimpy"]);
     godalign = my_data["godalign"];
-    ethics = my_data["ethics"];
+//    ethics = my_data["ethics"];
     return;
 }
 
@@ -181,7 +182,7 @@ void save_my_data()
     my_data["xp"] = query_xp();
     my_data["wimpy"] = query_wimpy();
     my_data["godalign"] = godalign;
-    my_data["ethics"] = ethics;
+//    my_data["ethics"] = ethics;
     add_property("my_data",my_data);
     return;
 }

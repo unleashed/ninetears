@@ -271,3 +271,8 @@ mixed set_term_type(string str) {
 string *query_term_types() {
   return m_indices(terms);
 }
+
+string ansi_code(string str) {
+	if(terms["ansi"][str]) return terms["ansi"][str];
+	else return 0;
+	}

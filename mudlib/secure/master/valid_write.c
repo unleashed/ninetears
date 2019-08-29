@@ -16,6 +16,10 @@ int valid_write(string path, mixed euid, string func) {
   string *bing;
    mixed master;
 
+// A FALTA DE KE MIRE LOS TEMAS DE PERMISOS DINAMICOS Y DE RANGOS DE INMS
+//	return 1;
+
+
   if (objectp(euid)) euid = geteuid(euid);
   if (high_programmer(euid)) return 1;
   bing = explode(path, "/");

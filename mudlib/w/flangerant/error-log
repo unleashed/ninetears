@@ -1,0 +1,15 @@
+w/flangerant/workroom.c line 11: Warning: Unknown \x char.
+w/flangerant/workroom.c line 11: parse error
+w/flangerant/workroom.c line 29: End of file in string
+w/flangerant/workroom.c line 11: Warning: Unknown \x char.
+w/flangerant/workroom.c line 11: Warning: Unknown \x char.
+w/flangerant/workroom.c line 25: Undefined variable 'board'
+w/flangerant/workroom.c line 26: Undefined variable 'flangerant'
+w/flangerant/workroom.c line 32: Undefined variable 'board'
+w/flangerant/workroom.c line 27: Undefined variable 'flangerant'
+w/flangerant/grimfang/workroom2.c line 28: parse error
+w/flangerant/grimfang/balcon.c line 71: parse error
+w/flangerant/grimfang/balcon.c line 84: parse error
+w/flangerant/cadena.c line 4: Undefined variable 'weapon_data'
+w/flangerant/grimfang/balcon.c line 71: parse error
+w/flangerant/grimfang/balcon.c line 84: parse error

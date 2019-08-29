@@ -1,0 +1,1978 @@
+using config file: /devel/mud/fficmud/mudos/bin/config.fficmud
+----------------------------------------------------------------------------
+Ninetears (MudOS v22.2b13) starting up on Linux - Thu Mar 27 16:44:26 2003
+
+
+Connected to address server on localhost port 6364
+
+Loading preloaded files ...
+Initializations complete.
+
+Accepting connections on port 4005.
+No error handler for error: *call_other() couldn't find object
+program: /global/guild-race.c, object: /global/god#1, file: /global/guild-race.c:19
+--- trace ---
+Object: /secure/login#0, Program: /secure/login.c
+   in begin2() at /secure/login.c:457
+arguments were (0)
+locals were: /secure/login#0
+Object: /global/god#1, Program: /global/lord.c
+   in move_player_to_start() at /global/lord.c:5
+arguments were ("barthleby",0,-1)
+Object: /global/god#1, Program: /global/thane.c
+   in move_player_to_start() at /global/thane.c:17
+arguments were ("barthleby",0,-1)
+Object: /global/god#1, Program: /global/creator.c
+   in move_player_to_start() at /global/creator.c:24
+arguments were ("barthleby",0,-1)
+locals were: "0"
+Object: /global/god#1, Program: /global/wiz_file_comm.c
+   in move_player_to_start() at /global/player.c:282
+arguments were ("barthleby",0,-1)
+locals were: 0,0
+Object: /global/god#1, Program: /global/wiz_file_comm.c
+   in start_player() at /global/player.c:390
+arguments were ()
+locals were: 0
+Object: /global/god#1, Program: /global/guild-race.c
+   in race_guild_commands() at /global/guild-race.c:19
+arguments were ()
+locals were: 0
+'          CATCH' in '/ global/guild-race.c' ('/        global/god#1') /global/guild-race.c:19
+--- end trace ---
+No error handler for error: *call_other() couldn't find object
+program: /global/guild-race.c, object: /global/god#1, file: /global/guild-race.c:20
+--- trace ---
+Object: /secure/login#0, Program: /secure/login.c
+   in begin2() at /secure/login.c:457
+arguments were (0)
+locals were: /secure/login#0
+Object: /global/god#1, Program: /global/lord.c
+   in move_player_to_start() at /global/lord.c:5
+arguments were ("barthleby",0,-1)
+Object: /global/god#1, Program: /global/thane.c
+   in move_player_to_start() at /global/thane.c:17
+arguments were ("barthleby",0,-1)
+Object: /global/god#1, Program: /global/creator.c
+   in move_player_to_start() at /global/creator.c:24
+arguments were ("barthleby",0,-1)
+locals were: "0"
+Object: /global/god#1, Program: /global/wiz_file_comm.c
+   in move_player_to_start() at /global/player.c:282
+arguments were ("barthleby",0,-1)
+locals were: 0,0
+Object: /global/god#1, Program: /global/wiz_file_comm.c
+   in start_player() at /global/player.c:390
+arguments were ()
+locals were: 0
+Object: /global/god#1, Program: /global/guild-race.c
+   in race_guild_commands() at /global/guild-race.c:20
+arguments were ()
+locals were: 0
+'          CATCH' in '/ global/guild-race.c' ('/        global/god#1') /global/guild-race.c:20
+--- end trace ---
+No error handler for error: *Inherited file '/std/pub' does not exist!
+program: /obj/handlers/room_handler.c, object: /obj/handlers/room_handler, file: /obj/handlers/room_handler.c:67
+--- trace ---
+Object: /obj/handlers/room_handler, Program: /obj/handlers/room_handler.c
+   in check_door() at /obj/handlers/room_handler.c:67
+arguments were (({ /* sizeof() == 3 */
+  /std/room/exit_handler,
+  "tavern",
+  "/d/ss/daggerford/ladyluck"
+}))
+locals were: 0
+'          CATCH' in '/obj/handlers/room_handler.c' ('/obj/handlers/room_handler') /obj/handlers/room_handler.c:67
+--- end trace ---
+No error handler for error: *call_other() couldn't find object
+program: /global/guild-race.c, object: /global/god#1, file: /global/guild-race.c:223
+--- trace ---
+Object: /global/god#1, Program: /global/wiz_file_comm.c
+   in process_input() at /global/player.c:1802
+arguments were ("f")
+Object: /global/god#1, Program: /global/psoul.c
+   in soul_com() at /global/psoul.c:57
+arguments were ("f")
+locals were: "f",0,0
+Object: /global/god#1, Program: /global/alias.c
+   in exec_alias() at /global/alias.c:430
+arguments were ("f","")
+locals were: 2,0,({ /* sizeof() == 1 */
+  "f"
+}),"sheet ",({ /* sizeof() == 2 */
+  "sheet ",
+  512
+})
+Object: /global/god#1, Program: /global/wiz_file_comm.c
+   in process_input() at /global/player.c:1803
+arguments were ("sheet ")
+Object: /global/god#1, Program: /global/wiz_file_comm.c
+   in do_cmd() at /global/player.c:499
+arguments were ("sheet ")
+locals were: "sheet",""
+Object: /cmds/handlers/cmd_handler, Program: /cmds/handlers/cmd_handler.c
+   in cmd() at /cmds/handlers/cmd_handler.c:148
+arguments were ("hoja","",/global/god#1)
+locals were: /cmds/player/hoja,"/cmds/player/hoja","barthleby",0,"sheet"
+Object: /cmds/player/hoja, Program: /cmds/handlers/cmd.c
+   in _cmd() at /cmds/handlers/cmd.c:76
+arguments were ("",/global/god#1,"sheet")
+locals were: "barthleby",0
+Object: /cmds/player/hoja, Program: /cmds/player/hoja.c
+   in cmd() at /cmds/player/hoja.c:224
+arguments were ("",/global/god#1)
+locals were: 79,15,6,4,"   ","%^CYAN%^===============================================================================","/d/gremios/magos/magobueno",({ })
+'query_race_group_name' in '/ global/guild-race.c' ('/        global/god#1') /global/guild-race.c:223
+arguments were ()
+--- end trace ---
+No error handler for error: *Error in loading object '/w/barthleby/OSO'
+program: /std/basic/misc.c, object: /global/god#1, file: /std/basic/misc.c:91
+--- trace ---
+Object: /global/god#1, Program: /global/wiz_file_comm.c
+   in process_input() at /global/player.c:1805
+arguments were ("dentro")
+Object: /w/barthleby/noella/rooms/rooms_principales/plaza_del_tapal, Program: /std/room.c
+   in do_exit_command() at /std/room.c:521
+arguments were (0,0,0,0)
+locals were: 0,0,/w/barthleby/noella/rooms/rooms_principales/plaza_del_tapal
+Object: /std/room/exit_handler, Program: /std/room/exit_handler.c
+   in do_exit_command() at /std/room/exit_handler.c:234
+arguments were (([ ]),([ ]),([ /* sizeof() == 6 */
+  "sur" : ({ /* sizeof() == 4 */
+      "/w/barthleby/noella/rooms/calle_principal/calle12",
+      "road",
+      "unknown",
+      "sur"
+    }),
+  "este" : ({ /* sizeof() == 4 */
+      "/w/barthleby/noella/rooms/callejones/callejon_G4",
+      "road",
+      "unknown",
+      "este"
+    }),
+  "dentro" : ({ /* sizeof() == 4 */
+      "/w/barthleby/noella/rooms/rooms_principales/trabuk",
+      "road",
+      "unknown",
+      "dentro"
+    }),
+  "catedral" : ({ /* sizeof() == 4 */
+      "/w/barthleby/noella/rooms/rooms_principales/catedral",
+      "road",
+      "unknown",
+      "catedral"
+    }),
+  "norte" : ({ /* sizeof() == 4 */
+      "/w/barthleby/noella/rooms/calle_principal/calle11",
+      "road",
+      "unknown",
+      "norte"
+    }),
+  "oeste" : ({ /* sizeof() == 4 */
+      "/w/barthleby/noella/rooms/callejones/callejon_D1",
+      "road",
+      "unknown",
+      "oeste"
+    }),
+]),({ /* sizeof() == 6 */
+  "oeste",
+  "norte",
+  "este",
+  "sur",
+  "catedral",
+  "dentro"
+}),({ /* sizeof() == 12 */
+  "oeste",
+  ({ /* sizeof() == 6 */
+    "/w/barthleby/noella/rooms/callejones/callejon_D1",
+    0,
+    1,
+    30,
+    0,
+    ({ /* sizeof() == 2 */
+      0,
+      "el este"
+    })
+  }),
+  "norte",
+  ({ /* sizeof() == 6 */
+    "/w/barthleby/noella/rooms/calle_principal/calle11",
+    0,
+    1,
+    30,
+    0,
+    ({ /* sizeof() == 2 */
+      0,
+      "el sur"
+    })
+  }),
+  "este",
+  ({ /* sizeof() == 6 */
+    "/w/barthleby/noella/rooms/callejones/callejon_G4",
+    0,
+    1,
+    30,
+    0,
+    ({ /* sizeof() == 2 */
+      0,
+      "el oeste"
+    })
+  }),
+  "sur",
+  ({ /* sizeof() == 6 */
+    "/w/barthleby/noella/rooms/calle_principal/calle12",
+    0,
+    1,
+    30,
+    0,
+    ({ /* sizeof() == 2 */
+      0,
+      "el norte"
+    })
+  }),
+  "catedral",
+  ({ /* sizeof() == 6 */
+    "/w/barthleby/noella/rooms/rooms_principales/catedral",
+    0,
+    1,
+    30,
+    0,
+    ({ /* sizeof() == 2 */
+      0,
+      "algun sitio"
+    })
+  }),
+  "dentro",
+  ({ /* sizeof() == 6 */
+    "/w/barthleby/noella/rooms/rooms_principales/trabuk",
+    0,
+    1,
+    30,
+    0,
+    ({ /* sizeof() == 2 */
+      0,
+      "el exterior"
+    })
+  })
+}),({ }),0,"dentro",/global/god#1,0,/w/barthleby/noella/rooms/rooms_principales/plaza_del_tapal)
+locals were: 0,0,5,0,0,0,0
+Object: /std/room/exit_handler, Program: /std/room/exit_handler.c
+   in <catch>() at /std/room/exit_handler.c:234
+Object: /global/god#1, Program: /std/living/living.c
+   in move_player() at /std/living/living.c:139
+arguments were ("dentro","/w/barthleby/noella/rooms/rooms_principales/trabuk",0,0,({ /* sizeof() == 2 */
+  0,
+  "el exterior"
+}))
+locals were: 0,0,0,"@Barthleby llega cantando %^BOLD%^Smells Like %^BLUE%^Teen Spirit%^RESET%^ desde el exterior. 
+","@Barthleby se va cantando %^BOLD%^YELLOW%^In %^RED%^Bloom%^RESET%^ hacia dentro. 
+",0,"Barthleby",/w/barthleby/noella/rooms/rooms_principales/plaza_del_tapal,0,0,0
+Object: /global/god#1, Program: /global/wiz_file_comm.c
+   in move() at /global/player.c:1427
+arguments were ("/w/barthleby/noella/rooms/rooms_principales/trabuk","Barthleby llega cantando %^BOLD%^Smells Like %^BLUE%^Teen Spirit%^RESET%^ desde el exterior. 
+","Barthleby se va cantando %^BOLD%^YELLOW%^In %^RED%^Bloom%^RESET%^ hacia dentro. 
+")
+locals were: 0,/w/barthleby/noella/rooms/rooms_principales/plaza_del_tapal
+Object: /global/god#1, Program: /std/container.c
+   in move() at /std/container.c:113
+arguments were ("/w/barthleby/noella/rooms/rooms_principales/trabuk","Barthleby llega cantando %^BOLD%^Smells Like %^BLUE%^Teen Spirit%^RESET%^ desde el exterior. 
+","Barthleby se va cantando %^BOLD%^YELLOW%^In %^RED%^Bloom%^RESET%^ hacia dentro. 
+")
+'           move' in '/    std/basic/misc.c' ('/        global/god#1') /std/basic/misc.c:91
+arguments were ("/w/barthleby/noella/rooms/rooms_principales/trabuk","Barthleby llega cantando %^BOLD%^Smells Like %^BLUE%^Teen Spirit%^RESET%^ desde el exterior. 
+","Barthleby se va cantando %^BOLD%^YELLOW%^In %^RED%^Bloom%^RESET%^ hacia dentro. 
+")
+locals were: 0,/w/barthleby/noella/rooms/rooms_principales/plaza_del_tapal
+--- end trace ---
+No error handler for error: *Error in loading object '/w/barthleby/OSO'
+program: /std/basic/misc.c, object: /global/god#1, file: /std/basic/misc.c:91
+--- trace ---
+Object: /global/god#1, Program: /global/wiz_file_comm.c
+   in process_input() at /global/player.c:1805
+arguments were ("dentro")
+Object: /w/barthleby/noella/rooms/rooms_principales/plaza_del_tapal, Program: /std/room.c
+   in do_exit_command() at /std/room.c:521
+arguments were (0,0,0,0)
+locals were: 0,0,/w/barthleby/noella/rooms/rooms_principales/plaza_del_tapal
+Object: /std/room/exit_handler, Program: /std/room/exit_handler.c
+   in do_exit_command() at /std/room/exit_handler.c:234
+arguments were (([ ]),([ ]),([ /* sizeof() == 6 */
+  "sur" : ({ /* sizeof() == 4 */
+      "/w/barthleby/noella/rooms/calle_principal/calle12",
+      "road",
+      "unknown",
+      "sur"
+    }),
+  "este" : ({ /* sizeof() == 4 */
+      "/w/barthleby/noella/rooms/callejones/callejon_G4",
+      "road",
+      "unknown",
+      "este"
+    }),
+  "dentro" : ({ /* sizeof() == 4 */
+      "/w/barthleby/noella/rooms/rooms_principales/trabuk",
+      "road",
+      "unknown",
+      "dentro"
+    }),
+  "catedral" : ({ /* sizeof() == 4 */
+      "/w/barthleby/noella/rooms/rooms_principales/catedral",
+      "road",
+      "unknown",
+      "catedral"
+    }),
+  "norte" : ({ /* sizeof() == 4 */
+      "/w/barthleby/noella/rooms/calle_principal/calle11",
+      "road",
+      "unknown",
+      "norte"
+    }),
+  "oeste" : ({ /* sizeof() == 4 */
+      "/w/barthleby/noella/rooms/callejones/callejon_D1",
+      "road",
+      "unknown",
+      "oeste"
+    }),
+]),({ /* sizeof() == 6 */
+  "oeste",
+  "norte",
+  "este",
+  "sur",
+  "catedral",
+  "dentro"
+}),({ /* sizeof() == 12 */
+  "oeste",
+  ({ /* sizeof() == 6 */
+    "/w/barthleby/noella/rooms/callejones/callejon_D1",
+    0,
+    1,
+    30,
+    0,
+    ({ /* sizeof() == 2 */
+      0,
+      "el este"
+    })
+  }),
+  "norte",
+  ({ /* sizeof() == 6 */
+    "/w/barthleby/noella/rooms/calle_principal/calle11",
+    0,
+    1,
+    30,
+    0,
+    ({ /* sizeof() == 2 */
+      0,
+      "el sur"
+    })
+  }),
+  "este",
+  ({ /* sizeof() == 6 */
+    "/w/barthleby/noella/rooms/callejones/callejon_G4",
+    0,
+    1,
+    30,
+    0,
+    ({ /* sizeof() == 2 */
+      0,
+      "el oeste"
+    })
+  }),
+  "sur",
+  ({ /* sizeof() == 6 */
+    "/w/barthleby/noella/rooms/calle_principal/calle12",
+    0,
+    1,
+    30,
+    0,
+    ({ /* sizeof() == 2 */
+      0,
+      "el norte"
+    })
+  }),
+  "catedral",
+  ({ /* sizeof() == 6 */
+    "/w/barthleby/noella/rooms/rooms_principales/catedral",
+    0,
+    1,
+    30,
+    0,
+    ({ /* sizeof() == 2 */
+      0,
+      "algun sitio"
+    })
+  }),
+  "dentro",
+  ({ /* sizeof() == 6 */
+    "/w/barthleby/noella/rooms/rooms_principales/trabuk",
+    0,
+    1,
+    30,
+    0,
+    ({ /* sizeof() == 2 */
+      0,
+      "el exterior"
+    })
+  })
+}),({ }),0,"dentro",/global/god#1,0,/w/barthleby/noella/rooms/rooms_principales/plaza_del_tapal)
+locals were: 0,0,5,0,0,0,0
+Object: /std/room/exit_handler, Program: /std/room/exit_handler.c
+   in <catch>() at /std/room/exit_handler.c:234
+Object: /global/god#1, Program: /std/living/living.c
+   in move_player() at /std/living/living.c:139
+arguments were ("dentro","/w/barthleby/noella/rooms/rooms_principales/trabuk",0,0,({ /* sizeof() == 2 */
+  0,
+  "el exterior"
+}))
+locals were: 0,0,0,"@Barthleby llega cantando %^BOLD%^Smells Like %^BLUE%^Teen Spirit%^RESET%^ desde el exterior. 
+","@Barthleby se va cantando %^BOLD%^YELLOW%^In %^RED%^Bloom%^RESET%^ hacia dentro. 
+",0,"Barthleby",/w/barthleby/noella/rooms/rooms_principales/plaza_del_tapal,0,0,0
+Object: /global/god#1, Program: /global/wiz_file_comm.c
+   in move() at /global/player.c:1427
+arguments were ("/w/barthleby/noella/rooms/rooms_principales/trabuk","Barthleby llega cantando %^BOLD%^Smells Like %^BLUE%^Teen Spirit%^RESET%^ desde el exterior. 
+","Barthleby se va cantando %^BOLD%^YELLOW%^In %^RED%^Bloom%^RESET%^ hacia dentro. 
+")
+locals were: 0,/w/barthleby/noella/rooms/rooms_principales/plaza_del_tapal
+Object: /global/god#1, Program: /std/container.c
+   in move() at /std/container.c:113
+arguments were ("/w/barthleby/noella/rooms/rooms_principales/trabuk","Barthleby llega cantando %^BOLD%^Smells Like %^BLUE%^Teen Spirit%^RESET%^ desde el exterior. 
+","Barthleby se va cantando %^BOLD%^YELLOW%^In %^RED%^Bloom%^RESET%^ hacia dentro. 
+")
+'           move' in '/    std/basic/misc.c' ('/        global/god#1') /std/basic/misc.c:91
+arguments were ("/w/barthleby/noella/rooms/rooms_principales/trabuk","Barthleby llega cantando %^BOLD%^Smells Like %^BLUE%^Teen Spirit%^RESET%^ desde el exterior. 
+","Barthleby se va cantando %^BOLD%^YELLOW%^In %^RED%^Bloom%^RESET%^ hacia dentro. 
+")
+locals were: 0,/w/barthleby/noella/rooms/rooms_principales/plaza_del_tapal
+--- end trace ---
+No error handler for error: *Error in loading object '/w/barthleby/OSO'
+program: /std/basic/misc.c, object: /global/god#1, file: /std/basic/misc.c:91
+--- trace ---
+Object: /global/god#1, Program: /global/wiz_file_comm.c
+   in process_input() at /global/player.c:1805
+arguments were ("dentro")
+Object: /w/barthleby/noella/rooms/rooms_principales/plaza_del_tapal, Program: /std/room.c
+   in do_exit_command() at /std/room.c:521
+arguments were (0,0,0,0)
+locals were: 0,0,/w/barthleby/noella/rooms/rooms_principales/plaza_del_tapal
+Object: /std/room/exit_handler, Program: /std/room/exit_handler.c
+   in do_exit_command() at /std/room/exit_handler.c:234
+arguments were (([ ]),([ ]),([ /* sizeof() == 6 */
+  "sur" : ({ /* sizeof() == 4 */
+      "/w/barthleby/noella/rooms/calle_principal/calle12",
+      "road",
+      "unknown",
+      "sur"
+    }),
+  "este" : ({ /* sizeof() == 4 */
+      "/w/barthleby/noella/rooms/callejones/callejon_G4",
+      "road",
+      "unknown",
+      "este"
+    }),
+  "dentro" : ({ /* sizeof() == 4 */
+      "/w/barthleby/noella/rooms/rooms_principales/trabuk",
+      "road",
+      "unknown",
+      "dentro"
+    }),
+  "catedral" : ({ /* sizeof() == 4 */
+      "/w/barthleby/noella/rooms/rooms_principales/catedral",
+      "road",
+      "unknown",
+      "catedral"
+    }),
+  "norte" : ({ /* sizeof() == 4 */
+      "/w/barthleby/noella/rooms/calle_principal/calle11",
+      "road",
+      "unknown",
+      "norte"
+    }),
+  "oeste" : ({ /* sizeof() == 4 */
+      "/w/barthleby/noella/rooms/callejones/callejon_D1",
+      "road",
+      "unknown",
+      "oeste"
+    }),
+]),({ /* sizeof() == 6 */
+  "oeste",
+  "norte",
+  "este",
+  "sur",
+  "catedral",
+  "dentro"
+}),({ /* sizeof() == 12 */
+  "oeste",
+  ({ /* sizeof() == 6 */
+    "/w/barthleby/noella/rooms/callejones/callejon_D1",
+    0,
+    1,
+    30,
+    0,
+    ({ /* sizeof() == 2 */
+      0,
+      "el este"
+    })
+  }),
+  "norte",
+  ({ /* sizeof() == 6 */
+    "/w/barthleby/noella/rooms/calle_principal/calle11",
+    0,
+    1,
+    30,
+    0,
+    ({ /* sizeof() == 2 */
+      0,
+      "el sur"
+    })
+  }),
+  "este",
+  ({ /* sizeof() == 6 */
+    "/w/barthleby/noella/rooms/callejones/callejon_G4",
+    0,
+    1,
+    30,
+    0,
+    ({ /* sizeof() == 2 */
+      0,
+      "el oeste"
+    })
+  }),
+  "sur",
+  ({ /* sizeof() == 6 */
+    "/w/barthleby/noella/rooms/calle_principal/calle12",
+    0,
+    1,
+    30,
+    0,
+    ({ /* sizeof() == 2 */
+      0,
+      "el norte"
+    })
+  }),
+  "catedral",
+  ({ /* sizeof() == 6 */
+    "/w/barthleby/noella/rooms/rooms_principales/catedral",
+    0,
+    1,
+    30,
+    0,
+    ({ /* sizeof() == 2 */
+      0,
+      "algun sitio"
+    })
+  }),
+  "dentro",
+  ({ /* sizeof() == 6 */
+    "/w/barthleby/noella/rooms/rooms_principales/trabuk",
+    0,
+    1,
+    30,
+    0,
+    ({ /* sizeof() == 2 */
+      0,
+      "el exterior"
+    })
+  })
+}),({ }),0,"dentro",/global/god#1,0,/w/barthleby/noella/rooms/rooms_principales/plaza_del_tapal)
+locals were: 0,0,5,0,0,0,0
+Object: /std/room/exit_handler, Program: /std/room/exit_handler.c
+   in <catch>() at /std/room/exit_handler.c:234
+Object: /global/god#1, Program: /std/living/living.c
+   in move_player() at /std/living/living.c:139
+arguments were ("dentro","/w/barthleby/noella/rooms/rooms_principales/trabuk",0,0,({ /* sizeof() == 2 */
+  0,
+  "el exterior"
+}))
+locals were: 0,0,0,"@Barthleby llega cantando %^BOLD%^Smells Like %^BLUE%^Teen Spirit%^RESET%^ desde el exterior. 
+","@Barthleby se va cantando %^BOLD%^YELLOW%^In %^RED%^Bloom%^RESET%^ hacia dentro. 
+",0,"Barthleby",/w/barthleby/noella/rooms/rooms_principales/plaza_del_tapal,0,0,0
+Object: /global/god#1, Program: /global/wiz_file_comm.c
+   in move() at /global/player.c:1427
+arguments were ("/w/barthleby/noella/rooms/rooms_principales/trabuk","Barthleby llega cantando %^BOLD%^Smells Like %^BLUE%^Teen Spirit%^RESET%^ desde el exterior. 
+","Barthleby se va cantando %^BOLD%^YELLOW%^In %^RED%^Bloom%^RESET%^ hacia dentro. 
+")
+locals were: 0,/w/barthleby/noella/rooms/rooms_principales/plaza_del_tapal
+Object: /global/god#1, Program: /std/container.c
+   in move() at /std/container.c:113
+arguments were ("/w/barthleby/noella/rooms/rooms_principales/trabuk","Barthleby llega cantando %^BOLD%^Smells Like %^BLUE%^Teen Spirit%^RESET%^ desde el exterior. 
+","Barthleby se va cantando %^BOLD%^YELLOW%^In %^RED%^Bloom%^RESET%^ hacia dentro. 
+")
+'           move' in '/    std/basic/misc.c' ('/        global/god#1') /std/basic/misc.c:91
+arguments were ("/w/barthleby/noella/rooms/rooms_principales/trabuk","Barthleby llega cantando %^BOLD%^Smells Like %^BLUE%^Teen Spirit%^RESET%^ desde el exterior. 
+","Barthleby se va cantando %^BOLD%^YELLOW%^In %^RED%^Bloom%^RESET%^ hacia dentro. 
+")
+locals were: 0,/w/barthleby/noella/rooms/rooms_principales/plaza_del_tapal
+--- end trace ---
+No error handler for error: *call_other() couldn't find object
+program: /cmds/creator/goto.c, object: /cmds/creator/goto, file: /cmds/creator/goto.c:32
+--- trace ---
+Object: /global/god#1, Program: /global/wiz_file_comm.c
+   in process_input() at /global/player.c:1802
+arguments were ("home")
+Object: /global/god#1, Program: /global/psoul.c
+   in soul_com() at /global/psoul.c:57
+arguments were ("home")
+locals were: "home",0,0
+Object: /global/god#1, Program: /global/alias.c
+   in exec_alias() at /global/alias.c:430
+arguments were ("home","")
+locals were: 2,0,({ /* sizeof() == 1 */
+  "home"
+}),"goto /w/barthleby/workroom ",({ /* sizeof() == 2 */
+  "goto /w/barthleby/workroom ",
+  512
+})
+Object: /global/god#1, Program: /global/wiz_file_comm.c
+   in process_input() at /global/player.c:1803
+arguments were ("goto /w/barthleby/workroom ")
+Object: /global/god#1, Program: /global/wiz_file_comm.c
+   in do_cmd() at /global/player.c:499
+arguments were ("goto /w/barthleby/workroom ")
+locals were: "goto","/w/barthleby/workroom "
+Object: /cmds/handlers/cmd_handler, Program: /cmds/handlers/cmd_handler.c
+   in cmd() at /cmds/handlers/cmd_handler.c:148
+arguments were ("goto","/w/barthleby/workroom ",/global/god#1)
+locals were: /cmds/creator/goto,"/cmds/creator/goto","barthleby",0,"goto"
+Object: /cmds/creator/goto, Program: /cmds/handlers/cmd.c
+   in _cmd() at /cmds/handlers/cmd.c:76
+arguments were ("/w/barthleby/workroom ",/global/god#1,"goto")
+locals were: "barthleby",0
+Object: /cmds/creator/goto, Program: /cmds/creator/goto.c
+   in cmd() at /cmds/creator/goto.c:32
+arguments were ("/w/barthleby/workroom ",/global/god#1)
+locals were: 0,"/w/barthleby/workroom"
+'          CATCH' in '/ cmds/creator/goto.c' ('/   cmds/creator/goto') /cmds/creator/goto.c:32
+--- end trace ---
+No error handler for error: *call_other() couldn't find object
+program: /cmds/creator/goto.c, object: /cmds/creator/goto, file: /cmds/creator/goto.c:36
+--- trace ---
+Object: /global/god#1, Program: /global/wiz_file_comm.c
+   in process_input() at /global/player.c:1802
+arguments were ("home")
+Object: /global/god#1, Program: /global/psoul.c
+   in soul_com() at /global/psoul.c:57
+arguments were ("home")
+locals were: "home",0,0
+Object: /global/god#1, Program: /global/alias.c
+   in exec_alias() at /global/alias.c:430
+arguments were ("home","")
+locals were: 2,0,({ /* sizeof() == 1 */
+  "home"
+}),"goto /w/barthleby/workroom ",({ /* sizeof() == 2 */
+  "goto /w/barthleby/workroom ",
+  512
+})
+Object: /global/god#1, Program: /global/wiz_file_comm.c
+   in process_input() at /global/player.c:1803
+arguments were ("goto /w/barthleby/workroom ")
+Object: /global/god#1, Program: /global/wiz_file_comm.c
+   in do_cmd() at /global/player.c:499
+arguments were ("goto /w/barthleby/workroom ")
+locals were: "goto","/w/barthleby/workroom "
+Object: /cmds/handlers/cmd_handler, Program: /cmds/handlers/cmd_handler.c
+   in cmd() at /cmds/handlers/cmd_handler.c:148
+arguments were ("goto","/w/barthleby/workroom ",/global/god#1)
+locals were: /cmds/creator/goto,"/cmds/creator/goto","barthleby",0,"goto"
+Object: /cmds/creator/goto, Program: /cmds/handlers/cmd.c
+   in _cmd() at /cmds/handlers/cmd.c:76
+arguments were ("/w/barthleby/workroom ",/global/god#1,"goto")
+locals were: "barthleby",0
+Object: /cmds/creator/goto, Program: /cmds/creator/goto.c
+   in cmd() at /cmds/creator/goto.c:36
+arguments were ("/w/barthleby/workroom ",/global/god#1)
+locals were: 0,"/w/barthleby/workroom"
+'          CATCH' in '/ cmds/creator/goto.c' ('/   cmds/creator/goto') /cmds/creator/goto.c:36
+--- end trace ---
+No error handler for error: *Inherited file '/std/pub' does not exist!
+program: /obj/handlers/room_handler.c, object: /obj/handlers/room_handler, file: /obj/handlers/room_handler.c:67
+--- trace ---
+Object: /obj/handlers/room_handler, Program: /obj/handlers/room_handler.c
+   in check_door() at /obj/handlers/room_handler.c:67
+arguments were (({ /* sizeof() == 3 */
+  /std/room/exit_handler,
+  "tavern",
+  "/d/ss/daggerford/ladyluck"
+}))
+locals were: 0
+'          CATCH' in '/obj/handlers/room_handler.c' ('/obj/handlers/room_handler') /obj/handlers/room_handler.c:67
+--- end trace ---
+No error handler for error: *Inherited file '/std/pub' does not exist!
+program: /obj/handlers/room_handler.c, object: /obj/handlers/room_handler, file: /obj/handlers/room_handler.c:67
+--- trace ---
+Object: /obj/handlers/room_handler, Program: /obj/handlers/room_handler.c
+   in check_door() at /obj/handlers/room_handler.c:67
+arguments were (({ /* sizeof() == 3 */
+  /std/room/exit_handler,
+  "tavern",
+  "/d/ss/daggerford/ladyluck"
+}))
+locals were: 0
+'          CATCH' in '/obj/handlers/room_handler.c' ('/obj/handlers/room_handler') /obj/handlers/room_handler.c:67
+--- end trace ---
+No error handler for error: *Inherited file '/std/pub' does not exist!
+program: /obj/handlers/room_handler.c, object: /obj/handlers/room_handler, file: /obj/handlers/room_handler.c:67
+--- trace ---
+Object: /obj/handlers/room_handler, Program: /obj/handlers/room_handler.c
+   in check_door() at /obj/handlers/room_handler.c:67
+arguments were (({ /* sizeof() == 3 */
+  /std/room/exit_handler,
+  "tavern",
+  "/d/ss/daggerford/ladyluck"
+}))
+locals were: 0
+'          CATCH' in '/obj/handlers/room_handler.c' ('/obj/handlers/room_handler') /obj/handlers/room_handler.c:67
+--- end trace ---
+No error handler for error: *Error in loading object '/w/barthleby/vestuario'
+program: /std/basic/misc.c, object: /global/god#1, file: /std/basic/misc.c:91
+--- trace ---
+Object: /global/god#1, Program: /global/wiz_file_comm.c
+   in process_input() at /global/player.c:1805
+arguments were ("vestuario")
+Object: /w/barthleby/workroom, Program: /std/room.c
+   in do_exit_command() at /std/room.c:521
+arguments were (0,0,0,0)
+locals were: 0,0,/w/barthleby/workroom
+Object: /std/room/exit_handler, Program: /std/room/exit_handler.c
+   in do_exit_command() at /std/room/exit_handler.c:234
+arguments were (([ /* sizeof() == 3 */
+  "/d/ss/daggerford/ladyluck" : "tavern",
+  "/w/common" : "common",
+  "/w/barthleby/entrada_provisional_a_noella" : "noella",
+]),([ ]),([ /* sizeof() == 4 */
+  "tavern" : ({ /* sizeof() == 4 */
+      "/d/ss/daggerford/ladyluck",
+      "door",
+      "wood",
+      "tavern"
+    }),
+  "common" : ({ /* sizeof() == 4 */
+      "/w/common",
+      "door",
+      "wood",
+      "common"
+    }),
+  "vestuario" : ({ /* sizeof() == 4 */
+      "/w/barthleby/vestuario",
+      "corridor",
+      "unknown",
+      "vestuario"
+    }),
+  "noella" : ({ /* sizeof() == 4 */
+      "/w/barthleby/entrada_provisional_a_noella",
+      "door",
+      "wood",
+      "noella"
+    }),
+]),({ /* sizeof() == 4 */
+  "common",
+  "tavern",
+  "noella",
+  "vestuario"
+}),({ /* sizeof() == 8 */
+  "common",
+  ({ /* sizeof() == 6 */
+    "/w/common",
+    0,
+    1,
+    5,
+    0,
+    ({ /* sizeof() == 2 */
+      0,
+      "algun sitio"
+    })
+  }),
+  "tavern",
+  ({ /* sizeof() == 6 */
+    "/d/ss/daggerford/ladyluck",
+    0,
+    1,
+    5,
+    0,
+    ({ /* sizeof() == 2 */
+      0,
+      "algun sitio"
+    })
+  }),
+  "noella",
+  ({ /* sizeof() == 6 */
+    "/w/barthleby/entrada_provisional_a_noella",
+    0,
+    1,
+    5,
+    0,
+    ({ /* sizeof() == 2 */
+      0,
+      "algun sitio"
+    })
+  }),
+  "vestuario",
+  ({ /* sizeof() == 6 */
+    "/w/barthleby/vestuario",
+    0,
+    1,
+    10,
+    0,
+    ({ /* sizeof() == 2 */
+      0,
+      "algun sitio"
+    })
+  })
+}),({ /* sizeof() == 4 */
+  "tavern",
+  "north",
+  "common",
+  "south"
+}),0,"vestuario",/global/god#1,0,/w/barthleby/workroom)
+locals were: 0,0,3,0,0,0,0
+Object: /std/room/exit_handler, Program: /std/room/exit_handler.c
+   in <catch>() at /std/room/exit_handler.c:234
+Object: /global/god#1, Program: /std/living/living.c
+   in move_player() at /std/living/living.c:139
+arguments were ("vestuario","/w/barthleby/vestuario",0,0,({ /* sizeof() == 2 */
+  0,
+  "algun sitio"
+}))
+locals were: 0,0,0,"@Barthleby llega cantando %^BOLD%^Smells Like %^BLUE%^Teen Spirit%^RESET%^ desde algun sitio. 
+","@Barthleby se va cantando %^BOLD%^YELLOW%^In %^RED%^Bloom%^RESET%^ hacia vestuario. 
+",0,"Barthleby",/w/barthleby/workroom,0,0,0
+Object: /global/god#1, Program: /global/wiz_file_comm.c
+   in move() at /global/player.c:1427
+arguments were ("/w/barthleby/vestuario","Barthleby llega cantando %^BOLD%^Smells Like %^BLUE%^Teen Spirit%^RESET%^ desde algun sitio. 
+","Barthleby se va cantando %^BOLD%^YELLOW%^In %^RED%^Bloom%^RESET%^ hacia vestuario. 
+")
+locals were: 0,/w/barthleby/workroom
+Object: /global/god#1, Program: /std/container.c
+   in move() at /std/container.c:113
+arguments were ("/w/barthleby/vestuario","Barthleby llega cantando %^BOLD%^Smells Like %^BLUE%^Teen Spirit%^RESET%^ desde algun sitio. 
+","Barthleby se va cantando %^BOLD%^YELLOW%^In %^RED%^Bloom%^RESET%^ hacia vestuario. 
+")
+'           move' in '/    std/basic/misc.c' ('/        global/god#1') /std/basic/misc.c:91
+arguments were ("/w/barthleby/vestuario","Barthleby llega cantando %^BOLD%^Smells Like %^BLUE%^Teen Spirit%^RESET%^ desde algun sitio. 
+","Barthleby se va cantando %^BOLD%^YELLOW%^In %^RED%^Bloom%^RESET%^ hacia vestuario. 
+")
+locals were: 0,/w/barthleby/workroom
+--- end trace ---
+No error handler for error: *Inherited file '/std/pub' does not exist!
+program: /obj/handlers/room_handler.c, object: /obj/handlers/room_handler, file: /obj/handlers/room_handler.c:67
+--- trace ---
+Object: /obj/handlers/room_handler, Program: /obj/handlers/room_handler.c
+   in check_door() at /obj/handlers/room_handler.c:67
+arguments were (({ /* sizeof() == 3 */
+  /std/room/exit_handler,
+  "tavern",
+  "/d/ss/daggerford/ladyluck"
+}))
+locals were: 0
+'          CATCH' in '/obj/handlers/room_handler.c' ('/obj/handlers/room_handler') /obj/handlers/room_handler.c:67
+--- end trace ---
+No error handler for error: *Error in loading object '/w/barthleby/vestuario'
+program: /std/basic/misc.c, object: /global/god#1, file: /std/basic/misc.c:91
+--- trace ---
+Object: /global/god#1, Program: /global/wiz_file_comm.c
+   in process_input() at /global/player.c:1805
+arguments were ("vestuario")
+Object: /w/barthleby/workroom, Program: /std/room.c
+   in do_exit_command() at /std/room.c:521
+arguments were (0,0,0,0)
+locals were: 0,0,/w/barthleby/workroom
+Object: /std/room/exit_handler, Program: /std/room/exit_handler.c
+   in do_exit_command() at /std/room/exit_handler.c:234
+arguments were (([ /* sizeof() == 3 */
+  "/d/ss/daggerford/ladyluck" : "tavern",
+  "/w/common" : "common",
+  "/w/barthleby/entrada_provisional_a_noella" : "noella",
+]),([ ]),([ /* sizeof() == 4 */
+  "tavern" : ({ /* sizeof() == 4 */
+      "/d/ss/daggerford/ladyluck",
+      "door",
+      "wood",
+      "tavern"
+    }),
+  "common" : ({ /* sizeof() == 4 */
+      "/w/common",
+      "door",
+      "wood",
+      "common"
+    }),
+  "vestuario" : ({ /* sizeof() == 4 */
+      "/w/barthleby/vestuario",
+      "corridor",
+      "unknown",
+      "vestuario"
+    }),
+  "noella" : ({ /* sizeof() == 4 */
+      "/w/barthleby/entrada_provisional_a_noella",
+      "door",
+      "wood",
+      "noella"
+    }),
+]),({ /* sizeof() == 4 */
+  "common",
+  "tavern",
+  "noella",
+  "vestuario"
+}),({ /* sizeof() == 8 */
+  "common",
+  ({ /* sizeof() == 6 */
+    "/w/common",
+    0,
+    1,
+    5,
+    0,
+    ({ /* sizeof() == 2 */
+      0,
+      "algun sitio"
+    })
+  }),
+  "tavern",
+  ({ /* sizeof() == 6 */
+    "/d/ss/daggerford/ladyluck",
+    0,
+    1,
+    5,
+    0,
+    ({ /* sizeof() == 2 */
+      0,
+      "algun sitio"
+    })
+  }),
+  "noella",
+  ({ /* sizeof() == 6 */
+    "/w/barthleby/entrada_provisional_a_noella",
+    0,
+    1,
+    5,
+    0,
+    ({ /* sizeof() == 2 */
+      0,
+      "algun sitio"
+    })
+  }),
+  "vestuario",
+  ({ /* sizeof() == 6 */
+    "/w/barthleby/vestuario",
+    0,
+    1,
+    10,
+    0,
+    ({ /* sizeof() == 2 */
+      0,
+      "algun sitio"
+    })
+  })
+}),({ /* sizeof() == 4 */
+  "tavern",
+  "north",
+  "common",
+  "south"
+}),0,"vestuario",/global/god#1,0,/w/barthleby/workroom)
+locals were: 0,0,3,0,0,0,0
+Object: /std/room/exit_handler, Program: /std/room/exit_handler.c
+   in <catch>() at /std/room/exit_handler.c:234
+Object: /global/god#1, Program: /std/living/living.c
+   in move_player() at /std/living/living.c:139
+arguments were ("vestuario","/w/barthleby/vestuario",0,0,({ /* sizeof() == 2 */
+  0,
+  "algun sitio"
+}))
+locals were: 0,0,0,"@Barthleby llega cantando %^BOLD%^Smells Like %^BLUE%^Teen Spirit%^RESET%^ desde algun sitio. 
+","@Barthleby se va cantando %^BOLD%^YELLOW%^In %^RED%^Bloom%^RESET%^ hacia vestuario. 
+",0,"Barthleby",/w/barthleby/workroom,0,0,0
+Object: /global/god#1, Program: /global/wiz_file_comm.c
+   in move() at /global/player.c:1427
+arguments were ("/w/barthleby/vestuario","Barthleby llega cantando %^BOLD%^Smells Like %^BLUE%^Teen Spirit%^RESET%^ desde algun sitio. 
+","Barthleby se va cantando %^BOLD%^YELLOW%^In %^RED%^Bloom%^RESET%^ hacia vestuario. 
+")
+locals were: 0,/w/barthleby/workroom
+Object: /global/god#1, Program: /std/container.c
+   in move() at /std/container.c:113
+arguments were ("/w/barthleby/vestuario","Barthleby llega cantando %^BOLD%^Smells Like %^BLUE%^Teen Spirit%^RESET%^ desde algun sitio. 
+","Barthleby se va cantando %^BOLD%^YELLOW%^In %^RED%^Bloom%^RESET%^ hacia vestuario. 
+")
+'           move' in '/    std/basic/misc.c' ('/        global/god#1') /std/basic/misc.c:91
+arguments were ("/w/barthleby/vestuario","Barthleby llega cantando %^BOLD%^Smells Like %^BLUE%^Teen Spirit%^RESET%^ desde algun sitio. 
+","Barthleby se va cantando %^BOLD%^YELLOW%^In %^RED%^Bloom%^RESET%^ hacia vestuario. 
+")
+locals were: 0,/w/barthleby/workroom
+--- end trace ---
+No error handler for error: *Inherited file '/std/pub' does not exist!
+program: /obj/handlers/room_handler.c, object: /obj/handlers/room_handler, file: /obj/handlers/room_handler.c:67
+--- trace ---
+Object: /obj/handlers/room_handler, Program: /obj/handlers/room_handler.c
+   in check_door() at /obj/handlers/room_handler.c:67
+arguments were (({ /* sizeof() == 3 */
+  /std/room/exit_handler,
+  "tavern",
+  "/d/ss/daggerford/ladyluck"
+}))
+locals were: 0
+'          CATCH' in '/obj/handlers/room_handler.c' ('/obj/handlers/room_handler') /obj/handlers/room_handler.c:67
+--- end trace ---
+No error handler for error: *Error in loading object '/w/barthleby/vestuario'
+program: /std/basic/misc.c, object: /global/god#1, file: /std/basic/misc.c:91
+--- trace ---
+Object: /global/god#1, Program: /global/wiz_file_comm.c
+   in process_input() at /global/player.c:1805
+arguments were ("vestuario")
+Object: /w/barthleby/workroom, Program: /std/room.c
+   in do_exit_command() at /std/room.c:521
+arguments were (0,0,0,0)
+locals were: 0,0,/w/barthleby/workroom
+Object: /std/room/exit_handler, Program: /std/room/exit_handler.c
+   in do_exit_command() at /std/room/exit_handler.c:234
+arguments were (([ /* sizeof() == 3 */
+  "/d/ss/daggerford/ladyluck" : "tavern",
+  "/w/common" : "common",
+  "/w/barthleby/entrada_provisional_a_noella" : "noella",
+]),([ ]),([ /* sizeof() == 4 */
+  "tavern" : ({ /* sizeof() == 4 */
+      "/d/ss/daggerford/ladyluck",
+      "door",
+      "wood",
+      "tavern"
+    }),
+  "common" : ({ /* sizeof() == 4 */
+      "/w/common",
+      "door",
+      "wood",
+      "common"
+    }),
+  "vestuario" : ({ /* sizeof() == 4 */
+      "/w/barthleby/vestuario",
+      "corridor",
+      "unknown",
+      "vestuario"
+    }),
+  "noella" : ({ /* sizeof() == 4 */
+      "/w/barthleby/entrada_provisional_a_noella",
+      "door",
+      "wood",
+      "noella"
+    }),
+]),({ /* sizeof() == 4 */
+  "common",
+  "tavern",
+  "noella",
+  "vestuario"
+}),({ /* sizeof() == 8 */
+  "common",
+  ({ /* sizeof() == 6 */
+    "/w/common",
+    0,
+    1,
+    5,
+    0,
+    ({ /* sizeof() == 2 */
+      0,
+      "algun sitio"
+    })
+  }),
+  "tavern",
+  ({ /* sizeof() == 6 */
+    "/d/ss/daggerford/ladyluck",
+    0,
+    1,
+    5,
+    0,
+    ({ /* sizeof() == 2 */
+      0,
+      "algun sitio"
+    })
+  }),
+  "noella",
+  ({ /* sizeof() == 6 */
+    "/w/barthleby/entrada_provisional_a_noella",
+    0,
+    1,
+    5,
+    0,
+    ({ /* sizeof() == 2 */
+      0,
+      "algun sitio"
+    })
+  }),
+  "vestuario",
+  ({ /* sizeof() == 6 */
+    "/w/barthleby/vestuario",
+    0,
+    1,
+    10,
+    0,
+    ({ /* sizeof() == 2 */
+      0,
+      "algun sitio"
+    })
+  })
+}),({ /* sizeof() == 4 */
+  "tavern",
+  "north",
+  "common",
+  "south"
+}),0,"vestuario",/global/god#1,0,/w/barthleby/workroom)
+locals were: 0,0,3,0,0,0,0
+Object: /std/room/exit_handler, Program: /std/room/exit_handler.c
+   in <catch>() at /std/room/exit_handler.c:234
+Object: /global/god#1, Program: /std/living/living.c
+   in move_player() at /std/living/living.c:139
+arguments were ("vestuario","/w/barthleby/vestuario",0,0,({ /* sizeof() == 2 */
+  0,
+  "algun sitio"
+}))
+locals were: 0,0,0,"@Barthleby llega cantando %^BOLD%^Smells Like %^BLUE%^Teen Spirit%^RESET%^ desde algun sitio. 
+","@Barthleby se va cantando %^BOLD%^YELLOW%^In %^RED%^Bloom%^RESET%^ hacia vestuario. 
+",0,"Barthleby",/w/barthleby/workroom,0,0,0
+Object: /global/god#1, Program: /global/wiz_file_comm.c
+   in move() at /global/player.c:1427
+arguments were ("/w/barthleby/vestuario","Barthleby llega cantando %^BOLD%^Smells Like %^BLUE%^Teen Spirit%^RESET%^ desde algun sitio. 
+","Barthleby se va cantando %^BOLD%^YELLOW%^In %^RED%^Bloom%^RESET%^ hacia vestuario. 
+")
+locals were: 0,/w/barthleby/workroom
+Object: /global/god#1, Program: /std/container.c
+   in move() at /std/container.c:113
+arguments were ("/w/barthleby/vestuario","Barthleby llega cantando %^BOLD%^Smells Like %^BLUE%^Teen Spirit%^RESET%^ desde algun sitio. 
+","Barthleby se va cantando %^BOLD%^YELLOW%^In %^RED%^Bloom%^RESET%^ hacia vestuario. 
+")
+'           move' in '/    std/basic/misc.c' ('/        global/god#1') /std/basic/misc.c:91
+arguments were ("/w/barthleby/vestuario","Barthleby llega cantando %^BOLD%^Smells Like %^BLUE%^Teen Spirit%^RESET%^ desde algun sitio. 
+","Barthleby se va cantando %^BOLD%^YELLOW%^In %^RED%^Bloom%^RESET%^ hacia vestuario. 
+")
+locals were: 0,/w/barthleby/workroom
+--- end trace ---
+No error handler for error: *Inherited file '/std/pub' does not exist!
+program: /obj/handlers/room_handler.c, object: /obj/handlers/room_handler, file: /obj/handlers/room_handler.c:67
+--- trace ---
+Object: /obj/handlers/room_handler, Program: /obj/handlers/room_handler.c
+   in check_door() at /obj/handlers/room_handler.c:67
+arguments were (({ /* sizeof() == 3 */
+  /std/room/exit_handler,
+  "tavern",
+  "/d/ss/daggerford/ladyluck"
+}))
+locals were: 0
+'          CATCH' in '/obj/handlers/room_handler.c' ('/obj/handlers/room_handler') /obj/handlers/room_handler.c:67
+--- end trace ---
+No error handler for error: *Error in loading object '/w/barthleby/vestuario'
+program: /std/basic/misc.c, object: /global/god#1, file: /std/basic/misc.c:91
+--- trace ---
+Object: /global/god#1, Program: /global/wiz_file_comm.c
+   in process_input() at /global/player.c:1805
+arguments were ("vestuario")
+Object: /w/barthleby/workroom, Program: /std/room.c
+   in do_exit_command() at /std/room.c:521
+arguments were (0,0,0,0)
+locals were: 0,0,/w/barthleby/workroom
+Object: /std/room/exit_handler, Program: /std/room/exit_handler.c
+   in do_exit_command() at /std/room/exit_handler.c:234
+arguments were (([ /* sizeof() == 3 */
+  "/d/ss/daggerford/ladyluck" : "tavern",
+  "/w/common" : "common",
+  "/w/barthleby/entrada_provisional_a_noella" : "noella",
+]),([ ]),([ /* sizeof() == 4 */
+  "tavern" : ({ /* sizeof() == 4 */
+      "/d/ss/daggerford/ladyluck",
+      "door",
+      "wood",
+      "tavern"
+    }),
+  "common" : ({ /* sizeof() == 4 */
+      "/w/common",
+      "door",
+      "wood",
+      "common"
+    }),
+  "vestuario" : ({ /* sizeof() == 4 */
+      "/w/barthleby/vestuario",
+      "corridor",
+      "unknown",
+      "vestuario"
+    }),
+  "noella" : ({ /* sizeof() == 4 */
+      "/w/barthleby/entrada_provisional_a_noella",
+      "door",
+      "wood",
+      "noella"
+    }),
+]),({ /* sizeof() == 4 */
+  "common",
+  "tavern",
+  "noella",
+  "vestuario"
+}),({ /* sizeof() == 8 */
+  "common",
+  ({ /* sizeof() == 6 */
+    "/w/common",
+    0,
+    1,
+    5,
+    0,
+    ({ /* sizeof() == 2 */
+      0,
+      "algun sitio"
+    })
+  }),
+  "tavern",
+  ({ /* sizeof() == 6 */
+    "/d/ss/daggerford/ladyluck",
+    0,
+    1,
+    5,
+    0,
+    ({ /* sizeof() == 2 */
+      0,
+      "algun sitio"
+    })
+  }),
+  "noella",
+  ({ /* sizeof() == 6 */
+    "/w/barthleby/entrada_provisional_a_noella",
+    0,
+    1,
+    5,
+    0,
+    ({ /* sizeof() == 2 */
+      0,
+      "algun sitio"
+    })
+  }),
+  "vestuario",
+  ({ /* sizeof() == 6 */
+    "/w/barthleby/vestuario",
+    0,
+    1,
+    10,
+    0,
+    ({ /* sizeof() == 2 */
+      0,
+      "algun sitio"
+    })
+  })
+}),({ /* sizeof() == 4 */
+  "tavern",
+  "north",
+  "common",
+  "south"
+}),0,"vestuario",/global/god#1,0,/w/barthleby/workroom)
+locals were: 0,0,3,0,0,0,0
+Object: /std/room/exit_handler, Program: /std/room/exit_handler.c
+   in <catch>() at /std/room/exit_handler.c:234
+Object: /global/god#1, Program: /std/living/living.c
+   in move_player() at /std/living/living.c:140
+arguments were ("vestuario","/w/barthleby/vestuario",0,0,({ /* sizeof() == 2 */
+  0,
+  "algun sitio"
+}))
+locals were: 0,0,1,0,0,0,0,/w/barthleby/workroom,0,0,0
+Object: /global/god#1, Program: /global/wiz_file_comm.c
+   in move() at /global/player.c:1427
+arguments were ("/w/barthleby/vestuario",0,0)
+locals were: 0,/w/barthleby/workroom
+Object: /global/god#1, Program: /std/container.c
+   in move() at /std/container.c:113
+arguments were ("/w/barthleby/vestuario",0,0)
+'           move' in '/    std/basic/misc.c' ('/        global/god#1') /std/basic/misc.c:91
+arguments were ("/w/barthleby/vestuario",0,0)
+locals were: 0,/w/barthleby/workroom
+--- end trace ---
+No error handler for error: *Error in loading object '/w/barthleby/noella/items/esfera'
+program: /std/room.c, object: /w/barthleby/vestuario, file: /std/room.c:97
+--- trace ---
+Object: /global/god#1, Program: /global/wiz_file_comm.c
+   in process_input() at /global/player.c:1805
+arguments were ("vestuario")
+Object: /w/barthleby/workroom, Program: /std/room.c
+   in do_exit_command() at /std/room.c:521
+arguments were (0,0,0,0)
+locals were: 0,0,/w/barthleby/workroom
+Object: /std/room/exit_handler, Program: /std/room/exit_handler.c
+   in do_exit_command() at /std/room/exit_handler.c:234
+arguments were (([ /* sizeof() == 3 */
+  "/d/ss/daggerford/ladyluck" : "tavern",
+  "/w/common" : "common",
+  "/w/barthleby/entrada_provisional_a_noella" : "noella",
+]),([ ]),([ /* sizeof() == 4 */
+  "tavern" : ({ /* sizeof() == 4 */
+      "/d/ss/daggerford/ladyluck",
+      "door",
+      "wood",
+      "tavern"
+    }),
+  "common" : ({ /* sizeof() == 4 */
+      "/w/common",
+      "door",
+      "wood",
+      "common"
+    }),
+  "vestuario" : ({ /* sizeof() == 4 */
+      "/w/barthleby/vestuario",
+      "corridor",
+      "unknown",
+      "vestuario"
+    }),
+  "noella" : ({ /* sizeof() == 4 */
+      "/w/barthleby/entrada_provisional_a_noella",
+      "door",
+      "wood",
+      "noella"
+    }),
+]),({ /* sizeof() == 4 */
+  "common",
+  "tavern",
+  "noella",
+  "vestuario"
+}),({ /* sizeof() == 8 */
+  "common",
+  ({ /* sizeof() == 6 */
+    "/w/common",
+    0,
+    1,
+    5,
+    0,
+    ({ /* sizeof() == 2 */
+      0,
+      "algun sitio"
+    })
+  }),
+  "tavern",
+  ({ /* sizeof() == 6 */
+    "/d/ss/daggerford/ladyluck",
+    0,
+    1,
+    5,
+    0,
+    ({ /* sizeof() == 2 */
+      0,
+      "algun sitio"
+    })
+  }),
+  "noella",
+  ({ /* sizeof() == 6 */
+    "/w/barthleby/entrada_provisional_a_noella",
+    0,
+    1,
+    5,
+    0,
+    ({ /* sizeof() == 2 */
+      0,
+      "algun sitio"
+    })
+  }),
+  "vestuario",
+  ({ /* sizeof() == 6 */
+    "/w/barthleby/vestuario",
+    0,
+    1,
+    10,
+    0,
+    ({ /* sizeof() == 2 */
+      0,
+      "algun sitio"
+    })
+  })
+}),({ /* sizeof() == 4 */
+  "tavern",
+  "north",
+  "common",
+  "south"
+}),0,"vestuario",/global/god#1,0,/w/barthleby/workroom)
+locals were: 0,0,3,0,0,0,0
+Object: /std/room/exit_handler, Program: /std/room/exit_handler.c
+   in <catch>() at /std/room/exit_handler.c:234
+Object: /global/god#1, Program: /std/living/living.c
+   in move_player() at /std/living/living.c:140
+arguments were ("vestuario","/w/barthleby/vestuario",0,0,({ /* sizeof() == 2 */
+  0,
+  "algun sitio"
+}))
+locals were: 0,0,1,0,0,0,0,/w/barthleby/workroom,0,0,0
+Object: /global/god#1, Program: /global/wiz_file_comm.c
+   in move() at /global/player.c:1427
+arguments were ("/w/barthleby/vestuario",0,0)
+locals were: 0,/w/barthleby/workroom
+Object: /global/god#1, Program: /std/container.c
+   in move() at /std/container.c:113
+arguments were ("/w/barthleby/vestuario",0,0)
+Object: /global/god#1, Program: /std/basic/misc.c
+   in move() at /std/basic/misc.c:91
+arguments were ("/w/barthleby/vestuario",0,0)
+locals were: 0,/w/barthleby/workroom
+Object: /w/barthleby/vestuario, Program: /std/room.c
+   in create() at /std/room.c:176
+arguments were ()
+locals were: 0
+'          reset' in '/          std/room.c' ('/w/barthleby/vestuario') /std/room.c:97
+arguments were ()
+locals were: 0,"/w/barthleby/noella/items/esfera",0
+--- end trace ---
+No error handler for error: *Error in loading object '/w/barthleby/vestuario'
+program: /global/wiz_file_comm.c, object: /global/god#1, file: /global/wiz_file_comm.c:115
+--- trace ---
+Object: /global/god#1, Program: /global/wiz_file_comm.c
+   in process_input() at /global/player.c:1805
+arguments were ("update")
+Object: /global/god#1, Program: /global/wiz_file_comm.c
+   in update() at /global/wiz_file_comm.c:229
+arguments were ("//w/barthleby/vestuario")
+locals were: 0,({ /* sizeof() == 1 */
+  "//w/barthleby/vestuario"
+}),0,0,0,({ /* sizeof() == 1 */
+  0
+}),1
+Object: /global/god#1, Program: /global/wiz_file_comm.c
+   in do_update() at /global/wiz_file_comm.c:115
+arguments were (({ /* sizeof() == 1 */
+  0
+}))
+locals were: "/w/barthleby/vestuario",0,0,1,({ /* sizeof() == 1 */
+  /global/god#1
+}),/room/void,0,0,0,0,({ }),"%^RED%^Vestuario de %^BOLD%^%^WHITE%^Bar%^GREEN%^th%^YELLOW%^le%^CYAN%^by%^RESET%^",0
+'          CATCH' in '/global/wiz_file_comm.c' ('/        global/god#1') /global/wiz_file_comm.c:115
+--- end trace ---
+No error handler for error: *Inherited file '/std/pub' does not exist!
+program: /obj/handlers/room_handler.c, object: /obj/handlers/room_handler, file: /obj/handlers/room_handler.c:67
+--- trace ---
+Object: /obj/handlers/room_handler, Program: /obj/handlers/room_handler.c
+   in check_door() at /obj/handlers/room_handler.c:67
+arguments were (({ /* sizeof() == 3 */
+  /std/room/exit_handler,
+  "tavern",
+  "/d/ss/daggerford/ladyluck"
+}))
+locals were: 0
+'          CATCH' in '/obj/handlers/room_handler.c' ('/obj/handlers/room_handler') /obj/handlers/room_handler.c:67
+--- end trace ---
+No error handler for error: *call_other() couldn't find object
+program: /global/guild-race.c, object: /global/god#1, file: /global/guild-race.c:223
+--- trace ---
+Object: /global/god#1, Program: /global/wiz_file_comm.c
+   in process_input() at /global/player.c:1802
+arguments were ("f")
+Object: /global/god#1, Program: /global/psoul.c
+   in soul_com() at /global/psoul.c:57
+arguments were ("f")
+locals were: "f",0,0
+Object: /global/god#1, Program: /global/alias.c
+   in exec_alias() at /global/alias.c:430
+arguments were ("f","")
+locals were: 2,0,({ /* sizeof() == 1 */
+  "f"
+}),"sheet ",({ /* sizeof() == 2 */
+  "sheet ",
+  512
+})
+Object: /global/god#1, Program: /global/wiz_file_comm.c
+   in process_input() at /global/player.c:1803
+arguments were ("sheet ")
+Object: /global/god#1, Program: /global/wiz_file_comm.c
+   in do_cmd() at /global/player.c:499
+arguments were ("sheet ")
+locals were: "sheet",""
+Object: /cmds/handlers/cmd_handler, Program: /cmds/handlers/cmd_handler.c
+   in cmd() at /cmds/handlers/cmd_handler.c:148
+arguments were ("hoja","",/global/god#1)
+locals were: /cmds/player/hoja,"/cmds/player/hoja","barthleby",0,"sheet"
+Object: /cmds/player/hoja, Program: /cmds/handlers/cmd.c
+   in _cmd() at /cmds/handlers/cmd.c:76
+arguments were ("",/global/god#1,"sheet")
+locals were: "barthleby",0
+Object: /cmds/player/hoja, Program: /cmds/player/hoja.c
+   in cmd() at /cmds/player/hoja.c:224
+arguments were ("",/global/god#1)
+locals were: 79,15,6,4,"   ","%^CYAN%^===============================================================================","/d/gremios/magos/magobueno",({ })
+'query_race_group_name' in '/ global/guild-race.c' ('/        global/god#1') /global/guild-race.c:223
+arguments were ()
+--- end trace ---
+No error handler for error: *Bad argument 1 to call_other()
+Expected: string or array or object Got: 0.
+program: /w/barthleby/vestuario.c, object: /w/barthleby/vestuario, file: /w/barthleby/vestuario.c:44
+--- trace ---
+Object: /global/god#1, Program: /global/wiz_file_comm.c
+   in process_input() at /global/player.c:1805
+arguments were ("tocar esfera")
+'   tocar_esfera' in '/w/barthleby/vestuario.c' ('/w/barthleby/vestuario') /w/barthleby/vestuario.c:44
+arguments were ("esfera")
+--- end trace ---
+No error handler for error: *Value being indexed is zero.
+program: /obj/handlers/money.c, object: /obj/handlers/money, file: /obj/handlers/money.c:21
+--- trace ---
+Object: /obj/handlers/room_handler, Program: /obj/handlers/room_handler.c
+   in check_door() at /obj/handlers/room_handler.c:67
+arguments were (({ /* sizeof() == 3 */
+  /std/room/exit_handler,
+  "este",
+  "/d/gremios/rooms/barbarocaos/barracks.c"
+}))
+locals were: 0
+Object: /obj/handlers/room_handler, Program: /obj/handlers/room_handler.c
+   in <catch>() at /obj/handlers/room_handler.c:67
+Object: /d/gremios/rooms/barbarocaos/barracks, Program: /std/guildroom.c
+   in create() at /std/guildroom.c:28
+arguments were ()
+Object: /d/gremios/rooms/barbarocaos/barracks, Program: /std/room.c
+   in create() at /std/room.c:175
+arguments were ()
+locals were: 0
+Object: /d/gremios/rooms/barbarocaos/barracks, Program: /d/gremios/rooms/barbarocaos/barracks.c
+   in setup() at /d/gremios/rooms/barbarocaos/barracks.c:25
+arguments were ()
+Object: /d/gremios/rooms/barbarocaos/barracks, Program: /std/guildroom.c
+   in set_guildmaster() at /std/guildroom.c:101
+arguments were ("/d/gremios/npcs/espartaco")
+Object: /d/gremios/npcs/espartaco, Program: /obj/monster.c
+   in create() at /obj/monster.c:166
+arguments were ()
+Object: /d/gremios/npcs/espartaco, Program: /std/living/living.c
+   in create() at /std/living/living.c:39
+arguments were ()
+Object: /d/gremios/npcs/espartaco, Program: /std/container.c
+   in create() at /std/container.c:17
+arguments were ()
+Object: /d/gremios/npcs/espartaco, Program: /std/object.c
+   in create() at /std/object.c:27
+arguments were ()
+Object: /d/gremios/npcs/espartaco, Program: /d/gremios/npcs/espartaco.c
+   in setup() at /d/gremios/npcs/espartaco.c:23
+arguments were ()
+Object: /d/gremios/npcs/espartaco, Program: /std/living/living.c
+   in adjust_money() at /std/living/living.c:453
+arguments were (5,"oro")
+locals were: 500
+Object: /d/gremios/npcs/espartaco, Program: /std/living/living.c
+   in <catch>() at /std/living/living.c:453
+'   update_money' in '/obj/handlers/money.c' ('/  obj/handlers/money') /obj/handlers/money.c:21
+arguments were (5,"oro",/d/gremios/npcs/espartaco)
+locals were: "/d/gremios/npcs/espartaco"
+--- end trace ---
+No error handler for error: *Value being indexed is zero.
+program: /obj/handlers/money.c, object: /obj/handlers/money, file: /obj/handlers/money.c:21
+--- trace ---
+Object: /obj/handlers/room_handler, Program: /obj/handlers/room_handler.c
+   in check_door() at /obj/handlers/room_handler.c:67
+arguments were (({ /* sizeof() == 3 */
+  /std/room/exit_handler,
+  "este",
+  "/d/gremios/rooms/barbarocaos/barracks.c"
+}))
+locals were: 0
+Object: /obj/handlers/room_handler, Program: /obj/handlers/room_handler.c
+   in <catch>() at /obj/handlers/room_handler.c:67
+Object: /d/gremios/rooms/barbarocaos/barracks, Program: /std/guildroom.c
+   in create() at /std/guildroom.c:28
+arguments were ()
+Object: /d/gremios/rooms/barbarocaos/barracks, Program: /std/room.c
+   in create() at /std/room.c:175
+arguments were ()
+locals were: 0
+Object: /d/gremios/rooms/barbarocaos/barracks, Program: /d/gremios/rooms/barbarocaos/barracks.c
+   in setup() at /d/gremios/rooms/barbarocaos/barracks.c:25
+arguments were ()
+Object: /d/gremios/rooms/barbarocaos/barracks, Program: /std/guildroom.c
+   in set_guildmaster() at /std/guildroom.c:101
+arguments were ("/d/gremios/npcs/espartaco")
+Object: /d/gremios/npcs/espartaco#82, Program: /obj/monster.c
+   in create() at /obj/monster.c:166
+arguments were ()
+Object: /d/gremios/npcs/espartaco#82, Program: /std/living/living.c
+   in create() at /std/living/living.c:39
+arguments were ()
+Object: /d/gremios/npcs/espartaco#82, Program: /std/container.c
+   in create() at /std/container.c:17
+arguments were ()
+Object: /d/gremios/npcs/espartaco#82, Program: /std/object.c
+   in create() at /std/object.c:27
+arguments were ()
+Object: /d/gremios/npcs/espartaco#82, Program: /d/gremios/npcs/espartaco.c
+   in setup() at /d/gremios/npcs/espartaco.c:23
+arguments were ()
+Object: /d/gremios/npcs/espartaco#82, Program: /std/living/living.c
+   in adjust_money() at /std/living/living.c:453
+arguments were (4,"oro")
+locals were: 400
+Object: /d/gremios/npcs/espartaco#82, Program: /std/living/living.c
+   in <catch>() at /std/living/living.c:453
+'   update_money' in '/obj/handlers/money.c' ('/  obj/handlers/money') /obj/handlers/money.c:21
+arguments were (4,"oro",/d/gremios/npcs/espartaco#82)
+locals were: "/d/gremios/npcs/espartaco"
+--- end trace ---
+No error handler for error: *Inherited file '/std/pub' does not exist!
+program: /obj/handlers/room_handler.c, object: /obj/handlers/room_handler, file: /obj/handlers/room_handler.c:67
+--- trace ---
+Object: /obj/handlers/room_handler, Program: /obj/handlers/room_handler.c
+   in check_door() at /obj/handlers/room_handler.c:67
+arguments were (({ /* sizeof() == 3 */
+  /std/room/exit_handler,
+  "tavern",
+  "/d/ss/daggerford/ladyluck"
+}))
+locals were: 0
+'          CATCH' in '/obj/handlers/room_handler.c' ('/obj/handlers/room_handler') /obj/handlers/room_handler.c:67
+--- end trace ---
+No error handler for error: *Bad argument 1 to call_other()
+Expected: string or array or object Got: 0.
+program: /w/barthleby/vestuario.c, object: /w/barthleby/vestuario, file: /w/barthleby/vestuario.c:44
+--- trace ---
+Object: /global/player#69, Program: /global/player.c
+   in process_input() at /global/player.c:1805
+arguments were ("tocar esfera")
+'   tocar_esfera' in '/w/barthleby/vestuario.c' ('/w/barthleby/vestuario') /w/barthleby/vestuario.c:44
+arguments were ("esfera")
+--- end trace ---
+No error handler for error: *Bad argument 1 to call_other()
+Expected: string or array or object Got: 0.
+program: /w/barthleby/vestuario.c, object: /w/barthleby/vestuario, file: /w/barthleby/vestuario.c:44
+--- trace ---
+Object: /global/god#1, Program: /global/wiz_file_comm.c
+   in process_input() at /global/player.c:1805
+arguments were ("tocar esfera")
+'   tocar_esfera' in '/w/barthleby/vestuario.c' ('/w/barthleby/vestuario') /w/barthleby/vestuario.c:44
+arguments were ("esfera")
+--- end trace ---
+No error handler for error: *call_other() couldn't find object
+program: /global/guild-race.c, object: /global/god#90, file: /global/guild-race.c:20
+--- trace ---
+Object: /secure/login#89, Program: /secure/login.c
+   in logon1() at /secure/login.c:229
+arguments were ("barthleby")
+locals were: -1,0
+Object: /secure/login#89, Program: /secure/login.c
+   in logon3() at /secure/login.c:310
+arguments were ()
+Object: /secure/login#89, Program: /secure/login.c
+   in logon4() at /secure/login.c:348
+arguments were (0)
+Object: /secure/login#89, Program: /secure/login.c
+   in begin() at /secure/login.c:429
+arguments were (0)
+Object: /secure/login#89, Program: /secure/login.c
+   in begin2() at /secure/login.c:457
+arguments were (0)
+locals were: /secure/login#89
+Object: /global/god#90, Program: /global/lord.c
+   in move_player_to_start() at /global/lord.c:5
+arguments were ("barthleby",0,-1)
+Object: /global/god#90, Program: /global/thane.c
+   in move_player_to_start() at /global/thane.c:17
+arguments were ("barthleby",0,-1)
+Object: /global/god#90, Program: /global/creator.c
+   in move_player_to_start() at /global/creator.c:24
+arguments were ("barthleby",0,-1)
+locals were: "89"
+Object: /global/god#90, Program: /global/wiz_file_comm.c
+   in move_player_to_start() at /global/player.c:282
+arguments were ("barthleby",0,-1)
+locals were: 0,0
+Object: /global/god#90, Program: /global/wiz_file_comm.c
+   in start_player() at /global/player.c:390
+arguments were ()
+locals were: 0
+Object: /global/god#90, Program: /global/guild-race.c
+   in race_guild_commands() at /global/guild-race.c:20
+arguments were ()
+locals were: 0
+'          CATCH' in '/ global/guild-race.c' ('/       global/god#90') /global/guild-race.c:20
+--- end trace ---
+No error handler for error: *Bad argument 1 to call_other()
+Expected: string or array or object Got: 0.
+program: /w/barthleby/vestuario.c, object: /w/barthleby/vestuario, file: /w/barthleby/vestuario.c:44
+--- trace ---
+Object: /global/god#90, Program: /global/wiz_file_comm.c
+   in process_input() at /global/player.c:1805
+arguments were ("tocar esfera")
+'   tocar_esfera' in '/w/barthleby/vestuario.c' ('/w/barthleby/vestuario') /w/barthleby/vestuario.c:44
+arguments were ("esfera")
+--- end trace ---
+No error handler for error: *Bad argument 1 to call_other()
+Expected: string or array or object Got: 0.
+program: /w/barthleby/vestuario.c, object: /w/barthleby/vestuario, file: /w/barthleby/vestuario.c:44
+--- trace ---
+Object: /global/god#90, Program: /global/wiz_file_comm.c
+   in process_input() at /global/player.c:1805
+arguments were ("tocar esfera")
+'   tocar_esfera' in '/w/barthleby/vestuario.c' ('/w/barthleby/vestuario') /w/barthleby/vestuario.c:44
+arguments were ("esfera")
+--- end trace ---
+No error handler for error: *Bad argument 1 to call_other()
+Expected: string or array or object Got: 0.
+program: /w/barthleby/vestuario.c, object: /w/barthleby/vestuario, file: /w/barthleby/vestuario.c:44
+--- trace ---
+Object: /global/god#90, Program: /global/wiz_file_comm.c
+   in process_input() at /global/player.c:1805
+arguments were ("tocar esfera")
+'   tocar_esfera' in '/w/barthleby/vestuario.c' ('/w/barthleby/vestuario') /w/barthleby/vestuario.c:44
+arguments were ("esfera")
+--- end trace ---
+No error handler for error: *Division by zero
+program: /std/ciudadania.c, object: /std/ciudadania, file: /std/ciudadania.c:102
+--- trace ---
+'          ciclo' in '/    std/ciudadania.c' ('/      std/ciudadania') /std/ciudadania.c:102
+arguments were ()
+--- end trace ---
+No error handler for error: *call_other() couldn't find object
+program: /global/guild-race.c, object: /global/god#99, file: /global/guild-race.c:20
+--- trace ---
+Object: /secure/login#98, Program: /secure/login.c
+   in begin2() at /secure/login.c:457
+arguments were (0)
+locals were: /secure/login#98
+Object: /global/god#99, Program: /global/lord.c
+   in move_player_to_start() at /global/lord.c:5
+arguments were ("barthleby",0,-1)
+Object: /global/god#99, Program: /global/thane.c
+   in move_player_to_start() at /global/thane.c:17
+arguments were ("barthleby",0,-1)
+Object: /global/god#99, Program: /global/creator.c
+   in move_player_to_start() at /global/creator.c:24
+arguments were ("barthleby",0,-1)
+locals were: "98"
+Object: /global/god#99, Program: /global/wiz_file_comm.c
+   in move_player_to_start() at /global/player.c:282
+arguments were ("barthleby",0,-1)
+locals were: 0,0
+Object: /global/god#99, Program: /global/wiz_file_comm.c
+   in start_player() at /global/player.c:390
+arguments were ()
+locals were: 0
+Object: /global/god#99, Program: /global/guild-race.c
+   in race_guild_commands() at /global/guild-race.c:20
+arguments were ()
+locals were: 0
+'          CATCH' in '/ global/guild-race.c' ('/       global/god#99') /global/guild-race.c:20
+--- end trace ---
+No error handler for error: *Inherited file '/std/pub' does not exist!
+program: /obj/handlers/room_handler.c, object: /obj/handlers/room_handler, file: /obj/handlers/room_handler.c:67
+--- trace ---
+Object: /obj/handlers/room_handler, Program: /obj/handlers/room_handler.c
+   in check_door() at /obj/handlers/room_handler.c:67
+arguments were (({ /* sizeof() == 3 */
+  /std/room/exit_handler,
+  "tavern",
+  "/d/ss/daggerford/ladyluck"
+}))
+locals were: 0
+'          CATCH' in '/obj/handlers/room_handler.c' ('/obj/handlers/room_handler') /obj/handlers/room_handler.c:67
+--- end trace ---
+No error handler for error: *call_other() couldn't find object
+program: /global/guild-race.c, object: /global/god#109, file: /global/guild-race.c:20
+--- trace ---
+Object: /secure/login#108, Program: /secure/login.c
+   in logon1() at /secure/login.c:229
+arguments were ("barthleby")
+locals were: -1,0
+Object: /secure/login#108, Program: /secure/login.c
+   in logon3() at /secure/login.c:310
+arguments were ()
+Object: /secure/login#108, Program: /secure/login.c
+   in logon4() at /secure/login.c:348
+arguments were (0)
+Object: /secure/login#108, Program: /secure/login.c
+   in begin() at /secure/login.c:429
+arguments were (0)
+Object: /secure/login#108, Program: /secure/login.c
+   in begin2() at /secure/login.c:457
+arguments were (0)
+locals were: /secure/login#108
+Object: /global/god#109, Program: /global/lord.c
+   in move_player_to_start() at /global/lord.c:5
+arguments were ("barthleby",0,-1)
+Object: /global/god#109, Program: /global/thane.c
+   in move_player_to_start() at /global/thane.c:17
+arguments were ("barthleby",0,-1)
+Object: /global/god#109, Program: /global/creator.c
+   in move_player_to_start() at /global/creator.c:24
+arguments were ("barthleby",0,-1)
+locals were: "108"
+Object: /global/god#109, Program: /global/wiz_file_comm.c
+   in move_player_to_start() at /global/player.c:282
+arguments were ("barthleby",0,-1)
+locals were: 0,0
+Object: /global/god#109, Program: /global/wiz_file_comm.c
+   in start_player() at /global/player.c:390
+arguments were ()
+locals were: 0
+Object: /global/god#109, Program: /global/guild-race.c
+   in race_guild_commands() at /global/guild-race.c:20
+arguments were ()
+locals were: 0
+'          CATCH' in '/ global/guild-race.c' ('/      global/god#109') /global/guild-race.c:20
+--- end trace ---
+No error handler for error: *Error in loading object '/w/barthleby/noella/npcs/gargola'
+program: /std/room.c, object: /w/barthleby/entrada_provisional_a_noella, file: /std/room.c:97
+--- trace ---
+Object: /global/god#109, Program: /global/wiz_file_comm.c
+   in process_input() at /global/player.c:1805
+arguments were ("salida")
+Object: /w/barthleby/noella/rooms/camino_sur/camino_sur3, Program: /std/room.c
+   in do_exit_command() at /std/room.c:521
+arguments were (0,0,0,0)
+locals were: 0,0,/w/barthleby/noella/rooms/camino_sur/camino_sur3
+Object: /std/room/exit_handler, Program: /std/room/exit_handler.c
+   in do_exit_command() at /std/room/exit_handler.c:234
+arguments were (([ ]),([ ]),([ /* sizeof() == 2 */
+  "norte" : ({ /* sizeof() == 4 */
+      "/w/barthleby/noella/rooms/camino_sur/camino_sur2",
+      "road",
+      "unknown",
+      "norte"
+    }),
+  "salida" : ({ /* sizeof() == 4 */
+      "/w/barthleby/entrada_provisional_a_noella",
+      "road",
+      "unknown",
+      "salida"
+    }),
+]),({ /* sizeof() == 2 */
+  "norte",
+  "salida"
+}),({ /* sizeof() == 4 */
+  "norte",
+  ({ /* sizeof() == 6 */
+    "/w/barthleby/noella/rooms/camino_sur/camino_sur2",
+    0,
+    1,
+    30,
+    0,
+    ({ /* sizeof() == 2 */
+      0,
+      "el sur"
+    })
+  }),
+  "salida",
+  ({ /* sizeof() == 6 */
+    "/w/barthleby/entrada_provisional_a_noella",
+    0,
+    1,
+    30,
+    0,
+    ({ /* sizeof() == 2 */
+      0,
+      "algun sitio"
+    })
+  })
+}),({ }),0,"salida",/global/god#109,0,/w/barthleby/noella/rooms/camino_sur/camino_sur3)
+locals were: 0,0,1,0,0,0,0
+Object: /std/room/exit_handler, Program: /std/room/exit_handler.c
+   in <catch>() at /std/room/exit_handler.c:234
+Object: /global/god#109, Program: /std/living/living.c
+   in move_player() at /std/living/living.c:139
+arguments were ("salida","/w/barthleby/entrada_provisional_a_noella",0,0,({ /* sizeof() == 2 */
+  0,
+  "algun sitio"
+}))
+locals were: 0,0,0,"@Barthleby llega cantando %^BOLD%^Smells Like %^BLUE%^Teen Spirit%^RESET%^ desde algun sitio. 
+","@Barthleby se va cantando %^BOLD%^YELLOW%^In %^RED%^Bloom%^RESET%^ hacia salida. 
+",0,"Barthleby",/w/barthleby/noella/rooms/camino_sur/camino_sur3,0,0,0
+Object: /global/god#109, Program: /global/wiz_file_comm.c
+   in move() at /global/player.c:1427
+arguments were ("/w/barthleby/entrada_provisional_a_noella","Barthleby llega cantando %^BOLD%^Smells Like %^BLUE%^Teen Spirit%^RESET%^ desde algun sitio. 
+","Barthleby se va cantando %^BOLD%^YELLOW%^In %^RED%^Bloom%^RESET%^ hacia salida. 
+")
+locals were: 0,/w/barthleby/noella/rooms/camino_sur/camino_sur3
+Object: /global/god#109, Program: /std/container.c
+   in move() at /std/container.c:113
+arguments were ("/w/barthleby/entrada_provisional_a_noella","Barthleby llega cantando %^BOLD%^Smells Like %^BLUE%^Teen Spirit%^RESET%^ desde algun sitio. 
+","Barthleby se va cantando %^BOLD%^YELLOW%^In %^RED%^Bloom%^RESET%^ hacia salida. 
+")
+Object: /global/god#109, Program: /std/basic/misc.c
+   in move() at /std/basic/misc.c:91
+arguments were ("/w/barthleby/entrada_provisional_a_noella","Barthleby llega cantando %^BOLD%^Smells Like %^BLUE%^Teen Spirit%^RESET%^ desde algun sitio. 
+","Barthleby se va cantando %^BOLD%^YELLOW%^In %^RED%^Bloom%^RESET%^ hacia salida. 
+")
+locals were: 0,/w/barthleby/noella/rooms/camino_sur/camino_sur3
+Object: /w/barthleby/entrada_provisional_a_noella, Program: /std/outside.c
+   in create() at /std/outside.c:35
+arguments were ()
+Object: /w/barthleby/entrada_provisional_a_noella, Program: /std/room.c
+   in create() at /std/room.c:176
+arguments were ()
+locals were: 0
+'          reset' in '/          std/room.c' ('/w/barthleby/entrada_provisional_a_noella') /std/room.c:97
+arguments were ()
+locals were: 0,"/w/barthleby/noella/npcs/gargola",0
+--- end trace ---
+No error handler for error: *call_other() couldn't find object
+program: /global/guild-race.c, object: /global/god#118, file: /global/guild-race.c:20
+--- trace ---
+Object: /secure/login#117, Program: /secure/login.c
+   in logon1() at /secure/login.c:229
+arguments were ("barthleby")
+locals were: -1,0
+Object: /secure/login#117, Program: /secure/login.c
+   in logon3() at /secure/login.c:310
+arguments were ()
+Object: /secure/login#117, Program: /secure/login.c
+   in logon4() at /secure/login.c:348
+arguments were (0)
+Object: /secure/login#117, Program: /secure/login.c
+   in begin() at /secure/login.c:429
+arguments were (0)
+Object: /secure/login#117, Program: /secure/login.c
+   in begin2() at /secure/login.c:457
+arguments were (0)
+locals were: /secure/login#117
+Object: /global/god#118, Program: /global/lord.c
+   in move_player_to_start() at /global/lord.c:5
+arguments were ("barthleby",0,-1)
+Object: /global/god#118, Program: /global/thane.c
+   in move_player_to_start() at /global/thane.c:17
+arguments were ("barthleby",0,-1)
+Object: /global/god#118, Program: /global/creator.c
+   in move_player_to_start() at /global/creator.c:24
+arguments were ("barthleby",0,-1)
+locals were: "117"
+Object: /global/god#118, Program: /global/wiz_file_comm.c
+   in move_player_to_start() at /global/player.c:282
+arguments were ("barthleby",0,-1)
+locals were: 0,0
+Object: /global/god#118, Program: /global/wiz_file_comm.c
+   in start_player() at /global/player.c:390
+arguments were ()
+locals were: 0
+Object: /global/god#118, Program: /global/guild-race.c
+   in race_guild_commands() at /global/guild-race.c:20
+arguments were ()
+locals were: 0
+'          CATCH' in '/ global/guild-race.c' ('/      global/god#118') /global/guild-race.c:20
+--- end trace ---
+No error handler for error: *call_other() couldn't find object
+program: /global/guild-race.c, object: /global/god#123, file: /global/guild-race.c:20
+--- trace ---
+Object: /secure/login#122, Program: /secure/login.c
+   in logon1() at /secure/login.c:229
+arguments were ("barthleby")
+locals were: -1,0
+Object: /secure/login#122, Program: /secure/login.c
+   in logon3() at /secure/login.c:310
+arguments were ()
+Object: /secure/login#122, Program: /secure/login.c
+   in logon4() at /secure/login.c:348
+arguments were (0)
+Object: /secure/login#122, Program: /secure/login.c
+   in begin() at /secure/login.c:429
+arguments were (0)
+Object: /secure/login#122, Program: /secure/login.c
+   in begin2() at /secure/login.c:457
+arguments were (0)
+locals were: /secure/login#122
+Object: /global/god#123, Program: /global/lord.c
+   in move_player_to_start() at /global/lord.c:5
+arguments were ("barthleby",0,-1)
+Object: /global/god#123, Program: /global/thane.c
+   in move_player_to_start() at /global/thane.c:17
+arguments were ("barthleby",0,-1)
+Object: /global/god#123, Program: /global/creator.c
+   in move_player_to_start() at /global/creator.c:24
+arguments were ("barthleby",0,-1)
+locals were: "122"
+Object: /global/god#123, Program: /global/wiz_file_comm.c
+   in move_player_to_start() at /global/player.c:282
+arguments were ("barthleby",0,-1)
+locals were: 0,0
+Object: /global/god#123, Program: /global/wiz_file_comm.c
+   in start_player() at /global/player.c:390
+arguments were ()
+locals were: 0
+Object: /global/god#123, Program: /global/guild-race.c
+   in race_guild_commands() at /global/guild-race.c:20
+arguments were ()
+locals were: 0
+'          CATCH' in '/ global/guild-race.c' ('/      global/god#123') /global/guild-race.c:20
+--- end trace ---
+closed external ports

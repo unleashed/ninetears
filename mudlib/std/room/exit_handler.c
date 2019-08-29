@@ -31,55 +31,40 @@ string expand_direc(string str)
   return str;
 }  /* expand_direc() */
 
-varargs mixed* add_exit(mapping door_control, mapping exit_map,
-                       mixed *dest_other, string *dest_direc,
-                       object *hidden_objects,string direc,
-                       mixed dest, string type, string material)
-{
-  mixed *stuff;
-  int i;
-  string exit_string, 
-       short_exit_string;
+varargs mixed* add_exit(mapping door_control, mapping exit_map,mixed *dest_other, string *dest_direc,object *hidden_objects,string direc,mixed dest, string type, string material) {
+  	mixed *stuff;
+  	string exit_string,short_exit_string;
 
-  if(!material) {
-   switch(type) {
-    case "gate" :
-      material = "metal";
-      break;
-    case "door" :
-      material = "wood";
-      break;
-    default :
-      material = "unknown";
-      break; 
-   }
-  }
+  	if(!material) {
+   		switch(type) {
+    			case "gate" :
+      			material = "metal";
+      			break;
+    			case "door" :
+      			material = "wood";
+      			break;
+    			default :
+      			material = "unknown";
+      			break;
+   			}
+  		}
 
-  if(!exit_map) 
-    exit_map = ([ ]);
-  
-  exit_map[direc] = ({ dest, type, material, direc });
-  
-  if(member_array(direc,dest_other) != -1)
-      return ({ });
+  	if(!exit_map) exit_map = ([ ]);
 
-  stuff = ({dest}) +ROOM_HAND->query_exit_type(type,direc);
+  	exit_map[direc] = ({ dest, type, material, direc });
 
+  	if(member_array(direc,dest_other) != -1) return ({ });
 
-  dest_other += ({ direc,stuff });
-  dest_direc += ({ expand_direc(direc) });
-  exit_string = 0;
-  short_exit_string = 0;
-  if((stuff = (mixed)ROOM_HAND->query_door_type(type,direc,dest)))
-  {
-//  door_control[direc] = ({ clone_object(DOOR_OBJECT) });
-//  door_control[direc][0]->setup_door(direc,this_object(),dest,stuff);
-//  hidden_objects += ({ door_control[direc][0] });
-    door_control[dest] = direc;
-  }
+  	stuff = ({dest}) +ROOM_HAND->query_exit_type(type,direc);
 
-  return ({ door_control,exit_map,dest_other,dest_direc,hidden_objects });
-}
+  	dest_other += ({ direc,stuff });
+  	dest_direc += ({ expand_direc(direc) });
+  	exit_string = 0;
+  	short_exit_string = 0;
+  	if((stuff = (mixed)ROOM_HAND->query_door_type(type,direc,dest))) door_control[dest] = direc;
+
+	return ({ door_control,exit_map,dest_other,dest_direc,hidden_objects });
+	}
 
 mixed* modify_exit(mapping door_control, mapping doors_in,
                 mixed *dest_other, mixed *hidden_objects,
@@ -189,112 +174,69 @@ mixed *query_size(mixed *dest_other, string direc, object room_ob)
   return dest_other[i+1][ROOM_SIZE];
 } /* query_size() */
 
-int do_exit_command(mapping door_control,mapping door_locks,
-                    mapping exit_map,mixed *dest_direc,
-                    mixed *dest_other, mixed *aliases,
-                    string str, mixed verb, object ob,
-                    object foll, object room_ob)
-{
-  string special_mess, closed;
-   int i,lk;
-  mixed zip;
-   int old_call_out;
- 
-  if (!verb)
-    verb = query_verb();
-  else {
-    if (pointerp(verb)) {
-      special_mess = verb[1];
-      verb = verb[0];
-    }
-    if (!sscanf(verb, "%s %s", verb, str) !=2)
-      str = "";
-  }
-  if (!ob)
-    ob = this_player();
-  if ((i=member_array(verb,dest_direc))==-1)
-    if ((i=member_array(verb, aliases)) == -1)
-      return 0;
-    else
-      if ((i=member_array(aliases[i-1], dest_direc)) == -1)
-        return 0;
- 
+int do_exit_command(mapping door_control,mapping door_locks,mapping exit_map,mixed *dest_direc,mixed *dest_other, mixed *aliases,string str, mixed verb, object ob,object foll, object room_ob) {
+  	string special_mess, closed;
+   	int i;
+  	mixed zip;
+
+  	if (!verb) verb = query_verb();
+  	else {
+    		if (pointerp(verb)) {
+      			special_mess = verb[1];
+      			verb = verb[0];
+    			}
+    		if (!sscanf(verb, "%s %s", verb, str) !=2) str = "";
+  		}
+
+  	if (!ob) ob = this_player();
+
+  	if ((i=member_array(verb,dest_direc))==-1) if ((i=member_array(verb, aliases)) == -1) return 0;
+    	else if ((i=member_array(aliases[i-1], dest_direc)) == -1) return 0;
+
 /* ok must be two command exit */
-  if (dest_direc[i] != dest_other[i*2]) {
-    string s1,s2;
-    int j;
- 
-    sscanf(dest_other[i*2],"%s %s",s1,s2);
-    str = expand_alias(aliases,str);
-    if (s2 != str) {
-      zip = dest_direc[i+1..sizeof(dest_direc)];
-      while (1)
-        if ((j = member_array(verb, zip)) != -1) {
-          i += j+1;
-          sscanf(dest_other[i*2],"%s %s", s1, s2);
-          if (str == s2)
-            break;
-          zip = zip[j+1..sizeof(zip)];
-        } else
-          return 0;
-    }
-  }
+  	if (dest_direc[i] != dest_other[i*2]) {
+    		string s1,s2;
+    		int j;
+
+    		sscanf(dest_other[i*2],"%s %s",s1,s2);
+    		str = expand_alias(aliases,str);
+    		if (s2 != str) {
+			zip = dest_direc[i+1..sizeof(dest_direc)];
+      			while (1) if ((j = member_array(verb, zip)) != -1) {
+          			i += j+1;
+          			sscanf(dest_other[i*2],"%s %s", s1, s2);
+          			if (str == s2) break;
+          			zip = zip[j+1..sizeof(zip)];
+        			}
+			else return 0;
+   			}
+  		}
 //  Adding my lock checking method here  [Piper 12/24/95]
- 
-if((LOCK_HAND->query_lock_index(door_locks,dest_direc[i]) == 1)&&
-   (LOCK_HAND->query_lock_str(door_locks,dest_direc[i]) != 0))
-{
-  LOCK_HAND->lock_messages(exit_map,dest_direc[i]);
-  return(1);
-}
- 
+	if((LOCK_HAND->query_lock_index(door_locks,dest_direc[i]) == 1)&&(LOCK_HAND->query_lock_str(door_locks,dest_direc[i]) != 0)) {
+  		LOCK_HAND->lock_messages(exit_map,dest_direc[i]);
+  		return(1);
+		}
+
 /* First check for lockedness of doors etc */
-  if (zip = door_control[dest_other[i*2]]) {
-    if (zip[0]->query_locked()) /* Locked...  We auto-unlock, if they have the k
-ey */
-      if (!zip[0]->moveing_unlock(ob))
-        return 0;
-    if (!zip[0]->query_open()) { /* Closed open it and close it after us. */
-      if (!zip[0]->moveing_open(ob))
-        return 0;
-      closed = zip[0];
-    }
-  }
-  if (dest_other[i*2+1][ROOM_FUNC])
-    if (stringp(dest_other[i*2+1][ROOM_FUNC])) {
-     if (!call_other(room_ob, dest_other[i*2+1][ROOM_FUNC],
-          str, ob, special_mess))
-        return 0;
-    } else {
-      if (pointerp(dest_other[i*2+1][ROOM_FUNC]))
-        if (!call_other(dest_other[i*2+1][ROOM_FUNC][0],
-                        dest_other[i*2+1][ROOM_FUNC][1], ob, special_mess))
-          return 0;
-    }
- 
-  if (!special_mess)
-/*
- {
-          special_mess = room_exits[exit_index + ROOM_MESS];
- 
-         if (!special_mess)
-          {
-              special_mess = ROOM_HAND->exit_message(full_exit_name);
-          }
-      }
-*/
-  catch( zip = (int)ob->move_player(dest_other[i*2], dest_other[i*2+1][ROOM_DEST],
-                                   dest_other[i*2+1][ROOM_MESS], foll,
-                                   dest_other[i*2+1][ROOM_ENTER]));
-  else
-    catch( zip = (int)ob->move_player(dest_other[i*2], dest_other[i*2+1][ROOM_DEST],
-                                   special_mess, foll,
-                                   dest_other[i*2+1][ROOM_ENTER]));
-  if (closed)
-    closed->moveing_close(ob);
- 
-  return zip;
-} /* do_exit_command() */
+  	if (zip = door_control[dest_other[i*2]]) {
+    		if (zip[0]->query_locked()) if (!zip[0]->moveing_unlock(ob)) return 0;
+    		if (!zip[0]->query_open()) { /* Closed open it and close it after us. */
+      			if (!zip[0]->moveing_open(ob))
+        		return 0;
+      			closed = zip[0];
+    			}
+  		}
+  	if (dest_other[i*2+1][ROOM_FUNC]) if (stringp(dest_other[i*2+1][ROOM_FUNC])) {
+     		if (!call_other(room_ob, dest_other[i*2+1][ROOM_FUNC],str, ob, special_mess)) return 0;
+    		}
+	else if (pointerp(dest_other[i*2+1][ROOM_FUNC])) if (!call_other(dest_other[i*2+1][ROOM_FUNC][0],dest_other[i*2+1][ROOM_FUNC][1], ob, special_mess)) return 0;
+
+  	if (!special_mess) catch( zip = (int)ob->move_player(dest_other[i*2], dest_other[i*2+1][ROOM_DEST],dest_other[i*2+1][ROOM_MESS], foll,dest_other[i*2+1][ROOM_ENTER]));
+  	else catch( zip = (int)ob->move_player(dest_other[i*2], dest_other[i*2+1][ROOM_DEST],special_mess, foll,dest_other[i*2+1][ROOM_ENTER]));
+  	if (closed) closed->moveing_close(ob);
+
+  	return zip;
+	} /* do_exit_command() */
 
 //  Those "Obvious exits:" messages [Piper 1/5/96]
 
@@ -331,24 +273,24 @@ string query_dirs_string(mixed *dest_direc, mixed *dest_other,
     }
   if (sizeof(dirs)==0) {
     if (nostore)
-      return exit_color+"There are no obvious exits.%^RESET%^";
-    exit_string = exit_color+"There are no obvious exits.%^RESET%^";
+      return exit_color+"Parece no haber salidas.%^RESET%^";
+    exit_string = exit_color+"Parece no haber salidas.%^RESET%^";
     return exit_string;
   }
   if (sizeof(dirs)==1) {
     if (nostore)
-      return exit_color+"There is one obvious exit: "+dirs[0]+".%^RESET%^";
-    exit_string = exit_color+"There is one obvious exit: "+dirs[0]+".%^RESET%^";
+      return exit_color+"Parece haber una salida: "+dirs[0]+".%^RESET%^";
+    exit_string = exit_color+"Parece haber una salida: "+dirs[0]+".%^RESET%^";
  
     return exit_string;
   }
-  ret = " and "+dirs[sizeof(dirs)-1]+".";
+  ret = " y "+dirs[sizeof(dirs)-1]+".";
   dirs = delete(dirs,sizeof(dirs)-1, 1);
   if (nostore)
-    return exit_color+"There are "+query_num(sizeof(dirs)+1, 0)+
-           " obvious exits : "+implode(dirs,", ")+ret+"%^RESET%^";
-  exit_string = exit_color+"There are "+query_num(sizeof(dirs)+1, 0)+
-                " obvious exits : "+implode(dirs,", ")+ret+"%^RESET%^";
+    return exit_color+"Parece haber "+query_num(sizeof(dirs)+1, 0)+
+           " salidas: "+implode(dirs,", ")+ret+"%^RESET%^";
+  exit_string = exit_color+"Parece haber "+query_num(sizeof(dirs)+1, 0)+
+                " salidas: "+implode(dirs,", ")+ret+"%^RESET%^";
   return exit_string;
 } /* query_dirs_string() */
 

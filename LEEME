@@ -1,0 +1,57 @@
+FFIC Mudlib Development (c) 2001, 2002 Alejandro Martinez Ruiz
+
+Desarrollada a partir de la FR mudlib 3.4:
+
+http://fr.hyssing.net
+
+o en castellano la CLIB I perteneciente al
+Calandria, en la pagina web de Yvendur.
+
+Modificaciones en MudOs para FFIC Mudlib
+(c) 2001, 2002 Alejandro Martinez Ruiz
+
+Contacto:
+	Tyrael, Alex <unledev@gmail.com>
+
+NOTA: Este proyecto esta fuera de mantenimiento.
+
+1.- El Por Que de una licencia
+
+Esta mudlib es el resultado en desarrollo de un duro trabajo en solitario
+durante meses, modificando, editando, arreglando y anadiendo funcionalidad a la
+base de la mudlib del Final Realms en su version 3.4 (se puede obtener en
+http://fr.hyssing.net), y en una pequena parte modificando, editando, arreglando
+y anadiendo funcionalidad tambien a partes seleccionadas de las mudlib base
+publica del Calandria-CLIB I (se puede obtener en la pagina web de Yvendur), que
+a su vez esta basada en la version 3.2 de la mudlib de Final Realms.
+
+Durante todo este tiempo he trabajado mucho en convertir este material en algo
+jugable, un mundo con vida. Cualquiera que obtenga esas dos mudlibs y las
+compare con el estado actual de esta, provisionalmente llamada "FFIC MudLib", se
+dara cuenta del enorme trabajo invertido.
+
+Asi pues, me permito aplicar mi propia licencia a mi trabajo (no al de otros).
+
+Por eso, y porque el trabajo de los demas esta publicado por sus respectivos
+autores, yo pongo el mio bajo mi licencia, que puede ser modificada en cualquier
+momento por mi mismo sin previo aviso.
+
+2.- Licencia de uso
+
+Mediante esta licencia se permite el uso personal (no comercial ni
+gubernamental) de este software (llamado "mudlib") tan solo cumpliendo los
+siguientes requisitos:
+
+- Informarme del uso de la mudlib, con un email a mi direccion de
+  contacto.
+
+2.1- Modificaciones y distribucion
+
+Se permite todo tipo de modificaciones manteniendo el copyright original y esta
+licencia en la mudlib. Se permite la libre distribucion de esta mudlib a
+condicion de que se encuentre inalterada y no se pueda cobrar absolutamente nada
+mas que los gastos del soporte de almacenamiento por ella.
+
+A Coruna, 8 de enero de 2002.
+
+Alex.

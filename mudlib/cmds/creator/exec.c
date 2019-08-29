@@ -9,7 +9,7 @@ position = 1;
 
 
 
-static int cmd(string str, object me) {
+int cmd(string str, object me) {
   mixed  err, ret;
   object ob;
   string file, wiz_dir;

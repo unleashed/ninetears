@@ -25,41 +25,41 @@ string query_usage()
 
 string query_short_help()
 {
-        return "You'll run away when your hp go below <num>%, and will lose "+
-                "<num>% of the gained xp.";
+        return "Saldrás huyendo cuando tus HPs estén por debajo del <num>%, y perderás "+
+               " el <num>% de la xp ganada.";
 }
 
 string wimpy_str(object me)
 {
-        return "It is currently set to "+me->query_wimpy()+"%.";
+        return "Actualmente esta fijado en el "+me->query_wimpy()+"%.\n";
 }
 
-static int cmd (string str, object me)
+int cmd (string str, object me)
 {
         if (!str)
         {
-                notify_fail("Usage: "+query_usage()+". "+wimpy_str(me)+"\n");
+                notify_fail("Uso: "+query_usage()+". "+wimpy_str(me)+"\n");
                 return 0;
         }
         else
         {
                 if (sscanf(str, "%d", wimpy) != 1)
                 {
-                        notify_fail("You must set wimpy to a number.\n");
+                        notify_fail("Debes especificar un numero .\n");
                         return 0;
                 }
                 if (wimpy < 0 || wimpy > 100)
                 {
-                        notify_fail("Wimpy must be in the range 0-100. "+
+                        notify_fail("El wimpy debe estar entre 0 y 100. "+
                                         wimpy_str(me)+"\n");
                         return 0;
                 }
         }
         if (wimpy)
-                tell_object (me, "You are in wimpy mode, you will run away "+
-                        "at "+wimpy+"% of your max hps.\n");
+                tell_object (me, "Estas en modo cobarde, huirás "+
+                        "al "+wimpy+"% de tu maximo de HPs.\n");
         else
-                tell_object (me, "You are in brave mode.\n");
+                tell_object (me, "Estas en modo valiente.\n");
         me->set_wimpy(wimpy);
         return 1;
 }

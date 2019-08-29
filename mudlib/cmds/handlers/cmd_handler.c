@@ -9,7 +9,7 @@
 
 int cmd_make_hash(int i);
 
-static mapping cmd_dirs =
+protected nomask mapping cmd_dirs =
 ([
 	"/cmds/player/":		({0,		"Player"}),
 	"/cmds/creator/":		({BUILDER_CMD,	"Builder"}),
@@ -21,10 +21,10 @@ static mapping cmd_dirs =
 	"/cmds/handler/cmds/":		({0,		"Command handler"}),
 ]);
 
-static mapping cmd_hash = ([ ]);  	// For commands and their objects
-static mapping cmd_aliases = ([ ]);	// For command aliases
-static string last_dir = "";      	// Last directory a command was found
-static string current_verb;		// Used by query_verb() efun
+nosave mapping cmd_hash = ([ ]);  	// For commands and their objects
+nosave mapping cmd_aliases = ([ ]);	// For command aliases
+nosave string last_dir = "";      	// Last directory a command was found
+nosave string current_verb;		// Used by query_verb() efun
 
 void create()
 {
@@ -135,7 +135,7 @@ int cmd(string verb, string tail, object thisob)
 	}
 	if(!ob)
 	{
-		notify_fail("Error loading command.\n");
+		notify_fail("Error cargando comando.\n");
 		return 0;
 	}
 

@@ -1,19 +1,17 @@
-/* The torch..
- * changed a bit by Baldrick.. sept '94
- */
+// Traducida por Gareth 21.01.03
 
 inherit "/std/item";
 #define BRIGHTNESS 50 
 
 int amount_of_fuel;
-status is_lighted;
+int is_lighted;
  
 void setup() {
   amount_of_fuel = 2000; 
-  set_name("torch"); 
-  set_main_plural("torches");
-  set_short("Torch");
-  set_long("A small torch.\n");
+  set_name("antorcha"); 
+  set_main_plural("antorchas");
+  set_short("Antorcha");
+  set_long("Una pequenya antorcha.\n");
   is_lighted = 0;
   set_weight(50);
   set_value(50);
@@ -44,8 +42,8 @@ void init() {
   this_player()->add_command("light", this_object());
   this_player()->add_command("extinguish", this_object());
   */
-  add_action("do_light", "light");
-  add_action("do_extinguish", "extinguish");
+  add_action("do_light", "encender");
+  add_action("do_extinguish", "apagar");
 
 }
  
@@ -56,7 +54,7 @@ void lightme()
    set_light(BRIGHTNESS);
    if(ETO)
    {
-      tell_room(ETO,"%^YELLOW%^A torch flickers into life.\n",({ 0 }));
+      tell_room(ETO,"%^YELLOW%^Una antorcha parpadea hasta encenderse.\n",({ 0 }));
    }
 }
 void unlightme()
@@ -65,7 +63,7 @@ void unlightme()
    set_light(0);
    if(ETO)
    {
-      tell_room(ETO,"A torch flickers and dies.\n");
+      tell_room(ETO,"La luz de una antorcha parpadea y se apaga.\n");
    }
 }
 
@@ -77,16 +75,16 @@ to light, I have to write another function. */
 int do_light(object *indir, int s1, int s2, mixed *prep) {
   string mess;
   if (!query_in_use())
-    mess = "it must be held first (try \"hold torch\")";
+    mess = "debes sostener la antorcha primero (uso: empunyar antorcha)";
   else if (is_lighted)
-    mess = "it's already lit";
+    mess = "esta encendida";
   else if (amount_of_fuel <= 0)
-    mess = "it's burnt out";
+    mess = "esta sin combustible";
   if (mess) 
     {
-    tell_room(environment(),environment()->query_cap_name()+" tries to light"+
-      " a torch, but "+mess+"!\n",environment());
-    tell_object(environment(), "You try to light a torch, but "+mess+"!\n");
+    tell_room(environment(),environment()->query_cap_name()+" intenta encender"+
+      " una antorcha, pero "+mess+"!\n",environment());
+    tell_object(environment(), "Intentas encender la antorcha, pero "+mess+"!\n");
     return 0;
     }
   is_lighted = 1;
@@ -100,24 +98,24 @@ void out_of_fuel()
   {
   is_lighted = 0;
   set_light(0);
-  tell_room(environment(),"The " + short(0) + " goes out.\n",environment());
-  tell_object(environment(), "The " + short(0) + " goes out.\n");
+  tell_room(environment(),"La " + short(0) + " se apaga.\n",environment());
+  tell_object(environment(), "La " + short(0) + " se apaga.\n");
 }
 
-int set_in_use(int i)
+int set_in_use(int i,object amo)
   {
   if (i==0 && is_lighted)
     out_of_fuel();      /* it's not really out of fuel */
-       return ::set_in_use(i);
+       return ::set_in_use(i,amo);
 }
 
 int do_extinguish(object *indir, string s1, string s2, string prep) {
   int i;
   if (!is_lighted) {
-    tell_room(environment(),environment()->query_cap_name()+" tries to "+
-      "extinguish a torch, but it's not lit!\n",environment());
-    tell_object(environment(), "You try to extinguish the torch, but"+
-      " it's not lit!\n");
+    tell_room(environment(),environment()->query_cap_name()+" intenta "+
+      "apagar la antorcha, pero no esta iluminada!\n",environment());
+    tell_object(environment(), "Intentas apagar la antorcha, pero"+
+      " no esta encendida!\n");
     return 0;
   }
   i = remove_call_out("out_of_fuel");

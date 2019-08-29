@@ -33,7 +33,7 @@ mapping guilds = ([ "wizard":5,
    "raisa":10,
    "shifter":30,
 ]);
-static int phrase;
+nosave int phrase;
 string file;
 string func;
 int lockout,gp;
@@ -81,12 +81,12 @@ int set_enchant(int i)
     return i;
 }
 
-set_guilds(mapping map)
+void set_guilds(mapping map)
 {
     if( !guilds) guilds = map;
     else guilds += map;
 }
-set_spell(string fil,string fun,int lock,int gpuse,int dds)
+void set_spell(string fil,string fun,int lock,int gpuse,int dds)
 {
     file = fil;
     func = fun;
@@ -98,7 +98,6 @@ set_spell(string fil,string fun,int lock,int gpuse,int dds)
 }
 void init()
 {
-    int i;
     add_action("do_use","wand");
     add_action("do_help","help");
     ::init();
@@ -106,8 +105,7 @@ void init()
 
 int do_use(string str)
 {
-    int i,level;
-    string *index,which;
+    int level;
     object who,guild;
 
     who = TP;
@@ -159,7 +157,6 @@ int do_use(string str)
 
 int do_help(string str)
 {
-    int i;
     if( str == "wand")
     {
 	write(file->help());

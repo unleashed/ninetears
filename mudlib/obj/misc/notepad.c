@@ -5,16 +5,19 @@ inherit "/std/object.c";
 
 void setup() {
   reset_drop();
-  set_name("notepad");
-  set_short("notepad");
-  set_long("My todo list.\n");
+  set_name("Block de Notas");
+  set_short("Block");
+  add_alias("block");
+  add_alias("block de notas");
+  set_long("Es un pequenyo block de notas, te permitira recordar rapidamente tus tareas "
+	"pendientes y demas, ligera y pequenya, pero un objeto realmente util.\n");
 }
 
 void init() {
   ::init();
-  add_action("add_note","jot");
+  add_action("add_note","nota");
   add_action("list_tasks","todo");
-  add_action("delete_note","check");
+  add_action("delete_note","borranota");
   add_action("do_help","help");
 }
 
@@ -22,16 +25,15 @@ void do_help(string str) {
   if(!str || (str != "notepad"))  return 0;
 
 tell_object(this_player(),
-"Hamlet's todo-list notepad, version 1\n\n\n"
-"Commands:\n"
-"  jot <text>       :  Add a new note.\n"
-"  todo             :  List all notes.\n"
-"  check <number>   :  Check a note off your todo list.\n"
-"  help notepad     :  Fairly obvious.\n\n\n"
-"Note:  If you indent a note, it is considered part of the previous note.\n\n"
-"Notes are saved in /w/<yourname>/TODO.LIST\n");
+"\n\nComandos:\n"
+"  nota <text>         :  Anyade una nueva nota.\n"
+"  todo                :  Lista todas las notas.\n"
+"  borranota <numero>  :  Elimina una nota de la lista.\n"
+"  help notepad        :  No komment.\n\n\n"
+"Nota:  Si indentas una nota, esta es considerada como parte de la nota anterior.\n\n"
+"Las notas son salvadas en /w/<tunombre>/TODO.LIST\n");
 
-  return 1;
+  return;
 }
 
 void add_note(string str) {
@@ -39,11 +41,11 @@ void add_note(string str) {
 
   seteuid(geteuid(this_player(1)));
   write_file("/w/"+this_player()->query_name()+"/TODO.LIST",str+"\n");
-  tell_object(this_player(),"Ok.\n");
-  return 1;
+  tell_object(this_player(),"OK.\n");
+  return ;
 }
 
-void list_tasks(string str) {
+int list_tasks(string str) {
   string junk;
   string *morejunk;
   int i,j,k;
@@ -70,7 +72,7 @@ void list_tasks(string str) {
   return 1;
 }
 
-void delete_note(string str) {
+int delete_note(string str) {
   string junk;
   string *morejunk;
   int i,j,k,m;

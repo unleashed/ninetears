@@ -1,11 +1,11 @@
 /* the stat data for the living objects... */
 
 /* Added extra_defendbonus calculations.
- * this will add to the body_ac, right now it's the only 
- * body modifier. It is based on DEX 
- * Baldrick, arpil '94 
+ * this will add to the body_ac, right now it's the only
+ * body modifier. It is based on DEX
+ * Baldrick, arpil '94
  * Also addin attack_bonus.
- * Adding THAC0 here. Skills.c is too heavy already. 
+ * Adding THAC0 here. Skills.c is too heavy already.
  * Adding kill_xp here for now..
  */
 
@@ -29,11 +29,12 @@ dextmp,
 contmp,
 wistmp,
 strtmp,
+extrstrtmp,
 chatmp;
 
 int extreme_str, hp_bonus, kill_xp;
 
-static int no_check,
+nosave int no_check,
 tmp_ac_bon,
 tmp_damage_bon,
 tmp_tohit_bon;
@@ -45,86 +46,67 @@ int query_no_check() { return no_check;}
 void set_no_check(int i) { no_check = i;}
 void calc();
 
-/* This is ugly.. 
+/* This is ugly..
  * But a test right now..
- * This does calculate the adjustments of max_gp & max_hp 
+ * This does calculate the adjustments of max_gp & max_hp
  * Baldrick march '95 (last change)
  */
-void recalc_stats(int i)
-{
-    object guild_ob;
-    int e, skill_value, max_gain, foo;
-    int fish;
+/* DIOS MIOOOO, ESTO NECESITA CAMBIARSE */
+void recalc_stats(int i) {
+    	object guild_ob;
+    	int e, max_gain, foo;
+    	calc();
+    	if (no_check) return ;
+    	guild_ob = (object)this_object()->query_clase_ob();
+    	for (e=0;e<i;e++) {
+		if(guild_ob) {
 
-    // No potion boosts
-    // Taniwha 1995
-    // Taniwha 1997 , turn on potions
-    //contmp = wistmp = dextmp = inttmp = strtmp = chatmp = 0;
-    calc();
-    if (no_check) return ;
-    guild_ob = (object)this_object()->query_guild_ob();
-    /* This is a main_skill thingie.. will make the main skill more important*/
-    // Adding a test here...Mirath...
-    if(guild_ob)
-    {
-	switch((string)guild_ob->query_main_skill())
-	{
-	case "str": skill_value = Str + strbon; break;
-	case "dex": skill_value = Dex + dexbon; break;
-	case "con": skill_value = Con + conbon; break;
-	case "wis": skill_value = Wis + wisbon; break;
-	case "int": skill_value = Int + intbon; break;
-	case "cha": skill_value = Cha + chabon; break;
-	default   : skill_value = 11;           break;
-	} /* switch */
-    }
-    else 
-    {
-	skill_value = 11;
-    } /* if */ 
-    for (e=0;e<i;e++)
-    {
-	/* First, calc the HP's.. */
+			max_gain = (int)guild_ob->query_hp_dice(TO);
+			if (TO->query_cha() >= random(200)) max_gain++;
+			foo = roll(1, max_gain);
+	    		if (foo < 1) foo = 1;
+	    		if (foo > max_gain) foo = max_gain;
+			foo += guild_ob->query_hp_min(TO);
+			// si el hp_bonus es negativo... ainz
+			TO->set_max_hp(TO->query_max_hp() + foo + hp_bonus);
 
-	if(guild_ob)
-	{
-	    max_gain = ((int)guild_ob->query_dice() + hp_bonus) 
-	    * (int)this_object()->query_level();
-	    // Taniwha, 1996. Charisma affects on roll (lucky rolls)
-	    fish = TO->query_cha();
-	    if(fish < 12) fish = 0;
-	    else
-	    {
-		fish = (fish -10)/3;
-	    }
+			// GPS
+			max_gain = (int)guild_ob->query_gp_dice(TO);
+			if (TO->query_cha() >= random(200)) max_gain++;
+			foo = roll(1, max_gain);
+	    		if (foo < 1) foo = 1;
+	    		if (foo > max_gain) foo = max_gain;
+			foo += guild_ob->query_gp_min(TO);
+			TO->set_max_gp(TO->query_max_gp() + foo);
 
-	    foo = roll(1,max_gain+fish - (int)this_object()->query_max_hp());
-	    if (foo < 1)
-		foo = 1;
-	    if (foo > (int)guild_ob->query_dice())
-		foo = (int)guild_ob->query_dice(); 
+			// EPS
+			max_gain = (int)guild_ob->query_ep_dice(TO);
+			if (TO->query_cha() >= random(200)) max_gain++;
+			foo = roll(1, max_gain);
+	    		if (foo < 1) foo = 1;
+	    		if (foo > max_gain) foo = max_gain;
+			foo += guild_ob->query_ep_min(TO);
+			TO->set_max_ep(TO->query_max_ep() + foo);
 
-	    this_object()->set_max_hp(this_object()->query_max_hp() 
-	      + foo + hp_bonus);
-	} /* if guild ob */
-	else
-	    this_object()->set_max_hp((int)this_object()->query_max_hp() 
-	      + roll(1,8) + hp_bonus);
+			// SPS
+			max_gain = guild_ob->query_sp_dice(TO);
+			if (TO->query_cha() >= random(200) ) max_gain++;
+			foo=roll(1,max_gain);
+			if (foo<1) foo=1;
+			if (foo>max_gain) foo=max_gain;
+			foo+=guild_ob->query_sp_min(TO);
+			TO->set_max_sp(TO->query_max_sp() + foo);
+			}
+		else {
+	    		this_object()->set_max_hp((int)this_object()->query_max_hp() + roll(1,8) + hp_bonus);
+			this_object()->set_max_gp((int)this_object()->query_max_gp() + roll(1,4) );
+			this_object()->set_max_ep((int)this_object()->query_max_ep() + roll(1,4) );
+			this_object()->set_max_sp((int)this_object()->query_max_sp() + roll(1,5) );
+			}
+    		} /* for */
+	}
 
-	/* Secondly, the GP's */
-	max_gain = (skill_value * (int)this_object()->query_level()) / 2;
-
-	foo = roll(1,max_gain+fish - (int)this_object()->query_max_gp());
-	if (foo < 1)
-	    foo = 1;
-	if (foo > (skill_value / 2))
-	    foo = skill_value / 2;
-
-	this_object()->set_max_gp(foo + (int)this_object()->query_max_gp());
-    } /* for */
-}
-
-void reset_carry_cap() 
+void reset_carry_cap()
 {
     int old_cap, cap, st;
     object ob, ob1;
@@ -149,9 +131,9 @@ void reset_carry_cap()
    if(ob && ob->query_weight() && ! ob->query_property("cursed"))
 	    if (!ob->move(environment())) {
 		old_cap -= (int)ob->query_weight();
-		tell_room(ETO,this_object()->query_cap_name()+" drops "+ob->short()+
-		  " under strain.\n",({TO}));
-		tell_object(TO,"Your fading strength makes you drop "+ob->short()+".\n");
+		tell_room(ETO,this_object()->query_cap_name()+" deja "+ob->short()+
+		  " sucumbiendo bajo su peso.\n",({TO}));
+		tell_object(TO,"Tu falta de fuerza hace que dejes "+ob->short()+".\n");
 	    }
 	if (cap >= old_cap)
 	    return ;
@@ -184,6 +166,7 @@ void reset_all() {
     //reset_gp();
     /* I don't like this! Baldrick. */
     strtmp = 0;
+	extrstrtmp = 0;
     dextmp = 0;
     contmp = 0;
     wistmp = 0;
@@ -193,7 +176,7 @@ void reset_all() {
     calc();
 }
 
-int set_str(int i) 
+int set_str(int i)
 {
     Str = i;
     reset_carry_cap();
@@ -201,7 +184,7 @@ int set_str(int i)
     return 1;
 }
 
-int set_con(int i) 
+int set_con(int i)
 {
     Con = i;
     //reset_hp();
@@ -209,7 +192,7 @@ int set_con(int i)
     return 1;
 }
 
-int set_int(int i) 
+int set_int(int i)
 {
     Int = i;
     //reset_gp();
@@ -217,14 +200,14 @@ int set_int(int i)
     return 1;
 }
 
-int set_dex(int i) 
+int set_dex(int i)
 {
     Dex = i;
     calc();
     return 1;
 }
 
-int set_wis(int i) 
+int set_wis(int i)
 {
     Wis = i;
     //reset_gp();
@@ -232,7 +215,7 @@ int set_wis(int i)
     return 1;
 }
 
-int set_cha(int i) 
+int set_cha(int i)
 {
     Cha = i;
     calc();
@@ -251,7 +234,7 @@ int set_ac(int i) {
     return 1;
 }
 
-int query_str() { return Str+strtmp+strbon+extreme_str; }
+int query_str() { return Str+strtmp+strbon+extreme_str+extrstrtmp; }
 int query_int() { return Int+inttmp+intbon; }
 int query_dex() { return Dex+dextmp+dexbon; }
 int query_wis() { return Wis+wistmp+wisbon; }
@@ -259,6 +242,7 @@ int query_con() { return Con+contmp+conbon; }
 int query_cha() { return Cha+chatmp+chabon; }
 
 int query_real_str() { return Str; }
+int query_real_extreme_str() { return extreme_str; }
 int query_real_int() { return Int; }
 int query_real_dex() { return Dex; }
 int query_real_wis() { return Wis; }
@@ -266,6 +250,7 @@ int query_real_con() { return Con; }
 int query_real_cha() { return Cha; }
 
 int query_tmp_str() { return strtmp; }
+int query_tmp_extreme_str() { return extrstrtmp; }
 int query_tmp_int() { return inttmp; }
 int query_tmp_dex() { return dextmp; }
 int query_tmp_wis() { return wistmp; }
@@ -279,14 +264,14 @@ int query_bonus_wis() { return wisbon; }
 int query_bonus_con() { return conbon; }
 int query_bonus_cha() { return chabon; }
 
-int query_extreme_str() { return extreme_str; }
-int adjust_dex(int i) 
+int query_extreme_str() { return extreme_str+extrstrtmp; }
+int adjust_dex(int i)
 {
     Dex += i;
     if (query_dex() < 1)
     {
-	write("You feel your low dexterity makes it impossible for you to move, " 
-	  "and you die.\n");
+	write("Sientes como tu poca destreza hace imposible que te muevas, "
+	  "y mueres horriblemente.\n");
 	this_object()->do_death(this_object());
 	return 0;
     }
@@ -294,12 +279,12 @@ int adjust_dex(int i)
     return Dex;
 }
 
-int adjust_con(int i) 
+int adjust_con(int i)
 {
     Con += i;
     if (query_con() < 1)
     {
-	write("You feel your bad health kills you.\n");
+	write("Sientes como tu mala salud se deteriora y mueres de forma natural.\n");
 	this_object()->do_death(this_object());
 	return 0;
     }
@@ -308,12 +293,12 @@ int adjust_con(int i)
     return Con;
 }
 
-int adjust_str(int i) 
+int adjust_str(int i)
 {
     Str += i;
     if (query_str() < 1)
     {
-	write("You feel your low strenght kills you.\n");
+	write("No tienes fuerza para vivir y mueres horriblemente.\n");
 	this_object()->do_death(this_object());
 	return 0;
     }
@@ -322,12 +307,12 @@ int adjust_str(int i)
     return Str;
 }
 
-int adjust_wis(int i) 
+int adjust_wis(int i)
 {
     Wis += i;
     if (query_wis() < 1)
     {
-	write("You feel you are too unwise to live.\n");
+	write("Eres demasiado poco sabio para vivir y mueres.\n");
 	this_object()->do_death(this_object());
 	return 0;
     }
@@ -336,36 +321,36 @@ int adjust_wis(int i)
     return Wis;
 }
 
-int adjust_int(int i) 
+int adjust_int(int i)
 {
     Int += i;
     if (query_int() < 1)
     {
-	write("You feel you are too stupid to be alive.\n");
+	write("Sientes que eres demasiado estupido para estar vivo.\n");
 	this_object()->do_death(this_object());
     }
     calc();
     return Int;
 }
 
-int adjust_cha(int i) 
+int adjust_cha(int i)
 {
     Cha += i;
     if (query_cha() < 1)
     {
-	write("You feel you are too ugly  to even be alive.\n");
+	write("Notas que eres demasiado feo para siquiera estar vivo.\n");
 	this_object()->do_death(this_object());
     }
     calc();
     return Cha;
 }
 
-int adjust_tmp_int(int i) 
+int adjust_tmp_int(int i)
 {
     inttmp += i;
     if (query_int() < 1)
     {
-	write("You feel you are too stupid to be alive.\n");
+	write("Sientes que eres demasiado estupido para estar vivo.\n");
 	this_object()->do_death(this_object());
     }
     //reset_gp();
@@ -373,13 +358,13 @@ int adjust_tmp_int(int i)
     return inttmp;
 }
 
-int adjust_tmp_dex(int i) 
+int adjust_tmp_dex(int i)
 {
     dextmp += i;
     if (query_dex() < 1)
     {
-	write("You feel your low dexterity makes it impossible for you to move, " 
-	  "and you die.\n");
+	write("Sientes como tu poca destreza hace imposible que te muevas, "
+	  "y mueres horriblemente.\n");
 	this_object()->do_death(this_object());
 	return 0;
     }
@@ -387,24 +372,24 @@ int adjust_tmp_dex(int i)
     return dextmp;
 }
 
-int adjust_tmp_wis(int i) 
+int adjust_tmp_wis(int i)
 {
     wistmp += i;
     if (query_wis() < 1)
     {
-	write("You feel you are too unwise to live.\n");
+	write("Eres demasiado poco sabio para vivir y mueres.\n");
 	this_object()->do_death(this_object());
     }
     calc();
     return wistmp;
 }
 
-int adjust_tmp_str(int i) 
+int adjust_tmp_str(int i)
 {
     strtmp += i;
     if (query_str() < 1)
     {
-	write("You feel your low strenght kills you.\n");
+	write("No tienes fuerza para vivir y mueres horriblemente.\n");
 	this_object()->do_death(this_object());
 	return 0;
     }
@@ -413,12 +398,26 @@ int adjust_tmp_str(int i)
     return strtmp;
 }
 
-int adjust_tmp_con(int i) 
+int adjust_tmp_extreme_str(int i)
+{
+    extrstrtmp += i;
+    if (query_str() < 1)
+    {
+	write("No tienes fuerza para vivir y mueres horriblemente.\n");
+	this_object()->do_death(this_object());
+	return 0;
+    }
+    reset_carry_cap();
+    calc();
+    return extrstrtmp;
+}
+
+int adjust_tmp_con(int i)
 {
     contmp += i;
     if (query_con() < 1)
     {
-	write("You feel your bad health kills you.\n");
+	write("Sientes como tu mala salud se deteriora y mueres de forma natural.\n");
 	this_object()->do_death(this_object());
 	return 0;
     }
@@ -427,37 +426,37 @@ int adjust_tmp_con(int i)
     return contmp;
 }
 
-int adjust_tmp_cha(int i) 
+int adjust_tmp_cha(int i)
 {
     chatmp += i;
     if (query_cha() < 1)
     {
-	write("You feel you are too unattractive to even be alive.\n");
+	write("Notas que eres demasiado feo para siquiera estar vivo.\n");
 	this_object()->do_death(this_object());
     }
     calc();
     return chatmp;
 }
 
-int adjust_bonus_int(int i) 
+int adjust_bonus_int(int i)
 {
     intbon += i;
     if (query_int() < 1)
     {
-	write("You feel you are too stupid to be alive.\n");
+	write("Sientes que eres demasiado estupido para estar vivo.\n");
 	this_object()->do_death(this_object());
     }
     calc();
     return intbon;
 }
 
-int adjust_bonus_dex(int i) 
+int adjust_bonus_dex(int i)
 {
     dexbon += i;
     if (query_dex() < 1)
     {
-	write("You feel your low dexterity makes it impossible for you to move, " 
-	  "and you die.\n");
+	write("Sientes como tu poca destreza hace imposible que te muevas, "
+	  "y mueres horriblemente.\n");
 	this_object()->do_death(this_object());
 	return 0;
     }
@@ -466,24 +465,24 @@ int adjust_bonus_dex(int i)
     return dexbon;
 }
 
-int adjust_bonus_wis(int i) 
+int adjust_bonus_wis(int i)
 {
     wisbon += i;
     if (query_wis() < 1)
     {
-	write("You feel you are too unwise to live.\n");
+	write("Eres demasiado poco sabio para vivir y mueres.\n");
 	this_object()->do_death(this_object());
     }
     calc();
     return wisbon;
 }
 
-int adjust_bonus_str(int i) 
+int adjust_bonus_str(int i)
 {
     strbon += i;
     if (query_str() < 1)
     {
-	write("You feel your low strength kills you.\n");
+	write("No tienes fuerza para vivir y mueres horriblemente.\n");
 	this_object()->do_death(this_object());
 	return 0;
     }
@@ -492,12 +491,12 @@ int adjust_bonus_str(int i)
     return strbon;
 }
 
-int adjust_bonus_con(int i) 
+int adjust_bonus_con(int i)
 {
     conbon += i;
     if (query_con() < 1)
     {
-	write("You feel your bad health kills you.\n");
+	write("Sientes como tu mala salud se deteriora y mueres de forma natural.\n");
 	this_object()->do_death(this_object());
 	return 0;
     }
@@ -506,22 +505,22 @@ int adjust_bonus_con(int i)
     return conbon;
 }
 
-int adjust_bonus_cha(int i) 
+int adjust_bonus_cha(int i)
 {
     chabon += i;
     if (query_cha() < 1)
     {
-	write("You feel you are too unattractive to even be alive.\n");
+	write("Notas que eres demasiado feo para siquiera estar vivo.\n");
 	this_object()->do_death(this_object());
     }
     calc();
     return chabon;
 }
 
-void update_tmps() 
+void update_tmps()
 {
-    if ( (strtmp||contmp||wistmp||inttmp||dextmp) !=0)
-	write("You feel your abilities become somewhat more normal \n");
+    if ( (extrstrtmp||strtmp||contmp||wistmp||inttmp||dextmp) !=0)
+	write("Sientes como tus habilidades se vuelven un poco mas normales.\n");
 
     strtmp = strtmp/2;
     contmp = contmp/2;
@@ -536,7 +535,7 @@ void update_tmps()
 
 /* Made it an efun */
 /* Baldrick.
-string stat_string(int i) 
+string stat_string(int i)
   {
   if (i<19)
     return i +"";
@@ -574,7 +573,7 @@ int adjust_tmp_ac_bon(int i)
     return tmp_ac_bon;
 }
 
-int adjust_tmp_damage_bon(int i) 
+int adjust_tmp_damage_bon(int i)
 {
     tmp_damage_bon += i;
     return tmp_damage_bon;
@@ -588,7 +587,7 @@ int adjust_tmp_tohit_bon(int i)
 
 int query_body_ac()
 {
-    return set_body_ac + body_ac_bon + tmp_ac_bon;
+    return (int)(set_body_ac + body_ac_bon + tmp_ac_bon);
 }
 
 // Raskolnikov for shifters
@@ -625,9 +624,9 @@ int query_thac0()
 }
 
 
-/* Query_kill_XP... making this extremely simple for now.. 
+/* Query_kill_XP... making this extremely simple for now..
  * Will be placed somewhere else later, just to have a constant XP value on
- * monsters and players.. 
+ * monsters and players..
  */
 
 void set_kill_xp(int bing)
@@ -644,7 +643,7 @@ int query_kill_xp()
     if (kill_xp)
 	return kill_xp;
 
-    if (!lvl = this_object()->query_level()) 
+    if (!lvl = this_object()->query_level())
 	lvl =1;
 
     xp = lvl * 60;
@@ -658,24 +657,25 @@ void calc()
      * Baldrick, added dec '94
      * the charisma should be able to be negative, but right now it will
      * get rid of smoe bugabusers.
-     */ 
-    /* has to be smarter, or in another place 
+     */
+    /* has to be smarter, or in another place
     if (query_con() < 1 || query_dex() < 1 || query_str() < 1 || query_int() < 1
 	|| query_wis() < 1 || query_cha() < 1)
       {
-      write("You feel you are too weak and your life is drained.\n");
+      write("Sientes que tu vida es demasiado debil y te es drenada.\n");
       this_object()->do_death(this_object());
-      }*/ /* if stats negative, then die..*/ 
+      }*/ /* if stats negative, then die..*/
 
 
     hp_bonus = TABLE->calc_hp_bonus(query_con());
     /* Won't give non-warriors more than 2 in con bonus.
      */
-    /* Not installed yet, but it's ready.. Baldrick, dec '95
+    /* Not installed yet, but it's ready.. Baldrick, dec '95 */
+	// CREO YO Q SI RULA
     guild_ob = (object)this_object()->query_guild_ob();
-    if (!guild_ob()->query_extra_con_bonus() && hp_bonus > 2)
-     hp_bonus = 2; 
-    */
+    if (guild_ob && !guild_ob->query_extra_con_bonus() && hp_bonus > 2)
+     hp_bonus = 2;
+
     damage_bonus = TABLE->calc_damage_bonus(query_str());
     body_ac_bon = TABLE->calc_body_ac(query_dex());
     tohit_bonus = TABLE->calc_tohit_bonus(query_str());

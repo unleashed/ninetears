@@ -1,7 +1,7 @@
 #include "log.h"
 
 void smart_log(string type, string text) {
-  string where, temp1, temp2, junk, *j, person;
+  string where, temp1, temp2, *j, person;
 
   where = file_name(environment(this_player()));
   text = where + "\n" + ctime(time()) + " " + text;
@@ -14,7 +14,7 @@ void smart_log(string type, string text) {
       if (file_size("/w/"+temp1) == -2) {
         person = temp1;
       } else
-        person = "ducky";
+        person = "tyrael";
       break;
     case "d/" :
       sscanf(where, "d/%s/%s", temp1, temp2);
@@ -22,7 +22,7 @@ void smart_log(string type, string text) {
       break;
   }
   if (where[0..4] == "room/")
-    person = "ducky";
+    person = "tyrael";
   j = explode(where, "/");
   write_file((temp1 = (implode(j[0..sizeof(j)-2], "/") + "/" + ERROR_LOG)),
               type+" : "+text);

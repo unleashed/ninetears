@@ -6,7 +6,7 @@ inherit "/obj/monster";
 /* DOCUMENTATION:
 
    inherit this instead of /obj/monster.
-   You must do set_moves(({"east","east"...}));  in setup().  Yes, the
+   You must do set_moves(({"este","este"...}));  in setup().  Yes, the
      directions you want him to go must be typed out.
      
    OPTIONS:
@@ -14,7 +14,7 @@ inherit "/obj/monster";
    *  set_cycle(1)  will tell him to turn around and go back the way he
       came when he finishes his path.  The directions he went must be the
       standard ones for this to work.  If you have odd ones, see below.
-      Also, if you go south and the new room you're in doesn't have a north,
+      Also, if you go sur and the new room you're in doesn't have a norte,
       obviously he's gonna fail.
    *  add_opposites(({"barf","puke"}))  will add  barf and puke into the
       array of opposite directions.
@@ -25,9 +25,9 @@ inherit "/obj/monster";
 */  
    
    
-string *opposites = ({ "north", "south", "east", "west", "northwest", 
-                       "southeast", "northeast", "southwest", "up", "down",
-                       "in", "out" });
+string *opposites = ({ "norte", "sur", "este", "oeste", "noroeste", 
+                       "sudeste", "noreste", "sudoeste", "arriba", "abajo",
+                       "fuera", "dentro" });
 
 int loc = 0;
 int ascending = 1;

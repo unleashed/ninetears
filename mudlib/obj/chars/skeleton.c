@@ -3,18 +3,17 @@ inherit BASE;
 int query_kill_xp() { return 0; }
 void setup()
 {
-	set_name("skeleton");
-	set_main_plural("skeletons");
-	set_short("Skeleton");
-set_long("Nothing more than an animate skeleton, this fiend has returned to "+
-       "life to visit woe on the living.\n");
+	set_name("esqueleto");
+	set_main_plural("esqueleto");
+	set_short("Esqueleto");
+set_long("Un esqueleto vuelto de la muerte para vengarse de aquellos que aun viven. \n");
 	set_guild("fighter");
-	set_level(5);
-	set_al(20);
-   set_str(25);
+	set_level(15);
+	set_al(50);
+   set_str(10);
    set_int(2);
    set_wis(2);
-   set_dex(5);
+   set_dex(50);
    set_con(25);
    set_cha(2);
   set_thac0(15);

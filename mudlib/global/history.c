@@ -9,12 +9,12 @@
 #define HISTORY_LENGHT 30
 
 string *history;
-static int hoffset, numoff;
-static int in_alias_command;
-static string ignore_history;
+nosave int hoffset, numoff;
+nosave int in_alias_command;
+nosave string ignore_history;
 
 void history_commands() {
-  add_action("print_history", "hi*story");
+  add_action("print_history", "history");
   add_action("clear_history", "clear_his");
 }
 
@@ -56,7 +56,7 @@ string substitute_history(string arg) {
  
 string expand_history(string arg) {
 int num, i;
-string s1,s2;
+string s1;
 
   if(this_player()){
     if(this_player() != this_object() &&
@@ -95,10 +95,8 @@ string s1,s2;
 void ignore_from_history(string str) {
   ignore_history = str;
 }
- 
-void add_history(string arg) {
-int i;
 
+void add_history(string arg) {
   if (ignore_history) {
     if (ignore_history == arg) {
       ignore_history = 0;
@@ -120,11 +118,11 @@ int i;
     hoffset = 0;
   }
 }
- 
-int print_history(string arg) 
+
+int print_history(string arg)
   {
-  int i, from, to, num;
- 
+  int from, to, num,i;
+
   if(this_player()!=this_object()) { /* a call */
     if(!interactive(this_player())) return 0;
     if(!("secure/master"->query_lord(geteuid(this_player())))) return 0;

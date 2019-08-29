@@ -1,7 +1,8 @@
-#define DOM_LORD "god"
+#define DOM_LORD "tyrael"
 #define DOMAIN "newbie"
 inherit "/secure/dom/domain.c";
 
+void
 create()
 {
    ::create();

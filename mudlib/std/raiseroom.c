@@ -39,15 +39,18 @@ void set_helper_name(string str)
 
 int do_raise(string str)
   {
-  int cost; /* The cost in Gold. */
-  object priest, poor_guy;
+   object priest, poor_guy;
    object *olist;
 
-  if (str=="me")
+//tell_object(this_player(), "Clamas por una resurrecion para "+str+".\n");
+
+  if (str=="me") {
     poor_guy=this_player();
+//tell_object(this_player(), "Eres me.\n");
+  }
    else
    {
-      notify_fail("Raise who ?\n");
+      notify_fail("Raise a quien?\n");
       if(!str) return 0;
       olist = find_match(str,this_object());
       if(!sizeof(olist)) return 0;
@@ -56,9 +59,10 @@ int do_raise(string str)
    }
    if(!poor_guy->query_dead())
    {
-     notify_fail("Why ask for a raise when you don't need it?\n");
+     notify_fail("Por que pedir un levantar muertos si no lo necesitas?\n");
     return 0;
    }
+//tell_object(this_player(), "Realmente parece q tas muerto.\n");
 
   if (!find_match(nurs, environment(this_player())))
     {
@@ -66,8 +70,10 @@ int do_raise(string str)
                 "raising. You have to wait for her.\n");
     return 1;
     }
+
+//tell_object(this_player(), "Hay nurse "+nurs+".\n");
  
-  if ((int)poor_guy->query_level() > 10) 
+    /*if ((int)poor_guy->query_level() > 10) 
     {
     cost = (int)poor_guy->query_level() * 5;
     if(!get_money(cost))
@@ -75,12 +81,16 @@ int do_raise(string str)
       tell_room(this_object(), "The Nurse says: Due to sad lack of "
                     "money we will not be able to raise you.\n");
       return 1;
-      } /* if */
-    } /* if int poorguy.. */
+      } *//* if
+    }  if int poorguy.. */
 
 
   priest = new(HEALER);
+//tell_object(this_player(), "Priest creado.\n");
+
    priest->move(this_object());
+
+//tell_object(this_player(), "Nos disponemos a levantar a "+str+".\n");
   if(priest->do_raising(poor_guy)) {
   tell_room(this_object(), "The Nurse"
             " walks out and comes back with an old man "

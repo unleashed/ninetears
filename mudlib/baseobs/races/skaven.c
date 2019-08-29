@@ -32,7 +32,7 @@ void poisonem(object player)
     if(i && random(5))
     {
 	i = random(i);
-	ob = clone_object("/std/spells/cleric/poisoned");
+	ob = clone_object("/d/gremios/hechizos/cleric/poisoned");
         if(ob && list[i] && !list[i]->query_property("poisoned") &&
             !random(100)<list[i]->query_property("poison"))
 	{

@@ -55,24 +55,24 @@ int do_help(string str) {
            implode(delete(get_dir("/doc/concepts/*"), 0, 2), "\n"));
     printf("\nCommands:\n%-#*s\n", (int)this_player()->query_cols(),
            implode(delete(get_dir("/doc/helpdir/*"), 0, 2),"\n"));
-    write("\nUsage : help <topic>\n");
+    write("\nUso : ayuda <tema>\n");
     return 1;
   }
-  if ( sscanf(str, "spell %s", s) )
+  if ( sscanf(str, "hechizo %s", s) )
   {
     s = this_object()->help_spell(s);
     if ( !s )
-      write("You do not know that spell.\n");
+      write("No conoces ese hechizo.\n");
     else write(s);
-    return;
+    return 1;
   }
-  if ( sscanf(str, "command %s", s) == 1 )
+  if ( sscanf(str, "comando %s", s) == 1 )
   {
     s = this_object()->help_command(s);
     if (!s)
-      write("You do not know that command.\n");
+      write("No conoces ese comando.\n");
     else write(s);
-    return ;
+    return 1;
   }
   filen = search_help(str);
   if (!filen)
@@ -86,7 +86,7 @@ int do_help(string str) {
     if(!sizeof(objs)) {
       s = (string)SOUL_OB->help_soul(str);
       if (!s) {
-        notify_fail("There is no help on "+str+" sorry.\n");
+        notify_fail("No hay ayuda sobre ese tema.\n");
         return 0;
       }
       s = sprintf("%-=*s", this_player()->query_cols(), s);
@@ -98,15 +98,15 @@ int do_help(string str) {
       string text;
 
       if(text = (string)objs[loop]->get_help()) {
-        write("Help on " + objs[loop]->query_name() + " :\n" + text + "\n");
+        write("Ayuda de " + objs[loop]->query_name() + " :\n" + text + "\n");
         flag = 1;
       }
     }
     if(!flag) {
       if(sizeof(objs) > 1)
-        write("No help on those objects.\n");
+        write("No hay ayuda sobre esos objetos.\n");
       else
-        write("No help on that object.\n");
+        write("No hay ayuda sobre ese objeto.\n");
     }
     return 1;
   }
@@ -116,8 +116,8 @@ int do_help(string str) {
     filen = (string)NROFF_HAND->cat_file(filen);
   }
   if (!filen) {
-    notify_fail("Help file broken.  Please tell a creator.\n");
-    log_file("HELP_FILES", "Help file "+str+" broken.\n");
+    notify_fail("Fichero de ayuda corrupto. Por favor informa a un inmortal.\n");
+    log_file("HELP_FILES", "Fichero de ayuda "+str+" corrupto.\n");
     return 0;
   }
   this_player()->more_string(filen);

@@ -24,20 +24,16 @@ void set_move_flag(int i) { move_flag = i; }
 varargs int move(mixed dest, mixed messin, mixed messout) {
 
   prev = environment();
-  if (!dest)
-    return MOVE_EMPTY_DEST;
+  if (!dest) return MOVE_EMPTY_DEST;
   if (environment() && !environment()->test_remove(this_object(),
                                                   move_flag & DROP))
     return MOVE_NO_DROP;
   if (!dest->test_add(this_object(), move_flag & GET))
     return MOVE_NO_GET;
-  if (environment())
-    event(environment(), "exit", messout, dest);
+  if (environment()) environment()->event_exit(TO, messout, ({TO}));
   move_object( dest);
-  if (objectp(dest))
-    event(dest, "enter", messin, prev);
-  else if (find_object(dest))
-    event(find_object(dest), "enter", messin, prev);
+  if (objectp(dest)) dest->event_enter(TO, messin, ({TO}));
+  else if (find_object(dest)) find_object(dest)->event_enter(TO, messin, ({TO}));
   return MOVE_OK;
 }
 
@@ -47,8 +43,7 @@ void dest_me() {
   object ob;
 //  object *siblings; /* Hamlet */
 
-  if (environment())
-    event(environment(), "dest_me");
+  if (environment()) event(environment(), "dest_me");
   // Destruct shadows of this object, Wonderflug 96
   obs = ({ });
   ob = shadow(this_object(), 0);

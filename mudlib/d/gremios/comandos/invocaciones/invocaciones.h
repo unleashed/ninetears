@@ -1,0 +1,7 @@
+#define OBJECT "/d/gremios/comandos/invocaciones/invocacion_object.c"
+#define DIABLILLO "/d/gremios/comandos/invocaciones/diablillo.c"
+#define DRETCH "/d/gremios/comandos/invocaciones/dretch.c"
+#define HEZROU "/d/gremios/comandos/invocaciones/hezrou.c"
+#define BEBILITH "/d/gremios/comandos/invocaciones/bebilith.c"
+#define GLABREZU "/d/gremios/comandos/invocaciones/glabrezu.c"
+#define BALOR "/d/gremios/comandos/invocaciones/balor.c"

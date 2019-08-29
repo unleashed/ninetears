@@ -21,7 +21,7 @@ string query_short_help()
 	return "Sets text for magic entry. Include $N.";
 }
 
-static int cmd (string str, object me)
+int cmd (string str, object me)
 {
 	
 

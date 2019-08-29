@@ -1,61 +1,24 @@
-/* My rewrite of Danks armour object.
- * Guess it's basically PF's object tho, with Danks comments..
- * (it's not now..)
- * But I have to understand this, so I'm "making" my own
- * Baldrick, april '94 
- * This have to be more complicated than nessesary ?
- * it's a lot of code ...
- * I will remove the attack_out array and replace it with int's
- */
-/* The most scary part of this, auto_load is not finished..
- * Have to do that pretty soon
- */
-
 inherit "/std/item";
-
-/* Is armour logic needed at all ? */
-// inherit "/std/armour_logic";
 inherit "/std/basic/condition"; 
+
 #include "move_failures.h";
+
 #define ARMOUR_TABLE "/table/armour_table.c"
 #define COST_TO_FIX 300 
 #define SIZE 8
 
-/* attack_out consists of concatenated 7-tuples */
-
-/* Shields *can* be twohanded.. :=) */
-static int twohanded;   /* used to be "str hand" */
-
+int twohanded;
 int enchant,value_adjustment;
-
-/* This is the armours damage_ac.. */
 int ac, max_ac, min_ac;
-
-/* The armours full ac value.. 
- * Will add magical ac later..
- */
-static int armour_ac;
-//static int value;
-
-string cond_string()
-{
-   return condition::cond_string();
-}
-/* this is the values from the armour_table: */
-/* Look at /table/armour_table for explanation. */
+int min_level=0; 
+int ac_backup;
 int ench_gp_cost,
     gp_cost,
     armour_ac,
-    armour_type,
+//    armour_type,
     material,
     no_dex_bon;
-    
-/* This will hold whatever you send to set_base_armour().
-   query_armour_name() returns it.  -- Hamlet 
-*/
 string armour_name = "crap";
-
-/* need this one here ? */
 
 void set_value(int i);
 
@@ -64,11 +27,31 @@ void set_twohanded(int flag)
   twohanded = flag;
 } /* void set_twohanded */
 
+string cond_string() { return condition::cond_string(); }
+
+
+void set_min_level(int level){
+  min_level = level;
+}
+
+void wear(object owner){
+  ac_backup = armour_ac;
+  if (owner->query_level()<min_level){    
+    tell_object(owner,"Te sientes algo incomodo usando "+(string)this_object()->short()+".\n");
+    armour_ac =(int) (armour_ac/(1.0+(((min_level-owner->query_level())*10.0)/min_level)));
+    armour_ac = to_int(armour_ac);
+  }     
+}
+
+void unwear(){
+  armour_ac = ac_backup;
+}
+
 /* here is the new setup routine, will make the whole a lot cleaner.. */
 void set_base_armour(string lookup)
   {
   int *data;
-  
+  min_level=0;
   if(stringp(lookup))
     armour_name = lookup;  /* Hamlet */
   data = (int *)ARMOUR_TABLE->lookup_armour_data(lookup);
@@ -97,20 +80,37 @@ void set_base_armour(string lookup)
 
 }
 
+void set_armour_type(int x)
+{
+	armour_type = x;
+}
+
+void set_armour_type_name(string name)
+{
+	armour_type = ARMOUR_TABLE->query_armour_type_name(name);
+}
+
 /* This just returns the basearmour name -- Hamlet */
 string query_armour_name() {  return armour_name; }
 
 int query_no_dex_bon() { return no_dex_bon; }
 
-int query_ac() { return armour_ac + enchant; }
+int query_ac() { 
+  return armour_ac + enchant; 
+}
 /* Mask it too */
 
-int query_armour_ac() { return armour_ac + enchant; }
+int query_armour_ac() { 
+  return armour_ac + enchant; 
+}
 
-int query_armour_type() { return armour_type; }
+int query_armour_type() { 
+  return armour_type; 
+}
 
 string query_armour_type_name() 
   {
+/*
   switch (armour_type)
     {
     case 1:
@@ -139,7 +139,8 @@ string query_armour_type_name()
       return "shirt";
     default:
       return "unknown";
-    }
+    }*/
+	return ARMOUR_TABLE->query_type_name(armour_type);
 } /* string query_attack_type_name() */
 
 int query_material() { return material; }
@@ -218,8 +219,8 @@ void create()
 /* for cond_string() in condition.c: */
   cond = max_ac - min_ac; 
   max_cond = max_ac - min_ac; 
-  add_alias("armour"); 
-  add_plural("armours"); 
+  //add_alias("armadura"); 
+  //add_plural("armaduras"); 
 
   // Radix : Oct 1996
   if(!clonep(this_object()))
@@ -303,9 +304,7 @@ string enchant_string()
 
 mixed *armour_stats() 
   {
-  int i;
   mixed *ret; 
-  string form;
   
   ret = ({ }); 
   ret += ({ 
@@ -365,7 +364,7 @@ void init_static_arg(mapping args)
   twohanded = args["no limbs"];
 } /* init_static_arg() */
 
-player_wield(int pos) 
+void player_wield(int pos) 
   {
   if (!environment()) return ;
   environment()->set_hold(this_object(), pos);

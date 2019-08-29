@@ -11,11 +11,11 @@ object add_sign (string long, string mess)
   object sign;
 
   sign = clone_object("/std/object");
-  sign-> set_name ("sign");
-  sign-> set_short ("sign");
+  sign-> set_name ("signo");
+  sign-> set_short ("signo");
   sign-> set_long (long);
   sign-> set_read_mess (mess);
-  sign-> set_main_plural ("signs");
+  sign-> set_main_plural ("signos");
   sign-> reset_get ();
   sign-> move (this_object());
   return sign;

@@ -13,7 +13,7 @@
 
 mapping GetServices();
 
-static void create() {
+void create() {
   seteuid(getuid());
 }
 

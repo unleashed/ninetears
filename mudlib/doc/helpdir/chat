@@ -1,3 +1,7 @@
-There is no Chat channel in the realms.
-Sit in a pub if you want to gossip.
+************** CHAT ******************
+Este comando es utilizado para abrir o cerrar un canal de conversacion ( el canal chat ) , al cual todo el mundo puede acceder,
 
+Uso:
+chat on ---> Activa el canal chat.
+chat off ---> Desactiva el canal chat.
+chat <texto> ---> El texto escrito aparece en el canal chat.

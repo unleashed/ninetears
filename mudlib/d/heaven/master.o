@@ -1,9 +1,10 @@
-#d/heaven/master.c
+#/d/heaven/master.c
 open_read 1
 open_write 0
-DOM_LORD "god"
+DOM_LORD "tyrael"
 DOMAIN "heaven"
 read_perms ([])
 write_perms (["/d/heaven/logs":2,])
 dir_owners ([])
-finger_info "The place when the elders rest."
+finger_info "Un dominio de acceso restringido a los inmortales que mas han hecho por Ninetears, mas que un dominio como tal es un Hall de Fama."
+members (["barthleby":"Sin Proyecto.","tyrael":"Sin Proyecto.","vilat":"Sin Proyecto.","leviathan":"Sin Proyecto.","enialish":"Sin Proyecto.","xerxes":"Sin Proyecto.","jade":"Sin Proyecto.",])

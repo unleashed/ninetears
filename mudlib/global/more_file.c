@@ -5,19 +5,19 @@
  * written by alice(ember). But this one is written by pinkfish like
  * most of the rest of this mud, bar what is not of course ;)
  */
-static int fsize,
+nosave int fsize,
            topl,
            search_flag,
            botl;
-static mixed mark_data;
-static string fname,
+nosave mixed mark_data;
+nosave string fname,
               *mark_name,
               *filenames,
               finish_func,
               stat_line,
               last_search;
 
-#define ROWS  ((int)this_player()->query_rows()-4) 
+#define ROWS  ((int)this_player()->query_rows()-4)
 
 void display_file() {
   string scrn;
@@ -134,7 +134,7 @@ int set_mark(string s) {
 void status_line() {
   string *frog;
   string s;
-  int i, j,percentage;
+  int i, percentage;
 
   if (!stat_line)
     stat_line = "$N From $T to $B of $S ($%%) - h for help. ";
@@ -179,7 +179,7 @@ void next_page(string str) {
       noargs,
       i,j,k,
       redraw;
-  string s1, s2, *s3, s4, s5;
+  string s1, *s3, s4, s5;
 
   if (!str)
     str = "";

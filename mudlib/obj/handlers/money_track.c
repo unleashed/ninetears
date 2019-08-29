@@ -5,22 +5,6 @@
 
 #include "timestuff.h"
 #include "money_adjust.h"
-/* The data mappings...
-  ([ "directory of transaction room" :
-            ({
-                       taken in, 
-                       taken in per level,
-                       taken per level under 15,
-                       last taken,
-                       time averaged,
-                       given out,
-                       given out/level,
-                       given per level under 15,
-                       last given,
-                       time averaged,
-             })
-  ])
-*/
 
 inherit "/std/object.c";
 
@@ -67,7 +51,7 @@ void clear_data() {
   save_object(SAVE+"moneydata",1);
 }
 
-create()
+void create()
 {
    ::create();
    data = ([ ]);
@@ -75,7 +59,7 @@ create()
    load_this_ob();
 }
 
-dest_me()
+void dest_me()
 {
    save_this_ob();
    destruct(this_object());
@@ -122,7 +106,6 @@ void select_domain_stats(string realdom) {
   int ttl15t,gtl15t;
   int gtt,ttt,gtlt,ttlt;
   int tt, ttl,ttl15,gt,gtl,gtl15;
-  float ratio;
   string dom, outgoing;
   string *ind, *tmp;
   load_this_ob();
@@ -203,7 +186,6 @@ void full_domain_stats(string realdom) {
   int ttl15t,gtl15t;
   int gtt,ttt,gtlt,ttlt;
   int tt, ttl,ttl15,gt,gtl,gtl15;
-  float ratio;
   string dom, outgoing;
   string *ind, *tmp;
   load_this_ob();
@@ -367,18 +349,17 @@ int query_adj_fact(int arg) {
 float update_money_given(int amount, object player)
 {
    mixed vals;
-   string domname, obname;
-   int i, temp,plev;
+   string domname;
+   int temp,plev;
    int time_now, time_since, total_time, time_extra;
-   float rateret;
 
    if(!(domname = environment_path(player)))
       return 1;
    load_this_ob();
    vals = data[domname];
    if(!vals) vals = ({0,0,0,0,0,0,0,0,0,0});
-   
-   if(!(player->query_creator()) && 
+
+   if(!(player->query_creator()) &&
      strsrch(player->query_name(),"test") == -1) {
    time_now = TIMEKEEPER->query_running_time()/60.0;
    if(!vals[8]) vals[8] = time_now;
@@ -407,7 +388,7 @@ float update_money_given(int amount, object player)
      else vals[9] = total_time;
      vals[8] = time_now;
    }
-   
+
    if(vals[9] < 0) vals[9] = BASE_WEEK/30;
    vals[5] += amount;
    plev = player->query_level();
@@ -424,8 +405,8 @@ float update_money_given(int amount, object player)
 void update_money_taken(int amount, object player)
 {
    mixed vals;
-   string domname, obname;
-   int i, temp,plev;
+   string domname;
+   int temp,plev;
    int time_now, time_since, total_time, time_extra;
 
    if( player->query_creator() || 

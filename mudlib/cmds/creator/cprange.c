@@ -10,7 +10,7 @@ void setup(){
 
 
 
-static int cmd(string str, object me) {
+int cmd(string str, object me) {
     string *filename, fname, text, wfile;
     int minint, numtimes, loop;
 

@@ -18,24 +18,25 @@ int i;
 void setup() {
   add_property("no_undead",1); set_light(10);
   npcs = allocate(1);
-set_short("Realm of the Duergar:  Guild Masters Office");
-set_long("\n   Realm of the Duergar:  Guild Masters Office.\n\n"
-	 "     You have entered the Guild Masters Office.  It is through "
-	 "here that all Duergar come to train to be able to survive "
-	 "in the realms.  The room is lightly furnished, with only a "
-	 "desk and a chair.  Yet the walls are covered with lavish "
-	 "murals depicting various events.  The hangings must be "
-	 "priceless, because of the intricate work that must have " 
-	 "gone into making them.  The Master sits in his chair "
-	 "patiently waiting for you to give him your undivided "
-	 "attention.  It would be wise to \"listen\" to what he has to "
-         "say."
+set_short("Reinado duergar:     Oficina de Maestros del Gremio");
+set_long("\n   Reinado Duergar:  Oficina de Maestros del gremio.\n\n"
+	 "     Entras a la oficina de Maestros del gremio.Es aqui "
+	 "donde todos los duergas vienen a entrenarse para ser capaces "
+	 "de sobrevivir en los reinos.La habitacion esta poco decorada "
+	 ",solo una silla y una mesa. Con todo,las paredes estan  "
+	 "cubiertas con prodigos murales representando acontecimientos."
+	 "Deben ser de valor incalculable,debido al intrincado trabajo " 
+	 "que debio suponer hacerlos.El Maestro se sienta en su silla "
+	 "pacientemente esperando que le prestes atencion. Seria sabio "
+	 "  -escuchar-  lo que tiene que decirte. "
          "\n\n");
 
-add_exit("north",NEWBIE+"main02","door");
-add_exit("south",BUILD+"dhall1","door");
-modify_exit("south",({"function","bounced"}));
-modify_exit("north",({"function","bouncer"}));
+add_exit("norte",NEWBIE+"main02","door");
+//add_exit("sur",BUILD+"dhall1","door");
+//add_exit("sur","/d/avalon/rooms/ciudad/a0001.c","door");
+add_exit("sur","/d/driade/entryroom.c","door");
+modify_exit("sur",({"function","bounced"}));
+modify_exit("norte",({"function","bouncer"}));
 }
 
 void dest_me() {
@@ -50,16 +51,16 @@ int lv;
 object me = this_player();
 lv = (int)me->query_level();
 if(lv <= 4) {
-write("You push on the door, and it opens without a sound.  Someone "
-	 "took their time oiling its hinges.\n\n");
-tell_room(environment(me), me->query_cap_name()+" pushes on the door to the "
-	 "north, and it swings open freely allowing them to pass.\n\n",
+write("Empujas la puerta y se abre sin ruido.  Alguien "
+	 "se tomo su tiempo en engrasar las bisagras.\n\n");
+tell_room(environment(me), me->query_cap_name()+" empuja la puerta al norte "
+	 "y esta se abre dejandole pasar.\n\n",
 	 ({this_player()}));
    return 1;
 }
-notify_fail("You are unable to open the door.\n\n");
-tell_room(environment(me), me->query_cap_name()+" tries to open the door to "
-	"the north but fails.\n\n",({this_player()}));
+notify_fail("Eres incapaz de abrir la puerta.\n\n");
+tell_room(environment(me), me->query_cap_name()+" intenta abrir la puerta "
+	"al norte pero falla.\n\n",({this_player()}));
 return 0;
 }
 
@@ -71,19 +72,20 @@ lv = (int)me->query_level();
 xp = (int)me->query_xp();
 //if(lv>=5&&xp>30000) { me->adjust_xp(-xp+1000); }
 if(lv >= 5){
-write("You open the door leading out into the realms from the Academy"
+write("Abres la puerta que conduce afuera de los reinos de la academia"
 "\n\n");
-tell_room(environment(me), me->query_cap_name() +" pushes on the "
-	"door to the south leaving the Academy.\n\n",
+tell_room(environment(me), me->query_cap_name() +" Abre la puerta al sur "
+	"dejando la academia.\n\n",
 	({this_player()}));
    return 1;
 }
-notify_fail("You have not earned the right to leave the Academy yet!"
+notify_fail("No te has ganado el derecho a abandonar la academia aun!"
 	    "\n\n");
-tell_room(environment(me), me->query_cap_name() +" thinks about leaving "
-	"the Academy but decides not to since "+
-	 this_player()->query_pronoun()+" hasn't finished "+
-	 this_player()->query_possessive()+" training yet.\n\n",
+tell_room(environment(me), me->query_cap_name() +" se plantea dejar  "
+	"la academia pero decide que no,ya que  "+
+	 this_player()->query_pronoun()+" no ha terminado "+
+	 this_player()->query_possessive()+" entrenamiento aun.\n\n",
 	 ({ this_player() }));
    return 0;
 }
+

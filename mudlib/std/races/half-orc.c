@@ -1,32 +1,18 @@
 inherit "/std/races/standard";
 #include "light_defs.inc"
 
-void setup() 
-{
-  set_long("A half-orc looks like a very ugly human with sharp teeth.\n");
-  set_name("half-orc");
-  set_light_limits(LIGHT_HALFORC_LOW, LIGHT_HALFORC_HIGH);
-  reset_get();
-}
+void setup() {
+  	set_long("Un medio-orco es un humano de mal aspecto con dientes afilados.\n");
+  	set_name("medio-orco");
+  	set_light_limits(LIGHT_HALFORC_LOW, LIGHT_HALFORC_HIGH);
+	}
 
-void set_racial_bonuses() 
-{
-  previous_object()->adjust_bonus_str(1);
-  previous_object()->adjust_bonus_wis(-1);
-}
+void set_racial_bonuses() {
+  	previous_object()->adjust_bonus_str(1);
+  	previous_object()->adjust_bonus_wis(-1);
+	}
 
-int query_skill_bonus(int lvl, string skill) 
-{
-  if (skill == "fighting.meelee")
-    return 20;
-  if (skill == "fighting.melee.sharp")
-    return 20;
-  return 0;
-}
-
-string query_desc(object ob) 
-{
- if((int)ob->query_gender() == 1)
-  return "An ugly half-orc.\n";
- return "A disgusting female half-orc.\n";
-}
+string query_desc(object ob) {
+ 	if((int)ob->query_gender() == 1) return "Un feo medio-orco.\n";
+ 	return "Una horrible mujer medio-orco.\n";
+	}

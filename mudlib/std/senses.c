@@ -51,7 +51,7 @@ void remove_feel(string feel);
    variable declarations
 */
 
-static mapping smells,feels,tastes,sounds;
+nosave mapping smells,feels,tastes,sounds;
 
 /*
    End
@@ -65,11 +65,12 @@ void create() {
 } /* create */
 
 void init() {
-  add_action("do_smell", "sme*ll", 1);
-  add_action("do_listen", "liste*n", 1);
-  add_action("do_taste", "tas*te", 1);
-  add_action("do_feel", "fee*l", 1);
-  add_action("do_feel", "tou*ch", 1);
+  add_action("do_smell", "oler", 1);
+  add_action("do_listen", "escuchar", 1);
+  add_action("do_taste", "probar", 1);
+  add_action("do_taste", "degustar", 1);
+  add_action("do_feel", "sentir", 1);
+  add_action("do_feel", "tocar", 1);
 } /* init */
 
 int do_smell(string what) {
@@ -78,7 +79,7 @@ int do_smell(string what) {
       notify_fail(smells["default"]+"\n");
       return 0;
     }
-    notify_fail("Smell what?\n");
+    notify_fail("Oler que?\n");
     return 0;
   }
   write(smells[what]+"\n");
@@ -91,7 +92,7 @@ int do_taste(string what) {
       notify_fail(tastes["default"]+"\n");
       return 0;
     }
-    notify_fail("Taste what?\n");
+    notify_fail("Probar que?\n");
     return 0;
   }
   write(tastes[what]+"\n");
@@ -104,7 +105,7 @@ int do_feel(string what) {
       notify_fail(feels["default"]+"\n");
       return 0;
     }
-    notify_fail("Feel what?\n");
+    notify_fail("Sentir / tocar que?\n");
     return 0;
   }
   write(feels[what]+"\n");
@@ -117,7 +118,7 @@ int do_listen(string what) {
       notify_fail(sounds["default"]+"\n");
       return 0;
     }
-    notify_fail("Listen to what?\n");
+    notify_fail("Escuchar que?\n");
     return 0;
   }
   write(sounds[what]+"\n");

@@ -19,34 +19,36 @@ position = 1;
   Modified by : Bill@Nanvaent+@Discworld Mar 93
 */
 
-static int cmd(string str, object me)
+int cmd(string str, object me)
 {
-  int i, j, num;
-  string *files, *bit;
+  // int i, j, num;
+int i;
+  
+  string *files; //, *bit;
    string s1, s2, s3, s4;
   if(!str)
   {
-    notify_fail("Usage: sar search_string replace_string <files>\n");
+    notify_fail("Uso: sar $<cadena_a_sustituir>$ $<cadena_que_sustituye>$ <ficheros>\n");
     return 0;
   }
   s4 = str[0..0];
   if(sscanf(str, s4+"%s"+s4+" "+s4+"%s"+s4+" %s", s1, s2, s3) != 3)
     if (sscanf(str, "%s %s %s", s1, s2, s3) != 3)
     {
-       notify_fail("Usage: sar search_string replace_string <files>\n");
+       notify_fail("Uso: sar $<cadena_a_sustituir>$ $<cadena_que_sustituye>$ <ficheros>\n");
       return 0;
     }
    log_file("SAR",me->query_name()+" : "+str+"\n");
   files = (string *)this_player()->get_files(s3);
   if(!sizeof(files))
   {
-    notify_fail("File(s) " + s3 + " not found.\n");
+    notify_fail("Fichero(s) " + s3 + " no encontrado(s).\n");
     return 0;
   }
   for (i=0;i<sizeof(files);i++)
    {
     if (file_size(files[i]) <= 0) continue;
-    write("Looking at "+files[i]+".\n");
+    write("Buscando en "+files[i]+".\n");
     s4 = read_file(files[i]);
     if (s4)
     {
@@ -55,7 +57,7 @@ static int cmd(string str, object me)
       write_file(files[i], s4);
     }
      else
-      write("...failed...no file\n");
+      write("...fallo...no hay fichero\n");
   }
   return 1;
 }

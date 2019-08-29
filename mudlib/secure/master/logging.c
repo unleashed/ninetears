@@ -3,8 +3,6 @@
  * all calls to this should call get_prg_name()
  */
 string get_wiz_name(mixed file) { 
-  object ob;
-
   if (!previous_object())
      return "root";
   if (objectp(file)) file = file_name(file);
@@ -29,8 +27,6 @@ string get_dom_name(mixed file) {
  * return the owner of file (for error logging)
  */
 string get_prg_name(mixed file) {
-  object obj;
-
   if (objectp(file)) file = file_name(file);
   file = explode(file, "/") - ({ "" });
   if (file[0] == "w") return file[1];

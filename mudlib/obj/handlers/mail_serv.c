@@ -16,14 +16,14 @@
 #define EOF "%EOF%"
 #define EOT "%EOT%"
  
-static string upd;
-static mapping new_mail_queue, sockets;
-static string receiver, from, to, subject, message,cc;
-static int date;
-static string mud;
-static mixed mqi;
-static mapping mud_groups;
-static mixed outgoing;
+nosave string upd;
+nosave mapping new_mail_queue, sockets;
+nosave string receiver, from, to, subject, message,cc;
+nosave int date;
+nosave string mud;
+nosave mixed mqi;
+nosave mapping mud_groups;
+nosave mixed outgoing;
  
 mixed mail_queue;
 int date_last_flushed;
@@ -205,8 +205,6 @@ void process_message(int id) {
 }
  
 void flush_mail_queue() {
-    string *muds;
-    string address, port;
     int id;
 
     if(!sizeof(mqi)) return;

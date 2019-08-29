@@ -9,7 +9,7 @@ inherit "/std/object";
 #define MAX_XMAS_POSTS 2
 
 /* Taniwha 1995, a list of immort write only boards, easy to extend */
-static string *readonly = ({"playerinfo","quests","announcements"});
+nosave string *readonly = ({"playerinfo","quests","announcements"});
 
 string board_name;
 
@@ -72,13 +72,13 @@ void init() {
 } /* init() */
 
 void string_more(string arg, string prompt) {
-  object obj;
+
   this_player()->set_finish_func(0);
   this_player()->more_string(arg, prompt);
 } /* string_more() */
 
 int read(string str) {
-  int num, i;
+  int num;
   mixed stuff;
   mapping news_rc;
 
@@ -111,7 +111,6 @@ int read(string str) {
 } /* read() */
 
 int post(string str) {
-  string body;
   mixed stuff;
   int i, num_posts;
 

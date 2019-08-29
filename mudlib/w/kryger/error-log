@@ -1,0 +1,570 @@
+w/kryger/armadura_hielo_negro_kryger.c line 1: parse error
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'level'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/path.h line 6: Warning: redefinition of #define CNAME before #define CAP_NAME    
+/w/kryger/path.h line 25: Unexpected #endif before the end of file
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kryger/mini-turin.c line 2: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kryger/mini-turin.c line 30: parse error before the end of file
+/w/kryger/kryger/mini-turin.c line 2: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kryger/mini-turin.c line 30: parse error before the end of file
+/w/kryger/kryger/mini-turin.c line 2: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kryger/mini-turin.c line 29: parse error before the end of file
+/w/kryger/kryger/mini-turin.c line 2: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kryger/mini-turin.c line 2: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kryger/taberna_turin.c line 3: Cannot #include ../../../path.h before the end of line
+/w/kryger/kryger/banco_discordia.c line 19: parse error before n     %^RESET%^<%^YE
+/w/kryger/kryger/banco_discordia.c line 32: End of file in string at the end of the file
+/w/kryger/kryger/banco_discordia.c line 19: parse error before n     %^RESET%^<%^YE
+/w/kryger/kryger/banco_discordia.c line 31: End of file in string at the end of the file
+/w/kryger/kryger/banco_discordia.c line 24: parse error before n     %^RESET%^<%^MA
+/w/kryger/kryger/banco_discordia.c line 31: End of file in string at the end of the file
+/w/kryger/kryger/mini-jade.c line 2: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kryger/theden_discordia.c line 2: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kryger/theden_discordia.c line 2: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kryger/theden_discordia.c line 2: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kryger/theden_discordia.c line 2: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kryger/theden_discordia.c line 2: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kryger/theden_discordia.c line 2: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/Esquiladora.c line 2: Cannot #include ../../path.h before the end of line
+/w/kryger/Esquiladora.c line 18: Undefined function set_night_long before ;
+/w/kryger/Esquiladora.c line 20: Undefined function set_ligth before ;
+/w/kryger/Esquiladora.c line 21: Undefined variable 'ROOMORM' before ,"door");
+/w/kryger/Esquiladora.c line 21: parse error before ,"door");
+/w/kryger/base_camino_ormerod.c line 2: Cannot #include ../../path.h before the end of line
+/w/kryger/base_camino_ormerod.c line 12: parse error before the end of line
+/w/kryger/baul.c line 1: parse error before ;
+/w/kryger/bichos_ormerod.c line 1: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/bixos.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/bixos.c line 158: "#pragma strict_types" requires type of function before ) 
+/w/kryger/bixos.c line 158: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/bixos.c line 169: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/bixos_castillo.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/bixos_castillo.c line 64: "#pragma strict_types" requires type of function before ) 
+/w/kryger/bixos_castillo.c line 64: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/bixos_castillo.c line 75: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/death3.c line 103: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/death3.c line 103: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/kryger/death3.c line 103: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/kryger/death3.c line 103: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/kryger/death3.c line 103: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/kryger/death3.c line 103: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/kryger/death3.c line 103: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/kryger/death3.c line 103: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/kryger/death3.c line 103: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/kryger/death3.c line 103: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/kryger/death3.c line 103: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/kryger/death3.c line 103: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/kryger/espada_aire.c line 103: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/kryger/espada_aire.c line 103: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/kryger/handler/a0717.c line 3: Cannot #include /d/abarrach/path.h before inherit "/d/abarrach
+/w/kryger/handler/base_valle_handler.c line 61: Warning: Unused local variable 'j' before the end of file
+/w/kryger/handler/base_zona.c line 31: Warning: Unused local variable 'j' before 
+/w/kryger/handler/handler_bichos.c line 5: Undefined variable 'LOGS' before "handler_criaturas.l
+/w/kryger/handler/handler_bichos.c line 13: Warning: Unused local variable 'i' before // de crear_criatura
+/w/kryger/handler/handler_criaturas.c line 63: Undefined function d_clone before ;
+/w/kryger/handler/handler_criaturas.c line 97: Warning: Unused local variable 'i' before // de crear_criatura
+/w/kryger/handler/zona_basta_vs_1.c line 4: Cannot #include path.h before void setup()
+/w/kryger/handler/zona_basta_vs_1.c line 11: Undefined variable 'ROOMVSZO' before ,"standard");
+/w/kryger/handler/zona_basta_vs_1.c line 11: parse error before ,"standard");
+/w/kryger/handler/a0717.c line 8: Wrong number of arguments to habitacion
+    Expected: 1  Got: 0 before ;
+/w/kryger/handler/base_zona.c line 31: Warning: Unused local variable 'j' before 
+/w/kryger/handler/base_zona.c line 31: Warning: Unused local variable 'j' before 
+/w/kryger/handler/handler_bichos.c line 5: Undefined variable 'LOGS' before "handler_criaturas.l
+/w/kryger/handler/handler_bichos.c line 13: Warning: Unused local variable 'i' before // de crear_criatura
+/w/kryger/handler/handler_bichos.c line 5: Undefined variable 'LOGS' before "handler_criaturas.l
+/w/kryger/handler/handler_bichos.c line 13: Warning: Unused local variable 'i' before // de crear_criatura
+/w/kryger/handler/handler_bichos.c line 14: Warning: Unused local variable 'i' before // de crear_criatura
+/w/kryger/handler/a0717.c line 16: parse error before 
+/w/kryger/handler/a0717.c line 19: parse error before 
+/w/kryger/handler/a0717.c line 19: parse error before 
+/w/kryger/handler/a0717.c line 19: parse error before 
+/w/kryger/handler/a0717.c line 19: parse error before 
+/w/kryger/handler/a0717.c line 19: parse error before 
+/w/kryger/handler/a0717.c line 19: parse error before 
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/armory.c line 21: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/kryger/espada_aire.c line 103: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/kryger/espada_aire.c line 103: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/kryger/espada_aire.c line 103: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/kryger/espada_aire.c line 103: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/kryger/espada_aire.c line 103: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/kryger/clan/control.c line 12: Undefined variable 'board' before  {
+/w/kryger/clan/control.c line 12: Undefined variable 'board' before  {
+/w/kryger/espada_aire.c line 103: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/kryger/espada_aire.c line 103: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/kryger/espada_aire.c line 103: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/kryger/espada_aire.c line 103: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/kryger/espada_aire.c line 103: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/kryger/Esquiladora.c line 2: Cannot #include ../../path.h before the end of line
+/w/kryger/Esquiladora.c line 18: Undefined function set_night_long before ;
+/w/kryger/Esquiladora.c line 20: Undefined function set_ligth before ;
+/w/kryger/Esquiladora.c line 21: Undefined variable 'ROOMORM' before ,"door");
+/w/kryger/Esquiladora.c line 21: parse error before ,"door");
+/w/kryger/armory.c line 21: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/kryger/base_camino_ormerod.c line 2: Cannot #include ../../path.h before the end of line
+/w/kryger/base_camino_ormerod.c line 12: parse error before the end of line
+/w/kryger/baul.c line 1: parse error before ;
+/w/kryger/bichos_ormerod.c line 1: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/bixos.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/bixos.c line 158: "#pragma strict_types" requires type of function before ) 
+/w/kryger/bixos.c line 158: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/bixos.c line 169: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/bixos_castillo.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/bixos_castillo.c line 64: "#pragma strict_types" requires type of function before ) 
+/w/kryger/bixos_castillo.c line 64: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/bixos_castillo.c line 75: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/death3.c line 103: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/kryger/kozluk.c line 4: Warning: Redeclaration of global variable 'spells'. before the end of line
+/w/kryger/kozluk.c line 49: "#pragma strict_types" requires type of function before ) 
+/w/kryger/kozluk.c line 49: Warning: Function inherited from '/std/unarmed_combat.c' does not match current function in return type ( mapping vs unknown ) before  
+/w/kryger/kozluk.c line 60: Type of returned value doesn't match function return type ( mapping vs int ) before the end of line
+/w/kryger/espada_aire.c line 103: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/kryger/espada_aire.c line 103: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/kryger/espada_aire.c line 103: Warning: Number of arguments disagrees with previous definition. before the end of line
+/w/kryger/espada_aire.c line 103: Warning: Number of arguments disagrees with previous definition. before the end of line

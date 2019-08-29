@@ -10,11 +10,11 @@ inherit "/std/object";
 
 mapping *box_info;
 mapping my_groups;
-static int current;
-static mapping mud_groups, tmp_post;
-static string owner;
-static int just_sending, fwd_flag;
-static int *delete;
+int current;
+mapping mud_groups, tmp_post;
+string owner;
+int just_sending, fwd_flag;
+int *delete;
 
 void headers(int x);
 void do_mail(string str);
@@ -137,7 +137,7 @@ void postal_cmd(string str) {
         case "g": do_groups(arg); return;
         case "?": do_help(arg); return;
         case "s": case "S": 
-            if(!wizardp(this_player())) 
+            if(!this_player()->query_creator()) 
               write("Save option only available to immortals.\n");
             else do_save(cmd, arg);
             break;
@@ -177,7 +177,7 @@ void do_groups(string str) {
 
 void add_group(string str) {
     string *members;
-    string grp, a, b;
+    string grp;
     int i;
 
     if(!str || str == "") {
@@ -294,7 +294,7 @@ void do_help(string str) {
           break;
         default:
             this_player()->set_finish_func("do_mail", this_object());
-            this_player()->more_string(read_file(wizardp(this_player()) ?
+            this_player()->more_string(read_file(this_player()->query_creator() ?
                 POST_IMMORTAL_HELP : POST_USER_HELP));
           return;
     }
@@ -514,8 +514,6 @@ void get_to(string str) {
 }
 
 void get_subject(string str) {
-    string tmp_str;
-    int i, max;
 
     if(!str || str == "") str = "[No subject]";
 
@@ -574,7 +572,7 @@ void get_cc(string str) {
     if(sizeof(who)) 
         write("Mail sent successfully to:\n"+format_page(who, 3)+"\n");
     else {
-        if(wizardp(this_player())) dead = "/w/"+owner+"/dead.letter";
+        if(this_player()->query_creator()) dead = "/w/"+owner+"/dead.letter";
         else dead = DIR_TMP+"/post/"+owner+".dead";
         write("No recipients found.  Appending to "+dead+".\n");
         write_file(dead, tmp_post["message"]+"\n");
@@ -590,9 +588,8 @@ void get_cc(string str) {
 }
 
 void do_reply(string cmd, string arg) {
-    string *tmp;
     string recep;
-    int x, i;
+    int x;
 
     if(arg && arg != "") {
         if(sscanf(arg, "%d %s", x, recep) != 2) {
@@ -643,7 +640,7 @@ void do_reply(string cmd, string arg) {
 
 void do_forward(string cmd, string arg) {
     string recep;
-    int x, i;
+    int x;
 
     if(!arg || arg == "") {
         write("Recepient for forward missing (\"?\" for help).\n");

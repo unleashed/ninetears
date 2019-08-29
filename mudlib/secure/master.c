@@ -1,8 +1,13 @@
+// Ok, los dioses son dioses y tal, y deberian ser los unicos
+// HIGHLords. Si un no-dios es declarado HIGHLord habra sitios
+// donde no tenga derechos, de forma q debe ser un LORD.
+// En algunos sitios se hace distincion entre HighProgrammer y
+// Lord. El Lord se supone que puede administrar tambien (bans, etc)
 #define ROOT "Root"
 #define BACKBONE "Root"
 
 #include "/include/log.h"
-#define HIGHLords (["god":1, ROOT:1, ])
+#define HIGHLords ([ROOT:1, "Tyrael":1, "Barthleby":1, "Jade":1, "Vilat":1, "Leviathan":1, "Kivara":1 ])
 
 #ifdef VERSION
 #define version() VERSION
@@ -14,18 +19,15 @@
 
 #define LORD 1
 #define HIGH_LORD 2
-/*
- * static inherit "std/simul_efun";
- */
 
 string  *preload;
 string  *call_out_preload;
 mapping  positions;
 mapping  permissions;
-static mapping HighLords;
-static   int done;
-static mapping checked_master;
-static mapping snoop_list;
+nosave mapping HighLords;
+nosave   int done;
+nosave mapping checked_master;
+nosave mapping snoop_list;
 
 void create() {
   permissions = ([ ]);
@@ -51,9 +53,14 @@ object connect( int cPort )
   if (!find_object("/secure/login")) {
       log_file("REBOOT", "Mud rebooted at "+ctime(time())+"["+time()+"]"+"\n");
   }
- 
+ /*
   printf("LPmud version: "+version()+".\nMudlib version: " 
-         + MUDLIB_VERSION + "\n");
+         + "Fuckin' Fic - Dvelopin'" + "\n");
+ */
+
+// FFICMUD ahora es NINETEARS / Driade
+
+	printf("Ninetears - Dvelopin'\n");
 
   if (cPort==4000) 
     ob = clone_object("/secure/login_new");
@@ -65,19 +72,13 @@ object connect( int cPort )
 
 int high_programmer(string str) {
   if (str == ROOT) return 1;
-   if (str == "hamlet") return 1;
-   if (str == "malik") return 1;
-   // I shouldn't be in this - Radix
-  if (str == "radix") return 1;
-  if (str == "wahooka") return 1;
-   if(str == "anirudh") return 1;
-  if (str == "hokemj") return 1;
-   if(str == "wonderflug") return 1;
-   if(str == "flode") return 1;
-  if(str == "raisa") return 1;
-  if(str == "alansyn") return 1;
-  if (str == "Admin") return 1;
-  return ((positions[str] == HIGH_LORD) || (HighLords[str]));
+/*   if (str == "tyrael") return 1;
+   if (str == "barthleby") return 1;
+   if(str == "Tyrael") return 1;
+  if(str == "Barthleby") return 1;*/
+// parece ser q aki dicen q un HighProgrammer <==> HighLord. -> NO
+// lo q si es verdad es q un HighLord es un (==>) HighProgrammer
+  return ((positions[CAP(str)] == HIGH_LORD) || (HighLords[CAP(str)]));
 } /* high_programmer() */
 
 int query_lord(string str) {
@@ -92,6 +93,7 @@ string *query_lords() {
   return filter_array(keys(positions), "query_only_lord", this_object());
 } /* query_lords() */
 
+// psche, aki mestan haciendo un (<==>) pero en fin...
 int query_player_high_lord(string str) {
   return high_programmer(str) && "/secure/login"->test_user(str);
 } /* query_player_high_lord() */
@@ -103,7 +105,7 @@ string *high_programmers() {
 
 int check_permission(string euid, string *path, int mask);
 
-valid_load(string path, mixed euid, string func) {return 1;}
+int valid_load(string path, mixed euid, string func) {return 1;}
 
 string get_root_uid() { return ROOT; }
 string get_bb_uid() { return BACKBONE; }
@@ -133,7 +135,8 @@ void uncheck_master(string str) {
 
 #include "/secure/master/permission.c"
 #include "/secure/master/crash.c"
-trace();
+// ??
+void trace();
 #include "/secure/master/create_dom_creator.c"
 #include "/secure/master/creator_file.c"
 #include "/secure/master/create_me.c"
@@ -159,4 +162,3 @@ trace();
 #include "/secure/master/adjust_xp.c"
 #include "/secure/master/virtual_objects.c"
 #include "/secure/master/valid_save_binary.c"
-

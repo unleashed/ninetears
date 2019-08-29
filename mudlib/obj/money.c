@@ -8,17 +8,18 @@ inherit "/std/object";
 #define WEIGHTDIV 2
 
 mixed *money_array;
-static int dont_join;
+nosave int dont_join;
 
 int query_number_coins();
 
 void create() {
   money_array = ({ });
   ::create();
-  set_name("coin");
+  set_name("moneda");
   add_alias("Some Money For Me");
-  add_plural("coins");
-  set_main_plural("coins");
+  add_plural("monedas");
+  set_main_plural("monedas");
+  add_plural("monedas");
   add_property("determinate", "");
   add_property("no one",1);
   add_property("money",1);
@@ -32,9 +33,9 @@ int do_help(string str) {
   mixed *values;
   int i;
 
-  if (!str || str != "money")
+  if (!str || str != "monedas")
     return 0;
-  write("Money values.\n");
+  write("Valor de las monedas.\n");
   values = (mixed *)MONEY_HAND->query_values();
   str = "";
   for (i=0;i<sizeof(values);i+=2)
@@ -44,8 +45,8 @@ int do_help(string str) {
 }
 
 varargs int adjust_money(mixed amt, string type) {
-  int i, j, val;
-  
+  int i, val;
+
   if (pointerp(amt)) {
     for (i=0;i<sizeof(amt);i+=2)
       adjust_money(amt[i+1], amt[i]);
@@ -56,7 +57,7 @@ varargs int adjust_money(mixed amt, string type) {
   /* Let's not allow unknown money types - Hamlet */
   if (member_array(type,(mixed *)MONEY_HAND->query_values()) == -1)
     return 0;
-    
+
   if(environment(this_object()))
     if(interactive(environment(this_object()))) {
       val = (int)MONEY_HAND->query_value(type);
@@ -66,11 +67,12 @@ varargs int adjust_money(mixed amt, string type) {
   if ((i=member_array(type, money_array)) == -1) {
     add_adjective(type);
     add_plural(type+"s");
-    add_plural(type[0..0]+"cs");
-    add_alias(type);  /* 'give 10 platinum to Hamlet' */
-    add_alias(type[0..0]+"c");  /* 'give 10 pc to Hamlet' */
-    if(type == "platinum") {
-      add_alias("plat");  /* 'give 10 plat to Hamlet' */
+    add_plural("m"+type[0..0]+"s");
+	add_plural("monedas de "+type);
+    add_alias(type);  /* 'dar 10 platino a Hamlet' */
+    add_alias("m"+type[0..0]);  /* 'dar 10 mp a Hamlet' */
+    if(type == "platino") {
+      add_alias("plat");  /* 'dar 10 plat a Hamlet' */
       add_plural("plats");
       add_adjective("plat");
     }
@@ -79,7 +81,7 @@ varargs int adjust_money(mixed amt, string type) {
       val = (int)MONEY_HAND->query_value(money_array[i]);
       if((int)MONEY_HAND->query_value(type) > val) break;
     }
-     
+
     money_array = money_array[0..(i-1)] + ({ type, amt }) +
        money_array[i..sizeof(money_array)];
   } else {
@@ -88,10 +90,11 @@ varargs int adjust_money(mixed amt, string type) {
       remove_adjective(type);
       /* More Hamlet junk */
       remove_plural(type+"s");
-      remove_plural(type[0..0]+"cs");
+      remove_plural("m"+type[0..0]+"s");
+	remove_plural("monedas de "+type);
       remove_alias(type);
-      remove_alias(type[0..0]+"c");
-      if(type == "platinum") {
+      remove_alias("m"+type[0..0]);
+      if(type == "platino") {
         remove_alias("plat");
         remove_plural("plats");
         remove_adjective("plat");
@@ -108,29 +111,30 @@ varargs int adjust_money(mixed amt, string type) {
 
 mixed *query_money_array() { return money_array; }
 
-void set_money_array(mixed *arr) { 
+void set_money_array(mixed *arr) {
   int i;
   mixed *newarr = ({ });
 
   if(stringp(arr))
     return;
-      
+
   for(i=0;i<sizeof(arr);i+=2)
     if (member_array(arr[i],(mixed *)MONEY_HAND->query_values()) != -1)
       newarr += ({ arr[i], arr[i+1] });
-        
+
   money_array = newarr;
   adjectives = ({ }); /* clear them... */
   alias = ({ "Some Money For Me" }); /* clear these too */
-  plurals = ({ "coins" }); /* clear these too */
-  
+  plurals = ({ "monedas" }); /* clear these too */
+
   for (i=0;i<sizeof(money_array);i+=2) {
     add_adjective(money_array[i]);
     add_plural(money_array[i]+"s");
-    add_plural(money_array[i][0..0]+"cs");
+    add_plural("m"+money_array[i][0..0]+"s");
+	add_plural("monedas de "+money_array[i]);
     add_alias(money_array[i]); /* Give 30 platinum to someone - Hamlet */
-    add_alias(money_array[i][0..0]+"c"); /* give 30 pc to Hamlet */
-    if(money_array[i] == "platinum") {
+    add_alias("m"+money_array[i][0..0]); /* give 30 pc to Hamlet */
+    if(money_array[i] == "platino") {
       add_alias("plat");  /* give 30 plat to Hamlet */
       add_plural("plats");
       add_adjective("plat");
@@ -147,26 +151,34 @@ string *half_short() {
   for (i=0;i<sizeof(money_array);i+=2)
     if (money_array[i+1] > 1)
       if (this_player() != environment() && money_array[i+1] > 10)
-        retval += ({ "Some "+money_array[i] });
+        retval += ({ "algunas monedas de "+money_array[i] });
       else
-        retval += ({ money_array[i+1]+" "+ 
+        retval += ({ money_array[i+1]+" monedas de "+
                            money_array[i] });
     else if (money_array[i+1] == 1)
-      retval += ({ "1 "+money_array[i] });
+      retval += ({ "1 moneda de "+money_array[i] });
   return retval;
 }
 
+// has to be toketeado para ke kambie el orden y no se repita lo d moneda
 string short(int dark) {
   mixed retval;
 
   retval = half_short();
   if (!sizeof(retval))
     return 0;
+/*
   if (sizeof(retval) == 1)
-    return retval[0] + " coin"+(retval[0]==1?"":"s");
+    return retval[0] + " moneda"+(retval[0]==1?"":"s");
   return implode(retval[0..sizeof(retval)-2], ", ")+
-         " and "+retval[sizeof(retval)-1] + " coin"+
+         " y "+retval[sizeof(retval)-1] + " moneda"+
          (retval[sizeof(retval)-1]==1?"":"s");
+*/
+  if (sizeof(retval) == 1)
+	return retval[0];
+  return implode(retval[0..sizeof(retval)-2], ", ")+
+	" y "+retval[sizeof(retval)-1];
+
 }
 /*
 string *pretty_short(int dark) {
@@ -175,21 +187,18 @@ string *pretty_short(int dark) {
 */
 
 string long(string str, int dark) {
-  string ret = "You look at the coin and see ";
-  
-    ret += ({ "the handsome head of Moloch, he seems to be offering you "
-              "a lollipop."
-            , "the beastial head of Errtu the Nightstalker."
-            , "the purple nosed visage of Rage, the drunken sot."
-            , "the handsome face of Mirath the Wanderer, Carver of Mountains."
-            , "a dark, indistinct form.  Very little can be seen of the face "
-              "of Manshoon, betrothed of Cyrcia."
-            , "the lopsided smile of that jokester of a lizard-man, "
-              "Fengarance."
-            , "the sneering maw of Greymist, destroyer of seas."
-            , "the evil visage of Bresbane, Bringer of the Night."
-				, "The smiling face of Roan, onetime Lord of Banefall."
-		      , "The dark beauty of Krelk"
+  string ret = "Al observar la monedas puedes ver ";
+
+    ret += ({ "al temido brujo Xerxes."
+            , "la silueta de Flangerant, el Escriba de los Dioses."
+            , "a Tyrael, Dios de lo visible y lo invisible."
+            , "a Jade, la Dama Oscura."
+            , "a Grimfang, Señor de los Ejercitos del Norte."
+            , "a Vilat, el oscuro Señor del Inframundo. "
+            , "que en realidad la moneda es mas falsa que un billete de 3 euros."
+            , "que el dinero no da la felicidad, pero contribuye sobremanera."
+    	    , "a Leviathan, Señor de Señores, en su Trono de Poder."
+	    , "que venimos del polvo y en polvo nos convertiremos."
           })[random(10)];
   ret += "\n";
   return ret;
@@ -212,15 +221,14 @@ object new_money_object(int num, string type) {
   money_array[i+1] -= num;
   if (money_array[i+1] <= 0)
     money_array = delete(money_array, i, 2);
-  
+
   /* Weight stuff -- Hamlet */
   set_weight(query_number_coins()/WEIGHTDIV);
-  
+
   return ob;
 }
 
 varargs int move(mixed dest, mixed messin, mixed messout) {
-  mixed i;
   int j;
   object ob, mon;
   object from_where;
@@ -247,13 +255,13 @@ varargs int move(mixed dest, mixed messin, mixed messout) {
     for (j=0;j<sizeof(money_array);j+=2)
       mon->adjust_money(money_array[j+1], money_array[j]);
     dont_join = 1;
-    move("/room/void");
+    move("/room/void","","");
      if(from_where)
       if(interactive(from_where))
       catch(MONEY_TRACKER->update_statistics(-query_value(),
           from_where));
     call_out("dest_me",0);
-    return MOVE_OK;	
+    return MOVE_OK;
   }
   add_alias("Some Money For Me");
   if(ob&&interactive(ob)) {
@@ -271,20 +279,20 @@ varargs int move(mixed dest, mixed messin, mixed messout) {
 
 object query_parse_id(mixed *arr) {
   int i, j, num, l;
-  string s1, s2, *bit;
+  string s1, *bit;
   int n1;
   object ob;
   string cn1;
 
   if(this_player() && this_player()->query_name() == "hamlet")
     tell_object(this_player(),sprintf("%O\n",arr));
-    
+
   if (arr[0] == 0) {
     bit = explode(arr[1], " ");
 /* Not entirely positive what this did, but changes required its removal.
    I added some of this carp back below.
    - Hamlet
- 
+
     if (bit[sizeof(bit)-1] != "coins")
       if (environment() != this_player())
         return this_object();
@@ -294,7 +302,7 @@ object query_parse_id(mixed *arr) {
       return this_object();
 */
 
-    if(bit[0] == "coins")
+    if(bit[0] == "monedas")
       return this_object();
 
     if(bit[0] == "all") {
@@ -303,16 +311,16 @@ object query_parse_id(mixed *arr) {
       else
         return 0;
     }
-          
+
     switch(bit[0]) {
-      case "plat" : bit[0] = "platinum"; break;
-      case "pc"   : bit[0] = "platinum";  break;
-      case "gc"   : bit[0] = "gold";  break;
-      case "ec"   : bit[0] = "electrum";  break;
-      case "sc"   : bit[0] = "silver";  break;
-      case "cc"   : bit[0] = "copper";  break;
+      case "plat" : bit[0] = "platino"; break;
+      case "mp"   : bit[0] = "platino";  break;
+      case "mo"   : bit[0] = "oro";  break;
+      case "me"   : bit[0] = "estaño";  break;
+      case "ma"   : bit[0] = "argento";  break;
+      case "mc"   : bit[0] = "cobre";  break;
     }
-    
+
     i = member_array(bit[0], money_array);
     if (i == -1)
       return 0;
@@ -321,10 +329,10 @@ object query_parse_id(mixed *arr) {
     money_array = delete(money_array, i, 2);
     remove_adjective(s1);
     remove_plural(s1+"s");
-    remove_plural(s1[0..0]+"cs");
+    remove_plural("m"+s1[0..0]+"s");
     remove_alias(s1);
-    remove_alias(s1[0..0]+"c");
-    if(s1 == "platinum") {
+    remove_alias("m"+s1[0..0]);
+    if(s1 == "platino") {
       remove_alias("plat");
       remove_plural("plats");
       remove_adjective("plat");
@@ -332,10 +340,10 @@ object query_parse_id(mixed *arr) {
     ob = clone_object(MONEY_OBJECT);
     ob->set_money_array(({ s1, num }));
 
-    
+
     /* Weight stuff.  -- Hamlet */
     set_weight(query_number_coins()/WEIGHTDIV);
-    
+
         ob->add_property("clonedin",environment()->query_name());
     ob->do_move_call_out(environment());
     return ob;
@@ -345,22 +353,22 @@ object query_parse_id(mixed *arr) {
   if (arr[0] <= 0 || !sizeof(money_array))
     return 0;
   i = -1;
-  
+
   bit = explode(arr[1]," ");
   for(l=0;l<sizeof(bit);l++) {
     switch(bit[l]) {
-      case "plat"  : bit[l] = "platinum"; break;
-      case "pc"    : bit[l] = "platinum";  break;
-      case "gc"    : bit[l] = "gold";  break;
-      case "ec"    : bit[l] = "electrum";  break;
-      case "sc"    : bit[l] = "silver";  break;
-      case "cc"    : bit[l] = "copper";  break;
-      case "plats" : bit[l] = "platinums";  break;
-      case "pcs"   : bit[l] = "platinums";  break;
-      case "gcs"   : bit[l] = "golds";  break;
-      case "ecs"   : bit[l] = "electrums";  break;
-      case "scs"   : bit[l] = "silvers";  break;
-      case "ccs"   : bit[l] = "coppers";  break;
+      case "plat"  : bit[l] = "platino"; break;
+      case "mp"    : bit[l] = "platino";  break;
+      case "mo"    : bit[l] = "oro";  break;
+      case "me"    : bit[l] = "estaño";  break;
+      case "ma"    : bit[l] = "argento";  break;
+      case "mc"    : bit[l] = "cobre";  break;
+      case "plats" : bit[l] = "platinos";  break;
+      case "mps"   : bit[l] = "platinos";  break;
+      case "mos"   : bit[l] = "oros";  break;
+      case "mes"   : bit[l] = "estaños";  break;
+      case "mas"   : bit[l] = "argentos";  break;
+      case "mcs"   : bit[l] = "cobres";  break;
     }
   }
 /*
@@ -370,7 +378,7 @@ object query_parse_id(mixed *arr) {
 */
 
   arr[1] = implode(bit," ");
-     
+
   for (j=0;j<sizeof(money_array);j+=2)
     /* This next line looks moronic, but trust me, it skirts a known sscanf()
        bug.
@@ -381,30 +389,30 @@ object query_parse_id(mixed *arr) {
       if(n1 > 0)
         arr[0] = n1;
   }
-  
+
   if(i == -1) {
     for(j=0;j<sizeof(money_array);j+=2)
       if(money_array[j] == arr[1][0..strlen(money_array[j])-1])
         i = j;
   }
-      
+
   if (i == -1) {
-    i = member_array("copper",money_array);
+    i = member_array("cobre",money_array);
     if (i == -1)
       i = 0;
   }
-  
-  if( (arr[1][strlen(arr[1])-5..strlen(arr[1])-1] == "coins") &&
+
+  if( (arr[1][strlen(arr[1])-5..strlen(arr[1])-1] == "monedas") &&
       (n1 <= 0) )
     arr[0] = money_array[i+1];
-    
+
   if (arr[0] >= money_array[i+1]) {
     num = money_array[i+1];
     remove_plural(money_array[i]+"s");
-    remove_plural(money_array[i][0..]+"cs");
+    remove_plural("m"+money_array[i][0..]+"s");
     remove_alias(money_array[i]);
-    remove_alias(money_array[i][0..0]+"c");
-    if(money_array[i] == "platinum") {
+    remove_alias("m"+money_array[i][0..0]);
+    if(money_array[i] == "platino") {
       remove_alias("plat");
       remove_plural("plats");
       remove_adjective("plat");
@@ -418,12 +426,12 @@ object query_parse_id(mixed *arr) {
   ob = clone_object(MONEY_OBJECT);
   ob->set_money_array( ({ money_array[i], num }) );
 
-  
+
   /* Weight stuff.  -- Hamlet */
   set_weight(query_number_coins()/WEIGHTDIV);
-  
+
         ob->add_property("clonedin",environment()->query_name());
-  ob->do_move_call_out(environment());  
+  ob->do_move_call_out(environment());
   return ob;
 }
 

@@ -8,20 +8,20 @@
                          "force", "kill", "gauge", "exec", "promote", \
                          "new_domain", "rmdir", "cd", "history", "echoall", "shout" })
 
-static string fname;
-static int no_force_me;
+nosave string fname;
+nosave int no_force_me;
 
 
 void force_commands() {
   sscanf(file_name(this_object()), "%s#", fname);
   if(!this_object()->query_property("npc") &&
      this_object()->query_property("force") || fname == "/global/lord")
-    add_action("do_force", "force");
+    add_action("do_force", "forzar");
   if(fname == "/global/lord")
-    add_action("no_force", "noforce");
+    add_action("no_force", "noforzar");
 } /* force_commands() */
 
-static int no_force(string str) {
+nomask int no_force(string str) {
   if(fname!="/global/lord")
     return 0;
   if(str == "on") {
@@ -50,11 +50,11 @@ int do_force(string str) {
   int i;
 
   if(fname == "/global/player" && !this_player()->query_property("force")) {
-    notify_fail("You do not have the ability to do that yet.\n");
+    notify_fail("Tu, mero mortal, no puedes hacer eso.\n");
     return 0;
   }
   if(!str || sscanf(str, "%s %s", who, what) != 2) {
-    notify_fail("Usage : force <person> <command>\n");
+    notify_fail("Uso : forzar <person> <command>\n");
     return 0;
   }
   if(this_player()->adjust_social_points(-FORCE_COST) < 0) {
@@ -94,10 +94,9 @@ int do_force_on_me  (string str) {
   }
  */
   tell_object(this_object(), forcer->query_cap_name() +
-        " tries to force you to " + str + "\n");
-  if (no_force_me || (string)this_object()->query_name() == "pinkfish") {
-    event(users(), "inform", forcer->query_cap_name()+" forces "+
-                   this_object()->query_name()+" to "+str+" (failed)", "force");
+        " intenta forzarte a hacer " + str + "\n");
+  if (no_force_me || TO->query_creator()) {
+    event(users(), "inform", forcer->query_cap_name()+" fuerza a "+this_object()->query_name()+" a hacer "+str+" (fallo)", "force");
     log_file("FORCE", " (failed)\n");
     return 0;
   }
@@ -107,15 +106,13 @@ int do_force_on_me  (string str) {
 /* Delete this at your own peril */
   if (member_array(temp1, ILLEGAL_FORCE) != -1 &&
       !"secure/master"->god(geteuid(forcer))) {
-    event(users(), "inform", forcer->query_cap_name()+" forces "+
-                   this_object()->query_name()+" to "+str+" (failed)", "force");
+    event(users(), "inform", forcer->query_cap_name()+" forces "+this_object()->query_name()+" to "+str+" (failed)", "force");
     log_file("FORCE", " (failed)\n");
     return 0;
   }
   command(str);
    if(forcer)
-  event(users(), "inform", forcer->query_cap_name()+" forces "+
-                 this_object()->query_name()+" to "+str, "force");
+  event(users(), "inform", forcer->query_cap_name()+" forces "+this_object()->query_name()+" to "+str, "force");
   log_file("FORCE", " (succeeded)\n");
   return 1;
 } /* do_force_on_me() */

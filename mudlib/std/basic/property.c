@@ -8,15 +8,15 @@
  
 mapping map_prop;
 mapping timed_prop;
-static mapping static_map_prop;
+nosave mapping static_map_prop;
  
 void create() {
   map_prop = ([ ]);
   static_map_prop = ([ ]);
   timed_prop = ([ ]);
 }
- 
- 
+
+
 int query_hb_counter()
 {
 
@@ -30,10 +30,8 @@ int query_hb_diff(int oldc)
    if(hb_counter > oldc) return hb_counter - oldc;
    else return oldc - hb_counter;
 }
- 
+
 int add_property(string var, mixed val) {
-  int i;
- 
   if (!stringp(var))
     return 0;
   if (!map_prop)
@@ -43,8 +41,6 @@ int add_property(string var, mixed val) {
 }
 
 int add_static_property(string var, mixed val) {
-  int i;
-
   if (!stringp(var))
     return 0;
   if (!static_map_prop)
@@ -70,8 +66,6 @@ int add_timed_property(string var, mixed val, int time)
 }
 
 int remove_property(string var) {
-  int i;
- 
   if (!var)
     return 0;
   if (!map_prop)
@@ -81,8 +75,6 @@ int remove_property(string var) {
 }
 
 int remove_static_property(string var) {
-  int i;
-
   if (!var)
     return 0;
   if (!static_map_prop)
@@ -92,8 +84,6 @@ int remove_static_property(string var) {
 }
 
 int remove_timed_property(string var) {
-  int i;
-
   if (!var)
     return 0;
 
@@ -102,13 +92,11 @@ int remove_timed_property(string var) {
   timed_prop = m_delete(timed_prop, var);
   return 1;
 }
- 
-mixed query_old_property(string str) {
-  int i;
 
+mixed query_old_property(string str) {
   if (!str)
     return 0;
- 
+
   if (!map_prop)
     map_prop = ([ ]);
   return map_prop[str];
@@ -116,8 +104,6 @@ mixed query_old_property(string str) {
 
 
 mixed query_static_property(string str) {
-  int i;
-  
   if (!str)
     return 0;
 
@@ -155,7 +141,7 @@ mixed query_timed_property(string str) {
 }
 /* Added Taniwha 1995, by popular demand, time remaining */
 /* Could do clever stuff like check for static & normals if it falls through */
-static int timeleft;
+nosave int timeleft;
 int query_time_remaining(string str) {
   int i;
   int val;
@@ -200,16 +186,14 @@ void traverse_timed_properties()
     } /* for */
 
 } /* void traverse.. */
- 
+
 int query_property_exists(string str) {
-  int i;
   if (!map_prop)
     map_prop = ([ ]);
   return (member_array(str, m_indices(map_prop))) != -1;
 }
 
 int query_static_property_exists(string str) {
-  int i;
   if (!static_map_prop)
     static_map_prop = ([ ]);
   return (member_array(str, m_indices(static_map_prop))) != -1;
@@ -227,7 +211,7 @@ int query_timed_property_exists(string str) {
    query_timed_property(str); // Taniwha, so they expire
   return (member_array(str, m_indices(timed_prop))) != -1;
 }
- 
+
 mapping query_properties() { return map_prop ; }
 
 mapping query_static_properties() { return static_map_prop ; }
@@ -258,7 +242,7 @@ mixed query_property(string str) {
    if(query_timed_property_exists(str)) return query_timed_property(str);
    if(query_static_property_exists(str)) return query_static_property(str);
    return query_old_property(str);
- 
+
 }
 
 /* Added by Hamlet -- If we're going to save timed properties, let's

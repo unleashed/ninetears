@@ -5,12 +5,13 @@
 #ifndef __STD_HEADER__
 #define __STD_HEADER__
 
-#define MUDLIB_VERSION   "FRlib IIIR4"
+#define MUDLIB_VERSION   "Fuckin' FiC Lib I"
 
 #define TP           this_player()
 #define NAME         (string)TP->query_name()
 #define CNAME        (string)TP->query_cap_name()  /* this checks invis */
 #define CAP_NAME     CNAME
+#define QCN          query_cap_name()
 #define LEVEL        (int)TP->query_level()
 #define HE           (string)TP->query_pronoun()
 #define HIM          (string)TP->query_objective()

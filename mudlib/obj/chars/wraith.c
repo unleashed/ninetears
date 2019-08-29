@@ -12,11 +12,11 @@ void setup()
    set_gp(200);
    set_level(10);
 	set_guild("cleric");
-	set_level(5);
+	set_level(15);
 	set_al(20);
    set_str(15);
    set_int(2);
-   set_wis(18);
+   set_wis(30);
    set_dex(25);
    set_con(25);
    set_cha(2);
@@ -29,7 +29,7 @@ void setup()
 }
 void init()
 {
-   add_attack_spell(30,"cause wounds",({ "/std/spells/cleric/cause_lt.c","cast_spell",1}));
-   add_attack_spell(50,"cure wounds",({ "/std/spells/cleric/cure_cr.c","cast_spell",3}));
+   add_attack_spell(30,"cause wounds",({ "/d/gremios/hechizos/cleric/cause_lt.c","cast_spell",1}));
+   add_attack_spell(50,"cure wounds",({ "/d/gremios/hechizos/cleric/cure_cr.c","cast_spell",3}));
    ::init();
 }

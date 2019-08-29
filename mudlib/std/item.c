@@ -9,8 +9,8 @@
 
 inherit "/std/object";
 
-status wearable;
-status holdable;
+int wearable;
+int holdable;
 int size, armour_type;
 int hands;  /* Hamlet */
 
@@ -92,7 +92,7 @@ string cond_string() { return(0); }
 string long(string s, int dark)
 {
     string cond = cond_string();
-    string xtra = calc_extra_look();
+    string xtra = calc_extra_look(this_object());
     if(!cond) cond = "";
     if(!xtra) xtra = "";
     return ::long()+xtra+cond;

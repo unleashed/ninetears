@@ -14,15 +14,15 @@ mapping read_perms, write_perms, dir_owners;
 string finger_info;
 mixed members;
 
-static void set_domain(string dom) { DOMAIN = dom; }
-static void set_domain_lord(string lord) { DOM_LORD = lord; }
-static void set_open_read(int i) { open_read = i; }
-static void set_open_write(int i) { open_write = i; }
-static void set_finger_info(string info) { finger_info = info; }
-static void set_read_perms(mapping i) { read_perms = i; }
-static void set_write_perms(mapping i) { write_perms = i; }
-static void set_dir_owners(mapping i) { dir_owners = i; }
-static void setup_perms() { return; }
+nomask void set_domain(string dom) { DOMAIN = dom; }
+nomask void set_domain_lord(string lord) { DOM_LORD = lord; }
+nomask void set_open_read(int i) { open_read = i; }
+nomask void set_open_write(int i) { open_write = i; }
+nomask void set_finger_info(string info) { finger_info = info; }
+nomask void set_read_perms(mapping i) { read_perms = i; }
+nomask void set_write_perms(mapping i) { write_perms = i; }
+nomask void set_dir_owners(mapping i) { dir_owners = i; }
+nomask void setup_perms() { return; }
 
 int query_open_read() { return open_read; }
 int query_open_write() { return open_write; }
@@ -41,14 +41,14 @@ void create()
     dir_owners = ([ ]);
     open_read = 1;
     open_write = 0;
-    finger_info = "A domain of Final Realms, ask the Thane for info.\n";
+    finger_info = "Un dominio de Ninetears, pregunta a su Thane para informacion.\n";
     seteuid("/secure/master"->creator_file(file_name(this_object())));
     restore_object(file_name(this_object()), 1);
     if (pointerp(members)) 
     {
 	map = ([ ]);
 	for (i=0;i<sizeof(members);i++)
-	    map[members[i]] = "No Project";
+	    map[members[i]] = "Sin Proyecto.";
 	members = map;
     }
 }
@@ -167,14 +167,13 @@ int add_member(string name)
 {
     if(!query_dom_manip(geteuid(this_player(1)))) return 0;
     if(members[name]) return 0;
-    members[name] = "No Project";
+    members[name] = "Sin Proyecto.";
     save_me();
     return 1;
 } /* add_member() */
 
 int remove_member(string name) 
 {
-    int i;
     if(!query_dom_manip(geteuid(this_player(1)))) return 0;
     if(!members[name]) return 0;
     members = m_delete(members, name);
@@ -186,7 +185,7 @@ int set_project(string name, string pro)
 {
     if(!query_dom_manip(geteuid(this_player(1)))) return 0;
     if(!members[name]) return 0;
-    if(!pro || pro == "") pro = "No Project";
+    if(!pro || pro == "") pro = "Sin Proyecto.";
     members[name] = pro;
     save_me();
     return 1;
@@ -200,7 +199,7 @@ int query_member(string name)
 string query_project(string name) 
 {
     if(!members[name])
-	return "project unset";
+	return "proyecto no definido";
     return members[name];
 } /* query_project() */
 
@@ -224,9 +223,9 @@ string author_file(string *str)
 {
     switch (str[1]) 
     {
-    case "fr" : 
+    case "fr" :
 	return DOM_LORD;
-    default: return "baldrick";
+    default: return "tyrael";
     }
 } /* author_file() */
 

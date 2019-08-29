@@ -1,7 +1,7 @@
 inherit "/std/room";
 
-static string up_loc;
-static string death_loc;
+nosave string up_loc;
+nosave string death_loc;
 
 void event_enter(object target, string MESG, object FROM)
 {
@@ -23,14 +23,14 @@ void init()
 }
 int no_can_do(string str)
 {
-    write("Erm ?, you are underwater right ??.\n");
-    say(TP->query_cap_name()+" swallows some water and grimaces.\n",TP);
+    write("Abres tu boca y tragas tanta agua que la cierras en el acto.\n");
+    say(TP->query_cap_name()+" mueve la boca expulsando burbujas de aire.\n",TP);
     return 1;
 }
 void set_up_location(string str)
 {
     up_loc = str;
-    add_exit("up",up_loc,"plain");
+    add_exit("arriba",up_loc,"plain");
 }
 void set_death_location(mixed str)
 {
@@ -50,12 +50,12 @@ void DO_DROWN(object player,object from )
 {
    if(player->query_property("free_action"))
    {
-      tell_object(player, "%^CYAN%^Strange, you haven't the urge or need "+
-                  "to breathe.%^RESET%^\n");
+      tell_object(player, "%^CYAN%^Que raro, no sientes la necesidad "+
+                  "de respirar.%^RESET%^\n");
       return;
    }
     player->do_death(player->query_race_ob());
-    tell_object(player,"Well, there's one consolation, this is going to mess Grimbrands hairdo something terrible.\n");
+    tell_object(player,"Al menos hay una consolacion, vas a deshacer el peinado de pelo de Jakel de mala manera.\n");
     if(death_loc && load_object(death_loc))
     {
 	player->move(death_loc);
@@ -69,16 +69,16 @@ int do_exit_command(string str, mixed verb, object ob, object foll)
 {
     int delay;
     if(!ob && this_player() ) ob = this_player();
-    if(!ob) return;
+    if(!ob) return 0;
 
     if(!verb)
 	verb = query_verb();
     if(ob->query_property("IS_SWIMMING"))
     {
-	notify_fail("You are already swimming to the "+verb+".\n");
+	notify_fail("Ya estas nadando hacia "+verb+".\n");
 	return 0;
     }
-    tell_object(ob,"You start swimming "+verb+".\n");
+    tell_object(ob,"Comienzas a nadar hacia "+verb+".\n");
     switch((ob->query_race_ob())->
       query_swim_stamina(ob))
     {
@@ -100,16 +100,16 @@ int do_exit_command(string str, mixed verb, object ob, object foll)
 int really_do_exit_command(string str, mixed verb, object ob, object foll)
 {
     if(!ob && this_player() ) ob = this_player();
-    if(!ob) return;
+    if(!ob) return 0;
     ob->remove_timed_property("IS_SWIMMING");
     ob->remove_static_property("nocast");
     ob->remove_static_property("noguild");
     if(!::do_exit_command(str, verb, ob, foll))
     {
-	notify_fail("You can't seem to get anywhere in "
-	  "that direction.\n");
+	notify_fail("Parece que no consigues llegar a ningun sitio "
+	  "en esa direccion.\n");
 	return 0;
     }
-    tell_object(ob,"You swim "+verb+".\n");
+    tell_object(ob,"Nadas hacia "+verb+".\n");
     return 1;
 }

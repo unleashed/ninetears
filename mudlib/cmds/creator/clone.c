@@ -7,7 +7,7 @@ void setup(){
 position = 1;
 }
 
-static int cmd(string str, object me) {
+int cmd(string str, object me) {
     object ob;
     string err, *filenames;
     int loop, mov;
@@ -41,15 +41,15 @@ static int cmd(string str, object me) {
              err = catch(ob -> move(environment(this_player())));
              this_player()->handle_error(err, "move(environment())");
           }
-          write("Ok.  Object "+file_name(ob)+" cloned and put in "+
-             (environment(ob)==this_player() ? "you" :
+          write("Ok.  Object "+file_name(ob)+" clonado y puesto en "+
+             (environment(ob)==this_player() ? "ti" :
               (environment(ob)==environment(this_player()) ? "here" : this_player()->desc_object(ob)))+
              ".\n");
 
-         tell_room(environment(this_player()),this_player()->query_cap_name() + " fetches " +
+         tell_room(environment(this_player()),this_player()->query_cap_name() + " coge " +
             
 ((string)ob->query_short()?(string)ob->query_short():"something") +
-             " from another dimension.\n",({this_player()}));
+             " de otra dimension.\n",({this_player()}));
        } else {
           tell_object(this_player(),"Failed to clone.\n");
        }

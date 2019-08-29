@@ -12,32 +12,32 @@ varargs object *wiz_present(string str, object onobj, int nogoout);
 string desc_object(mixed o);
 string desc_f_object(object o);
 
-static void wiz_commands() {
-  add_action("do_gauge", "ga*uge");
+void wiz_commands() {
+  add_action("do_gauge", "gauge");
   /* Added by Jada aug '94, blame him if it won't work */
   add_action("do_title", "title");
   /* Adds for new commandsystem.. */
-  add_action("comm_info","comi*nfo");
+  add_action("comm_info","cominfo");
 } /* wiz_commands() */
-     
+
 /*
 ** commands in the app_commands will go to all players with
 ** level >= 20. This includes players who have opted to
 ** remain players rather than advancing to wizard. As such
 ** we must be careful in what we place here
 */
- 
-static void app_commands() {
+
+void app_commands() {
   add_action("do_snoop", "snoop");
   add_action("grim_snoop", "qsnoop");  /* Added on 16 March by Grimbrand */
 } /* app_commands() */
- 
+
 /* These commands go to ALL players. Note that master.c
 ** gives only limited read/write access to dirs anyway,
 ** so the apparent security problems are NOT a problem
 */
- 
-static void all_commands() {
+
+void all_commands() {
 } /* all_commands() */
 
 int check_snoop(object ob) {
@@ -49,7 +49,7 @@ int check_snoop(object ob) {
 
 /*  Added on 16 March 93 by Grimbrand */
 
-static int grim_snoop(string str) {
+nomask int grim_snoop(string str) {
    object targ;
 
 if(this_player()->query_lord())
@@ -87,7 +87,7 @@ if(this_player()->query_lord())
    return 1;
 }
 
-static int do_snoop(string str) {
+nomask int do_snoop(string str) {
   object targ;
 
   if (!str) {
@@ -114,14 +114,14 @@ if(!this_player()->query_god() && targ->query_lord()) {
   }
   write("Ok, snooping "+str+".\n");
   return 1;
-} /* do_snoop() */   
+} /* do_snoop() */
 
 int review() {
   PEOPLER->review();
   return 1;
 } /* review() */
 
-static int do_gauge(string str) {
+nomask int do_gauge(string str) {
   int eval_cost;
 
   if (this_player(1) != this_object()) return 0;
@@ -134,7 +134,7 @@ static int do_gauge(string str) {
   return 1;
 } /* do_gauge() */
 
-static mapping blue;
+nosave mapping blue;
 
 int stats_sort_array(string str, string str2) {
   if (blue[str]["moves"] > blue[str2]["moves"])
@@ -170,18 +170,18 @@ string string_stats(mapping map) {
   return str;
 } /* print_stats() */
 
-int do_title(string str) 
+int do_title(string str)
   {
   string title;
 
   title = this_player()->query_title();
-  if (!str) 
+  if (!str)
     {
     if(title) write("Your title is: "+title+"\n");
-     else 
+     else
       write("You have no title.\n");
     }
-   else 
+   else
     if (str=="-c")
       {
       write("Clearing your title.\n");
@@ -193,7 +193,7 @@ int do_title(string str)
     return 1;
 }
 
-static string do_find_comm(string func, object ob) {
+nomask string do_find_comm(string func, object ob) {
   string s, ping;
   object fish;
   s = "";
@@ -209,13 +209,13 @@ static string do_find_comm(string func, object ob) {
   return s;
 } /* do_find_comm() */
 
-/*** By Dyraen@Rod 
+/*** By Dyraen@Rod
  */
 int comm_info(string str) {
 object on;
 string *comms, xtra, s1, s2;
 int i;
- 
+
   if (str) {
     sscanf(str,"%s %s",s1,s2);
     if (s2) {
@@ -252,4 +252,4 @@ int i;
     }
   }
   return 1;
-} 
+}

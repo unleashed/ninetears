@@ -5,20 +5,20 @@ inherit "obj/monster";
 
 void init() {
     ::init();
-    add_action("do_listen","listen");
+    add_action("do_listen","escuchar");
     call_out("first_approach",0,this_player());
 }
 
 void setup() {
     set_name("helden");
     add_alias("duergar");
-    add_alias("master");
+    add_alias("maestro");
     set_join_fights();
-    set_main_plural("masters");
-    set_short("Helden, Master of the Mines");
-    set_long("\n     Helden Hewen is the Master of The School of Mining.  "
-      "He is the one that all new Duergar come to see for their "
-      "initial training.\n"
+    set_main_plural("maestros");
+    set_short("Helden, Maestro de Minas");
+    set_long("\n     Helden Hewen es el Maestro de la escuela de minas. "
+      "El es a quien todos los nuevos duergar deben venir a ver para poder "
+      "iniciar sus entrenamientos.\n"
       "\n");
     set_race("duergar");
     set_guild("fighter");
@@ -31,7 +31,7 @@ void setup() {
     set_gender(1);
     set_al(35);
     set_random_stats(20, 28);
-    adjust_money(3,"platinum");
+    adjust_money(3,"platino");
     clone_object("/baseobs/weapons/war_hammer.c")->move(this_object());
     clone_object("/baseobs/armours/chainmail.c")->move(this_object());
     init_equip();
@@ -39,16 +39,16 @@ void setup() {
 
 void first_approach(object ob) {
     if((int)ob->query_level() > 1) {
-        do_command("say You have long since completed your training here, "
-          "so leave and dont look back.\n");
+        do_command("say Ya has acabado tus pruebas en esta zona, asi que "
+          "vete y no mires atras.\n");
     }
     if((int)ob->query_level() == 1) {
-        do_command("say Ahh, a new recruit.  Please come in, we must start your "
-          "training right away.\n");
+        do_command("say Ahh, un nuevo recluta.  Pasa por favor, comenzaremos "
+          "tu entrenamiento ahora mismo.\n");
     }
     if((int)ob->query_level() == 0) {
-        do_command("say Alas my young fellow, you need to go to the guild and "
-          "advance before I can begin your training.\n");
+        do_command("say A donde vas muchacho? necesitas ir al guild y avanzar "
+          "antes de poder comenzar a entrenarte.\n");
     }
 }
 
@@ -61,31 +61,30 @@ int do_listen(string STR) {
     {
         if(lv == 1)
         {
-            do_command("say Well now, where should I begin?  I guess YOU would "
-              "like it best if I made my little lesson short and sweet, "
-              "WOULDN'T you?\n\n"
-              "   Well, you're in luck. I really don't feel like bothering "
-              "with any students right now, so here is what you are going "
-              "to need to do.  Take this pick, and go through the door "
-              "behind me.  Past that door you will find 5, errrrrr, 4 "
-              "rooms with rocks in them.  I need you to pick those rock's "
-              "into useable blocks.\n\n"
-              "   Now, you are free to leave at any time that you feel "
-              "that your progress is to your satisfaction, OR you break "
-              "my pick!  If you do indeed break the pick, you may as well "
-              "leave.  As far as I am concerned any Duergar that can't "
-              "keep their own gear in working condition doesn't need to "
-              "be here!\n\n"
-              "WELL?  Be off with ye .....\n"
+            do_command("say Muy bien, por donde empiezo? Supongo que tu "
+              "preferiras que no te aburra con un largo discurso sino "
+              "una rapida y clara explicacion, no?\n\n"
+              "   Bien , pues estas de suerte. yo tampoco tengo ganas de "
+              "aburrir a los estudiantes, asi que esto es lo que debes "
+              "hacer.  Toma este pico, y ve por esa puerta al oeste. "
+              "Tras la puerta encontraras algunos cuartos con rocas "
+              "esparcidas.  Tendras ke picar las rocas hasta convertirlas "
+              "en bloques que podamos usar.\n\n"
+              "   Ahora bien, eres libre de salir cuando creas que tu progreso "
+              "es satisfactorio... pero si rompes el pico que te he dado! en ese "
+              "caso, deberias abandonar y mejor nos eliminas las ratas, ya que un "
+              "duergar que no es capaz de conservar su herramienta no es digno de "
+              "recibir mis ensenyanzas.\n\n"
+              "VAMOS!  el tiempo es oro.....\n"
             );
             if(!this_player()->query_property("got_pick"))
                 clone_object(ITEMS+"pick")->move(this_player());
 
-            if(this_player()->query_guild_name() == "Abbathor")
+            if(this_player()->query_guild_name() == "-----")
             {
                 if((int)this_player()->query_property("got_pick")!=1)
                 {
-                    this_player()->adjust_money(4,"platinum");
+                    this_player()->adjust_money(2,"platino");
                     this_player()->add_property("got_pick", 1);
                     return 1;
                 }
@@ -94,14 +93,14 @@ int do_listen(string STR) {
             {
                 if((int)this_player()->query_property("got_pick")!=1)
                 {
-                    this_player()->adjust_money(2,"platinum");
+                    this_player()->adjust_money(2,"platino");
                     this_player()->add_property("got_pick", 1);
                     return 1;
                 }
             }
             return 1;
         }
-        do_command("say I haven't the time to waste upon the likes of you!\n");
+        do_command("say No tengo mas tiempo que perder contigo!\n");
         return 1;
     }
     return 0;

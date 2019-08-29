@@ -59,14 +59,14 @@ void save_this_ob() {
     save_object(SAVE+"death",1);
 }
 
-create()
+void create()
 {
    ::create();
    data = ([ ]);
    load_this_ob();
 }
 
-dest_me()
+void dest_me()
 {
    save_this_ob();
    destruct(this_object());
@@ -128,9 +128,8 @@ void full_path_report(string dom) {
 }
 
 void killed_awarded_ratio(string dom) {
-  int i,j;
+  int i;
   int killed,kt,awarded,at;
-  float ratio;
   string outgoing;
   string *indic;
   load_this_ob();
@@ -159,7 +158,6 @@ void full_domain_kar(string realdom) {
   int killed,kt,awarded,at;
   int tim, timt, timtt, time_now;
   int ktt,att;
-  float ratio;
   string dom, outgoing;
   string *indic;
   string *ind;
@@ -222,10 +220,9 @@ void full_domain_kar(string realdom) {
 }
 
 void original_radix_data(string dom) {
-  int i,j;
+  int i;
   int died,dt,kills,kt,timd,tmdt,timk,tmkt,levd,ldt,levk,lkt,xpd,
       xdt,xpk,xkt,awded,awdt;
-  float ratio;
   string outgoing;
   string *indic;
   load_this_ob();
@@ -312,95 +309,85 @@ float get_real_rate(mixed vals, object npc)
    return rateret;
 }
 
-float update_npc_died(object npc, object player)
-{
-   mixed vals;
-   mapping tmp;
-   string domname, obname;
-   int i, temp;
-   int time_now, time_since, total_time, time_extra;
-   float rateret;
+float update_npc_died(object npc, object player) {
+   	mixed vals;
+   	mapping tmp;
+   	string domname, obname;
+   	int temp;
+   	int time_now, time_since, total_time, time_extra;
+   	float rateret;
 
-   if(!(obname = real_filename(npc))) 
-      return 1;
-   if(!(domname = environment_path(npc)))
-      return 1;
-   load_this_ob();
-   tmp = data[domname];
-   if(!tmp) 
-      tmp = ([ ]);
-   vals = tmp[obname];
-   if(!vals) vals = ({0,0,0,0,0,0,0,0,0,0,0,0});
-   
-   if(!(player->query_creator()) && 
-     strsrch(player->query_name(),"test") == -1) {
-   time_now = TIMEKEEPER->query_running_time()/60.0;
-   if(!vals[9]) vals[9] = time_now;
-   time_since = time_now - vals[9];
-  if(time_since < 0) time_since = 0;
-   if(time_since > BASE_WEEK/30.0) {
-     vals[5]=0;
-     vals[6]=0;
-     vals[7]=0;
-     vals[8]=0;
-     vals[9]=time_now;
-     vals[10]=time_since;
-   }
-   else {
-     total_time = vals[10]+time_since;
-     if(total_time > BASE_WEEK/30.0) {
-       time_extra = total_time - BASE_WEEK/30.0;
-       temp = vals[5]*((vals[10]-time_extra)*10.0/vals[10])/10;
-       vals[5] = temp;
-       temp = vals[6]*((vals[10]-time_extra)*10.0/vals[10])/10;
-       vals[6] = temp;
-       temp = vals[7]*((vals[10]-time_extra)*10.0/vals[10])/10;
-       vals[7] = temp;
-       temp = vals[8]*((vals[10]-time_extra)*10.0/vals[10])/10;
-       vals[8] = temp;
-       temp = BASE_WEEK/30.0;
-       vals[10] = temp;
-     }
-     else vals[10] = total_time;
-     vals[9] = time_now;
-   }
-   
-   if(vals[10] < 0) vals[10] = BASE_WEEK/30;
-   vals[5] += 1;
-   vals[6] += player->query_level();
-   vals[7] += player->query_total_xp()/100;
-   vals[11] = npc->query_kill_xp();
-   vals[8] += vals[11];
-     if(vals[7] > 2000000000) {
-       temp=vals[5]*2000000000.0/vals[7];
-       vals[5]=temp;
-       temp=vals[6]*2000000000.0/vals[7];
-       vals[6] = temp;
-       temp=vals[8]*2000000000.0/vals[7];
-       vals[8] = temp;
-       temp=vals[10]*2000000000.0/vals[7];;
-       vals[10] = temp;
-       vals[7]=2000000000;
-     }
+   	if(!(obname = real_filename(npc))) return 1;
+   	if(!(domname = environment_path(npc))) return 1;
+   	load_this_ob();
+   	tmp = data[domname];
+   	if(!tmp) tmp = ([ ]);
+   	vals = tmp[obname];
+   	if(!vals) vals = ({0,0,0,0,0,0,0,0,0,0,0,0});
 
-   tmp[obname] = vals;
-   data[domname] = tmp;
-   save_this_ob();
-   }
+   	if(!(player->query_creator()) && strsrch(player->query_name(),"test") == -1) {
+   		time_now = TIMEKEEPER->query_running_time()/60.0;
+   		if(!vals[9]) vals[9] = time_now;
+   		time_since = time_now - vals[9];
+  		if(time_since < 0) time_since = 0;
+   		if(time_since > BASE_WEEK/30.0) {
+     			vals[5]=0;
+     			vals[6]=0;
+     			vals[7]=0;
+     			vals[8]=0;
+     			vals[9]=time_now;
+     			vals[10]=time_since;
+   			}
+   		else {
+     			total_time = vals[10]+time_since;
+     			if(total_time > BASE_WEEK/30.0) {
+       				time_extra = total_time - BASE_WEEK/30.0;
+       				temp = vals[5]*((vals[10]-time_extra)*10.0/vals[10])/10;
+       				vals[5] = temp;
+       				temp = vals[6]*((vals[10]-time_extra)*10.0/vals[10])/10;
+       				vals[6] = temp;
+       				temp = vals[7]*((vals[10]-time_extra)*10.0/vals[10])/10;
+       				vals[7] = temp;
+       				temp = vals[8]*((vals[10]-time_extra)*10.0/vals[10])/10;
+       				vals[8] = temp;
+       				temp = BASE_WEEK/30.0;
+       				vals[10] = temp;
+     				}
+     			else vals[10] = total_time;
+     			vals[9] = time_now;
+   			}
+   		if(vals[10] < 0) vals[10] = BASE_WEEK/30;
+   		vals[5] += 1;
+   		vals[6] += player->query_level();
+   		vals[7] += player->query_total_xp()/100;
+   		vals[11] = npc->query_kill_xp();
+   		vals[8] += vals[11];
+     		if(vals[7] > 2000000000) {
+       			temp=vals[5]*2000000000.0/vals[7];
+       			vals[5]=temp;
+       			temp=vals[6]*2000000000.0/vals[7];
+       			vals[6] = temp;
+       			temp=vals[8]*2000000000.0/vals[7];
+       			vals[8] = temp;
+       			temp=vals[10]*2000000000.0/vals[7];;
+       			vals[10] = temp;
+       			vals[7]=2000000000;
+     			}
+   		tmp[obname] = vals;
+   		data[domname] = tmp;
+   		save_this_ob();
+   		}
+   	// Made seperate function for other purposes - Radix
+	rateret = get_real_rate(vals, npc);
+  	if(rateret == -1) return 1.0;
 
-   // Made seperate function for other purposes - Radix
-  rateret = get_real_rate(vals, npc);
-  if(rateret == -1)
-     return 1.0;
-
-   if(!(player->query_creator()) &&
-     strsrch(player->query_name(),"test") == -1) {
-   totaldif += rateret*vals[11]-(npc->query_level()*60);
-   diftimes += 1;
-  }
-   if(rateret) return rateret;
-   return 1.0;
-}
+   	if(!(player->query_creator()) && strsrch(player->query_name(),"test") == -1) {
+   		totaldif += rateret*vals[11]-(npc->query_level()*60);
+   		diftimes += 1;
+  		}
+   	if(rateret) return rateret;
+   	return 1.0;
+	}
 
 // Called from /global/creator/cmds/info.c
 void info_npc(object npc)
@@ -409,7 +396,7 @@ void info_npc(object npc)
    mapping tmp;
    float rateret;
    string domname, obname;
-   
+
    if(!(obname = real_filename(npc)) || !(domname = environment_path(npc)))
    {
       write("Invalid NPC object filename or environment path.\n");
@@ -439,7 +426,7 @@ void update_player_died(object npc, object player)
    mixed vals;
    mapping tmp;
    string domname, obname;
-   int i, temp;
+   int temp;
    int time_now, time_since, total_time, time_extra;
 
    if(player->query_creator() || 
@@ -508,7 +495,6 @@ void domain_death(object victim, object enemy)
 
 void mud_death(object victim, object enemy)
 {
-   string *path = explode(file_name(environment(victim)),"/");
    mixed mas;
    string *doms = get_dir("/d/");
    int i;
@@ -520,33 +506,24 @@ void mud_death(object victim, object enemy)
    return;
 }
 
-float update_statistics(object victim, object enemy)
-{
-   string create_name;
-   if(enemy && victim)
-   {
-      if(environment(enemy) && environment(victim))
-      {
-         domain_death(victim, enemy);
-         mud_death(victim, enemy);
-      }
-      if(interactive(victim) && enemy->query_npc()) {
-         update_player_died(enemy, victim);
-         return 1;
-      }
-      create_name = victim->query_create_me();
-      if(victim->query_npc() && interactive(enemy)) {
-         if(!enemy->query_creator())
-            if(create_name != "Object" && create_name != "Root")
-               log_file("CREATE_ME",real_filename(victim)+
-                  " ["+victim->query_create_me()+"] killed by "+
-                  enemy->query_cap_name()+" for "+
-                  victim->query_kill_xp()+" :"+ctime(time())+"\n");
-         return update_npc_died(victim, enemy);
-      }
-      // PKing...
-      if(interactive(victim) && interactive(enemy))
-         catch(PKHAND->update_player_killed(victim, enemy));
-  }
-  return 1;
-}
+float update_statistics(object victim, object enemy) {
+   	string create_name;
+   	if(enemy && victim) {
+      		if(environment(enemy) && environment(victim)) {
+         		domain_death(victim, enemy);
+         		mud_death(victim, enemy);
+      			}
+      		if(interactive(victim) && enemy->query_npc()) {
+         		update_player_died(enemy, victim);
+         		return 1;
+      			}
+      		create_name = victim->query_create_me();
+      		if(victim->query_npc() && interactive(enemy)) {
+         		if(!enemy->query_creator()) if(create_name != "Object" && create_name != "Root") log_file("CREATE_ME",real_filename(victim)+" ["+victim->query_create_me()+"] killed by "+enemy->query_cap_name()+" for "+victim->query_kill_xp()+" :"+ctime(time())+"\n");
+         		return update_npc_died(victim, enemy);
+      			}
+      		// PKing...
+      		if(interactive(victim) && interactive(enemy))  catch(PKHAND->update_player_killed(victim, enemy));
+  		}
+  	return 1;
+	}

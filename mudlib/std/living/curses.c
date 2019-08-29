@@ -88,14 +88,12 @@ int add_curse(string name) {
 }
 
 int remove_curse(string name, object remover) {
-  int i;
-
   if (!mappingp(curses))
     curses = ([ ]);
   if (!curses[name])
     return 0;
   if(remover)
-   { 
+   {
      if(curses[name]->prevent_remove(this_object(), remover))
      return -1;
    }
@@ -141,7 +139,7 @@ void curses_start() {
 }
 
 void curses_heart_beat() {
-  int i;
+	int i;
   string *names;
 
   if (!mappingp(diseases))

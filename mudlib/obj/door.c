@@ -1,3 +1,5 @@
+// HAY ALGO TOCADO, NO USAR HASTA TRADUCIR TODO Y CERCIORARSE D KE RULA
+
 inherit "std/object";
 
 #define SKILL "other.covert.lockpick"
@@ -145,22 +147,22 @@ void attach() {
   source->modify_exit(direc, ({ "obvious", ({ file_name(this_object()), "obvious1" }) }));
   dest->modify_exit(reverse, ({ "obvious", ({ file_name(this_object()), "obvious2" }) }));
   if(locked) {
-    source->add_item(direc+" door", "It is locked.\n");
-    dest->add_item(reverse+" door", "It is locked.\n");
+    source->add_item("puerta "+direc, "Esta cerrada con llave.\n");
+    dest->add_item("puerta " + reverse, "Esta cerrada con llave.\n");
   }
   else {
-    source->add_item(direc+" door", "It is unlocked.\n");
-    dest->add_item(reverse+" door", "It is unlocked.\n");
+    source->add_item("puerta " + direc, "Esta abierta.\n");
+    dest->add_item("puerta "+reverse, "Esta abierta.\n");
   }
-  source->add_alias("door", direc+" door");
-  dest->add_alias("door", reverse+" door");
+  source->add_alias("puerta", "puerta "+direc);
+  dest->add_alias("puerta", "puerta "+reverse);
   if(lock_on_source) {
-    source->add_alias("lock", direc);
-    source->add_alias("unlock", direc);
+    source->add_alias("cerrojar", direc);
+    source->add_alias("descerrojar", direc);
   }
   if(lock_on_dest) {
-    dest->add_alias("unlock", reverse);
-    dest->add_alias("lock", reverse);
+    dest->add_alias("descerrojar", reverse);
+    dest->add_alias("cerrojar", reverse);
   }
   if(obvious_from_dest)
     dest->add_extra_look(this_object());
@@ -181,14 +183,14 @@ int lock(string str) {
     }
   }
   if(locked) {
-    write("The door is already locked.\n");
+    write("La puerta ya esta cerrada con llave.\n");
     return 0;
   }
   locked = 1;
   write("click\n");
   say(this_player()->query_cap_name() + " locks the door.\n");
-  source->modify_item(direc + " door", "It is locked.\n");
-  dest->modify_item(reverse + " door", "It is locked.\n");
+  source->modify_item("puerta "+direc, "Esta cerrada con llave.\n");
+  dest->modify_item("puerta "+reverse, "Esta cerrada con llave.\n");
   return 0;
 }
 
@@ -211,8 +213,8 @@ int unlock(string str) {
   locked = 0;
   write("click\n");
   say(this_player()->query_cap_name() + " unlocks the door.\n");
-  source->modify_item(direc + " door", "It is unlocked.\n");
-  dest->modify_item(reverse + " door", "It is unlocked.\n");
+  source->modify_item("puerta "+direc, "It is unlocked.\n");
+  dest->modify_item("puerta "+reverse, "It is unlocked.\n");
   return 0;
 }
 

@@ -17,9 +17,9 @@ inherit "std/object";
 string *names;
 mixed *functions;
 mixed *objects;
-static string *players_on;
-static int number_players;
-
+nosave string *players_on;
+nosave int number_players;
+int rebootin;
 
 void create() {
   names = ({ });
@@ -29,10 +29,21 @@ void create() {
   restore_object(SAVE_NAME,1);
   players_on = ({ });
   number_players = 0;
+  rebootin = 0;
 } /* create() */
 
+void we_are_rebooting()
+{
+	rebootin = 1;
+}
+
+int query_rebooting()
+{
+	return rebootin;
+}
+
 int add_login_call(string player, mixed funct, mixed obj) {
-  int pos, retval;
+  int pos;
 
   if((pos = member_array(player, names)) != -1) {
     if(pointerp(funct) && pointerp(obj)) {
@@ -123,13 +134,13 @@ int player_logon(string player) {
    else
     players_on += ({ player });
 
-  if((pos = member_array(player, names)) != -1) 
+  if((pos = member_array(player, names)) != -1)
     {
     for(loop = 0; loop < sizeof(functions[pos]); loop++)
       call_out("do_call", 0, ({ functions[pos][loop], objects[pos][loop],
                player, LOGIN }) );
     }
-  if((pos = member_array("all", names)) != -1) 
+  if((pos = member_array("all", names)) != -1)
     {
     for(loop = 0; loop < sizeof(functions[pos]); loop++)
       call_out("do_call", 0, ({ functions[pos][loop], objects[pos][loop],
@@ -149,7 +160,7 @@ int player_logout(string player) {
   players_on = delete(players_on, pos, 1);
   if((pos = member_array(player, players_on)) != -1) {
     int loop;
- 
+
     for(loop = 0; loop < sizeof(functions[pos]); loop++)
       call_out("do_call", 0, ({ functions[pos][loop], objects[pos][loop],
                player, LOGOUT }));

@@ -37,8 +37,8 @@ void boot();
 
 #define LOG_DIR "/log"
 #define THIS_MUD MUD_NAME
-#define DAEMON_IP   "128.83.194.11" /* actlab.rtf.utexas.edu */
-#define PASSWORD "bing.le"
+#define DAEMON_IP   "128.83.194.11"
+#define PASSWORD "a_password"
 
 string version() { return VERSION; }
 

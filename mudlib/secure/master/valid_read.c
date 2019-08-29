@@ -64,6 +64,18 @@ int valid_read(string path, mixed euid, string func)
         return (euid == "mailer");
       }
       return (euid == "Room");
+	// doc, include, baseobs, table y room a la vista
+	case "doc":
+	case "include":
+	case "baseobs":
+	case "table":
+	case "room":
+		return 1;
+	//case "std": mediante permisos personales
+		//return 1;  POR AHORA PERMISOS DE LECTURA AKI
+	// PERMISOS PARA LEER CUALKIER OTRA COSA, tan solo Root
+	default:
+	return (euid == "Root");
   }
   return 1;
 } /* valid_read() */

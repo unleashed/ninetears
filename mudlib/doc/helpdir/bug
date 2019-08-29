@@ -1,15 +1,8 @@
-Usage : bug <text>
+****************** BUG *********************
+Uso : bug <texto>
 
-This command informs the creators of an object that a bug is present on it.
-The error message is recorded in one central log file and a log file specific
-to the room you are standing in.  For this reason, if you have a bug on an
-object try to do a bug report near the place you got it as that is most likely
-going to be owned by the same people as wrote the object.
+Este comando informa a los creadores de que hay un error ( un bug ) . Los bug quedan almacenados en una carpeta central y y en otra donde ha sido declarado el error, por esta razon seria de agradecer que notificaseis el error cerca de donde este se produce.
 
-examples :
+Ejemplos:
 
-bug The sword of slaying prints 0 every now and then during combat.
-
-bug The dwarf says I must give him a torch, I did and he didn't do anything.
-
-bug I have given another torch to the dwarf and this time it printed a Your sensitive mind ... at me.
+bug no funcionan las salidas de los cultivos de Adiel.

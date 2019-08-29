@@ -10,8 +10,8 @@
 #include "mail.h"
 #define POSTAL_D "/obj/handlers/postal_d"
 
-static string *names;
-static string def;
+private string *names;
+private string def;
 
 mapping access;  /* Site access control */
 string *preferred;
@@ -23,6 +23,10 @@ string get_nomulti_string(string site, string userid);
 
 void create() {
     names = ({ "root", "/global/player",
+     "tyrael","/global/god",
+     "barthleby","/global/god",
+	"jade","/global/god",
+     "cretest", "/global/lord",
       "failsafe", "/global/failsafe", });
     def = "/global/player";
     seteuid("Root");
@@ -36,36 +40,35 @@ void create() {
 
 int check_access(object ob, int existing)
 {
-    string *tmp = explode(query_ip_name(ob),".");
-    switch (query_access(explode(query_ip_number(ob), "."), 
+    switch (query_access(explode(query_ip_number(ob), "."),
 	ob->query_ident())) {
     case NO_NEW :
 	if (!existing) {
-	    write("Site banned for new players.\n");
+	    write("Sitio baneado para jugadores nuevos.\n");
 	    return NO_NEW;
 	}
 	else
 	    return ACCESS;
     case NO_ACCESS :
-	write("Site banned for all players.\n");
+	write("Sitio baneado para todos los jugadores.\n");
 	return NO_ACCESS;
     case NO_GUEST :
 	if(ob->query_name() == "guest") {
-	    write("Site banned for guests.\n");
+	    write("Sitio baneado para invitados.\n");
 	    return NO_GUEST;
 	}
 	else
 	    return ACCESS;
     case NO_IMMORTS :
 	if(ob->query_creator()) {
-	    write("Site banned for immortals.\n");
+	    write("Sitio baneado para inmortales.\n");
 	    return NO_IMMORTS;
 	}
 	else
 	    return ACCESS;
     case NO_PLAYERS :
 	if(!ob->query_creator()) {
-	    write("Site banned for players.\n");
+	    write("Sitio baneado para jugadores.\n");
 	    return NO_PLAYERS;
 	}
 	else
@@ -99,33 +102,34 @@ varargs string query_player_ob(string name, int flag)
 
     if (POSTAL_D->query_mailing_list(name))
     {
-	write("Name is a mailing list.\n");
+	write("El nombre es una lista de correo.\n");
 	return 0;
     }
 
     if(member_array(name,get_dir("/d/")) != -1) {
-	write("Name is a domain.\n");
+	write("El nombre es un dominio.\n");
 	return 0;
     }
 
     i = member_array(name, names);
-    if (i != -1) 
+    if (i != -1)
     {
 	return names[i+1];
     }
     if (banished[name])
     {
-	write("This name is banished, pick a different one.\n");
+	write("Este nombre esta baneado, elige uno diferente.\n"
+		"Razon: "+banished[name]+"\n");
 	return 0;
     }
-    if (suspended[name] > time()) 
+    if (suspended[name] > time())
     {
-	write("You have been suspended until "+ctime(suspended[name])+".\n");
+	write("Estas suspendido hasta "+ctime(suspended[name])+".\n");
 	return 0;
     }
     suspended = m_delete(suspended, name);
     /*
-    if ("secure/master"->query_lord(name)) 
+    if ("secure/master"->query_lord(name))
       {
       return "global/lord";
       }
@@ -138,25 +142,21 @@ varargs string query_player_ob(string name, int flag)
     if(reason != ACCESS)
 	return "";
     /* I hope this is the right place to put this code in.
-     * Baldrick, sept '93 
-     * Added more files, oct '95. 
+     * Baldrick, sept '93
+     * Added more files, oct '95.
      * First, a check if the player is a creator..
      * to be sure it isn't a new player using a non-existing .o
      */
     if(previous_object()->query_creator() ||flag)
     {
-	if ("/secure/gods"->query_boo(name))
-	    return "global/god";
-	if ("/secure/lords"->query_boo(name))
-	    return "global/lord";
-	if ("/secure/mudlibber"->query_boo(name))
-	    return "global/lord";
-	if ("/secure/thanes"->query_of(name))
-	    return "global/thane";
-	if ("/secure/patrons"->query_patronage(name))
-	    return "global/patron";
-	if(previous_object()->query_creator()) /* Will actually need this now. */
-	    return "global/creator";
+	if ("/secure/gods"->query_boo(name)) return "global/god"; // Dios
+	if ("/secure/lords"->query_boo(name)) return "global/lord"; // Semidios
+	if ("/secure/mudlibber"->query_boo(name)) return "global/lord"; // Alquimista
+	if ("/secure/coordinadores"->query_boo(name)) return "global/lord"; // Lord
+	if ("/secure/thanes"->query_of(name)) return "global/thane"; // Thane
+	if ("/secure/patrons"->query_patronage(name)) return "global/patron"; // Patron
+	if ("/secure/regentes"->query_boo(name)) return "global/regente"; // Regente
+	if(previous_object()->query_creator()) return "global/creator"; // Creador
     }
     return def;
 } /* query_player_ob() */
@@ -197,7 +197,7 @@ int query_access(string *address, string ident) {
     return DEFAULT;
 } /* query_access() */
 
-static mixed add_access(mixed bing, string *address, string ident,
+private mixed add_access(mixed bing, string *address, string ident,
   int level) {
     if (!mappingp(bing))
 	bing = ([ ]);
@@ -219,13 +219,15 @@ static mixed add_access(mixed bing, string *address, string ident,
 } /* add_access() */
 
 int change_access(string *address, string ident, int level, string reason) {
+/*
     if (!"/secure/master"->high_programmer(geteuid(previous_object())) ||
       this_player() != this_player(1)) {
 	notify_fail("Wrong euid.\n");
 	return 0;
     }
+*/
     if (!pointerp(address) || sizeof(address) != 4 || !reason) {
-	notify_fail("Invalid paramters.\n");
+	notify_fail("Parametros invalidos.\n");
 	return 0;
     }
     access = add_access(access, address, ident, level);
@@ -234,16 +236,16 @@ int change_access(string *address, string ident, int level, string reason) {
     save_object(file_name(this_object()),1);
     switch (level) {
     case NO_NEW :
-	reason = "no new for "+reason;
+	reason = "no new porque "+reason;
 	break;
     case NO_ACCESS :
-	reason = "no access for "+reason;
+	reason = "no access porque "+reason;
 	break;
     case ACCESS :
-	reason = "access for "+reason;
+	reason = "access porque "+reason;
 	break;
     case 0 :
-	reason = "deleted for "+reason;
+	reason = "deleted porque "+reason;
 	break;
     }
     write_file("/log/ACCESS",
@@ -252,58 +254,67 @@ int change_access(string *address, string ident, int level, string reason) {
     return 1;
 } /* check_access() */
 
-int suspend_person(string str, int tim) 
+int suspend_person(string str, int tim)
 {
+	// AKI PREVIOUS OBJECT ES LA ROOM DE ADMIN...
+/*
     if (!"/secure/master"->query_lord(geteuid(previous_object())))
 	return 0;
+*/
     if (file_size("/players/"+str[0..0]+"/"+str+".o") < 0)
 	return 0;
     suspended[str] = time()+tim;
     save_object(file_name(this_object()),1);
-    write_file("/log/SUSPEND", str+" suspended until "+ctime(time()+tim)+
-      " by "+this_player()->query_name()+".\n");
+    write_file("/log/SUSPEND", str+" suspendido hasta "+ctime(time()+tim)+
+      " por "+this_player()->query_name()+".\n");
     return 1;
 } /* suspend_person() */
 
-int unsuspend_person(string str) 
+int unsuspend_person(string str)
 {
+/*
     if (!"/secure/master"->query_lord(geteuid(previous_object())))
 	return 0;
+*/
     suspended = m_delete(suspended, str);
     save_object(file_name(this_object()),1);
     // Radix...
-    write_file("/log/SUSPEND", str+" unsuspended by "+
+    write_file("/log/SUSPEND", str+" sin suspension por "+
       this_player()->query_name()+".\n");
     // write_file("/log/SUSPEND", str+" unsuspended.\n");
     return 1;
 } /* unsuspend_person() */
 
-/* Banish code: 
- * Added by Baldrick for simplifying banishing.. 
+/* Banish code:
+ * Added by Baldrick for simplifying banishing..
  */
 
 int banish_playername(string str, string reason)
 {
+/*
     if (!"/secure/master"->query_lord(geteuid(previous_object())))
 	return 0;
+*/
     /*
     if (file_size("/players/"+str[0..0]+"/"+str+".o") < 0)
       return 0;
     */
     banished[str] = reason;
     save_object(file_name(this_object()),1);
-    write_file("/log/BANISHED", str+" banished because of " + reason + 
-      " by "+this_player()->query_name()+".\n");
+    write_file("/log/BANISHED", str+" baneado porque " + reason +
+      " por "+this_player()->query_name()+".\n");
     return 1;
 } /* banish player name */
 
 int unbanish_playername(string str)
 {
+/*
     if (!"/secure/master"->query_lord(geteuid(previous_object())))
 	return 0;
+*/
     banished = m_delete(banished, str);
     save_object(file_name(this_object()),1);
-    write_file("/log/BANISHED", str+" unbanished.\n");
+    write_file("/log/BANISHED", str+" desbaneado.\n");
     return 1;
 } /* unbanish playername */
 
@@ -334,5 +345,5 @@ string get_nomulti_string(string site, string userid) {
   if(acc["*"])
     userid = "*";
 
-  return userid + "@" + implode(ret, ".");    
+  return userid + "@" + implode(ret, ".");
 }

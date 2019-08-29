@@ -1,0 +1,7 @@
+#define WEASEL "/d/gremios/comandos/animals/weasel.c"
+#define HAWK "/d/gremios/comandos/animals/hawk.c"
+#define WOLF "/d/gremios/comandos/animals/wolf.c"
+#define BOAR "/d/gremios/comandos/animals/boar.c"
+#define TIGER "/d/gremios/comandos/animals/tiger.c"
+#define BEAR "/d/gremios/comandos/animals/bear.c"
+#define OBJECT "/d/gremios/comandos/animals/animal_object.c"

@@ -224,7 +224,6 @@ string review_thingy(mixed *bing) {
  */
 void print_entrys(object *obs, mixed *format) {
   int i, age, j;
-  object g;
   string form, str;
 string ret;
 
@@ -390,7 +389,7 @@ int do_terms(string str) {
     bing = T_DEFAULT;
   obs = get_people(str);
   if (!sizeof(obs)) {
-    notify_fail("Nobody seems to start with "+str+", sorry.\n");
+    notify_fail("No hay nadie con el nombre "+str+".\n");
     return 0;
   }
   print_entrys(obs, bing);
@@ -406,7 +405,7 @@ int do_dirs(string str) {
     bing = D_DEFAULT;
   obs = get_people(str);
   if (!sizeof(obs)) {
-    notify_fail("Nobody seems to start with "+str+", sorry.\n");
+    notify_fail("No hay nadie con el nombre "+str+".\n");
     return 0;
   }
   print_entrys(obs, bing);
@@ -422,12 +421,117 @@ int do_netstat(string str) {
     bing = N_DEFAULT;
   obs = get_people(str);
   if (!sizeof(obs)) {
-    notify_fail("Nobody seems to start with "+str+", sorry.\n");
+    notify_fail("No hay nadie con el nombre "+str+".\n");
     return 0;
   }
   print_entrys(obs, bing);
   return 1;
 } /* do_dirs() */
+
+string do_multi()
+{
+  int i,j;
+  object *obs;
+  string ip1,ip3, nombre1="",ip2="",lista;
+  string *param1;
+  string resultado="",iptmp;
+  string *ret=({ });
+  string *ips=({ });
+  mixed *lista_ip=({ });
+
+  obs = users();
+  if (!sizeof(obs))
+  {
+    notify_fail("No hay nadie ahora.\n");
+    return 0;
+  }
+  if(file_size("/cmds/creator/ip.cyber")>0)
+     lista=read_file("/cmds/creator/ip.cyber");
+
+  for(i=0;i<sizeof(obs);i++)
+     lista_ip=lista_ip+({ query_ip_number(obs[i]) });
+     
+  for(i=0;i<sizeof(obs);i++)
+     {
+      ip1=query_ip_number(obs[i]);
+      if(sizeof(lista))
+         {
+          param1=explode(lista," ");
+          if(member_array(ip1,param1)!=-1)
+             continue; 
+         }
+      nombre1="";
+      ip2=""; 
+      for(j=i+1;j<sizeof(obs);j++)
+         { 
+          ip3=query_ip_number(obs[j]); 
+          if(ip1==ip3)
+           {
+// By leviathan
+		   if(obs[j]->query_creator())
+			nombre1=nombre1+"%^BOLD%^GREEN%^";
+		else
+			nombre1=nombre1+"%^BOLD%^RED%^";
+//
+             nombre1=nombre1+obs[j]->query_cap_name()+" %^RESET%^";
+             ip2=ip3;
+           }
+         }
+     if(nombre1!="")
+       { nombre1+=obs[i]->query_cap_name();  }
+    
+     
+     if(ip2!=iptmp)    
+       { ret+=({ nombre1 });
+         ips+=({ ip2 }); 
+         iptmp=ip2;
+       }
+      
+      
+     } 
+  
+    
+   param1=({ });
+   if(sizeof(ret))
+    { for(i=0;i<sizeof(ret);i++)
+        {
+         param1=explode(ret[i]," ");
+         if(i>0&&resultado!="")
+           if(sizeof(param1)>=1)
+             { 
+               if(ips[i]==ips[i-1])
+                 continue;
+             } 
+         if(sizeof(param1)>1)
+           { for(j=0;j<sizeof(param1);j++)
+              { if(j==(sizeof(param1)-1)&&j!=0)
+                  resultado+=" y ";
+                else
+                  if(j!=0) resultado+=", ";                                         
+
+// By leviathan
+		 if(param1->query_creator())
+			resultado=resultado+"%^BOLD%^GREEN%^";
+		 else
+			resultado=resultado+"%^BOLD%^RED%^";
+//						 
+                resultado=resultado+param1[j]+"%^RESET%^";
+              }
+            resultado+=" %^BOLD%^RED%^usan la misma IP:%^MAGENTA%^ "+ips[i]+"%^RESET%^\n";
+           }
+
+        }
+    }
+    
+ if(resultado=="")
+    resultado="%^BOLD%^GREEN%^No hay jugadores en multiplaying.%^RESET%^\n";
+
+return resultado;
+
+}
+
+
+
 
 int do_qpeople(string str) {
   mixed *bing;
